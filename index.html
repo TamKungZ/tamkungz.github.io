@@ -3,23 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TamKungZ - Developer Profile</title>
-    <style>
+    <title>TamKungZ_ - Developer & Minecraft Modder | C#, Java, Python, C++</title>
+
+    <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/ficon.ico">
+
+    <meta name="title" content="TamKungZ_ - Developer & Minecraft Modder | C#, Java, Python, C++">
+    <meta name="description" content="Explore TamKungZ_'s developer profile: a versatile software developer skilled in C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder. Check out my projects!">
+    <meta name="keywords" content="TamKungZ_, developer, software developer, Minecraft modder, C#, JAVA, Python, C++, CSS, JS, HTML, PHP, programming, coding, projects, open source, gaming, modding">
+    <meta name="author" content="TamKungZ_">
+    <link rel="canonical" href="https://tamkungz.github.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tamkungz.github.io/">
+    <meta property="og:title" content="TamKungZ_ - Developer & Minecraft Modder | C#, Java, Python, C++">
+    <meta property="og:description" content="Explore TamKungZ_'s developer profile: a versatile software developer skilled in C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder. Check out my projects!">
+    <meta property="og:image" content="https://tamkungz.github.io/me.jpg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tamkungz.github.io/">
+    <meta property="twitter:title" content="TamKungZ_ - Developer & Minecraft Modder | C#, Java, Python, C++">
+    <meta property="twitter:description" content="Explore TamKungZ_'s developer profile: a versatile software developer skilled in C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder. Check out my projects!">
+    <meta property="twitter:image" content="https://tamkungz.github.io/me.jpg"> <meta property="twitter:creator" content="@TamKungZ_Dev"> <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --container-bg: #fff;
+            --shadow-color: rgba(0,0,0,0.1);
+            --header-color: #555;
+            --border-color: #eee;
+            --link-color: #007bff;
+            --link-bg: #f0f8ff;
+            --link-hover-bg: #007bff;
+            --link-hover-color: #fff;
+            --project-card-bg: #fafafa;
+            --project-card-border: #ddd;
+            --project-title-color: #0056b3;
+            --footer-color: #777;
+            --toggle-bg: #ccc;
+            --toggle-circle: #fff;
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1a2e;
+            --text-color: #e0e0e0;
+            --container-bg: #16213e;
+            --shadow-color: rgba(0,0,0,0.3);
+            --header-color: #bbb;
+            --border-color: #3f5a82;
+            --link-color: #90b8f8;
+            --link-bg: #2a3a5c;
+            --link-hover-bg: #90b8f8;
+            --link-hover-color: #1a1a2e;
+            --project-card-bg: #1e2a4a;
+            --project-card-border: #3f5a82;
+            --project-title-color: #a0d8ff;
+            --footer-color: #aaa;
+            --toggle-bg: #666;
+            --toggle-circle: #eee;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .container {
             max-width: 900px;
             margin: auto;
-            background: #fff;
+            background: var(--container-bg);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px var(--shadow-color);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
         .header {
             text-align: center;
@@ -30,7 +87,7 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #ddd;
+            border: 4px solid var(--project-card-border); /* Adjust border to fit theme */
         }
         h1 {
             margin-bottom: 0;
@@ -39,11 +96,11 @@
         h2 {
             margin-top: 0;
             font-size: 1.5em;
-            color: #555;
+            color: var(--header-color);
             font-weight: 400;
         }
         h3 {
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
             margin-top: 40px;
             font-size: 1.8em;
@@ -60,16 +117,16 @@
         }
         .links a {
             text-decoration: none;
-            color: #007bff;
-            background-color: #f0f8ff;
+            color: var(--link-color);
+            background-color: var(--link-bg);
             padding: 8px 15px;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
             display: inline-block;
         }
         .links a:hover {
-            background-color: #007bff;
-            color: #fff;
+            background-color: var(--link-hover-bg);
+            color: var(--link-hover-color);
         }
         .project-grid {
             display: grid;
@@ -77,15 +134,16 @@
             gap: 20px;
         }
         .project-card {
-            background: #fafafa;
-            border: 1px solid #ddd;
+            background: var(--project-card-bg);
+            border: 1px solid var(--project-card-border);
             padding: 20px;
             border-radius: 8px;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
         .project-card h4 {
             margin-top: 0;
             font-size: 1.2em;
-            color: #0056b3;
+            color: var(--project-title-color);
         }
         .project-card p {
             margin-bottom: 15px;
@@ -93,7 +151,7 @@
         .project-links a {
             margin-right: 10px;
             text-decoration: none;
-            color: #333;
+            color: var(--text-color); /* Link color inside cards */
             font-weight: bold;
         }
         .project-links a:hover {
@@ -102,24 +160,81 @@
         footer {
             text-align: center;
             margin-top: 40px;
-            color: #777;
+            color: var(--footer-color);
+        }
+
+        /* Dark Mode Toggle Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Align to the right */
+            margin-bottom: 20px;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+        .theme-switch input {
+            display: none;
+        }
+        .slider {
+            background-color: var(--toggle-bg);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            background-color: var(--toggle-circle);
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 26px;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #66bb6a; /* Green for checked/dark mode */
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .theme-switch-wrapper em {
+            margin-left: 10px;
+            font-style: normal;
+            color: var(--text-color);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+            <em>Toggle Dark Mode</em>
+        </div>
 
         <header class="header">
             <img src="https://tamkungz.github.io/me.jpg" alt="Profile Image" class="profile-img">
-            <h1>TamKungZ</h1>
+            <h1>TamKungZ_</h1>
             <h2>Developer 🎮💻</h2>
         </header>
 
         <section class="section">
             <h3>About Me</h3>
             <p>
-                A versatile software developer skilled in C#, JAVA, Python, C++, CSS, JS, HTML, and PHP.
+                Hello! I'm TamKungZ_, a **versatile software developer** with a passion for creating. I specialize in a range of languages including **C#, JAVA, Python, C++, CSS, JS, HTML, and PHP**. Beyond general development, I also enjoy crafting **Minecraft mods**, bringing new ideas to life within the game. Explore my work and connect with me through the links below!
             </p>
         </section>
 
@@ -237,10 +352,48 @@
         </section>
 
         <footer>
-            <p>&copy; 2024 TamKungZ. All rights reserved.</p>
+            <p>&copy; 2024 TamKungZ_. All rights reserved.</p>
         </footer>
 
     </div>
 
+    <script>
+        const checkbox = document.getElementById('checkbox');
+        const body = document.body;
+
+        // Function to set theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                body.classList.add('dark-mode');
+                checkbox.checked = true;
+            } else {
+                body.classList.remove('dark-mode');
+                checkbox.checked = false;
+            }
+        }
+
+        // Check for saved theme preference on load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // If no saved theme, check user's system preference
+            setTheme('dark');
+        } else {
+            // Default to light mode
+            setTheme('light');
+        }
+
+        // Listen for changes on the checkbox
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                setTheme('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                setTheme('light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>
