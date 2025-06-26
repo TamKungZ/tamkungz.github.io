@@ -3,179 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TamKungZ_ - Developer & Minecraft Modder | C#, Java, Python, C++</title>
+    <title>TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++</title>
 
     <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/ficon.ico">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <meta name="title" content="TamKungZ_ - Developer & Minecraft Modder | C#, Java, Python, C++">
-    <meta name="description" content="Explore TamKungZ_'s developer profile: a versatile software developer skilled in C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder. Check out my projects!">
-    <meta name="keywords" content="TamKungZ_, developer, software developer, Minecraft modder, C#, JAVA, Python, C++, CSS, JS, HTML, PHP, programming, coding, projects, open source, gaming, modding">
+    <meta name="title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++">
+    <meta name="description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
+    <meta name="keywords" content="TamKungZ_, developer, software developer, Minecraft modder, C#, JAVA, Python, C++, CSS, JS, HTML, PHP, programming, coding, projects, open source, gaming, modding, tech, innovation, creative">
     <meta name="author" content="TamKungZ_">
     <link rel="canonical" href="https://tamkungz.github.io/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tamkungz.github.io/">
-    <meta property="og:title" content="TamKungZ_ - Developer & Minecraft Modder | C#, Java, Python, C++">
-    <meta property="og:description" content="Explore TamKungZ_'s developer profile: a versatile software developer skilled in C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder. Check out my projects!">
-    <meta property="og:image" content="https://tamkungz.github.io/me.jpg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++">
+    <meta property="og:description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
+    <meta property="og:image" content="https://tamkungz.github.io/me.jpg">
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://tamkungz.github.io/">
-    <meta property="twitter:title" content="TamKungZ_ - Developer & Minecraft Modder | C#, Java, Python, C++">
-    <meta property="twitter:description" content="Explore TamKungZ_'s developer profile: a versatile software developer skilled in C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder. Check out my projects!">
-    <meta property="twitter:image" content="https://tamkungz.github.io/me.jpg"> <meta property="twitter:creator" content="@TamKungZ_Dev"> <style>
+    <meta property="twitter:title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++">
+    <meta property="twitter:description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
+    <meta property="twitter:image" content="https://tamkungz.github.io/me.jpg">
+    <meta property="twitter:creator" content="@TamKungZ_Dev">
+    <style>
+        /* Modern & Clean Design with your preferred color */
         :root {
-            --bg-color: #f4f4f4;
+            --primary-color: #55c57a; /* A vibrant green derived from #dcffdb for accents */
+            --primary-light: #dcffdb; /* Your light green as background for some elements */
+            --secondary-color: #2c3e50; /* Dark blue for deeper contrast */
             --text-color: #333;
-            --container-bg: #fff;
-            --shadow-color: rgba(0,0,0,0.1);
-            --header-color: #555;
-            --border-color: #eee;
-            --link-color: #007bff;
-            --link-bg: #f0f8ff;
-            --link-hover-bg: #007bff;
+            --bg-color: #f8f9fa; /* Lighter background */
+            --container-bg: #ffffff;
+            --shadow-color: rgba(0,0,0,0.08);
+            --header-color: var(--secondary-color);
+            --border-color: #e0e0e0;
+            --link-color: var(--primary-color);
+            --link-bg: var(--primary-light);
+            --link-hover-bg: var(--primary-color);
             --link-hover-color: #fff;
-            --project-card-bg: #fafafa;
-            --project-card-border: #ddd;
-            --project-title-color: #0056b3;
+            --project-card-bg: #ffffff;
+            --project-card-border: #f0f0f0;
+            --project-title-color: var(--secondary-color);
             --footer-color: #777;
             --toggle-bg: #ccc;
             --toggle-circle: #fff;
-            --icon-spacing: 8px; /* Added for space between icon and text */
+            --icon-spacing: 8px;
+            --highlight-color: var(--primary-color);
+            --abandoned-project-color: #ff6347; /* Tomato red for abandoned projects */
+            --abandoned-project-bg: #fff0f0;
         }
 
         body.dark-mode {
-            --bg-color: #1a1a2e;
-            --text-color: #e0e0e0;
-            --container-bg: #16213e;
-            --shadow-color: rgba(0,0,0,0.3);
-            --header-color: #bbb;
-            --border-color: #3f5a82;
-            --link-color: #90b8f8;
-            --link-bg: #2a3a5c;
-            --link-hover-bg: #90b8f8;
-            --link-hover-color: #1a1a2e;
-            --project-card-bg: #1e2a4a;
-            --project-card-border: #3f5a82;
-            --project-title-color: #a0d8ff;
+            --primary-color: #8be9fd; /* Lighter blue for dark mode accents */
+            --primary-light: #283a4d; /* Darker background for accents in dark mode */
+            --secondary-color: #f8f8f2; /* Light text for dark mode */
+            --text-color: #f8f8f2;
+            --bg-color: #282a36; /* Dracula Theme background */
+            --container-bg: #21222c; /* Slightly lighter for containers */
+            --shadow-color: rgba(0,0,0,0.4);
+            --header-color: var(--primary-color);
+            --border-color: #44475a;
+            --link-color: var(--primary-color);
+            --link-bg: #44475a;
+            --link-hover-bg: var(--primary-color);
+            --link-hover-color: var(--secondary-color);
+            --project-card-bg: #21222c;
+            --project-card-border: #44475a;
+            --project-title-color: var(--primary-color);
             --footer-color: #aaa;
-            --toggle-bg: #666;
-            --toggle-circle: #eee;
+            --toggle-bg: #6272a4;
+            --toggle-circle: #f8f8f2;
+            --highlight-color: #bd93f9; /* Purple for highlights in dark mode */
+            --abandoned-project-color: #ff79c6; /* Pink for abandoned projects in dark mode */
+            --abandoned-project-bg: #4c2d3a;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7; /* Slightly more spacious line height */
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 20px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 30px; /* Increased padding */
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px; /* Slightly wider container */
             margin: auto;
             background: var(--container-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px var(--shadow-color);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+            padding: 40px; /* Increased padding */
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 8px 30px var(--shadow-color); /* Stronger, softer shadow */
+            transition: background 0.4s ease, box-shadow 0.4s ease;
         }
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 160px; /* Slightly larger image */
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--project-card-border); /* Adjust border to fit theme */
+            border: 5px solid var(--primary-color); /* Thicker, colored border */
+            box-shadow: 0 0 0 8px rgba(var(--primary-color-rgb, 85, 197, 122), 0.2); /* Ring effect */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+        .profile-img:hover {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 0 0 10px rgba(var(--primary-color-rgb, 85, 197, 122), 0.3);
         }
         h1 {
-            margin-bottom: 0;
-            font-size: 2.5em;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 3em; /* Larger heading */
+            font-weight: 700; /* Bolder font */
+            color: var(--secondary-color);
+            position: relative;
+        }
+        h1::after {
+            content: ' ✨';
+            animation: sparkle 1.8s infinite alternate;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1); }
         }
         h2 {
-            margin-top: 0;
-            font-size: 1.5em;
+            margin-top: 5px;
+            font-size: 1.6em;
             color: var(--header-color);
             font-weight: 400;
         }
         h3 {
             border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-top: 40px;
-            font-size: 1.8em;
+            padding-bottom: 12px;
+            margin-top: 50px; /* More space above sections */
+            margin-bottom: 25px; /* More space below headings */
+            font-size: 2em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
         }
-        .section {
-            margin-bottom: 30px;
+        h3 i {
+            margin-right: 12px;
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+        .section p {
+            margin-bottom: 1em; /* Consistent paragraph spacing */
         }
         .links ul {
             list-style: none;
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px; /* Slightly smaller gap */
         }
         .links a {
             text-decoration: none;
             color: var(--link-color);
             background-color: var(--link-bg);
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            display: inline-block;
+            padding: 10px 20px; /* More padding */
+            border-radius: 8px; /* More rounded links */
+            transition: background-color 0.3s, color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow on links */
         }
         .links a:hover {
             background-color: var(--link-hover-bg);
             color: var(--link-hover-color);
+            transform: translateY(-4px); /* More pronounced lift */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
-        /* Style for icons */
         .links a i {
-            margin-right: var(--icon-spacing); /* Space between icon and text */
+            margin-right: var(--icon-spacing);
         }
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Adjusted minmax for more flexibility */
+            gap: 25px; /* Increased gap between cards */
         }
         .project-card {
             background: var(--project-card-bg);
             border: 1px solid var(--project-card-border);
+            border-radius: 10px;
             padding: 20px;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            display: flex; /* Use flexbox for internal layout */
+            flex-direction: column; /* Stack image, title, description, links */
+        }
+        .project-card:hover {
+            transform: translateY(-8px); /* More noticeable lift */
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        .project-card-image {
+            width: 100%;
+            height: 180px; /* Fixed height for consistent image sizing */
+            object-fit: cover; /* Ensures image covers the area without distortion */
             border-radius: 8px;
-            transition: background 0.3s ease, border-color 0.3s ease;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color); /* Light border for images */
         }
         .project-card h4 {
             margin-top: 0;
-            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-size: 1.4em; /* Larger project titles */
             color: var(--project-title-color);
+            font-weight: 600;
         }
         .project-card p {
             margin-bottom: 15px;
+            flex-grow: 1; /* Allows description to take up available space */
+        }
+        .project-links {
+            margin-top: auto; /* Pushes links to the bottom of the card */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px; /* Small gap between project links */
         }
         .project-links a {
-            margin-right: 10px;
-            text-decoration: none;
-            color: var(--text-color); /* Link color inside cards */
-            font-weight: bold;
+            padding: 6px 10px; /* Smaller padding for internal links */
+            font-size: 0.9em;
+            background-color: var(--primary-light); /* Links within cards use lighter primary color */
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            display: inline-flex; /* Align icon and text */
+            align-items: center;
         }
         .project-links a:hover {
-            text-decoration: underline;
+            background-color: var(--primary-color);
+            color: var(--link-hover-color);
+            transform: translateY(-2px); /* Subtle lift */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .project-links a i {
+            margin-right: 5px;
         }
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px; /* More space from projects to footer */
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
             color: var(--footer-color);
+            font-size: 0.95em;
         }
 
         /* Dark Mode Toggle Switch */
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
-            justify-content: flex-end; /* Align to the right */
-            margin-bottom: 20px;
+            justify-content: flex-end;
+            margin-bottom: 25px;
+            gap: 10px;
         }
         .theme-switch {
             display: inline-block;
@@ -209,15 +297,85 @@
             border-radius: 50%;
         }
         input:checked + .slider {
-            background-color: #66bb6a; /* Green for checked/dark mode */
+            background-color: var(--primary-color); /* Green for checked/dark mode */
         }
         input:checked + .slider:before {
             transform: translateX(26px);
         }
         .theme-switch-wrapper em {
-            margin-left: 10px;
             font-style: normal;
             color: var(--text-color);
+            font-weight: 400;
+        }
+        .highlight {
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+
+        /* Abandoned project specific styles */
+        .project-card.abandoned {
+            border-left: 5px solid var(--abandoned-project-color); /* Left border to signify abandoned */
+            background-color: var(--abandoned-project-bg);
+        }
+        .project-card.abandoned h4 {
+            color: var(--abandoned-project-color);
+        }
+        .project-card.abandoned .status-tag {
+            background-color: var(--abandoned-project-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.6em;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .links ul {
+                justify-content: center;
+            }
+            .theme-switch-wrapper {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .links a {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            .project-card-image {
+                height: 150px;
+            }
+        }
+
+        /* Root color variables for RGB components for easier rgba() usage */
+        body {
+            --primary-color-rgb: 85, 197, 122; /* 55c57a */
+        }
+        body.dark-mode {
+            --primary-color-rgb: 139, 233, 253; /* 8be9fd */
         }
     </style>
 </head>
@@ -233,135 +391,161 @@
         </div>
 
         <header class="header">
-            <img src="https://tamkungz.github.io/me.jpg" alt="Profile Image" class="profile-img">
+            <img src="https://tamkungz.github.io/me.jpg" alt="TamKungZ_ Profile Image - A friendly developer ready to code!" class="profile-img">
             <h1>TamKungZ_</h1>
-            <h2>Developer 🎮💻</h2>
+            <h2>Developer 🎮💻 | Coding & Minecraft Modding Wizard!</h2>
         </header>
 
         <section class="section">
-            <h3>About Me</h3>
+            <h3><i class="fas fa-user-circle"></i> About Me</h3>
             <p>
-                Hello! I'm TamKungZ_, a **versatile software developer** with a passion for creating. I specialize in a range of languages including **C#, JAVA, Python, C++, CSS, JS, HTML, and PHP**. Beyond general development, I also enjoy crafting **Minecraft mods**, bringing new ideas to life within the game. Explore my work and connect with me through the links below!
+              Hi! I'm <strong>TamKungZ_</strong>. I'm a software developer specializing in <span class="highlight">C#, Java, Python, CSS, JS, HTML, and PHP.</span> I also create mods for Minecraft.
             </p>
         </section>
 
         <section class="section links">
-            <h3>Links & Socials</h3>
+            <h3><i class="fas fa-share-alt"></i> Links & Socials</h3>
             <ul>
-                <li><a href="https://tamkungz.github.io/" target="_blank"><i class="fas fa-link"></i> tamkungz.github.io</a></li>
-                <li><a href="https://tamkungz.in.th/" target="_blank"><i class="fas fa-globe"></i> tamkungz.in.th</a></li>
-                <li><a href="https://maven.tamkungz.in.th/" target="_blank"><i class="fas fa-cube"></i> maven.tamkungz.in.th</a></li>
-                <li><a href="https://github.com/TamKungZ" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                <li><a href="https://x.com/TamKungZ_Dev" target="_blank"><i class="fab fa-twitter"></i> Twitter/X</a></li>
-                <li><a href="mailto:kittiwut.pimpromma@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
-                <li><a href="https://linktr.ee/TamKungZ_" target="_blank"><i class="fas fa-link"></i> Linktree</a></li>
-                <li><a href="https://instagram.com/tamkungz_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                <li><a href="https://tiktok.com/@tamkungz_" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
-                <li><a href="https://www.twitch.tv/tamkungz_" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
-                <li><a href="https://www.facebook.com/TamKung.ZZ/" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                <li><a href="https://www.reddit.com/user/Odd_Type_5342/" target="_blank"><i class="fab fa-reddit"></i> Reddit</a></li>
-                <li><a href="https://discord.gg/UUhPA7HR" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
-                <li><a href="https://gitlab.com/TamKungZ" target="_blank"><i class="fab fa-gitlab"></i> GitLab</a></li>
-                <li><a href="https://leetcode.com/u/TamKungZ_/" target="_blank"><i class="fas fa-code"></i> LeetCode</a></li>
-                <li><a href="https://sketchfab.com/TamKungZ_" target="_blank"><i class="fas fa-cube"></i> Sketchfab</a></li>
-                <li><a href="https://www.pixiv.net/users/107946376" target="_blank"><i class="fas fa-paint-brush"></i> Pixiv</a></li>
+                <li><a href="https://tamkungz.github.io/" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> My GitHub Page</a></li>
+                <li><a href="https://tamkungz.in.th/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> My Personal Website</a></li>
+                <li><a href="https://maven.tamkungz.in.th/" target="_blank" rel="noopener noreferrer"><i class="fas fa-cube"></i> My Maven Repository</a></li>
+                <li><a href="https://github.com/TamKungZ" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub Profile</a></li>
+                <li><a href="https://x.com/TamKungZ_Dev" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter/X</a></li>
+                <li><a href="mailto:kittiwut.pimpromma@gmail.com"><i class="fas fa-envelope"></i> Email Me</a></li>
+                <li><a href="https://linktr.ee/TamKungZ_" target="_blank" rel="noopener noreferrer"><i class="fas fa-tree"></i> Linktree</a></li>
+                <li><a href="https://instagram.com/tamkungz_" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://tiktok.com/@tamkungz_" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                <li><a href="https://www.twitch.tv/tamkungz_" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitch"></i> Twitch</a></li>
+                <li><a href="https://www.facebook.com/TamKung.ZZ/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="https://www.reddit.com/user/Odd_Type_5342/" target="_blank" rel="noopener noreferrer"><i class="fab fa-reddit"></i> Reddit</a></li>
+                <li><a href="https://discord.gg/UUhPA7HR" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i> Discord Community</a></li>
+                <li><a href="https://gitlab.com/TamKungZ" target="_blank" rel="noopener noreferrer"><i class="fab fa-gitlab"></i> GitLab</a></li>
+                <li><a href="https://leetcode.com/u/TamKungZ_/" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> LeetCode Solver</a></li>
+                <li><a href="https://sketchfab.com/TamKungZ_" target="_blank" rel="noopener noreferrer"><i class="fas fa-cube"></i> Sketchfab Models</a></li>
+                <li><a href="https://www.pixiv.net/users/107946376" target="_blank" rel="noopener noreferrer"><i class="fas fa-paint-brush"></i> Pixiv Art</a></li>
             </ul>
-            <h4>Modding Platforms</h4>
+            <h4><i class="fas fa-gamepad"></i> Modding Platforms</h4>
             <ul>
-                <li><a href="https://www.curseforge.com/members/tamkungz_/projects" target="_blank"><i class="fas fa-gamepad"></i> CurseForge</a></li>
-                <li><a href="https://modrinth.com/user/TamKungZ_" target="_blank"><i class="fas fa-puzzle-piece"></i> Modrinth</a></li>
-                <li><a href="https://next.nexusmods.com/profile/TamKungZ/mods" target="_blank"><i class="fas fa-gamepad"></i> Nexus Mods</a></li>
-                <li><a href="https://www.planetminecraft.com/member/tamkungz_/" target="_blank"><i class="fas fa-tree"></i> Planet Minecraft</a></li>
-                <li><a href="https://mcreator.net/user/686425/token" target="_blank"><i class="fas fa-hammer"></i> MCreator</a></li>
+                <li><a href="https://www.curseforge.com/members/tamkungz_/projects" target="_blank" rel="noopener noreferrer"><i class="fas fa-box-open"></i> CurseForge Projects</a></li>
+                <li><a href="https://modrinth.com/user/TamKungZ_" target="_blank" rel="noopener noreferrer"><i class="fas fa-puzzle-piece"></i> Modrinth Profile</a></li>
+                <li><a href="https://next.nexusmods.com/profile/TamKungZ/mods" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Nexus Mods Page</a></li>
+                <li><a href="https://www.planetminecraft.com/member/tamkungz_/" target="_blank" rel="noopener noreferrer"><i class="fas fa-tree"></i> Planet Minecraft Creations</a></li>
+                <li><a href="https://mcreator.net/user/686425/token" target="_blank" rel="noopener noreferrer"><i class="fas fa-hammer"></i> MCreator Profile</a></li>
             </ul>
-            <h4>Support Me</h4>
+            <h4><i class="fas fa-heart"></i> Support My Work</h4>
             <ul>
-                <li><a href="https://www.patreon.com/c/TamKungZ" target="_blank"><i class="fab fa-patreon"></i> Patreon</a></li>
-                <li><a href="https://www.buymeacoffee.com/TamKungZ_" target="_blank"><i class="fas fa-mug-hot"></i> Buy Me a Coffee</a></li>
-                <li><a href="https://ko-fi.com/tamkungz" target="_blank"><i class="fas fa-coffee"></i> Ko-fi</a></li>
+                <li><a href="https://www.patreon.com/c/TamKungZ" target="_blank" rel="noopener noreferrer"><i class="fab fa-patreon"></i> Patreon</a></li>
+                <li><a href="https://www.buymeacoffee.com/TamKungZ_" target="_blank" rel="noopener noreferrer"><i class="fas fa-mug-hot"></i> Buy Me a Coffee</a></li>
+                <li><a href="https://ko-fi.com/tamkungz" target="_blank" rel="noopener noreferrer"><i class="fas fa-coffee"></i> Ko-fi</a></li>
             </ul>
         </section>
 
         <section class="section">
-            <h3>Projects (Minecraft Mods)</h3>
+            <h3><i class="fas fa-project-diagram"></i> Featured Projects (Minecraft Mods)</h3>
             <div class="project-grid">
 
                 <div class="project-card">
-                    <h4>Let Your Friend Eating</h4>
-                    <p>A mod that allows other players to feed you.</p>
+                    <img src="https://media.forgecdn.net/attachments/1172/484/lyfe-v2-png.png" alt="Let Your Friend Eating Mod Preview" class="project-card-image"> <h4>Let Your Friend Eating <span class="highlight">(Minecraft Utility Mod)</span></h4>
+                    <p>A fun and helpful mod that adds the ability for other players to feed you directly, making cooperative play even more engaging!</p>
                     <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/letyourfriendeating" target="_blank">CurseForge</a>
-                        <a href="https://modrinth.com/mod/let-your-friend-eating!" target="_blank">Modrinth</a>
-                        <a href="https://github.com/TamKungZ/letyourfriendeating" target="_blank">GitHub</a>
+                        <a href="https://www.curseforge.com/minecraft/mc-mods/letyourfriendeating" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
+                        <a href="https://modrinth.com/mod/let-your-friend-eating!" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
+                        <a href="https://github.com/TamKungZ/letyourfriendeating" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h4>Stardew Valley Food</h4>
-                    <p>Adds food from the game Stardew Valley into Minecraft.</p>
+                    <img src="https://cdn.modrinth.com/data/8N1pJGur/images/2d0b92152ad539019d34ca257014002636dd5a66.png" alt="Stardew Valley Food Mod Preview" class="project-card-image"> <h4>Stardew Valley Food <span class="highlight">(Minecraft Content Mod)</span></h4>
+                    <p>Craving some pixelated farm-fresh goodness? This mod introduces a delightful array of delicious food items directly from the beloved game Stardew Valley into your Minecraft world!</p>
                     <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/stardew-valley-food" target="_blank">CurseForge</a>
-                        <a href="https://modrinth.com/mod/stardew-valley-food" target="_blank">Modrinth</a>
-                        <a href="https://github.com/TamKungZ/StardewValleyFood-MinecraftMod" target="_blank">GitHub</a>
+                        <a href="https://www.curseforge.com/minecraft/mc-mods/stardew-valley-food" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
+                        <a href="https://modrinth.com/mod/stardew-valley-food" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
+                        <a href="https://github.com/TamKungZ/StardewValleyFood-MinecraftMod" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h4>Japan Props</h4>
-                    <p>Adds Japanese-style decorative props.</p>
+                    <img src="https://cdn.modrinth.com/data/dbNTzFWE/images/a409c420ca8412ffcc09b4f54b6bb3486b34bef9.png" alt="Japan Props Mod Preview" class="project-card-image"> <h4>Japan Props <span class="highlight">(Minecraft Decoration Mod)</span></h4>
+                    <p>Transform your builds into beautiful Japanese landscapes! This mod adds a variety of charming and authentic Japanese-style decorative props for all your architectural desires.</p>
                     <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/japan-props" target="_blank">CurseForge</a>
-                        <a href="https://modrinth.com/mod/japan-props" target="_blank">Modrinth</a>
+                        <a href="https://www.curseforge.com/minecraft/mc-mods/japan-props" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
+                        <a href="https://modrinth.com/mod/japan-props" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h4>DropRateAPI</h4>
-                    <p>An API for customizing item drop rates.</p>
+                    <img src="https://tamkungz.github.io/droprateapi/image.png" alt="DropRateAPI Mod Preview" class="project-card-image"> <h4>DropRateAPI <span class="highlight">(Minecraft API Mod)</span></h4>
+                    <p>A powerful and flexible API designed for developers to easily customize and fine-tune item drop rates within Minecraft, offering endless possibilities for game balance and unique experiences.</p>
                     <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/droprateapi" target="_blank">CurseForge</a>
-                        <a href="https://tamkungz.github.io/droprateapi/" target="_blank">Website</a>
-                        <a href="https://github.com/TamKungZ/droprateapi" target="_blank">GitHub</a>
+                        <a href="https://www.curseforge.com/minecraft/mc-mods/droprateapi" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
+                        <a href="https://tamkungz.github.io/droprateapi/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Website</a>
+                        <a href="https://github.com/TamKungZ/droprateapi" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h4>Smooth Wood</h4>
-                    <p>Adds wood blocks with a smooth texture.</p>
+                    <img src="https://media.forgecdn.net/attachments/410/193/2021-11-25_00.png" alt="Smooth Wood Mod Preview" class="project-card-image"> <h4>Smooth Wood <span class="highlight">(Minecraft Block Mod)</span></h4>
+                    <p>Say goodbye to jagged edges! This mod introduces a collection of sleek and visually appealing wood blocks with smooth textures, perfect for modern builds and seamless designs.</p>
                     <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/smooth-wood" target="_blank">CurseForge</a>
+                        <a href="https://www.curseforge.com/minecraft/mc-mods/smooth-wood" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h4>iRecycle</h4>
-                    <p>A mod about recycling items.</p>
+                    <img src="https://media.forgecdn.net/attachments/873/725/irecycle.png" alt="iRecycle Mod Preview" class="project-card-image"> <h4>iRecycle <span class="highlight">(Minecraft Utility Mod)</span></h4>
+                    <p>Go green in Minecraft! iRecycle is a handy mod that allows you to recycle various items, giving you back resources and promoting sustainability within your blocky world.</p>
                     <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/irecycle" target="_blank">CurseForge</a>
+                        <a href="https://www.curseforge.com/minecraft/mc-mods/irecycle" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h4>Impossible Item Crafting</h4>
-                    <p>Adds impossible item crafting recipes.</p>
+                    <img src="https://media.forgecdn.net/attachments/927/931/eac5a6c2f908759221ce7f3a13b622992ed5ae5f.png" alt="Impossible Item Crafting Mod Preview" class="project-card-image"> <h4>Impossible Item Crafting <span class="highlight">(Minecraft Challenge Mod)</span></h4>
+                    <p>Are you up for a challenge? This mod introduces mind-bending and seemingly "impossible" item crafting recipes, pushing your creative limits and offering a unique twist to your survival experience!</p>
                     <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/impossible-item-crafting" target="_blank">CurseForge</a>
+                        <a href="https://www.curseforge.com/minecraft/mc-mods/impossible-item-crafting" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h4>InfoPlus</h4>
-                    <p>A mod for displaying additional information.</p>
+                    <img src="https://cdn.modrinth.com/data/oRgKGxhT/images/01a864906946b8df0bfb97f06858f34c513c7e07.png" alt="InfoPlus Mod Preview" class="project-card-image"> <h4>InfoPlus <span class="highlight">(Minecraft Information Mod)</span></h4>
+                    <p>Never be in the dark again! InfoPlus is a useful client-side mod that provides additional, real-time information about your surroundings, blocks, and entities, enhancing your gameplay knowledge.</p>
                     <div class="project-links">
-                        <a href="https://modrinth.com/mod/infoplus" target="_blank">Modrinth</a>
+                        <a href="https://modrinth.com/mod/infoplus" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
                     </div>
                 </div>
 
             </div>
         </section>
 
+        <section class="section">
+            <h3><i class="fas fa-archive"></i> Abandoned/On Hold Projects</h3>
+            <p>
+                These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating, feel free to reach out!
+            </p>
+            <div class="project-grid">
+                <div class="project-card abandoned">
+                    <img src="https://private-user-images.githubusercontent.com/170596410/373150250-be244527-4522-400d-8a9e-b0c66693a6de.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTA5NDA3NTQsIm5iZiI6MTc1MDk0MDQ1NCwicGF0aCI6Ii8xNzA1OTY0MTAvMzczMTUwMjUwLWJlMjQ0NTI3LTQ1MjItNDAwZC04YTllLWIwYzY2NjkzYTZkZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYyNlQxMjIwNTRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mMTNkYjI5MzgxOWJiNDU3ZWQyZTAwZjA3YmY4MGY4MjI0YWE3NWYwNGU5YmU3NWUyYjg2M2VhODA2YTRmMTY5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.KS8XMlyjDCf6PF5-2h25RcK1nQj5Lifisbs7PLnRdcQ" alt="Auto Piano Player Python Preview" class="project-card-image"> <h4>Auto Piano Player (Python) <span class="status-tag">On Hold</span></h4>
+                    <p>This intriguing project aims to create a Python program capable of automatically playing piano. It's perfect for those looking to explore software control and musical creation.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/TamKungZ/Auto-Piano-Player-Python" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card abandoned">
+                    <img src="https://private-user-images.githubusercontent.com/170596410/340617292-4dfa0146-e758-4d86-bb30-43f84ca33443.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTA5NDA3NTYsIm5iZiI6MTc1MDk0MDQ1NiwicGF0aCI6Ii8xNzA1OTY0MTAvMzQwNjE3MjkyLTRkZmEwMTQ2LWU3NTgtNGQ4Ni1iYjMwLTQzZjg0Y2EzMzQ0My5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYyNlQxMjIwNTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00YzdmNGIyMWZiNDMxOTM4ZDI0NjBkNDMxNDg5NDNhNTYyZjkzYmJlNzJiYTZhNTA3MmMxMTgwNTdlMjdkNGNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.17m7RMwLi8DV6lERgVm6VM83Fy2y0zo7QbC_h5yqxqE" alt="NPCMaker-CS Preview" class="project-card-image"> <h4>NPCMaker-CS <span class="highlight">(Stardew SMAPI NPC Maker Content Patcher)</span> <span class="status-tag">On Hold</span></h4>
+                    <p>A tool for Stardew Valley designed to significantly simplify the process of creating new NPCs (Non-Player Characters) for SMAPI's Content Patcher mods.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/TamKungZ/NPCMaker-CS" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer>
-            <p>&copy; 2024 TamKungZ_. All rights reserved.</p>
+            <p>Crafted with by TamKungZ_ &copy; 2024. All rights reserved.</p>
+            <p>Let's keep building amazing things together!</p>
+            <i style="font-family: 'Kanit', sans-serif;">ผมเป็นคนไทยนะ :b</i>
         </footer>
 
     </div>
@@ -403,6 +587,24 @@
                 localStorage.setItem('theme', 'light');
             }
         });
+
+        // Set RGB values for primary color dynamically for rgba() usage
+        function updatePrimaryColorRGB() {
+            const style = getComputedStyle(document.body);
+            const primaryColor = style.getPropertyValue('--primary-color');
+            const hexToRgb = (hex) => {
+                const bigint = parseInt(hex.slice(1), 16);
+                const r = (bigint >> 16) & 255;
+                const g = (bigint >> 8) & 255;
+                const b = bigint & 255;
+                return `${r}, ${g}, ${b}`;
+            };
+            document.body.style.setProperty('--primary-color-rgb', hexToRgb(primaryColor));
+        }
+
+        // Call on load and whenever theme changes
+        updatePrimaryColorRGB();
+        checkbox.addEventListener('change', updatePrimaryColorRGB);
     </script>
 </body>
 </html>
