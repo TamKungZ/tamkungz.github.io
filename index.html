@@ -1,1111 +1,1409 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TamKungZ_ - Developer</title>
+		<link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/ficon.ico">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<meta name="title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++">
+		<meta name="description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
+		<meta name="keywords" content="TamKungZ_, developer, software developer, Minecraft modder, C#, JAVA, Python, C++, CSS, JS, HTML, PHP, programming, coding, projects, open source, gaming, modding, tech, innovation, creative">
+		<meta name="author" content="TamKungZ_">
+		<link rel="canonical" href="https://tamkungz.github.io/">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://tamkungz.github.io/">
+		<meta property="og:title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire!">
+		<meta property="og:description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
+		<meta property="og:image" content="https://tamkungz.github.io/me.jpg">
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://tamkungz.github.io/">
+		<meta property="twitter:title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire!">
+		<meta property="twitter:description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
+		<meta property="twitter:image" content="https://tamkungz.github.io/me.jpg">
+		<meta property="twitter:creator" content="@TamKungZ_Dev">
+		<style>
+			/* Modern & Clean Design with your preferred color */
+			:root {
+				--primary-color: #55c57a;
+				/* A vibrant green derived from #dcffdb for accents */
+				--primary-light: #dcffdb;
+				/* Your light green as background for some elements */
+				--secondary-color: #2c3e50;
+				/* Dark blue for deeper contrast */
+				--text-color: #333;
+				--bg-color: #f8f9fa;
+				/* Lighter background */
+				--container-bg: #ffffff;
+				--shadow-color: rgba(0, 0, 0, 0.08);
+				--header-color: var(--secondary-color);
+				--border-color: #e0e0e0;
+				--link-color: var(--primary-color);
+				--link-bg: var(--primary-light);
+				--link-hover-bg: var(--primary-color);
+				--link-hover-color: #fff;
+				--project-card-bg: #ffffff;
+				--project-card-border: #f0f0f0;
+				--project-title-color: var(--secondary-color);
+				--footer-color: #777;
+				--toggle-bg: #ccc;
+				--toggle-circle: #fff;
+				--icon-spacing: 8px;
+				--highlight-color: var(--primary-color);
+				--abandoned-project-color: #ff6347;
+				/* Tomato red for abandoned projects */
+				--abandoned-project-bg: #fff0f0;
+				--news-color-light: #fdfae7;
+				/* Light yellow for news box */
+				--news-color-dark: #3a3f4e;
+				/* Darker grey for news box in dark mode */
+				--news-text-color-light: #333;
+				--news-text-color-dark: #f8f8f2;
+				--news-badge-color: #ff4757;
+				/* Red for news badge */
+			}
 
-    <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/ficon.ico">
+			body.dark-mode {
+				--primary-color: #8be9fd;
+				/* Lighter blue for dark mode accents */
+				--primary-light: #283a4d;
+				/* Darker background for accents in dark mode */
+				--secondary-color: #f8f8f2;
+				/* Light text for dark mode */
+				--text-color: #f8f8f2;
+				--bg-color: #282a36;
+				/* Dracula Theme background */
+				--container-bg: #21222c;
+				/* Slightly lighter for containers */
+				--shadow-color: rgba(0, 0, 0, 0.4);
+				--header-color: var(--primary-color);
+				--border-color: #44475a;
+				--link-color: var(--primary-color);
+				--link-bg: #44475a;
+				--link-hover-bg: var(--primary-color);
+				--link-hover-color: var(--secondary-color);
+				--project-card-bg: #21222c;
+				--project-card-border: #44475a;
+				--project-title-color: var(--primary-color);
+				--footer-color: #aaa;
+				--toggle-bg: #6272a4;
+				--toggle-circle: #f8f8f2;
+				--highlight-color: #bd93f9;
+				/* Purple for highlights in dark mode */
+				--abandoned-project-color: #ff79c6;
+				/* Pink for abandoned projects in dark mode */
+				--abandoned-project-bg: #4c2d3a;
+			}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+			body {
+				font-family: "Kanit", sans-serif;
+				font-weight: 400;
+				line-height: 1.7;
+				/* Slightly more spacious line height */
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				margin: 0;
+				padding: 30px;
+				/* Increased padding */
+				transition: background-color 0.4s ease, color 0.4s ease;
+			}
 
-    <meta name="title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++">
-    <meta name="description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
-    <meta name="keywords" content="TamKungZ_, developer, software developer, Minecraft modder, C#, JAVA, Python, C++, CSS, JS, HTML, PHP, programming, coding, projects, open source, gaming, modding, tech, innovation, creative">
-    <meta name="author" content="TamKungZ_">
-    <link rel="canonical" href="https://tamkungz.github.io/">
+			.container {
+				max-width: 1000px;
+				/* Slightly wider container */
+				margin: auto;
+				background: var(--container-bg);
+				padding: 40px;
+				/* Increased padding */
+				border-radius: 15px;
+				/* More rounded corners */
+				box-shadow: 0 8px 30px var(--shadow-color);
+				/* Stronger, softer shadow */
+				transition: background 0.4s ease, box-shadow 0.4s ease;
+			}
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tamkungz.github.io/">
-    <meta property="og:title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++">
-    <meta property="og:description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
-    <meta property="og:image" content="https://tamkungz.github.io/me.jpg">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tamkungz.github.io/">
-    <meta property="twitter:title" content="TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++">
-    <meta property="twitter:description" content="Dive into TamKungZ_'s world! A versatile software developer mastering C#, JAVA, Python, C++, CSS, JS, HTML, PHP, and a passionate Minecraft modder crafting amazing experiences. Explore my innovative projects and let's build something awesome!">
-    <meta property="twitter:image" content="https://tamkungz.github.io/me.jpg">
-    <meta property="twitter:creator" content="@TamKungZ_Dev">
-    <style>
-        /* Modern & Clean Design with your preferred color */
-        :root {
-            --primary-color: #55c57a; /* A vibrant green derived from #dcffdb for accents */
-            --primary-light: #dcffdb; /* Your light green as background for some elements */
-            --secondary-color: #2c3e50; /* Dark blue for deeper contrast */
-            --text-color: #333;
-            --bg-color: #f8f9fa; /* Lighter background */
-            --container-bg: #ffffff;
-            --shadow-color: rgba(0,0,0,0.08);
-            --header-color: var(--secondary-color);
-            --border-color: #e0e0e0;
-            --link-color: var(--primary-color);
-            --link-bg: var(--primary-light);
-            --link-hover-bg: var(--primary-color);
-            --link-hover-color: #fff;
-            --project-card-bg: #ffffff;
-            --project-card-border: #f0f0f0;
-            --project-title-color: var(--secondary-color);
-            --footer-color: #777;
-            --toggle-bg: #ccc;
-            --toggle-circle: #fff;
-            --icon-spacing: 8px;
-            --highlight-color: var(--primary-color);
-            --abandoned-project-color: #ff6347; /* Tomato red for abandoned projects */
-            --abandoned-project-bg: #fff0f0;
-            --news-color-light: #fdfae7; /* Light yellow for news box */
-            --news-color-dark: #3a3f4e; /* Darker grey for news box in dark mode */
-            --news-text-color-light: #333;
-            --news-text-color-dark: #f8f8f2;
-            --news-badge-color: #ff4757; /* Red for news badge */
-        }
+			.header {
+				text-align: center;
+				margin-bottom: 40px;
+			}
 
-        body.dark-mode {
-            --primary-color: #8be9fd; /* Lighter blue for dark mode accents */
-            --primary-light: #283a4d; /* Darker background for accents in dark mode */
-            --secondary-color: #f8f8f2; /* Light text for dark mode */
-            --text-color: #f8f8f2;
-            --bg-color: #282a36; /* Dracula Theme background */
-            --container-bg: #21222c; /* Slightly lighter for containers */
-            --shadow-color: rgba(0,0,0,0.4);
-            --header-color: var(--primary-color);
-            --border-color: #44475a;
-            --link-color: var(--primary-color);
-            --link-bg: #44475a;
-            --link-hover-bg: var(--primary-color);
-            --link-hover-color: var(--secondary-color);
-            --project-card-bg: #21222c;
-            --project-card-border: #44475a;
-            --project-title-color: var(--primary-color);
-            --footer-color: #aaa;
-            --toggle-bg: #6272a4;
-            --toggle-circle: #f8f8f2;
-            --highlight-color: #bd93f9; /* Purple for highlights in dark mode */
-            --abandoned-project-color: #ff79c6; /* Pink for abandoned projects in dark mode */
-            --abandoned-project-bg: #4c2d3a;
-        }
+			.profile-img {
+				width: 160px;
+				/* Slightly larger image */
+				height: 160px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 5px solid var(--primary-color);
+				/* Thicker, colored border */
+				box-shadow: 0 0 0 8px rgba(var(--primary-color-rgb, 85, 197, 122), 0.2);
+				/* Ring effect */
+				transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+			}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7; /* Slightly more spacious line height */
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 30px; /* Increased padding */
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-        .container {
-            max-width: 1000px; /* Slightly wider container */
-            margin: auto;
-            background: var(--container-bg);
-            padding: 40px; /* Increased padding */
-            border-radius: 15px; /* More rounded corners */
-            box-shadow: 0 8px 30px var(--shadow-color); /* Stronger, softer shadow */
-            transition: background 0.4s ease, box-shadow 0.4s ease;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .profile-img {
-            width: 160px; /* Slightly larger image */
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--primary-color); /* Thicker, colored border */
-            box-shadow: 0 0 0 8px rgba(var(--primary-color-rgb, 85, 197, 122), 0.2); /* Ring effect */
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-        }
-        .profile-img:hover {
-            transform: scale(1.08) rotate(3deg);
-            box-shadow: 0 0 0 10px rgba(var(--primary-color-rgb, 85, 197, 122), 0.3);
-        }
-        h1 {
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-size: 3em; /* Larger heading */
-            font-weight: 700; /* Bolder font */
-            color: var(--secondary-color);
-            position: relative;
-        }
-        h1::after {
-            content: ' ✨';
-            animation: sparkle 1.8s infinite alternate;
-        }
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.5; transform: scale(0.9); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-        h2 {
-            margin-top: 5px;
-            font-size: 1.6em;
-            color: var(--header-color);
-            font-weight: 400;
-        }
-        h3 {
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 12px;
-            margin-top: 50px; /* More space above sections */
-            margin-bottom: 25px; /* More space below headings */
-            font-size: 2em;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            color: var(--secondary-color);
-        }
-        h3 i {
-            margin-right: 12px;
-            color: var(--primary-color);
-            font-size: 1.2em;
-        }
-        .section p {
-            margin-bottom: 1em; /* Consistent paragraph spacing */
-        }
-        .links ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px; /* Slightly smaller gap */
-        }
-        .links a {
-            text-decoration: none;
-            color: var(--link-color);
-            background-color: var(--link-bg);
-            padding: 10px 20px; /* More padding */
-            border-radius: 8px; /* More rounded links */
-            transition: background-color 0.3s, color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow on links */
-        }
-        .links a:hover {
-            background-color: var(--link-hover-bg);
-            color: var(--link-hover-color);
-            transform: translateY(-4px); /* More pronounced lift */
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
-        .links a i {
-            margin-right: var(--icon-spacing);
-        }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Adjusted minmax for more flexibility */
-            gap: 25px; /* Increased gap between cards */
-        }
-        .project-card {
-            background: var(--project-card-bg);
-            border: 1px solid var(--project-card-border);
-            border-radius: 10px;
-            padding: 20px;
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            display: flex; /* Use flexbox for internal layout */
-            flex-direction: column; /* Stack image, title, description, links */
-        }
-        .project-card:hover {
-            transform: translateY(-8px); /* More noticeable lift */
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
-        .project-card-image {
-            width: 100%;
-            height: 180px; /* Fixed height for consistent image sizing */
-            object-fit: cover; /* Ensures image covers the area without distortion */
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border-color); /* Light border for images */
-        }
-        .project-card h4 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.4em; /* Larger project titles */
-            color: var(--project-title-color);
-            font-weight: 600;
-        }
-        .project-card p {
-            margin-bottom: 15px;
-            flex-grow: 1; /* Allows description to take up available space */
-        }
-        .project-links {
-            margin-top: auto; /* Pushes links to the bottom of the card */
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px; /* Small gap between project links */
-        }
-        .project-links a {
-            padding: 6px 10px; /* Smaller padding for internal links */
-            font-size: 0.9em;
-            background-color: var(--primary-light); /* Links within cards use lighter primary color */
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-            border-radius: 5px;
-            transition: all 0.2s ease;
-            display: inline-flex; /* Align icon and text */
-            align-items: center;
-        }
-        .project-links a:hover {
-            background-color: var(--primary-color);
-            color: var(--link-hover-color);
-            transform: translateY(-2px); /* Subtle lift */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .project-links a i {
-            margin-right: 5px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 60px; /* More space from projects to footer */
-            padding-top: 30px;
-            border-top: 1px solid var(--border-color);
-            color: var(--footer-color);
-            font-size: 0.95em;
-        }
+			.profile-img:hover {
+				transform: scale(1.08) rotate(3deg);
+				box-shadow: 0 0 0 10px rgba(var(--primary-color-rgb, 85, 197, 122), 0.3);
+			}
 
-        /* Dark Mode Toggle Switch */
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            margin-bottom: 25px;
-            gap: 10px;
-        }
-        .theme-switch {
-            display: inline-block;
-            height: 34px;
-            position: relative;
-            width: 60px;
-        }
-        .theme-switch input {
-            display: none;
-        }
-        .slider {
-            background-color: var(--toggle-bg);
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .4s;
-            border-radius: 34px;
-        }
-        .slider:before {
-            background-color: var(--toggle-circle);
-            bottom: 4px;
-            content: "";
-            height: 26px;
-            left: 4px;
-            position: absolute;
-            transition: .4s;
-            width: 26px;
-            border-radius: 50%;
-        }
-        input:checked + .slider {
-            background-color: var(--primary-color); /* Green for checked/dark mode */
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-        .theme-switch-wrapper em {
-            font-style: normal;
-            color: var(--text-color);
-            font-weight: 400;
-        }
-        .highlight {
-            color: var(--highlight-color);
-            font-weight: 600;
-        }
+			h1 {
+				margin-top: 15px;
+				margin-bottom: 5px;
+				font-size: 3em;
+				/* Larger heading */
+				font-weight: 700;
+				/* Bolder font */
+				color: var(--secondary-color);
+				position: relative;
+			}
 
-        /* Abandoned project specific styles */
-        .project-card.abandoned {
-            border-left: 5px solid var(--abandoned-project-color); /* Left border to signify abandoned */
-            background-color: var(--abandoned-project-bg);
-        }
-        .project-card.abandoned h4 {
-            color: var(--abandoned-project-color);
-        }
-        .project-card.abandoned .status-tag {
-            background-color: var(--abandoned-project-color);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-size: 0.8em;
-            font-weight: 600;
-            margin-left: 10px;
-            display: inline-block;
-        }
-        
-        /* Language Selector Styles */
-        .language-selector {
-            position: relative; /* Needed for custom arrow positioning */
-            display: inline-block; /* Keeps it compact */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
-            margin-right: 20px; /* Space from other elements if needed */
-            z-index: 10; /* Ensure it's above other content if necessary */
-        }
-        
-        .language-selector select {
-            appearance: none; /* Remove default browser styling */
-            -webkit-appearance: none; /* For WebKit browsers */
-            -moz-appearance: none; /* For Mozilla browsers */
-            padding: 10px 35px 10px 15px; /* Adjust padding for text and custom arrow */
-            border: 1px solid var(--border-color); /* Uses your existing border color variable */
-            border-radius: 8px; /* Slightly rounded corners */
-            background-color: var(--card-background-light); /* Light background for light mode */
-            color: var(--text-color-light); /* Text color for light mode */
-            font-size: 1em;
-            cursor: pointer;
-            outline: none; /* Remove focus outline */
-            transition: all 0.3s ease; /* Smooth transitions for hover/focus */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-            width: auto; /* Allow width to adjust to content */
-            min-width: 120px; /* Minimum width to ensure readability */
-        }
-        
-        /* Dark mode adjustments for the select box */
-        body.dark-mode .language-selector select {
-            background-color: var(--card-background-dark); /* Dark background for dark mode */
-            color: var(--text-color-dark); /* Text color for dark mode */
-            border-color: var(--border-color-dark); /* Darker border for dark mode */
-        }
-        
-        /* Hover and Focus states */
-        .language-selector select:hover {
-            border-color: var(--primary-color); /* Highlight border on hover */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow on hover */
-        }
-        
-        .language-selector select:focus {
-            border-color: var(--primary-color); /* Keep highlight on focus */
-            box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.3); /* Soft focus ring */
-        }
-        
-        /* Custom dropdown arrow (using a pseudo-element) */
-        .language-selector::after {
-            content: '\f078'; /* FontAwesome chevron-down icon */
-            font-family: 'Font Awesome 5 Free'; /* Specify Font Awesome font family */
-            font-weight: 900; /* Use solid icon */
-            position: absolute;
-            right: 15px; /* Position to the right inside the padding */
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--secondary-color); /* Color of the arrow */
-            pointer-events: none; /* Make sure the arrow doesn't interfere with clicks on the select */
-            transition: color 0.3s ease;
-        }
-        
-        /* Dark mode adjustment for the custom arrow */
-        body.dark-mode .language-selector::after {
-            color: var(--primary-color); /* Adjust arrow color in dark mode */
-        }
-        
-        /* Style for options within the dropdown */
-        .language-selector select option {
-            background-color: var(--card-background-light); /* Option background light mode */
-            color: var(--text-color-light); /* Option text color light mode */
-        }
-        
-        body.dark-mode .language-selector select option {
-            background-color: var(--card-background-dark); /* Option background dark mode */
-            color: var(--text-color-dark); /* Option text color dark mode */
-        }
-        
-        /* --- Responsive Adjustments (Optional but Recommended) --- */
-        @media (max-width: 768px) {
-            .language-selector {
-                margin-right: 10px; /* Less margin on smaller screens */
-            }
-        
-            .language-selector select {
-                padding: 8px 30px 8px 12px;
-                font-size: 0.9em;
-                min-width: 100px;
-            }
-        
-            .language-selector::after {
-                right: 10px;
-            }
-        }
+			h1::after {
+				content: ' ✨';
+				animation: sparkle 1.8s infinite alternate;
+			}
 
+			@keyframes sparkle {
 
-        /* News Box styles */
-        .news-box-container {
-            position: absolute; /* Changed from fixed to absolute */
-            top: 40px; /* Match container padding */
-            right: 40px; /* Match container padding */
-            z-index: 1; /* Lower z-index to stay behind fixed elements */
-        }
+				0%,
+				100% {
+					opacity: 0.5;
+					transform: scale(0.9);
+				}
 
-        .news-box {
-            background-color: var(--container-bg); /* Use container background color */
-            border: 1px solid var(--border-color); /* Use container border color */
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color); /* Use container shadow */
-            width: 280px;
-            transition: background-color 0.4s ease, border-color 0.4s ease;
-            color: var(--text-color); /* Use main text color */
-        }
+				50% {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
 
-        body.dark-mode .news-box {
-            background-color: var(--news-color-dark);
-            color: var(--news-text-color-dark);
-        }
+			h2 {
+				margin-top: 5px;
+				font-size: 1.6em;
+				color: var(--header-color);
+				font-weight: 400;
+			}
 
-        .news-box h4 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-            color: var(--secondary-color); /* Use secondary color */
-            display: flex;
-            align-items: center;
-        }
+			h3 {
+				border-bottom: 2px solid var(--border-color);
+				padding-bottom: 12px;
+				margin-top: 50px;
+				/* More space above sections */
+				margin-bottom: 25px;
+				/* More space below headings */
+				font-size: 2em;
+				font-weight: 600;
+				display: flex;
+				align-items: center;
+				color: var(--secondary-color);
+			}
 
-        body.dark-mode .news-box h4 {
-            color: var(--primary-color);
-        }
+			h3 i {
+				margin-right: 12px;
+				color: var(--primary-color);
+				font-size: 1.2em;
+			}
 
-        .news-box h4 i {
-            margin-right: 8px;
-            color: var(--primary-color); /* Use primary color */
-        }
+			.section p {
+				margin-bottom: 1em;
+				/* Consistent paragraph spacing */
+			}
 
-        body.dark-mode .news-box h4 i {
-            color: var(--primary-color); /* Adjust if you want a different icon color in dark mode */
-        }
+			.links ul {
+				list-style: none;
+				padding: 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 12px;
+				/* Slightly smaller gap */
+			}
 
-        .news-box ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .news-box li {
-            margin-bottom: 8px;
-            font-size: 0.95em;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 5px;
-        }
+			.links a {
+				text-decoration: none;
+				color: var(--link-color);
+				background-color: var(--link-bg);
+				padding: 10px 20px;
+				/* More padding */
+				border-radius: 8px;
+				/* More rounded links */
+				transition: background-color 0.3s, color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+				display: inline-flex;
+				align-items: center;
+				font-weight: 600;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+				/* Subtle shadow on links */
+			}
 
-        .news-box li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+			.links a:hover {
+				background-color: var(--link-hover-bg);
+				color: var(--link-hover-color);
+				transform: translateY(-4px);
+				/* More pronounced lift */
+				box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+			}
 
-        .news-box li strong {
-            color: var(--primary-color); /* Use primary color */
-        }
-        
-        body.dark-mode .news-box li strong {
-            color: var(--highlight-color);
-        }
+			.links a i {
+				margin-right: var(--icon-spacing);
+			}
 
-        /* News Toggle Button for small screens */
-        .news-toggle-button {
-            position: fixed; /* Fixed position for mobile button */
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 1001; /* Higher z-index than news-box-container */
-            transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease, scale 0.3s ease;
-            opacity: 0; /* Hidden by default for larger screens */
-            transform: scale(0); /* Hidden by default for larger screens */
-        }
+			.project-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+				/* Adjusted minmax for more flexibility */
+				gap: 25px;
+				/* Increased gap between cards */
+			}
 
-        .news-toggle-button:hover {
-            transform: scale(1.1);
-        }
+			.project-card {
+				background: var(--project-card-bg);
+				border: 1px solid var(--project-card-border);
+				border-radius: 10px;
+				padding: 20px;
+				transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+				box-shadow: 0 4px 15px var(--shadow-color);
+				display: flex;
+				/* Use flexbox for internal layout */
+				flex-direction: column;
+				/* Stack image, title, description, links */
+			}
 
-        .news-badge {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: var(--news-badge-color);
-            color: white;
-            font-size: 0.8em;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            transform: scale(1);
-            transition: transform 0.3s ease-out;
-        }
+			.project-card:hover {
+				transform: translateY(-8px);
+				/* More noticeable lift */
+				box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+			}
 
-        .news-badge.hidden {
-            transform: scale(0);
-        }
+			.project-card-image {
+				width: 100%;
+				height: 180px;
+				/* Fixed height for consistent image sizing */
+				object-fit: cover;
+				/* Ensures image covers the area without distortion */
+				border-radius: 8px;
+				margin-bottom: 15px;
+				border: 1px solid var(--border-color);
+				/* Light border for images */
+			}
 
-        /* News Popup for small screens */
-        .news-popup {
-            display: none; /* Hidden by default */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: var(--container-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            padding: 30px;
-            z-index: 1002; /* Even higher z-index */
-            max-width: 90%;
-            max-height: 80%;
-            overflow-y: auto;
-            color: var(--text-color);
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
+			.project-card h4 {
+				margin-top: 0;
+				margin-bottom: 10px;
+				font-size: 1.4em;
+				/* Larger project titles */
+				color: var(--project-title-color);
+				font-weight: 600;
+			}
 
-        .news-popup h4 {
-            margin-top: 0;
-            color: var(--secondary-color);
-            font-size: 1.5em;
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+			.project-card p {
+				margin-bottom: 15px;
+				flex-grow: 1;
+				/* Allows description to take up available space */
+			}
 
-        body.dark-mode .news-popup h4 {
-            color: var(--primary-color);
-        }
+			.project-links {
+				margin-top: auto;
+				/* Pushes links to the bottom of the card */
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				/* Small gap between project links */
+			}
 
-        .news-popup h4 i {
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
+			.project-links a {
+				padding: 6px 10px;
+				/* Smaller padding for internal links */
+				font-size: 0.9em;
+				background-color: var(--primary-light);
+				/* Links within cards use lighter primary color */
+				color: var(--primary-color);
+				border: 1px solid var(--primary-color);
+				border-radius: 5px;
+				transition: all 0.2s ease;
+				display: inline-flex;
+				/* Align icon and text */
+				align-items: center;
+			}
 
-        .news-popup .close-popup {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.8em;
-            cursor: pointer;
-            color: var(--text-color);
-            opacity: 0.7;
-            transition: opacity 0.2s ease;
-        }
+			.project-links a:hover {
+				background-color: var(--primary-color);
+				color: var(--link-hover-color);
+				transform: translateY(-2px);
+				/* Subtle lift */
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			}
 
-        .news-popup .close-popup:hover {
-            opacity: 1;
-        }
+			.project-links a i {
+				margin-right: 5px;
+			}
 
-        .news-popup .popup-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+			footer {
+				text-align: center;
+				margin-top: 60px;
+				/* More space from projects to footer */
+				padding-top: 30px;
+				border-top: 1px solid var(--border-color);
+				color: var(--footer-color);
+				font-size: 0.95em;
+			}
 
-        .news-popup .popup-content li {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed var(--border-color);
-        }
+			/* Dark Mode Toggle Switch */
+			.theme-switch-wrapper {
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				margin-bottom: 25px;
+				gap: 10px;
+			}
 
-        .news-popup .popup-content li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+			.theme-switch {
+				display: inline-block;
+				height: 34px;
+				position: relative;
+				width: 60px;
+			}
 
-        .news-popup .popup-content li strong {
-            color: var(--primary-color);
-            font-size: 1.1em;
-            display: block;
-            margin-bottom: 5px;
-        }
+			.theme-switch input {
+				display: none;
+			}
 
-        body.dark-mode .news-popup .popup-content li strong {
-            color: var(--highlight-color);
-        }
+			.slider {
+				background-color: var(--toggle-bg);
+				bottom: 0;
+				cursor: pointer;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transition: .4s;
+				border-radius: 34px;
+			}
 
-        /* Overlay for popup */
-        .overlay {
-            display: none; /* Hidden by default */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-            z-index: 1001; /* Below popup, above content */
-        }
+			.slider:before {
+				background-color: var(--toggle-circle);
+				bottom: 4px;
+				content: "";
+				height: 26px;
+				left: 4px;
+				position: absolute;
+				transition: .4s;
+				width: 26px;
+				border-radius: 50%;
+			}
 
+			input:checked+.slider {
+				background-color: var(--primary-color);
+				/* Green for checked/dark mode */
+			}
 
-        /* Responsive adjustments */
-        @media (max-width: 1290px) {
-            /* Hide the large news box on small screens */
-            .news-box-container {
-                display: none;
-            }
+			input:checked+.slider:before {
+				transform: translateX(26px);
+			}
 
-            /* Show the mobile news toggle button */
-            .news-toggle-button {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            .container {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 2.5em;
-            }
-            h2 {
-                font-size: 1.3em;
-            }
-            h3 {
-                font-size: 1.6em;
-            }
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-            .links ul {
-                justify-content: center;
-            }
-            .theme-switch-wrapper {
-                justify-content: center;
-            }
-        }
+			.theme-switch-wrapper em {
+				font-style: normal;
+				color: var(--text-color);
+				font-weight: 400;
+			}
 
-        @media (max-width: 480px) {
-            .links a {
-                padding: 8px 12px;
-                font-size: 0.9em;
-            }
-            .project-card-image {
-                height: 150px;
-            }
-            .news-toggle-button {
-                width: 50px;
-                height: 50px;
-                font-size: 1.8em;
-                bottom: 15px;
-                right: 15px;
-            }
-            .news-badge {
-                width: 18px;
-                height: 18px;
-                font-size: 0.7em;
-            }
-            .news-popup {
-                padding: 20px;
-            }
-            .news-popup .close-popup {
-                font-size: 1.5em;
-            }
-            .news-popup h4 {
-                font-size: 1.3em;
-            }
-        }
+			.highlight {
+				color: var(--highlight-color);
+				font-weight: 600;
+			}
 
-        /* Root color variables for RGB components for easier rgba() usage */
-        body {
-            --primary-color-rgb: 85, 197, 122; /* 55c57a */
-        }
-        body.dark-mode {
-            --primary-color-rgb: 139, 233, 253; /* 8be9fd */
-        }
-    </style>
-</head>
-<body>
-  <div class="main-wrapper">
-    <div class="container">
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-            </label>
-            <em>Toggle Dark Mode</em>
-        </div>
+			/* Abandoned project specific styles */
+			.project-card.abandoned {
+				border-left: 5px solid var(--abandoned-project-color);
+				/* Left border to signify abandoned */
+				background-color: var(--abandoned-project-bg);
+			}
 
-        <header class="header">
-            <img src="https://tamkungz.github.io/me.jpg" alt="TamKungZ_ Profile Image - A friendly developer ready to code!" class="profile-img">
-            <h1>TamKungZ_</h1>
-            <h2>Developer 🎮💻 | Coding & Minecraft Modding Wizard!</h2>
-            
-            <div class="language-selector">
-              <select id="language-switcher">
-                  <option value="en">English</option>
-                  <option value="th">ภาษาไทย</option>
-                  </select>
-          </div>
-        </header>
+			.project-card.abandoned h4 {
+				color: var(--abandoned-project-color);
+			}
 
-        <section class="section">
-            <h3><i class="fas fa-user-circle"></i> <span data-i18n="aboutMeTitle">About Me</h3>
-            <p data-i18n="aboutMeContent">
-              Hi! I'm <strong>TamKungZ_</strong>. I'm a software developer specializing in <span class="highlight">C#, Java, Python, CSS, JS, HTML, and PHP.</span> I also create mods for Minecraft.
-            </p>
-        </section>
+			.project-card.abandoned .status-tag {
+				background-color: var(--abandoned-project-color);
+				color: white;
+				padding: 4px 8px;
+				border-radius: 5px;
+				font-size: 0.8em;
+				font-weight: 600;
+				margin-left: 10px;
+				display: inline-block;
+			}
 
-        <section class="section links">
-            <h3><i class="fas fa-share-alt"></i> <span data-i18n="linksTitle">Links & Socials</h3>
-            <ul>
-                <li><a href="https://tamkungz.github.io/" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> My GitHub Page</a></li>
-                <li><a href="https://tamkungz.in.th/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> My Personal Website</a></li>
-                <li><a href="https://maven.tamkungz.in.th/" target="_blank" rel="noopener noreferrer"><i class="fas fa-cube"></i> My Maven Repository</a></li>
-                <li><a href="https://github.com/TamKungZ" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub Profile</a></li>
-                <li><a href="https://x.com/TamKungZ_Dev" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter/X</a></li>
-                <li><a href="mailto:kittiwut.pimpromma@gmail.com"><i class="fas fa-envelope"></i> Email Me</a></li>
-                <li><a href="https://linktr.ee/TamKungZ_" target="_blank" rel="noopener noreferrer"><i class="fas fa-tree"></i> Linktree</a></li>
-                <li><a href="https://instagram.com/tamkungz_" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a></li>
-                <li><a href="https://tiktok.com/@tamkungz_" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a></li>
-                <li><a href="https://www.twitch.tv/tamkungz_" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitch"></i> Twitch</a></li>
-                <li><a href="https://www.facebook.com/TamKung.ZZ/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                <li><a href="https://www.reddit.com/user/Odd_Type_5342/" target="_blank" rel="noopener noreferrer"><i class="fab fa-reddit"></i> Reddit</a></li>
-                <li><a href="https://discord.gg/UUhPA7HR" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i> Discord Community</a></li>
-                <li><a href="https://gitlab.com/TamKungZ" target="_blank" rel="noopener noreferrer"><i class="fab fa-gitlab"></i> GitLab</a></li>
-                <li><a href="https://leetcode.com/u/TamKungZ_/" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> LeetCode Solver</a></li>
-                <li><a href="https://sketchfab.com/TamKungZ_" target="_blank" rel="noopener noreferrer"><i class="fas fa-cube"></i> Sketchfab Models</a></li>
-                <li><a href="https://www.pixiv.net/users/107946376" target="_blank" rel="noopener noreferrer"><i class="fas fa-paint-brush"></i> Pixiv Art</a></li>
-            </ul>
-            <h4><i class="fas fa-gamepad"></i> <span data-i18n="moddingPlatformsTitle">Modding Platforms</h4>
-            <ul>
-                <li><a href="https://www.curseforge.com/members/tamkungz_/projects" target="_blank" rel="noopener noreferrer"><i class="fas fa-box-open"></i> CurseForge Projects</a></li>
-                <li><a href="https://modrinth.com/user/TamKungZ_" target="_blank" rel="noopener noreferrer"><i class="fas fa-puzzle-piece"></i> Modrinth Profile</a></li>
-                <li><a href="https://next.nexusmods.com/profile/TamKungZ/mods" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Nexus Mods Page</a></li>
-                <li><a href="https://www.planetminecraft.com/member/tamkungz_/" target="_blank" rel="noopener noreferrer"><i class="fas fa-tree"></i> Planet Minecraft Creations</a></li>
-                <li><a href="https://mcreator.net/user/686425/token" target="_blank" rel="noopener noreferrer"><i class="fas fa-hammer"></i> MCreator Profile</a></li>
-            </ul>
-            <h4><i class="fas fa-heart"></i> <span data-i18n="supportWorkTitle">Support My Work</h4>
-            <ul>
-                <li><a href="https://www.patreon.com/c/TamKungZ" target="_blank" rel="noopener noreferrer"><i class="fab fa-patreon"></i> Patreon</a></li>
-                <li><a href="https://www.buymeacoffee.com/TamKungZ_" target="_blank" rel="noopener noreferrer"><i class="fas fa-mug-hot"></i> Buy Me a Coffee</a></li>
-                <li><a href="https://ko-fi.com/tamkungz" target="_blank" rel="noopener noreferrer"><i class="fas fa-coffee"></i> Ko-fi</a></li>
-            </ul>
-        </section>
+			/* Language Selector Styles */
+			.language-selector {
+				position: relative;
+				/* Needed for custom arrow positioning */
+				display: inline-block;
+				/* Keeps it compact */
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				/* Modern font */
+				margin-right: 20px;
+				/* Space from other elements if needed */
+				z-index: 10;
+				/* Ensure it's above other content if necessary */
+			}
 
-        <section class="section">
-            <h3><i class="fas fa-project-diagram"></i> <span data-i18n="featuredProjectsTitle">Featured Projects (Minecraft Mods)</h3>
-            <div class="project-grid">
+			.language-selector select {
+				appearance: none;
+				/* Remove default browser styling */
+				-webkit-appearance: none;
+				/* For WebKit browsers */
+				-moz-appearance: none;
+				/* For Mozilla browsers */
+				padding: 10px 35px 10px 15px;
+				/* Adjust padding for text and custom arrow */
+				border: 1px solid var(--border-color);
+				/* Uses your existing border color variable */
+				border-radius: 8px;
+				/* Slightly rounded corners */
+				background-color: var(--card-background-light);
+				/* Light background for light mode */
+				color: var(--text-color-light);
+				/* Text color for light mode */
+				font-size: 1em;
+				cursor: pointer;
+				outline: none;
+				/* Remove focus outline */
+				transition: all 0.3s ease;
+				/* Smooth transitions for hover/focus */
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+				/* Subtle shadow */
+				width: auto;
+				/* Allow width to adjust to content */
+				min-width: 120px;
+				/* Minimum width to ensure readability */
+			}
 
-                <div class="project-card">
-                    <img src="https://media.forgecdn.net/attachments/1172/484/lyfe-v2-png.png" alt="Let Your Friend Eating Mod Preview" class="project-card-image"> <h4>Let Your Friend Eating <span class="highlight">(Minecraft Utility Mod)</span></h4>
-                    <p>A fun and helpful mod that adds the ability for other players to feed you directly, making cooperative play even more engaging!</p>
-                    <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/letyourfriendeating" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                        <a href="https://modrinth.com/mod/let-your-friend-eating!" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
-                        <a href="https://github.com/TamKungZ/letyourfriendeating" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
+			/* Dark mode adjustments for the select box */
+			body.dark-mode .language-selector select {
+				background-color: var(--card-background-dark);
+				/* Dark background for dark mode */
+				color: var(--text-color-dark);
+				/* Text color for dark mode */
+				border-color: var(--border-color-dark);
+				/* Darker border for dark mode */
+			}
 
-                <div class="project-card">
-                    <img src="https://cdn.modrinth.com/data/8N1pJGur/images/2d0b92152ad539019d34ca257014002636dd5a66.png" alt="Stardew Valley Food Mod Preview" class="project-card-image"> <h4>Stardew Valley Food <span class="highlight">(Minecraft Content Mod)</span></h4>
-                    <p>Craving some pixelated farm-fresh goodness? This mod introduces a delightful array of delicious food items directly from the beloved game Stardew Valley into your Minecraft world!</p>
-                    <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/stardew-valley-food" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                        <a href="https://modrinth.com/mod/stardew-valley-food" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
-                        <a href="https://github.com/TamKungZ/StardewValleyFood-MinecraftMod" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
+			/* Hover and Focus states */
+			.language-selector select:hover {
+				border-color: var(--primary-color);
+				/* Highlight border on hover */
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+				/* Slightly more prominent shadow on hover */
+			}
 
-                <div class="project-card">
-                    <img src="https://cdn.modrinth.com/data/dbNTzFWE/images/a409c420ca8412ffcc09b4f54b6bb3486b34bef9.png" alt="Japan Props Mod Preview" class="project-card-image"> <h4>Japan Props <span class="highlight">(Minecraft Decoration Mod)</span></h4>
-                    <p>Transform your builds into beautiful Japanese landscapes! This mod adds a variety of charming and authentic Japanese-style decorative props for all your architectural desires.</p>
-                    <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/japan-props" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                        <a href="https://modrinth.com/mod/japan-props" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
-                    </div>
-                </div>
+			.language-selector select:focus {
+				border-color: var(--primary-color);
+				/* Keep highlight on focus */
+				box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.3);
+				/* Soft focus ring */
+			}
 
-                <div class="project-card">
-                    <img src="https://tamkungz.github.io/droprateapi/image.png" alt="DropRateAPI Mod Preview" class="project-card-image"> <h4>DropRateAPI <span class="highlight">(Minecraft API Mod)</span></h4>
-                    <p>A powerful and flexible API designed for developers to easily customize and fine-tune item drop rates within Minecraft, offering endless possibilities for game balance and unique experiences.</p>
-                    <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/droprateapi" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                        <a href="https://tamkungz.github.io/droprateapi/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Website</a>
-                        <a href="https://github.com/TamKungZ/droprateapi" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
+			/* Custom dropdown arrow (using a pseudo-element) */
+			.language-selector::after {
+				content: '\f078';
+				/* FontAwesome chevron-down icon */
+				font-family: 'Font Awesome 5 Free';
+				/* Specify Font Awesome font family */
+				font-weight: 900;
+				/* Use solid icon */
+				position: absolute;
+				right: 15px;
+				/* Position to the right inside the padding */
+				top: 50%;
+				transform: translateY(-50%);
+				color: var(--secondary-color);
+				/* Color of the arrow */
+				pointer-events: none;
+				/* Make sure the arrow doesn't interfere with clicks on the select */
+				transition: color 0.3s ease;
+			}
 
-                <div class="project-card">
-                    <img src="https://media.forgecdn.net/attachments/410/193/2021-11-25_00.png" alt="Smooth Wood Mod Preview" class="project-card-image"> <h4>Smooth Wood <span class="highlight">(Minecraft Block Mod)</span></h4>
-                    <p>Say goodbye to jagged edges! This mod introduces a collection of sleek and visually appealing wood blocks with smooth textures, perfect for modern builds and seamless designs.</p>
-                    <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/smooth-wood" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                    </div>
-                </div>
+			/* Dark mode adjustment for the custom arrow */
+			body.dark-mode .language-selector::after {
+				color: var(--primary-color);
+				/* Adjust arrow color in dark mode */
+			}
 
-                <div class="project-card">
-                    <img src="https://media.forgecdn.net/attachments/873/725/irecycle.png" alt="iRecycle Mod Preview" class="project-card-image"> <h4>iRecycle <span class="highlight">(Minecraft Utility Mod)</span></h4>
-                    <p>Go green in Minecraft! iRecycle is a handy mod that allows you to recycle various items, giving you back resources and promoting sustainability within your blocky world.</p>
-                    <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/irecycle" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                    </div>
-                </div>
+			/* Style for options within the dropdown */
+			.language-selector select option {
+				background-color: var(--card-background-light);
+				/* Option background light mode */
+				color: var(--text-color-light);
+				/* Option text color light mode */
+			}
 
-                <div class="project-card">
-                    <img src="https://media.forgecdn.net/attachments/927/931/eac5a6c2f908759221ce7f3a13b622992ed5ae5f.png" alt="Impossible Item Crafting Mod Preview" class="project-card-image"> <h4>Impossible Item Crafting <span class="highlight">(Minecraft Challenge Mod)</span></h4>
-                    <p>Are you up for a challenge? This mod introduces mind-bending and seemingly "impossible" item crafting recipes, pushing your creative limits and offering a unique twist to your survival experience!</p>
-                    <div class="project-links">
-                        <a href="https://www.curseforge.com/minecraft/mc-mods/impossible-item-crafting" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                    </div>
-                </div>
+			body.dark-mode .language-selector select option {
+				background-color: var(--card-background-dark);
+				/* Option background dark mode */
+				color: var(--text-color-dark);
+				/* Option text color dark mode */
+			}
 
-                <div class="project-card">
-                    <img src="https://cdn.modrinth.com/data/oRgKGxhT/images/01a864906946b8df0bfb97f06858f34c513c7e07.png" alt="InfoPlus Mod Preview" class="project-card-image"> <h4>InfoPlus <span class="highlight">(Minecraft Information Mod)</span></h4>
-                    <p>Never be in the dark again! InfoPlus is a useful client-side mod that provides additional, real-time information about your surroundings, blocks, and entities, enhancing your gameplay knowledge.</p>
-                    <div class="project-links">
-                        <a href="https://modrinth.com/mod/infoplus" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
-                    </div>
-                </div>
+			/* --- Responsive Adjustments (Optional but Recommended) --- */
+			@media (max-width: 768px) {
+				.language-selector {
+					margin-right: 10px;
+					/* Less margin on smaller screens */
+				}
 
-            </div>
-        </section>
+				.language-selector select {
+					padding: 8px 30px 8px 12px;
+					font-size: 0.9em;
+					min-width: 100px;
+				}
 
-        <section class="section">
-            <h3><i class="fas fa-archive"></i> Abandoned/On Hold Projects</h3>
-            <p>
-                These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating, feel free to reach out!
-            </p>
-            <div class="project-grid">
-                <div class="project-card abandoned">
-                    <img src="image/373150250-be244527-4522-400d-8a9e-b0c66693a6de.png" alt="Auto Piano Player Python Preview" class="project-card-image"> <h4>Auto Piano Player (Python) <span class="status-tag">On Hold</span></h4>
-                    <p>This intriguing project aims to create a Python program capable of automatically playing piano. It's perfect for those looking to explore software control and musical creation.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TamKungZ/Auto-Piano-Player-Python" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
+				.language-selector::after {
+					right: 10px;
+				}
+			}
 
-                <div class="project-card abandoned">
-                    <img src="image/340617292-4dfa0146-e758-4d86-bb30-43f84ca33443.png" alt="NPCMaker-CS Preview" class="project-card-image"> <h4>NPCMaker-CS <span class="highlight">(Stardew SMAPI NPC Maker Content Patcher)</span> <span class="status-tag">On Hold</span></h4>
-                    <p>A tool for Stardew Valley designed to significantly simplify the process of creating new NPCs (Non-Player Characters) for SMAPI's Content Patcher mods.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TamKungZ/NPCMaker-CS" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+			/* News Box styles */
+			.news-box-container {
+				position: absolute;
+				/* Changed from fixed to absolute */
+				top: 40px;
+				/* Match container padding */
+				right: 40px;
+				/* Match container padding */
+				z-index: 1;
+				/* Lower z-index to stay behind fixed elements */
+			}
 
-        <footer>
-            <p>Crafted with by TamKungZ_ &copy; 2024. All rights reserved.</p>
-            <p>Let's keep building amazing things together!</p>
-            <i style="font-family: 'Kanit', sans-serif;">ผมเป็นคนไทยนะ :b</i>
-        </footer>
+			.news-box {
+				background-color: var(--container-bg);
+				/* Use container background color */
+				border: 1px solid var(--border-color);
+				/* Use container border color */
+				border-radius: 10px;
+				padding: 15px;
+				box-shadow: 0 4px 15px var(--shadow-color);
+				/* Use container shadow */
+				width: 280px;
+				transition: background-color 0.4s ease, border-color 0.4s ease;
+				color: var(--text-color);
+				/* Use main text color */
+			}
 
-    </div>
+			body.dark-mode .news-box {
+				background-color: var(--news-color-dark);
+				color: var(--news-text-color-dark);
+			}
 
-    <div class="news-box-container">
-        <div class="news-box">
-            <h4><i class="fas fa-newspaper"></i> <span data-i18n="newsPopupTitle">News & Announcements</span></h4>
-            <div class="popup-content">
-                <ul>
-                    <li data-i18n="news1_full"><strong>June 29, 2025:</strong> The <span class="highlight">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!</li>
-                    <li data-i18n="news2_full"><strong>June 29, 2025:</strong> Good news! Development on <span class="highlight">Japan Props</span> will resume. It might take a while, but it's definitely coming back!</li>
-                    <li data-i18n="news3_full"><strong>June 7, 2025:</strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!</li>
-                    <li data-i18n="news4_full"><strong>May 19, 2025:</strong> <span class="highlight">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.</li>
-                    <li data-i18n="news5_full"><strong>May 9, 2025:</strong> <span class="highlight">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.</li>
-                    <li data-i18n="news6_full"><strong>2024:</strong> Development on the <span class="highlight">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
-    <button class="news-toggle-button" id="newsToggleButton">
-        <i class="fas fa-exclamation-triangle"></i> <span class="news-badge" id="newsBadge">!</span>
-    </button>
-    
-    <div class="news-popup" id="newsPopup">
-        <button class="close-popup" id="closePopupButton">&times;</button>
-        <h4><i class="fas fa-newspaper"></i> <span data-i18n="newsPopupTitle">News & Announcements</span></h4>
-        <div class="popup-content">
-            <ul>
-                <li data-i18n="news1_full"><strong>June 29, 2025:</strong> The <span class="highlight">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!</li>
-                <li data-i18n="news2_full"><strong>June 29, 2025:</strong> Good news! Development on <span class="highlight">Japan Props</span> will resume. It might take a while, but it's definitely coming back!</li>
-                <li data-i18n="news3_full"><strong>June 7, 2025:</strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!</li>
-                <li data-i18n="news4_full"><strong>May 19, 2025:</strong> <span class="highlight">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.</li>
-                <li data-i18n="news5_full"><strong>May 9, 2025:</strong> <span class="highlight">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.</li>
-                <li data-i18n="news6_full"><strong>2024:</strong> Development on the <span class="highlight">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.</li>
-            </ul>
-        </div>
-    </div>
+			.news-box h4 {
+				margin-top: 0;
+				margin-bottom: 10px;
+				font-size: 1.2em;
+				color: var(--secondary-color);
+				/* Use secondary color */
+				display: flex;
+				align-items: center;
+			}
 
-    <div class="overlay" id="overlay"></div>
+			body.dark-mode .news-box h4 {
+				color: var(--primary-color);
+			}
 
-    <script>
-        // Theme toggle (จากโค้ดเดิมของคุณ)
-        const toggleSwitch = document.getElementById('checkbox');
-        const currentTheme = localStorage.getItem('theme');
-    
-        if (currentTheme) {
-            document.body.classList.add(currentTheme);
-            if (currentTheme === 'dark-mode') {
-                toggleSwitch.checked = true;
-            }
-        }
-    
-        toggleSwitch.addEventListener('change', function() {
-            if (this.checked) {
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light-mode');
-            }
-        });
-    
-        // --- Localization Script ---
-        const translations = {
-            en: {
-                aboutMeTitle: "About Me",
-                aboutMeContent: "Hi! I'm <strong>TamKungZ_</strong>. I'm a software developer specializing in <span class=\"highlight\">C#, Java, Python, CSS, JS, HTML, and PHP.</span> I also create mods for Minecraft.",
-                linksTitle: "Links & Socials",
-                moddingPlatformsTitle: "Modding Platforms",
-                supportWorkTitle: "Support My Work",
-                featuredProjectsTitle: "Featured Projects (Minecraft Mods)",
-                lyfeTitle: "Let Your Friend Eating",
-                lyfeType: "(Minecraft Utility Mod)",
-                lyfeDescription: "A fun and helpful mod that adds the ability for other players to feed you directly, making cooperative play even more engaging!",
-                stardewTitle: "Stardew Valley Food",
-                stardewType: "(Minecraft Content Mod)",
-                stardewDescription: "Craving some pixelated farm-fresh goodness? This mod introduces a delightful array of delicious food items directly from the beloved game Stardew Valley into your Minecraft world!",
-                japanPropsTitle: "Japan Props",
-                japanPropsType: "(Minecraft Decoration Mod)",
-                japanPropsDescription: "Transform your builds into beautiful Japanese landscapes! This mod adds a variety of charming and authentic Japanese-style decorative props for all your architectural desires.",
-                dropRateApiTitle: "DropRateAPI",
-                dropRateApiType: "(Minecraft API Mod)",
-                dropRateApiDescription: "A powerful and flexible API designed for developers to easily customize and fine-tune item drop rates within Minecraft, offering endless possibilities for game balance and unique experiences.",
-                newsPopupTitle: "News & Announcements",
-                news1_full: "<strong>June 29, 2025:</strong> The <span class=\"highlight\">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!",
-                news2_full: "<strong>June 29, 2025:</strong> Good news! Development on <span class=\"highlight\">Japan Props</span> will resume. It might take a while, but it's definitely coming back!",
-                news3_full: "<strong>June 7, 2025:</strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!",
-                news4_full: "<strong>May 19, 2025:</strong> <span class=\"highlight\">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.",
-                news5_full: "<strong>May 9, 2025:</strong> <span class=\"highlight\">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.",
-                news6_full: "<strong>2024:</strong> Development on the <span class=\"highlight\">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued."
-            },
-            th: {
-                aboutMeTitle: "เกี่ยวกับฉัน",
-                aboutMeContent: "สวัสดี! ผมคือ <strong>TamKungZ_</strong> ผมเป็นนักพัฒนาซอฟต์แวร์ที่เชี่ยวชาญด้าน <span class=\"highlight\">C#, Java, Python, CSS, JS, HTML, และ PHP</span> ผมยังสร้าง Mod สำหรับ Minecraft ด้วย",
-                linksTitle: "ลิงก์และโซเชียล",
-                moddingPlatformsTitle: "แพลตฟอร์ม Modding",
-                supportWorkTitle: "สนับสนุนผลงานของฉัน",
-                featuredProjectsTitle: "โปรเจกต์เด่น (Minecraft Mods)",
-                lyfeTitle: "Let Your Friend Eating",
-                lyfeType: "(ม็อด Utility ของ Minecraft)",
-                lyfeDescription: "ม็อดที่สนุกและเป็นประโยชน์ที่เพิ่มความสามารถให้ผู้เล่นคนอื่นให้อาหารคุณได้โดยตรง ทำให้การเล่นแบบร่วมมือกันสนุกยิ่งขึ้น!",
-                stardewTitle: "Stardew Valley Food",
-                stardewType: "(ม็อดเนื้อหาของ Minecraft)",
-                stardewDescription: "อยากได้อาหารสดใหม่จากฟาร์มสไตล์พิกเซลไหม? ม็อดนี้เพิ่มเมนูอาหารอร่อยๆ จากเกม Stardew Valley ที่คุณชื่นชอบเข้ามาในโลก Minecraft ของคุณ!",
-                japanPropsTitle: "Japan Props",
-                japanPropsType: "(ม็อดตกแต่งของ Minecraft)",
-                japanPropsDescription: "เปลี่ยนสิ่งก่อสร้างของคุณให้กลายเป็นทิวทัศน์ญี่ปุ่นที่สวยงาม! ม็อดนี้เพิ่มของตกแต่งสไตล์ญี่ปุ่นที่น่ารักและแท้จริงหลากหลายชนิดสำหรับความต้องการทางสถาปัตยกรรมของคุณ",
-                dropRateApiTitle: "DropRateAPI",
-                dropRateApiType: "(ม็อด API ของ Minecraft)",
-                dropRateApiDescription: "API ที่ทรงพลังและยืดหยุ่น ออกแบบมาสำหรับนักพัฒนาเพื่อปรับแต่งอัตราการดรอปไอเท็มใน Minecraft ได้อย่างง่ายดาย มอบความเป็นไปได้ไม่รู้จบสำหรับการปรับสมดุลเกมและประสบการณ์ที่ไม่เหมือนใคร",
-                newsPopupTitle: "ข่าวสารและประกาศ",
-                news1_full: "<strong>29 มิถุนายน 2568:</strong> แพ็คทรัพยากร <span class=\"highlight\">Smooth Wood (HD) [ยกเลิก]</span> ได้รับการอัปเดตเพื่อรองรับ Minecraft เวอร์ชันล่าสุดแล้ว!",
-                news2_full: "<strong>29 มิถุนายน 2568:</strong> ข่าวดี! การพัฒนา <span class=\"highlight\">Japan Props</span> จะกลับมาดำเนินการต่อ อาจใช้เวลานานหน่อย แต่กลับมาแน่นอน!",
-                news3_full: "<strong>7 มิถุนายน 2568:</strong> พักการพัฒนาเป็นเวลานาน หมดไฟ สุขภาพและคอมพิวเตอร์ไม่ดี หวังว่าจะกลับมาเร็วๆ นี้!",
-                news4_full: "<strong>19 พฤษภาคม 2568:</strong> <span class=\"highlight\">Let Your Friend Eating!</span> เวอร์ชัน 1.0.4 LTS ออกแล้ว! นี่อาจเป็นการอัปเดตครั้งสำคัญครั้งสุดท้าย โดยการอัปเดตในอนาคตจะเน้นที่การแก้ไขข้อบกพร่องเป็นหลัก",
-                news5_full: "<strong>9 พฤษภาคม 2568:</strong> <span class=\"highlight\">Stardew Valley Food</span> เวอร์ชัน 0.3.2 พร้อมใช้งานแล้ว! นี่คือเวอร์ชันที่ดีที่สุดเท่าที่เคยมีมา รองรับทั้งการแลกเปลี่ยนกับ NPC และสูตรคราฟในเวลาเดียวกัน",
-                news6_full: "<strong>2567:</strong> การพัฒนาโปรเจกต์ <span class=\"highlight\">Smooth Wood (HD) [ยกเลิก]</span> ได้ถูกยุติอย่างเป็นทางการแล้ว"
-            }
-            // เพิ่มภาษาอื่นๆ ที่นี่
-        };
-    
-        const languageSwitcher = document.getElementById('language-switcher');
-    
-        // Function to set the page language
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    // Use innerHTML to allow for HTML tags within the translation (e.g., <strong>, <span>)
-                    element.innerHTML = translations[lang][key];
-                }
-            });
-            // Update document title
-            const titleElement = document.querySelector('title');
-            if (titleElement) {
-                titleElement.textContent = translations[lang]['tagline'] || "TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++"; // Fallback
-            }
-            // Save selected language to localStorage
-            localStorage.setItem('selectedLanguage', lang);
-            // Update the dropdown to show the current language
-            languageSwitcher.value = lang;
-        }
-    
-        // Load saved language or default to English
-        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-        setLanguage(savedLanguage);
-    
-        // Event listener for language change
-        languageSwitcher.addEventListener('change', (event) => {
-            setLanguage(event.target.value);
-        });
-    
-        // --- News Box/Popup Toggle (จากโค้ดเดิมของคุณ) ---
-        const newsBoxContainer = document.querySelector('.news-box-container');
-        const newsToggleButton = document.querySelector('.news-toggle-button');
-        const newsPopup = document.querySelector('.news-popup');
-        const closePopupButton = document.querySelector('.close-popup');
-        const overlay = document.querySelector('.overlay');
-        const newsBadge = document.querySelector('.news-badge');
-    
-        // Function to check if there are news items
-        function hasNews() {
-            const newsItems = newsBoxContainer ? newsBoxContainer.querySelectorAll('li').length : 0;
-            const popupNewsItems = newsPopup ? newsPopup.querySelectorAll('.popup-content li').length : 0;
-            return newsItems > 0 || popupNewsItems > 0;
-        }
-    
-        // Show/hide news badge based on news content
-        if (hasNews()) {
-            if (newsBadge) newsBadge.classList.remove('hidden');
-        } else {
-            if (newsBadge) newsBadge.classList.add('hidden');
-        }
-    
-        newsToggleButton.addEventListener('click', () => {
-            if (newsPopup) {
-                newsPopup.style.display = 'block';
-                overlay.style.display = 'block';
-                if (newsBadge) newsBadge.classList.add('hidden'); // Hide badge when popup is opened
-            }
-        });
-    
-        closePopupButton.addEventListener('click', () => {
-            if (newsPopup) {
-                newsPopup.style.display = 'none';
-                overlay.style.display = 'none';
-                if (hasNews()) { // Show badge again if there's news and popup is closed
-                    newsBadge.classList.remove('hidden');
-                }
-            }
-        });
-    
-        overlay.addEventListener('click', () => {
-            if (newsPopup) {
-                newsPopup.style.display = 'none';
-                overlay.style.display = 'none';
-                if (hasNews()) { // Show badge again if there's news and popup is closed
-                    newsBadge.classList.remove('hidden');
-                }
-            }
-        });
-    
-    </script>
-    </div>
-</body>
+			.news-box h4 i {
+				margin-right: 8px;
+				color: var(--primary-color);
+				/* Use primary color */
+			}
+
+			body.dark-mode .news-box h4 i {
+				color: var(--primary-color);
+				/* Adjust if you want a different icon color in dark mode */
+			}
+
+			.news-box ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.news-box li {
+				margin-bottom: 8px;
+				font-size: 0.95em;
+				border-bottom: 1px dashed var(--border-color);
+				padding-bottom: 5px;
+			}
+
+			.news-box li:last-child {
+				border-bottom: none;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+
+			.news-box li strong {
+				color: var(--primary-color);
+				/* Use primary color */
+			}
+
+			body.dark-mode .news-box li strong {
+				color: var(--highlight-color);
+			}
+
+			/* News Toggle Button for small screens */
+			.news-toggle-button {
+				position: fixed;
+				/* Fixed position for mobile button */
+				bottom: 20px;
+				right: 20px;
+				width: 60px;
+				height: 60px;
+				background-color: var(--primary-color);
+				color: white;
+				border: none;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 2em;
+				cursor: pointer;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+				z-index: 1001;
+				/* Higher z-index than news-box-container */
+				transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease, scale 0.3s ease;
+				opacity: 0;
+				/* Hidden by default for larger screens */
+				transform: scale(0);
+				/* Hidden by default for larger screens */
+			}
+
+			.news-toggle-button:hover {
+				transform: scale(1.1);
+			}
+
+			.news-badge {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				background-color: var(--news-badge-color);
+				color: white;
+				font-size: 0.8em;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-weight: bold;
+				transform: scale(1);
+				transition: transform 0.3s ease-out;
+			}
+
+			.news-badge.hidden {
+				transform: scale(0);
+			}
+
+			/* News Popup for small screens */
+			.news-popup {
+				display: none;
+				/* Hidden by default */
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: var(--container-bg);
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				padding: 30px;
+				z-index: 1002;
+				/* Even higher z-index */
+				max-width: 90%;
+				max-height: 80%;
+				overflow-y: auto;
+				color: var(--text-color);
+				transition: background-color 0.4s ease, color 0.4s ease;
+			}
+
+			.news-popup h4 {
+				margin-top: 0;
+				color: var(--secondary-color);
+				font-size: 1.5em;
+				display: flex;
+				align-items: center;
+				margin-bottom: 20px;
+			}
+
+			body.dark-mode .news-popup h4 {
+				color: var(--primary-color);
+			}
+
+			.news-popup h4 i {
+				margin-right: 10px;
+				color: var(--primary-color);
+			}
+
+			.news-popup .close-popup {
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				background: none;
+				border: none;
+				font-size: 1.8em;
+				cursor: pointer;
+				color: var(--text-color);
+				opacity: 0.7;
+				transition: opacity 0.2s ease;
+			}
+
+			.news-popup .close-popup:hover {
+				opacity: 1;
+			}
+
+			.news-popup .popup-content ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.news-popup .popup-content li {
+				margin-bottom: 15px;
+				padding-bottom: 10px;
+				border-bottom: 1px dashed var(--border-color);
+			}
+
+			.news-popup .popup-content li:last-child {
+				border-bottom: none;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+
+			.news-popup .popup-content li strong {
+				color: var(--primary-color);
+				font-size: 1.1em;
+				display: block;
+				margin-bottom: 5px;
+			}
+
+			body.dark-mode .news-popup .popup-content li strong {
+				color: var(--highlight-color);
+			}
+
+			/* Overlay for popup */
+			.overlay {
+				display: none;
+				/* Hidden by default */
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				/* Semi-transparent black */
+				z-index: 1001;
+				/* Below popup, above content */
+			}
+
+			/* Responsive adjustments */
+			@media (max-width: 1290px) {
+
+				/* Hide the large news box on small screens */
+				.news-box-container {
+					display: none;
+				}
+
+				/* Show the mobile news toggle button */
+				.news-toggle-button {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+
+			@media (max-width: 768px) {
+				body {
+					padding: 15px;
+				}
+
+				.container {
+					padding: 25px;
+				}
+
+				h1 {
+					font-size: 2.5em;
+				}
+
+				h2 {
+					font-size: 1.3em;
+				}
+
+				h3 {
+					font-size: 1.6em;
+				}
+
+				.project-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.links ul {
+					justify-content: center;
+				}
+
+				.theme-switch-wrapper {
+					justify-content: center;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.links a {
+					padding: 8px 12px;
+					font-size: 0.9em;
+				}
+
+				.project-card-image {
+					height: 150px;
+				}
+
+				.news-toggle-button {
+					width: 50px;
+					height: 50px;
+					font-size: 1.8em;
+					bottom: 15px;
+					right: 15px;
+				}
+
+				.news-badge {
+					width: 18px;
+					height: 18px;
+					font-size: 0.7em;
+				}
+
+				.news-popup {
+					padding: 20px;
+				}
+
+				.news-popup .close-popup {
+					font-size: 1.5em;
+				}
+
+				.news-popup h4 {
+					font-size: 1.3em;
+				}
+			}
+
+			/* Root color variables for RGB components for easier rgba() usage */
+			body {
+				--primary-color-rgb: 85, 197, 122;
+				/* 55c57a */
+			}
+
+			body.dark-mode {
+				--primary-color-rgb: 139, 233, 253;
+				/* 8be9fd */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main-wrapper">
+			<div class="container">
+				<div class="theme-switch-wrapper">
+					<label class="theme-switch" for="checkbox">
+						<input type="checkbox" id="checkbox" />
+						<div class="slider round"></div>
+					</label>
+					<em>Toggle Dark Mode</em>
+				</div>
+				<header class="header">
+					<img src="https://tamkungz.github.io/me.jpg" alt="TamKungZ_ Profile Image - A friendly developer ready to code!" class="profile-img">
+					<h1>TamKungZ_</h1>
+					<h2>Developer 🎮💻 | Coding & Minecraft Modding Wizard!</h2>
+					<div class="language-selector">
+						<select id="language-switcher">
+							<option value="en">English</option>
+							<option value="th">ภาษาไทย</option>
+						</select>
+					</div>
+				</header>
+				<section class="section">
+					<h3>
+						<i class="fas fa-user-circle"></i>
+						<span data-i18n="aboutMeTitle">About Me
+					</h3>
+					<p data-i18n="aboutMeContent"> Hi! I'm <strong>TamKungZ_</strong>. I'm a software developer specializing in <span class="highlight">C#, Java, Python, CSS, JS, HTML, and PHP.</span> I also create mods for Minecraft. </p>
+				</section>
+				<section class="section links">
+					<h3>
+						<i class="fas fa-share-alt"></i>
+						<span data-i18n="linksTitle">Links & Socials
+					</h3>
+					<ul>
+						<li>
+							<a href="https://tamkungz.github.io/" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-link"></i> My GitHub Page </a>
+						</li>
+						<li>
+							<a href="https://tamkungz.in.th/" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-globe"></i> My Personal Website </a>
+						</li>
+						<li>
+							<a href="https://maven.tamkungz.in.th/" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-cube"></i> My Maven Repository </a>
+						</li>
+						<li>
+							<a href="https://github.com/TamKungZ" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-github"></i> GitHub Profile </a>
+						</li>
+						<li>
+							<a href="https://x.com/TamKungZ_Dev" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-twitter"></i> Twitter/X </a>
+						</li>
+						<li>
+							<a href="mailto:kittiwut.pimpromma@gmail.com">
+								<i class="fas fa-envelope"></i> Email Me </a>
+						</li>
+						<li>
+							<a href="https://linktr.ee/TamKungZ_" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-tree"></i> Linktree </a>
+						</li>
+						<li>
+							<a href="https://instagram.com/tamkungz_" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-instagram"></i> Instagram </a>
+						</li>
+						<li>
+							<a href="https://tiktok.com/@tamkungz_" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-tiktok"></i> TikTok </a>
+						</li>
+						<li>
+							<a href="https://www.twitch.tv/tamkungz_" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-twitch"></i> Twitch </a>
+						</li>
+						<li>
+							<a href="https://www.facebook.com/TamKung.ZZ/" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-facebook-f"></i> Facebook </a>
+						</li>
+						<li>
+							<a href="https://www.reddit.com/user/Odd_Type_5342/" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-reddit"></i> Reddit </a>
+						</li>
+						<li>
+							<a href="https://discord.gg/UUhPA7HR" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-discord"></i> Discord Community </a>
+						</li>
+						<li>
+							<a href="https://gitlab.com/TamKungZ" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-gitlab"></i> GitLab </a>
+						</li>
+						<li>
+							<a href="https://leetcode.com/u/TamKungZ_/" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-code"></i> LeetCode Solver </a>
+						</li>
+						<li>
+							<a href="https://sketchfab.com/TamKungZ_" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-cube"></i> Sketchfab Models </a>
+						</li>
+						<li>
+							<a href="https://www.pixiv.net/users/107946376" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-paint-brush"></i> Pixiv Art </a>
+						</li>
+					</ul>
+					<h4>
+						<i class="fas fa-gamepad"></i>
+						<span data-i18n="moddingPlatformsTitle">Modding Platforms
+					</h4>
+					<ul>
+						<li>
+							<a href="https://www.curseforge.com/members/tamkungz_/projects" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-box-open"></i> CurseForge Projects </a>
+						</li>
+						<li>
+							<a href="https://modrinth.com/user/TamKungZ_" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-puzzle-piece"></i> Modrinth Profile </a>
+						</li>
+						<li>
+							<a href="https://next.nexusmods.com/profile/TamKungZ/mods" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-download"></i> Nexus Mods Page </a>
+						</li>
+						<li>
+							<a href="https://www.planetminecraft.com/member/tamkungz_/" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-tree"></i> Planet Minecraft Creations </a>
+						</li>
+						<li>
+							<a href="https://mcreator.net/user/686425/token" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-hammer"></i> MCreator Profile </a>
+						</li>
+					</ul>
+					<h4>
+						<i class="fas fa-heart"></i>
+						<span data-i18n="supportWorkTitle">Support My Work
+					</h4>
+					<ul>
+						<li>
+							<a href="https://www.patreon.com/c/TamKungZ" target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-patreon"></i> Patreon </a>
+						</li>
+						<li>
+							<a href="https://www.buymeacoffee.com/TamKungZ_" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-mug-hot"></i> Buy Me a Coffee </a>
+						</li>
+						<li>
+							<a href="https://ko-fi.com/tamkungz" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-coffee"></i> Ko-fi </a>
+						</li>
+					</ul>
+				</section>
+				<section class="section">
+					<h3>
+						<i class="fas fa-project-diagram"></i>
+						<span data-i18n="featuredProjectsTitle">Featured Projects (Minecraft Mods)
+					</h3>
+					<div class="project-grid">
+						<div class="project-card">
+							<img src="https://media.forgecdn.net/attachments/1172/484/lyfe-v2-png.png" alt="Let Your Friend Eating Mod Preview" class="project-card-image">
+							<h4>Let Your Friend Eating <span class="highlight">(Minecraft Utility Mod)</span>
+							</h4>
+							<p>A fun and helpful mod that adds the ability for other players to feed you directly, making cooperative play even more engaging!</p>
+							<div class="project-links">
+								<a href="https://www.curseforge.com/minecraft/mc-mods/letyourfriendeating" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> CurseForge </a>
+								<a href="https://modrinth.com/mod/let-your-friend-eating!" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> Modrinth </a>
+								<a href="https://github.com/TamKungZ/letyourfriendeating" target="_blank" rel="noopener noreferrer">
+									<i class="fab fa-github"></i> GitHub </a>
+							</div>
+						</div>
+						<div class="project-card">
+							<img src="https://cdn.modrinth.com/data/8N1pJGur/images/2d0b92152ad539019d34ca257014002636dd5a66.png" alt="Stardew Valley Food Mod Preview" class="project-card-image">
+							<h4>Stardew Valley Food <span class="highlight">(Minecraft Content Mod)</span>
+							</h4>
+							<p>Craving some pixelated farm-fresh goodness? This mod introduces a delightful array of delicious food items directly from the beloved game Stardew Valley into your Minecraft world!</p>
+							<div class="project-links">
+								<a href="https://www.curseforge.com/minecraft/mc-mods/stardew-valley-food" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> CurseForge </a>
+								<a href="https://modrinth.com/mod/stardew-valley-food" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> Modrinth </a>
+								<a href="https://github.com/TamKungZ/StardewValleyFood-MinecraftMod" target="_blank" rel="noopener noreferrer">
+									<i class="fab fa-github"></i> GitHub </a>
+							</div>
+						</div>
+						<div class="project-card">
+							<img src="https://cdn.modrinth.com/data/dbNTzFWE/images/a409c420ca8412ffcc09b4f54b6bb3486b34bef9.png" alt="Japan Props Mod Preview" class="project-card-image">
+							<h4>Japan Props <span class="highlight">(Minecraft Decoration Mod)</span>
+							</h4>
+							<p>Transform your builds into beautiful Japanese landscapes! This mod adds a variety of charming and authentic Japanese-style decorative props for all your architectural desires.</p>
+							<div class="project-links">
+								<a href="https://www.curseforge.com/minecraft/mc-mods/japan-props" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> CurseForge </a>
+								<a href="https://modrinth.com/mod/japan-props" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> Modrinth </a>
+							</div>
+						</div>
+						<div class="project-card">
+							<img src="https://tamkungz.github.io/droprateapi/image.png" alt="DropRateAPI Mod Preview" class="project-card-image">
+							<h4>DropRateAPI <span class="highlight">(Minecraft API Mod)</span>
+							</h4>
+							<p>A powerful and flexible API designed for developers to easily customize and fine-tune item drop rates within Minecraft, offering endless possibilities for game balance and unique experiences.</p>
+							<div class="project-links">
+								<a href="https://www.curseforge.com/minecraft/mc-mods/droprateapi" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> CurseForge </a>
+								<a href="https://tamkungz.github.io/droprateapi/" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-globe"></i> Website </a>
+								<a href="https://github.com/TamKungZ/droprateapi" target="_blank" rel="noopener noreferrer">
+									<i class="fab fa-github"></i> GitHub </a>
+							</div>
+						</div>
+						<div class="project-card">
+							<img src="https://media.forgecdn.net/attachments/410/193/2021-11-25_00.png" alt="Smooth Wood Mod Preview" class="project-card-image">
+							<h4>Smooth Wood <span class="highlight">(Minecraft Block Mod)</span>
+							</h4>
+							<p>Say goodbye to jagged edges! This mod introduces a collection of sleek and visually appealing wood blocks with smooth textures, perfect for modern builds and seamless designs.</p>
+							<div class="project-links">
+								<a href="https://www.curseforge.com/minecraft/mc-mods/smooth-wood" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> CurseForge </a>
+							</div>
+						</div>
+						<div class="project-card">
+							<img src="https://media.forgecdn.net/attachments/873/725/irecycle.png" alt="iRecycle Mod Preview" class="project-card-image">
+							<h4>iRecycle <span class="highlight">(Minecraft Utility Mod)</span>
+							</h4>
+							<p>Go green in Minecraft! iRecycle is a handy mod that allows you to recycle various items, giving you back resources and promoting sustainability within your blocky world.</p>
+							<div class="project-links">
+								<a href="https://www.curseforge.com/minecraft/mc-mods/irecycle" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> CurseForge </a>
+							</div>
+						</div>
+						<div class="project-card">
+							<img src="https://media.forgecdn.net/attachments/927/931/eac5a6c2f908759221ce7f3a13b622992ed5ae5f.png" alt="Impossible Item Crafting Mod Preview" class="project-card-image">
+							<h4>Impossible Item Crafting <span class="highlight">(Minecraft Challenge Mod)</span>
+							</h4>
+							<p>Are you up for a challenge? This mod introduces mind-bending and seemingly "impossible" item crafting recipes, pushing your creative limits and offering a unique twist to your survival experience!</p>
+							<div class="project-links">
+								<a href="https://www.curseforge.com/minecraft/mc-mods/impossible-item-crafting" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> CurseForge </a>
+							</div>
+						</div>
+						<div class="project-card">
+							<img src="https://cdn.modrinth.com/data/oRgKGxhT/images/01a864906946b8df0bfb97f06858f34c513c7e07.png" alt="InfoPlus Mod Preview" class="project-card-image">
+							<h4>InfoPlus <span class="highlight">(Minecraft Information Mod)</span>
+							</h4>
+							<p>Never be in the dark again! InfoPlus is a useful client-side mod that provides additional, real-time information about your surroundings, blocks, and entities, enhancing your gameplay knowledge.</p>
+							<div class="project-links">
+								<a href="https://modrinth.com/mod/infoplus" target="_blank" rel="noopener noreferrer">
+									<i class="fas fa-link"></i> Modrinth </a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section">
+					<h3>
+						<i class="fas fa-archive"></i> Abandoned/On Hold Projects
+					</h3>
+					<p> These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating, feel free to reach out! </p>
+					<div class="project-grid">
+						<div class="project-card abandoned">
+							<img src="image/373150250-be244527-4522-400d-8a9e-b0c66693a6de.png" alt="Auto Piano Player Python Preview" class="project-card-image">
+							<h4>Auto Piano Player (Python) <span class="status-tag">On Hold</span>
+							</h4>
+							<p>This intriguing project aims to create a Python program capable of automatically playing piano. It's perfect for those looking to explore software control and musical creation.</p>
+							<div class="project-links">
+								<a href="https://github.com/TamKungZ/Auto-Piano-Player-Python" target="_blank" rel="noopener noreferrer">
+									<i class="fab fa-github"></i> GitHub </a>
+							</div>
+						</div>
+						<div class="project-card abandoned">
+							<img src="image/340617292-4dfa0146-e758-4d86-bb30-43f84ca33443.png" alt="NPCMaker-CS Preview" class="project-card-image">
+							<h4>NPCMaker-CS <span class="highlight">(Stardew SMAPI NPC Maker Content Patcher)</span>
+								<span class="status-tag">On Hold</span>
+							</h4>
+							<p>A tool for Stardew Valley designed to significantly simplify the process of creating new NPCs (Non-Player Characters) for SMAPI's Content Patcher mods.</p>
+							<div class="project-links">
+								<a href="https://github.com/TamKungZ/NPCMaker-CS" target="_blank" rel="noopener noreferrer">
+									<i class="fab fa-github"></i> GitHub </a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<footer>
+					<p>Crafted with by TamKungZ_ &copy; 2024. All rights reserved.</p>
+					<p>Let's keep building amazing things together!</p>
+					<i style="font-family: 'Kanit', sans-serif;">ผมเป็นคนไทยนะ :b</i>
+				</footer>
+			</div>
+			<div class="news-box-container">
+				<div class="news-box">
+					<h4>
+						<i class="fas fa-newspaper"></i>
+						<span data-i18n="newsPopupTitle">News & Announcements</span>
+					</h4>
+					<div class="popup-content">
+						<ul>
+							<li data-i18n="news1_full">
+								<strong>June 29, 2025:</strong> The <span class="highlight">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!
+							</li>
+							<li data-i18n="news2_full">
+								<strong>June 29, 2025:</strong> Good news! Development on <span class="highlight">Japan Props</span> will resume. It might take a while, but it's definitely coming back!
+							</li>
+							<li data-i18n="news3_full">
+								<strong>June 7, 2025:</strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!
+							</li>
+							<li data-i18n="news4_full">
+								<strong>May 19, 2025:</strong>
+								<span class="highlight">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.
+							</li>
+							<li data-i18n="news5_full">
+								<strong>May 9, 2025:</strong>
+								<span class="highlight">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.
+							</li>
+							<li data-i18n="news6_full">
+								<strong>2024:</strong> Development on the <span class="highlight">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<button class="news-toggle-button" id="newsToggleButton">
+				<i class="fas fa-exclamation-triangle"></i>
+				<span class="news-badge" id="newsBadge">!</span>
+			</button>
+			<div class="news-popup" id="newsPopup">
+				<button class="close-popup" id="closePopupButton">&times;</button>
+				<h4>
+					<i class="fas fa-newspaper"></i>
+					<span data-i18n="newsPopupTitle">News & Announcements</span>
+				</h4>
+				<div class="popup-content">
+					<ul>
+						<li data-i18n="news1_full">
+							<strong>June 29, 2025:</strong> The <span class="highlight">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!
+						</li>
+						<li data-i18n="news2_full">
+							<strong>June 29, 2025:</strong> Good news! Development on <span class="highlight">Japan Props</span> will resume. It might take a while, but it's definitely coming back!
+						</li>
+						<li data-i18n="news3_full">
+							<strong>June 7, 2025:</strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!
+						</li>
+						<li data-i18n="news4_full">
+							<strong>May 19, 2025:</strong>
+							<span class="highlight">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.
+						</li>
+						<li data-i18n="news5_full">
+							<strong>May 9, 2025:</strong>
+							<span class="highlight">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.
+						</li>
+						<li data-i18n="news6_full">
+							<strong>2024:</strong> Development on the <span class="highlight">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="overlay" id="overlay"></div>
+			<script>
+				// Theme toggle (จากโค้ดเดิมของคุณ)
+				const toggleSwitch = document.getElementById('checkbox');
+				const currentTheme = localStorage.getItem('theme');
+				if (currentTheme) {
+					document.body.classList.add(currentTheme);
+					if (currentTheme === 'dark-mode') {
+						toggleSwitch.checked = true;
+					}
+				}
+				toggleSwitch.addEventListener('change', function() {
+					if (this.checked) {
+						document.body.classList.add('dark-mode');
+						localStorage.setItem('theme', 'dark-mode');
+					} else {
+						document.body.classList.remove('dark-mode');
+						localStorage.setItem('theme', 'light-mode');
+					}
+				});
+				// --- Localization Script ---
+				const translations = {
+					en: {
+						aboutMeTitle: "About Me",
+						aboutMeContent: "Hi! I'm  < strong > TamKungZ_ < /strong>. I'm a software developer specializing in  < span class = \"highlight\">C#, Java, Python, CSS, JS, HTML, and PHP.</span> I also create mods for Minecraft.",
+						linksTitle: "Links & Socials",
+						moddingPlatformsTitle: "Modding Platforms",
+						supportWorkTitle: "Support My Work",
+						featuredProjectsTitle: "Featured Projects (Minecraft Mods)",
+						lyfeTitle: "Let Your Friend Eating",
+						lyfeType: "(Minecraft Utility Mod)",
+						lyfeDescription: "A fun and helpful mod that adds the ability for other players to feed you directly, making cooperative play even more engaging!",
+						stardewTitle: "Stardew Valley Food",
+						stardewType: "(Minecraft Content Mod)",
+						stardewDescription: "Craving some pixelated farm-fresh goodness? This mod introduces a delightful array of delicious food items directly from the beloved game Stardew Valley into your Minecraft world!",
+						japanPropsTitle: "Japan Props",
+						japanPropsType: "(Minecraft Decoration Mod)",
+						japanPropsDescription: "Transform your builds into beautiful Japanese landscapes! This mod adds a variety of charming and authentic Japanese-style decorative props for all your architectural desires.",
+						dropRateApiTitle: "DropRateAPI",
+						dropRateApiType: "(Minecraft API Mod)",
+						dropRateApiDescription: "A powerful and flexible API designed for developers to easily customize and fine-tune item drop rates within Minecraft, offering endless possibilities for game balance and unique experiences.",
+						newsPopupTitle: "News & Announcements",
+						news1_full: " < strong > June 29,
+						2025: < /strong> The  < span class = \"highlight\">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!",
+						news2_full: " < strong > June 29,
+						2025: < /strong> Good news! Development on  < span class = \"highlight\">Japan Props</span> will resume. It might take a while, but it's definitely coming back!",
+						news3_full: " < strong > June 7,
+						2025: < /strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!",
+						news4_full: " < strong > May 19,
+						2025: < /strong> < span class = \"highlight\">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.",
+						news5_full: " < strong > May 9,
+						2025: < /strong> < span class = \"highlight\">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.",
+						news6_full: " < strong > 2024: < /strong> Development on the  < span class = \"highlight\">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued."
+					},
+					th: {
+						aboutMeTitle: "เกี่ยวกับฉัน",
+						aboutMeContent: "สวัสดี! ผมคือ  < strong > TamKungZ_ < /strong> ผมเป็นนักพัฒนาซอฟต์แวร์ที่เชี่ยวชาญด้าน  < span class = \"highlight\">C#, Java, Python, CSS, JS, HTML, และ PHP</span> ผมยังสร้าง Mod สำหรับ Minecraft ด้วย",
+						linksTitle: "ลิงก์และโซเชียล",
+						moddingPlatformsTitle: "แพลตฟอร์ม Modding",
+						supportWorkTitle: "สนับสนุนผลงานของฉัน",
+						featuredProjectsTitle: "โปรเจกต์เด่น (Minecraft Mods)",
+						lyfeTitle: "Let Your Friend Eating",
+						lyfeType: "(ม็อด Utility ของ Minecraft)",
+						lyfeDescription: "ม็อดที่สนุกและเป็นประโยชน์ที่เพิ่มความสามารถให้ผู้เล่นคนอื่นให้อาหารคุณได้โดยตรง ทำให้การเล่นแบบร่วมมือกันสนุกยิ่งขึ้น!",
+						stardewTitle: "Stardew Valley Food",
+						stardewType: "(ม็อดเนื้อหาของ Minecraft)",
+						stardewDescription: "อยากได้อาหารสดใหม่จากฟาร์มสไตล์พิกเซลไหม? ม็อดนี้เพิ่มเมนูอาหารอร่อยๆ จากเกม Stardew Valley ที่คุณชื่นชอบเข้ามาในโลก Minecraft ของคุณ!",
+						japanPropsTitle: "Japan Props",
+						japanPropsType: "(ม็อดตกแต่งของ Minecraft)",
+						japanPropsDescription: "เปลี่ยนสิ่งก่อสร้างของคุณให้กลายเป็นทิวทัศน์ญี่ปุ่นที่สวยงาม! ม็อดนี้เพิ่มของตกแต่งสไตล์ญี่ปุ่นที่น่ารักและแท้จริงหลากหลายชนิดสำหรับความต้องการทางสถาปัตยกรรมของคุณ",
+						dropRateApiTitle: "DropRateAPI",
+						dropRateApiType: "(ม็อด API ของ Minecraft)",
+						dropRateApiDescription: "API ที่ทรงพลังและยืดหยุ่น ออกแบบมาสำหรับนักพัฒนาเพื่อปรับแต่งอัตราการดรอปไอเท็มใน Minecraft ได้อย่างง่ายดาย มอบความเป็นไปได้ไม่รู้จบสำหรับการปรับสมดุลเกมและประสบการณ์ที่ไม่เหมือนใคร",
+						newsPopupTitle: "ข่าวสารและประกาศ",
+						news1_full: " < strong > 29 มิถุนายน 2568: < /strong> แพ็คทรัพยากร  < span class = \"highlight\">Smooth Wood (HD) [ยกเลิก]</span> ได้รับการอัปเดตเพื่อรองรับ Minecraft เวอร์ชันล่าสุดแล้ว!",
+						news2_full: " < strong > 29 มิถุนายน 2568: < /strong> ข่าวดี! การพัฒนา  < span class = \"highlight\">Japan Props</span> จะกลับมาดำเนินการต่อ อาจใช้เวลานานหน่อย แต่กลับมาแน่นอน!",
+						news3_full: " < strong > 7 มิถุนายน 2568: < /strong> พักการพัฒนาเป็นเวลานาน หมดไฟ สุขภาพและคอมพิวเตอร์ไม่ดี หวังว่าจะกลับมาเร็วๆ นี้!",
+						news4_full: " < strong > 19 พฤษภาคม 2568: < /strong> < span class = \"highlight\">Let Your Friend Eating!</span> เวอร์ชัน 1.0.4 LTS ออกแล้ว! นี่อาจเป็นการอัปเดตครั้งสำคัญครั้งสุดท้าย โดยการอัปเดตในอนาคตจะเน้นที่การแก้ไขข้อบกพร่องเป็นหลัก",
+						news5_full: " < strong > 9 พฤษภาคม 2568: < /strong> < span class = \"highlight\">Stardew Valley Food</span> เวอร์ชัน 0.3.2 พร้อมใช้งานแล้ว! นี่คือเวอร์ชันที่ดีที่สุดเท่าที่เคยมีมา รองรับทั้งการแลกเปลี่ยนกับ NPC และสูตรคราฟในเวลาเดียวกัน",
+						news6_full: " < strong > 2567: < /strong> การพัฒนาโปรเจกต์  < span class = \"highlight\">Smooth Wood (HD) [ยกเลิก]</span> ได้ถูกยุติอย่างเป็นทางการแล้ว"
+					}
+					// เพิ่มภาษาอื่นๆ ที่นี่
+				};
+				const languageSwitcher = document.getElementById('language-switcher');
+				// Function to set the page language
+				function setLanguage(lang) {
+					document.querySelectorAll('[data-i18n]').forEach(element => {
+							const key = element.getAttribute('data-i18n');
+							if (translations[lang] && translations[lang][key]) {
+								// Use innerHTML to allow for HTML tags within the translation (e.g., 
+								< strong > , < span > )
+							element.innerHTML = translations[lang][key];
+						}
+					});
+				// Update document title
+				const titleElement = document.querySelector('title');
+				if (titleElement) {
+					titleElement.textContent = translations[lang]['tagline'] || "TamKungZ_ - Developer & Minecraft Modder Extraordinaire! | C#, Java, Python, C++"; // Fallback
+				}
+				// Save selected language to localStorage
+				localStorage.setItem('selectedLanguage', lang);
+				// Update the dropdown to show the current language
+				languageSwitcher.value = lang;
+				}
+				// Load saved language or default to English
+				const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+				setLanguage(savedLanguage);
+				// Event listener for language change
+				languageSwitcher.addEventListener('change', (event) => {
+					setLanguage(event.target.value);
+				});
+				// --- News Box/Popup Toggle (จากโค้ดเดิมของคุณ) ---
+				const newsBoxContainer = document.querySelector('.news-box-container');
+				const newsToggleButton = document.querySelector('.news-toggle-button');
+				const newsPopup = document.querySelector('.news-popup');
+				const closePopupButton = document.querySelector('.close-popup');
+				const overlay = document.querySelector('.overlay');
+				const newsBadge = document.querySelector('.news-badge');
+				// Function to check if there are news items
+				function hasNews() {
+					const newsItems = newsBoxContainer ? newsBoxContainer.querySelectorAll('li').length : 0;
+					const popupNewsItems = newsPopup ? newsPopup.querySelectorAll('.popup-content li').length : 0;
+					return newsItems > 0 || popupNewsItems > 0;
+				}
+				// Show/hide news badge based on news content
+				if (hasNews()) {
+					if (newsBadge) newsBadge.classList.remove('hidden');
+				} else {
+					if (newsBadge) newsBadge.classList.add('hidden');
+				}
+				newsToggleButton.addEventListener('click', () => {
+					if (newsPopup) {
+						newsPopup.style.display = 'block';
+						overlay.style.display = 'block';
+						if (newsBadge) newsBadge.classList.add('hidden'); // Hide badge when popup is opened
+					}
+				});
+				closePopupButton.addEventListener('click', () => {
+					if (newsPopup) {
+						newsPopup.style.display = 'none';
+						overlay.style.display = 'none';
+						if (hasNews()) { // Show badge again if there's news and popup is closed
+							newsBadge.classList.remove('hidden');
+						}
+					}
+				});
+				overlay.addEventListener('click', () => {
+					if (newsPopup) {
+						newsPopup.style.display = 'none';
+						overlay.style.display = 'none';
+						if (hasNews()) { // Show badge again if there's news and popup is closed
+							newsBadge.classList.remove('hidden');
+						}
+					}
+				});
+			</script>
+		</div>
+	</body>
 </html>
