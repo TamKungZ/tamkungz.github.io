@@ -1,0 +1,125 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "th.tamkungz",
+    "module": "letyourfriendeating-neoforge",
+    "version": "1.0.4",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "me.shedaniel.cloth",
+          "module": "cloth-config-neoforge",
+          "version": {
+            "requires": "18.0.145"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "letyourfriendeating-neoforge-1.0.4.jar",
+          "url": "letyourfriendeating-neoforge-1.0.4.jar",
+          "size": 70840,
+          "sha512": "71910bfdf3a178b758add4d10b1720ecc086dbf10233dc1e03745c0cdc4a9b0a49657c334a8e04ea33f967f3c224337b6fc46b5055a6a3598fe3e6f0e3d69af7",
+          "sha256": "8b1417af625fa6fc3e423806bcecef84b62fa5738d12acd972ce166cd6d74025",
+          "sha1": "d5de975f0d8c20a56e16b82d0b5a335f46799225",
+          "md5": "681efd4b3e3b588d5a18e471555cbec4"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "net.neoforged",
+          "module": "neoforge",
+          "version": {
+            "requires": "21.5.81"
+          }
+        },
+        {
+          "group": "me.shedaniel.cloth",
+          "module": "cloth-config-neoforge",
+          "version": {
+            "requires": "18.0.145"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "letyourfriendeating-neoforge-1.0.4.jar",
+          "url": "letyourfriendeating-neoforge-1.0.4.jar",
+          "size": 70840,
+          "sha512": "71910bfdf3a178b758add4d10b1720ecc086dbf10233dc1e03745c0cdc4a9b0a49657c334a8e04ea33f967f3c224337b6fc46b5055a6a3598fe3e6f0e3d69af7",
+          "sha256": "8b1417af625fa6fc3e423806bcecef84b62fa5738d12acd972ce166cd6d74025",
+          "sha1": "d5de975f0d8c20a56e16b82d0b5a335f46799225",
+          "md5": "681efd4b3e3b588d5a18e471555cbec4"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "letyourfriendeating-neoforge-1.0.4-sources.jar",
+          "url": "letyourfriendeating-neoforge-1.0.4-sources.jar",
+          "size": 62810,
+          "sha512": "f8222a1377b3554b36338c0840cb59b09ae23aaf36e1539d2569d0e1b40c71cf62bd3ff6b7eb7e64f48f0923617b858781680568dbc8bcac666d6608c29d0045",
+          "sha256": "0ef3ca554b97606ae72fc1ad1da457da92ca756bede2e2bd0e9a0a092c3a09d5",
+          "sha1": "279c9fa6ec2fa7c7e8f3f7669355927c88c17122",
+          "md5": "9726a1481a201d8ce2f27b4525b22a6a"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "letyourfriendeating-neoforge-1.0.4-javadoc.jar",
+          "url": "letyourfriendeating-neoforge-1.0.4-javadoc.jar",
+          "size": 104619,
+          "sha512": "1ce97af8ee143be92a93ede54406f97f2d5db776b2fd469031203a1fa68f687e88890563227d6417d49458925ae88914ef172528fb5442039b5f9b740795533a",
+          "sha256": "1bc5313a24b8dec8d59893c36537d2a733819f57f849525d98e82bc97f2cd94a",
+          "sha1": "ced3ac81be00b40bd0787877b036c953306755aa",
+          "md5": "a7dfa59f60cad0a9d66712962b70832f"
+        }
+      ]
+    }
+  ]
+}
