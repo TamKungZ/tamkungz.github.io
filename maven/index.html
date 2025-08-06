@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>File Index</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      margin: 0.5em 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>File Index: /maven</h1>
+  <ul id="file-list">Loading...</ul>
+
+  <script>
+    const owner = "TamKungZ"; // GitHub username
+    const repo = "tamkungz.github.io"; // Repository name
+    const path = "maven"; // Path you want to list
+
+    async function fetchFileList() {
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const fileList = document.getElementById("file-list");
+      fileList.innerHTML = "";
+
+      if (Array.isArray(data)) {
+        data.forEach(item => {
+          const li = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = item.download_url ?? item.html_url;
+          link.textContent = item.name;
+          link.target = "_blank";
+          li.appendChild(link);
+          fileList.appendChild(li);
+        });
+      } else {
+        fileList.innerHTML = "<li>Error loading file list.</li>";
+        console.error(data);
+      }
+    }
+
+    fetchFileList();
+  </script>
+</body>
+</html>
