@@ -16,6 +16,7 @@ This GitHub Pages site hosts my public Maven repository and documentation for my
 You can include my Maven repo in your build script like this:
 
 Gradle
+
 `maven { url "https://tamkungz.github.io/maven/" }`
 
 Example Dependency
