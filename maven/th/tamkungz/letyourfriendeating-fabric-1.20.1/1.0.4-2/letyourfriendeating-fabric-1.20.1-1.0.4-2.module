@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "th.tamkungz",
+    "module": "letyourfriendeating-fabric-1.20.1",
+    "version": "1.0.4-2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.12.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "me.shedaniel.cloth",
+          "module": "cloth-config-fabric",
+          "version": {
+            "requires": "11.1.136"
+          },
+          "excludes": [
+            {
+              "group": "net.fabricmc.fabric-api",
+              "module": "*"
+            }
+          ]
+        },
+        {
+          "group": "com.terraformersmc",
+          "module": "modmenu",
+          "version": {
+            "requires": "7.2.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "letyourfriendeating-fabric-1.20.1-1.0.4-2.jar",
+          "url": "letyourfriendeating-fabric-1.20.1-1.0.4-2.jar",
+          "size": 130136,
+          "sha512": "297eaaa4e1c01433e96d9ecc7e6eee97536c47efcd120570f8df5cb114f7cb206b01ff759f4f041eff82f0cc1c4635592519e1699eb6dbfe6b73afd212ab192b",
+          "sha256": "ca331efeb34a8d204e428ccdcbdd8cc3f4ef2b284865c663ea0c3b59427ed5fb",
+          "sha1": "ae7fd464d0dc3c66d93bd4640c81f288cbba0bf0",
+          "md5": "0c280ac38a6dda3cf0b3790421f24567"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "me.shedaniel.cloth",
+          "module": "cloth-config-fabric",
+          "version": {
+            "requires": "11.1.136"
+          },
+          "excludes": [
+            {
+              "group": "net.fabricmc.fabric-api",
+              "module": "*"
+            }
+          ]
+        },
+        {
+          "group": "com.terraformersmc",
+          "module": "modmenu",
+          "version": {
+            "requires": "7.2.2"
+          }
+        },
+        {
+          "group": "net.fabricmc",
+          "module": "fabric-loader",
+          "version": {
+            "requires": "0.16.10"
+          }
+        },
+        {
+          "group": "net.fabricmc.fabric-api",
+          "module": "fabric-api",
+          "version": {
+            "requires": "0.92.6+1.20.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "letyourfriendeating-fabric-1.20.1-1.0.4-2.jar",
+          "url": "letyourfriendeating-fabric-1.20.1-1.0.4-2.jar",
+          "size": 130136,
+          "sha512": "297eaaa4e1c01433e96d9ecc7e6eee97536c47efcd120570f8df5cb114f7cb206b01ff759f4f041eff82f0cc1c4635592519e1699eb6dbfe6b73afd212ab192b",
+          "sha256": "ca331efeb34a8d204e428ccdcbdd8cc3f4ef2b284865c663ea0c3b59427ed5fb",
+          "sha1": "ae7fd464d0dc3c66d93bd4640c81f288cbba0bf0",
+          "md5": "0c280ac38a6dda3cf0b3790421f24567"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "letyourfriendeating-fabric-1.20.1-1.0.4-2-sources.jar",
+          "url": "letyourfriendeating-fabric-1.20.1-1.0.4-2-sources.jar",
+          "size": 116863,
+          "sha512": "990436137e84bd8416140ab1f96878e4574e5193de1fdd9929ea14672ed117b9f4ba8e6aecc6649f3d6efdf3fd7dfdcebd18118aee2ed7bbd07a10e955be2e9c",
+          "sha256": "943b86934744548be44aae652308bc3655b196d14ca1f023ed9a42b5f6dfeefa",
+          "sha1": "5020bdae3832c1a3be15b955fc06ccfb135e6025",
+          "md5": "b66f7398353bf12cd224158118b8edcf"
+        }
+      ]
+    }
+  ]
+}
