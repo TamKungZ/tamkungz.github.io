@@ -49,11 +49,11 @@
         {
           "name": "letyourfriendeating-fabric-1.20.1-1.0.4-2.jar",
           "url": "letyourfriendeating-fabric-1.20.1-1.0.4-2.jar",
-          "size": 130136,
-          "sha512": "297eaaa4e1c01433e96d9ecc7e6eee97536c47efcd120570f8df5cb114f7cb206b01ff759f4f041eff82f0cc1c4635592519e1699eb6dbfe6b73afd212ab192b",
-          "sha256": "ca331efeb34a8d204e428ccdcbdd8cc3f4ef2b284865c663ea0c3b59427ed5fb",
-          "sha1": "ae7fd464d0dc3c66d93bd4640c81f288cbba0bf0",
-          "md5": "0c280ac38a6dda3cf0b3790421f24567"
+          "size": 130058,
+          "sha512": "2767894f23a0407767da78a81d87e3d58cd7370557bd7d26980e9a4cac5e318fb897baa08a8ecc2f9b6fb6a0fa348391e46c86fee135d3f1e040c07e02193b54",
+          "sha256": "813f16d3620adcab27776b43930c9d32e5383ba2b0f7ddaa8abc7feb96890bfe",
+          "sha1": "b163d159b56590fc2ad225a5f38fd09107aa23eb",
+          "md5": "44e617dc8ebd826d08e5d2de08835907"
         }
       ]
     },
@@ -106,11 +106,11 @@
         {
           "name": "letyourfriendeating-fabric-1.20.1-1.0.4-2.jar",
           "url": "letyourfriendeating-fabric-1.20.1-1.0.4-2.jar",
-          "size": 130136,
-          "sha512": "297eaaa4e1c01433e96d9ecc7e6eee97536c47efcd120570f8df5cb114f7cb206b01ff759f4f041eff82f0cc1c4635592519e1699eb6dbfe6b73afd212ab192b",
-          "sha256": "ca331efeb34a8d204e428ccdcbdd8cc3f4ef2b284865c663ea0c3b59427ed5fb",
-          "sha1": "ae7fd464d0dc3c66d93bd4640c81f288cbba0bf0",
-          "md5": "0c280ac38a6dda3cf0b3790421f24567"
+          "size": 130058,
+          "sha512": "2767894f23a0407767da78a81d87e3d58cd7370557bd7d26980e9a4cac5e318fb897baa08a8ecc2f9b6fb6a0fa348391e46c86fee135d3f1e040c07e02193b54",
+          "sha256": "813f16d3620adcab27776b43930c9d32e5383ba2b0f7ddaa8abc7feb96890bfe",
+          "sha1": "b163d159b56590fc2ad225a5f38fd09107aa23eb",
+          "md5": "44e617dc8ebd826d08e5d2de08835907"
         }
       ]
     },
@@ -126,11 +126,11 @@
         {
           "name": "letyourfriendeating-fabric-1.20.1-1.0.4-2-sources.jar",
           "url": "letyourfriendeating-fabric-1.20.1-1.0.4-2-sources.jar",
-          "size": 116863,
-          "sha512": "990436137e84bd8416140ab1f96878e4574e5193de1fdd9929ea14672ed117b9f4ba8e6aecc6649f3d6efdf3fd7dfdcebd18118aee2ed7bbd07a10e955be2e9c",
-          "sha256": "943b86934744548be44aae652308bc3655b196d14ca1f023ed9a42b5f6dfeefa",
-          "sha1": "5020bdae3832c1a3be15b955fc06ccfb135e6025",
-          "md5": "b66f7398353bf12cd224158118b8edcf"
+          "size": 116912,
+          "sha512": "dc90413a9f494c1661f70a47ed43c67730f938a1e21412559e71ee5db9b24ca9429b55a5facf272a820f964877005c541ed2e6f2000d82e4d9d819d1bba32247",
+          "sha256": "ad2ed1e7a839ac17303a3c514442341c650c68a829ccadc275312a7e1a5c35dc",
+          "sha1": "12a851d2a89e10f943310367730d88870695becf",
+          "md5": "ad3cec078cf9f0bf9c0d5fa1ecb222af"
         }
       ]
     }
