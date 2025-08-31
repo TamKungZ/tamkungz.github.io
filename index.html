@@ -112,14 +112,16 @@
             
             <section class="section">
                 <h3><i class="fas fa-cogs"></i> <span data-i18n="mavenTitle">Maven Repository</span></h3>
+                
                 <div class="code-block">
                     <h4>Gradle</h4>
-                    <button class="copy-btn" onclick="copyCode(this, 'maven { url \"https://tamkungz.github.io/maven/\" }')"><i class="far fa-copy"></i> Copy</button>
+                    <button class="copy-btn"><i class="far fa-copy"></i> Copy</button>
                     <pre><code>maven { url "https://tamkungz.github.io/maven/" }</code></pre>
                 </div>
+            
                 <div class="code-block">
                     <h4>Example Dependency (NeoForge)</h4>
-                    <button class="copy-btn" onclick="copyCode(this, 'implementation \"th.tamkungz:letyourfriendeating-neoforge:1.0.4\"')"><i class="far fa-copy"></i> Copy</button>
+                    <button class="copy-btn"><i class="far fa-copy"></i> Copy</button>
                     <pre><code>implementation "th.tamkungz:letyourfriendeating-neoforge:1.0.4"</code></pre>
                 </div>
             </section>
@@ -360,6 +362,25 @@
         } catch (err) {}
         document.body.removeChild(textArea);
     }
+</script>
+<script>
+document.querySelectorAll('.copy-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const code = button.parentElement.querySelector('code').innerText.trim();
+
+        // ใช้ Clipboard API (ทันสมัยกว่า document.execCommand)
+        navigator.clipboard.writeText(code).then(() => {
+            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.innerHTML = '<i class="far fa-copy"></i> Copy';
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Copy failed:', err);
+        });
+    });
+});
 </script>
 </body>
 </html>
