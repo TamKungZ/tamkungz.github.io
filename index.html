@@ -279,6 +279,7 @@
     </footer>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script>
     // --- Dark Mode Toggle ---
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
@@ -302,6 +303,63 @@
 
     // --- Set current year in footer ---
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- i18n system: Load translations from CSV ---
+    // 1. Prepare translations object
+    let translations = {};
+    const languageSwitcher = document.getElementById('language-switcher');
+
+    // 2. Load CSV file
+    Papa.parse('translations.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            // results.data: array of {key,en,th,...}
+            translations = {};
+            results.data.forEach(row => {
+                if (row.key) translations[row.key] = row;
+            });
+            // Load saved language or default to English
+            const savedLang = localStorage.getItem('language') || 'en';
+            setLanguage(savedLang);
+            languageSwitcher.value = savedLang;
+        }
+    });
+
+    // 3. Set language and update DOM
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[key] && translations[key][lang]) {
+                el.innerHTML = translations[key][lang];
+            }
+        });
+        document.documentElement.lang = lang;
+        localStorage.setItem('language', lang);
+    }
+
+    // 4. Listen for change
+    languageSwitcher.addEventListener('change', function(e) {
+        setLanguage(e.target.value);
+    });
+
+    // --- Copy to Clipboard ---
+    function copyCode(button, text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.innerHTML = '<i class="far fa-copy"></i> Copy';
+                button.classList.remove('copied');
+            }, 2000);
+        } catch (err) {}
+        document.body.removeChild(textArea);
+    }
 </script>
 </body>
 </html>
