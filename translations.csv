@@ -1,12 +1,10 @@
 key,en,th
-tagline,Developer 🎮💻 | Coding & Minecraft Modding Wizard!,นักพัฒนา 🎮💻 | สาย Coding & Mod Minecraft
+role,Developer | Programming & Creative Tools,นักพัฒนา | การเขียนโปรแกรมและเครื่องมือสร้างสรรค์
 aboutMeTitle,About Me,เกี่ยวกับฉัน
-aboutMeContent,"Hi! I'm <strong>TamKungZ_</strong>. I'm a software developer specializing in <span class='highlight'>C#, Java, Python, CSS, JS, HTML, and PHP.</span> I also create mods for Minecraft.","สวัสดี! ผม <strong>TamKungZ_</strong> เป็นนักพัฒนาซอฟต์แวร์ที่เชี่ยวชาญ <span class='highlight'>C#, Java, Python, CSS, JS, HTML, PHP</span> และสร้างม็อด Minecraft"
-linksTitle,Links & Socials,ลิงก์และโซเชียล
-moddingPlatformsTitle,Modding Platforms,แพลตฟอร์ม Modding
-supportWorkTitle,Support My Work,สนับสนุนผลงานของฉัน
-featuredProjectsTitle,Featured Projects (Minecraft Mods),โปรเจกต์เด่น (Minecraft Mods)
-githubPage,My GitHub Page,หน้ากิตฮับของฉัน
-personalWebsite,My Personal Website,เว็บไซต์ส่วนตัว
-mavenRepo,My Maven Repository,Maven Repository ของฉัน
-newsTitle,News & Announcements,ข่าวสารและประกาศ
+aboutMeContent,Hello, I'm <strong>TamKungZ_</strong>. I work with various programming languages, engines, and creative tools.,สวัสดีครับ ผมคือ <strong>TamKungZ_</strong> ทำงานกับภาษาการเขียนโปรแกรม เอนจิ้น และเครื่องมือสร้างสรรค์หลากหลาย
+skillsTitle,Skills & Tools,ทักษะและเครื่องมือ
+skillsLanguages,Languages & Scripting:,ภาษาและสคริปต์:
+skillsEngines,Game Engines:,เอนจิ้นเกม:
+skillsArt,Art & Design:,ศิลปะและการออกแบบ:
+skillsAudio,Audio & Video:,เสียงและวิดีโอ:
+skillsOther,Other Tools:,เครื่องมืออื่น ๆ:
