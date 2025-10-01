@@ -1,0 +1,90 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "th.in.tamkungz",
+    "module": "magicsrebirthlib-forge",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.8"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "magicsrebirthlib-forge-1.0.0.jar",
+          "url": "magicsrebirthlib-forge-1.0.0.jar",
+          "size": 95607,
+          "sha512": "badf2a09e67e906be12d523edb97ef0b8587a7ea2ce5d9346bfb079cc384e14c7d79c2ea5ec7a2d599eea89147f027e13c513ac8c0ded121e9054655f15cc8fc",
+          "sha256": "198e79ceb3042c564c63076242f282a28669423b61f11e3bd82dc5c9503640ed",
+          "sha1": "369489315077d66b558212946a921223dae63c97",
+          "md5": "0b49541b43ca28785a46500092c6a5b2"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.github.arcnor",
+          "module": "universal-tween-engine",
+          "version": {
+            "requires": "6.3.4"
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx",
+          "version": {
+            "requires": "1.13.5"
+          }
+        },
+        {
+          "group": "org.joml",
+          "module": "joml",
+          "version": {
+            "requires": "1.10.8"
+          }
+        },
+        {
+          "group": "net.minecraftforge",
+          "module": "forge",
+          "version": {
+            "requires": "1.20.1-47.3.0_mapped_official_1.20.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "magicsrebirthlib-forge-1.0.0.jar",
+          "url": "magicsrebirthlib-forge-1.0.0.jar",
+          "size": 95607,
+          "sha512": "badf2a09e67e906be12d523edb97ef0b8587a7ea2ce5d9346bfb079cc384e14c7d79c2ea5ec7a2d599eea89147f027e13c513ac8c0ded121e9054655f15cc8fc",
+          "sha256": "198e79ceb3042c564c63076242f282a28669423b61f11e3bd82dc5c9503640ed",
+          "sha1": "369489315077d66b558212946a921223dae63c97",
+          "md5": "0b49541b43ca28785a46500092c6a5b2"
+        }
+      ]
+    }
+  ]
+}
