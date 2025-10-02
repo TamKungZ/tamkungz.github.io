@@ -27,11 +27,11 @@
         {
           "name": "magicsrebirthlib-forge-1.0.0.jar",
           "url": "magicsrebirthlib-forge-1.0.0.jar",
-          "size": 95607,
-          "sha512": "badf2a09e67e906be12d523edb97ef0b8587a7ea2ce5d9346bfb079cc384e14c7d79c2ea5ec7a2d599eea89147f027e13c513ac8c0ded121e9054655f15cc8fc",
-          "sha256": "198e79ceb3042c564c63076242f282a28669423b61f11e3bd82dc5c9503640ed",
-          "sha1": "369489315077d66b558212946a921223dae63c97",
-          "md5": "0b49541b43ca28785a46500092c6a5b2"
+          "size": 95646,
+          "sha512": "0e446a01396852e71dd05aff38da9ce5dd6f7953edb83c72e22ebecec2fb293c6bb6c3ab4167c5a48a55884f42ecd5eed735deddb45175410241250054faaee4",
+          "sha256": "8df5c0f3fd558a6d6d9abf682f2a66da9c23786cee6b72097f3c4287bdb49e70",
+          "sha1": "dce895fd7e609991d078e9ee060b9ee9a174872f",
+          "md5": "a697a560854c743ad132f307f2beff89"
         }
       ]
     },
@@ -78,11 +78,11 @@
         {
           "name": "magicsrebirthlib-forge-1.0.0.jar",
           "url": "magicsrebirthlib-forge-1.0.0.jar",
-          "size": 95607,
-          "sha512": "badf2a09e67e906be12d523edb97ef0b8587a7ea2ce5d9346bfb079cc384e14c7d79c2ea5ec7a2d599eea89147f027e13c513ac8c0ded121e9054655f15cc8fc",
-          "sha256": "198e79ceb3042c564c63076242f282a28669423b61f11e3bd82dc5c9503640ed",
-          "sha1": "369489315077d66b558212946a921223dae63c97",
-          "md5": "0b49541b43ca28785a46500092c6a5b2"
+          "size": 95646,
+          "sha512": "0e446a01396852e71dd05aff38da9ce5dd6f7953edb83c72e22ebecec2fb293c6bb6c3ab4167c5a48a55884f42ecd5eed735deddb45175410241250054faaee4",
+          "sha256": "8df5c0f3fd558a6d6d9abf682f2a66da9c23786cee6b72097f3c4287bdb49e70",
+          "sha1": "dce895fd7e609991d078e9ee060b9ee9a174872f",
+          "md5": "a697a560854c743ad132f307f2beff89"
         }
       ]
     }
