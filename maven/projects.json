@@ -1,0 +1,32 @@
+{
+  "neoforge": {
+    "title": "NeoForge",
+    "group": "th.tamkungz",
+    "artifact": "letyourfriendeating-neoforge",
+    "versions": ["1.0.4"]
+  },
+  "fabric": {
+    "title": "Fabric 1.20.1",
+    "group": "th.tamkungz",
+    "artifact": "letyourfriendeating-fabric-1.20.1",
+    "versions": ["1.0.4-2"]
+  },
+  "forge": {
+    "title": "Forge 1.20.1",
+    "group": "th.tamkungz",
+    "artifact": "letyourfriendeating-forge-1.20.1",
+    "versions": ["1.0.4-2"]
+  },
+  "forge-beta": {
+    "title": "Forge 1.20.1 (Beta)",
+    "group": "th.tamkungz",
+    "artifact": "letyourfriendeating-forge-1.20.1",
+    "versions": ["1.0.4-2-beta"]
+  },
+  "magicsrebirthlib": {
+    "title": "MagicsRebirthLib",
+    "group": "th.in.tamkungz",
+    "artifact": "magicsrebirthlib-forge",
+    "versions": ["1.0.0"]
+  }
+}
