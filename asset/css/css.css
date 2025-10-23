@@ -75,7 +75,7 @@ body {
     margin-bottom: 20px;
 }
 
-#language-switcher {
+#language-switcher, #proj, #ver {
     padding: 6px 12px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
@@ -88,18 +88,18 @@ body {
     box-shadow: 0 2px 5px var(--shadow-color);
 }
 
-#language-switcher:hover {
+#language-switcher:hover, #proj:hover, #ver:hover {
     border-color: var(--primary-color);
     background-color: var(--link-bg);
 }
 
-#language-switcher:focus {
+#language-switcher:focus, #proj:focus, #ver:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 5px var(--primary-color);
 }
 
-#language-switcher option {
+#language-switcher option , #proj option , #ver option {
     background-color: var(--container-bg);
     color: var(--text-color);
 }
