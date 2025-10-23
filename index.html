@@ -128,36 +128,30 @@
                 </ul>
             </section>
             
-            <section class="section">
+            <!-- ===== Simple Maven selector (show & copy) ===== -->
+            <section class="section" id="maven-simple">
               <h3><i class="fas fa-cogs"></i> <span data-i18n="mavenTitle">Maven Repository</span></h3>
-              
-              <div class="code-block">
-                  <h4>Gradle</h4>
-                  <button class="copy-btn"><i class="far fa-copy"></i> Copy</button>
-                  <pre><code>maven { url "https://tamkungz.github.io/maven/" }</code></pre>
+            
+              <div style="margin:10px 0; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+                <label for="proj" style="min-width:70px;">Project:</label>
+                <select id="proj" aria-label="Select project"></select>
+            
+                <label for="ver" style="margin-left:8px;">Version:</label>
+                <select id="ver" aria-label="Select version"></select>
               </div>
-          
-              <!-- controls สำหรับเลือก project / version (ใหม่) -->
-              <div class="dependency-controls" style="margin:12px 0;">
-                  <label for="project">Project:</label>
-                  <select id="project" aria-label="Select project">
-                      <option value="neoforge">NeoForge</option> <!-- default -->
-                      <option value="fabric">Fabric 1.20.1</option>
-                      <option value="forge">Forge 1.20.1</option>
-                      <option value="forge-beta">Forge 1.20.1 (Beta)</option>
-                      <option value="magicsrebirthlib">MagicsRebirthLib Forge 1.20.1</option>
-                  </select>
-          
-                  <label for="version" style="margin-left:8px;">Version:</label>
-                  <select id="version" aria-label="Select version"></select>
+            
+              <div class="code-block" style="margin-top:8px;">
+                <h4>Gradle (repositories)</h4>
+                <button class="copy-btn"><i class="far fa-copy"></i> Copy</button>
+                <pre><code id="gradle-snippet">maven { url "https://tamkungz.github.io/maven" }</code></pre>
               </div>
-          
-              <div class="code-block">
-                  <h4>Example Dependency</h4>
-                  <button class="copy-btn"><i class="far fa-copy"></i> Copy</button>
-                  <pre><code id="dependency-code">implementation "th.tamkungz:letyourfriendeating-neoforge:1.0.4"</code></pre>
+            
+              <div class="code-block" style="margin-top:8px;">
+                <h4>Example Dependency</h4>
+                <button class="copy-btn"><i class="far fa-copy"></i> Copy</button>
+                <pre><code id="dep-snippet">implementation "group:artifact:version"</code></pre>
               </div>
-          </section>
+            </section>
 
             <section class="section">
                 <h3><i class="fas fa-project-diagram"></i> <span data-i18n="featuredProjectsTitle">Featured Projects (Minecraft Mods)</span></h3>
@@ -323,6 +317,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
 <script>
     // --- Dark Mode Toggle ---
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
@@ -385,246 +380,156 @@
     languageSwitcher.addEventListener('change', function(e) {
         setLanguage(e.target.value);
     });
-
-    // --- Copy to Clipboard ---
-    function copyCode(button, text) {
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-            document.execCommand('copy');
-            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            button.classList.add('copied');
-            setTimeout(() => {
-                button.innerHTML = '<i class="far fa-copy"></i> Copy';
-                button.classList.remove('copied');
-            }, 2000);
-        } catch (err) {}
-        document.body.removeChild(textArea);
-    }
 </script>
+    
 <script>
-/* -------------------------
-   ข้อมูล dependency (แก้/เพิ่มได้ตรงนี้)
-   ------------------------- */
-const dependencies = {
-    fabric: {
-        group: "th.tamkungz",
-        artifact: "letyourfriendeating-fabric-1.20.1",
-        versions: ["1.0.4-2"]
-    },
-    forge: {
-        group: "th.tamkungz",
-        artifact: "letyourfriendeating-forge-1.20.1",
-        versions: ["1.0.4-2"]
-    },
-    "forge-beta": {
-        group: "th.tamkungz",
-        artifact: "letyourfriendeating-forge-1.20.1",
-        versions: ["1.0.4-2-beta"]
-    },
-    neoforge: {
-        group: "th.tamkungz",
-        artifact: "letyourfriendeating-neoforge",
-        versions: ["1.0.4"]
-    },
-    magicsrebirthlib: {
-        group: "th.in.tamkungz",
-        artifact: "magicsrebirthlib-forge",
-        versions: ["1.0.0"]
-    }
-};
+/* ===== Simple Maven viewer (load projects.json from remote) ===== */
 
-/* -------------------------
-   ฟังก์ชันจัดการ dropdown + snippet
-   ------------------------- */
-const projectSelect = document.getElementById("project");
-const versionSelect = document.getElementById("version");
-const dependencyCodeEl = document.getElementById("dependency-code");
+(function () {
+  const repoUrl = 'https://tamkungz.github.io/maven';
+  const projectsUrl = repoUrl + '/projects.json'; // โหลดจาก GitHub Pages หรือ URL อื่นก็ได้
 
-// เติม options ของ version ตาม project ที่เลือก
-function populateVersions(projectKey) {
-    const info = dependencies[projectKey];
-    versionSelect.innerHTML = ""; // รีเซ็ต
-    if (!info || !info.versions) return;
+  const projSelect = document.getElementById('proj');
+  const verSelect = document.getElementById('ver');
+  const gradleCodeEl = document.getElementById('gradle-snippet');
+  const depCodeEl = document.getElementById('dep-snippet');
+  const sectionEl = document.getElementById('maven-simple');
 
-    info.versions.forEach(v => {
-        const opt = document.createElement("option");
-        opt.value = v;
-        opt.textContent = v;
-        versionSelect.appendChild(opt);
-    });
-}
+  gradleCodeEl.textContent = `maven { url "${repoUrl}" }`;
 
-// อัพเดต code snippet ตามเลือก
-function updateDependencySnippet() {
-    const info = dependencies[projectSelect.value];
-    const ver = versionSelect.value;
-    if (!info || !ver) return;
-    dependencyCodeEl.textContent = `implementation "${info.group}:${info.artifact}:${ver}"`;
-}
+  let projectsConfig = {};
 
-// เมื่อเปลี่ยน project -> เติม versions แล้วอัพเดต snippet
-projectSelect.addEventListener("change", () => {
-    populateVersions(projectSelect.value);
-    // เลือกตัวแรกเสมอ
-    if (versionSelect.options.length) versionSelect.selectedIndex = 0;
-    updateDependencySnippet();
-});
-
-// เมื่อเปลี่ยน version -> อัพเดต snippet
-versionSelect.addEventListener("change", updateDependencySnippet);
-
-// วางค่า default initial (ตั้ง default เป็น NeoForge ตามตัวอย่างของคุณ)
-(function initDependencyControls() {
-    const defaultProject = projectSelect.value || "neoforge";
-    populateVersions(defaultProject);
-    // เลือกตัวแรกของ versions แล้วอัพเดต snippet
-    if (versionSelect.options.length) versionSelect.selectedIndex = 0;
-    updateDependencySnippet();
-})();
-
-/* -------------------------
-   ฟังก์ชัน copy (event delegation) — รองรับของเดิมและกรณี dynamic
-   ------------------------- */
-
-// เก็บต้นฉบับของปุ่มไว้ (เพื่อ reset กลับ)
-function ensureOriginalHtml(button) {
-    if (!button.dataset.originalHtml) {
-        button.dataset.originalHtml = button.innerHTML;
-    }
-}
-
-// ดีเทคหา element <code> ที่ใกล้กับปุ่มที่สุด
-function findCodeElementForButton(button) {
-    // 1) หา .code-block รอบ ๆ ก่อน (กรณี structure ปกติ)
-    const codeBlock = button.closest('.code-block');
-    if (codeBlock) {
-        const code = codeBlock.querySelector('code');
-        if (code) return code;
-    }
-
-    // 2) หาใน parent element (fallback)
-    let code = button.parentElement && button.parentElement.querySelector ? button.parentElement.querySelector('code') : null;
-    if (code) return code;
-
-    // 3) ถัดไปลองหา sibling <pre><code>
-    let next = button.nextElementSibling;
-    while (next) {
-        if (next.tagName && next.querySelector) {
-            const c = next.querySelector('code');
-            if (c) return c;
-        }
-        next = next.nextElementSibling;
-    }
-
-    // 4) สุดท้าย คืน <code id="dependency-code"> ถ้ามี
-    const dep = document.getElementById('dependency-code');
-    if (dep) return dep;
-
-    // 5) ถ้าไม่เจอเลย คืน null
-    return null;
-}
-
-// ฟังก์ชัน fallback copy (textarea + execCommand)
-function fallbackCopyText(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    // ป้องกัน scroll ไปยัง textarea
-    ta.style.position = 'fixed';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.select();
+  // โหลด JSON จากภายนอก
+  async function loadProjects() {
     try {
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        return Promise.resolve();
-    } catch (err) {
-        document.body.removeChild(ta);
-        return Promise.reject(err);
+      const res = await fetch(projectsUrl, { cache: 'no-cache' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      projectsConfig = data;
+      populateProjects();
+      restoreSelection();
+    } catch (e) {
+      console.error('❌ โหลด projects.json ไม่ได้:', e);
+      depCodeEl.textContent = '⚠️ Failed to load projects.json';
     }
-}
+  }
 
-// ฟังก์ชันหลัก copy text และแสดง feedback บนปุ่ม
-function copyTextWithFeedback(button, text) {
-    ensureOriginalHtml(button);
+  // เติม dropdown project
+  function populateProjects() {
+    projSelect.innerHTML = '';
+    for (const [key, p] of Object.entries(projectsConfig)) {
+      const opt = document.createElement('option');
+      opt.value = key;
+      opt.textContent = (p.title || key) + ` — ${key}`;
+      projSelect.appendChild(opt);
+    }
+  }
+
+  // เติม dropdown version
+  function populateVersions(projectKey) {
+    verSelect.innerHTML = '';
+    const p = projectsConfig[projectKey];
+    if (!p || !Array.isArray(p.versions)) return;
+    p.versions.forEach(v => {
+      const opt = document.createElement('option');
+      opt.value = v;
+      opt.textContent = v;
+      verSelect.appendChild(opt);
+    });
+  }
+
+  // อัพเดต dependency code
+  function updateDependency() {
+    const key = projSelect.value;
+    const ver = verSelect.value;
+    const p = projectsConfig[key];
+    if (!p || !ver) {
+      depCodeEl.textContent = 'implementation "group:artifact:version"';
+      return;
+    }
+    depCodeEl.textContent = `implementation "${p.group}:${p.artifact}:${ver}"`;
+  }
+
+  // ฟังก์ชัน Copy (มี fallback)
+  function copyText(text, button) {
+    const orig = button.dataset.orig || button.innerHTML;
+    button.dataset.orig = orig;
     button.disabled = true;
 
-    const doReset = () => {
-        setTimeout(() => {
-            button.innerHTML = button.dataset.originalHtml;
-            button.classList.remove('copied');
-            button.disabled = false;
-            button.removeAttribute('aria-label');
-        }, 2000);
+    const done = (ok) => {
+      button.innerHTML = ok
+        ? '<i class="fas fa-check"></i> Copied!'
+        : '<i class="fas fa-exclamation-triangle"></i> Failed';
+      setTimeout(() => {
+        button.innerHTML = orig;
+        button.disabled = false;
+      }, 1500);
     };
 
-    // ใช้ navigator.clipboard ถ้ามี
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            button.classList.add('copied');
-            button.setAttribute('aria-label', 'Copied to clipboard');
-            doReset();
-        }).catch(err => {
-            // fallback
-            fallbackCopyText(text).then(() => {
-                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                button.classList.add('copied');
-                button.setAttribute('aria-label', 'Copied to clipboard (fallback)');
-                doReset();
-            }).catch(fErr => {
-                console.error('Copy failed:', err, fErr);
-                button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed';
-                button.classList.add('copy-failed');
-                setTimeout(() => {
-                    button.innerHTML = button.dataset.originalHtml;
-                    button.classList.remove('copy-failed');
-                    button.disabled = false;
-                }, 2000);
-            });
-        });
-    } else {
-        // ไม่มี clipboard API -> ใช้ fallback
-        fallbackCopyText(text).then(() => {
-            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            button.classList.add('copied');
-            button.setAttribute('aria-label', 'Copied to clipboard (fallback)');
-            doReset();
-        }).catch(err => {
-            console.error('Copy failed (fallback):', err);
-            button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed';
-            button.classList.add('copy-failed');
-            setTimeout(() => {
-                button.innerHTML = button.dataset.originalHtml;
-                button.classList.remove('copy-failed');
-                button.disabled = false;
-            }, 2000);
-        });
-    }
-}
+    if (navigator.clipboard?.writeText)
+      navigator.clipboard.writeText(text).then(() => done(true)).catch(() => fallback());
+    else fallback();
 
-// Event delegation: จับคลิกบน document แล้วเช็ค target เป็น .copy-btn ไหม
-document.addEventListener('click', (ev) => {
-    const btn = ev.target.closest && ev.target.closest('.copy-btn');
+    function fallback() {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        done(true);
+      } catch {
+        done(false);
+      }
+    }
+  }
+
+  // event delegation สำหรับปุ่ม Copy
+  sectionEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.copy-btn');
     if (!btn) return;
+    const code = btn.closest('.code-block')?.querySelector('code');
+    if (code) copyText(code.innerText.trim(), btn);
+  });
 
-    // หา element <code> ที่เกี่ยวข้อง
-    const codeEl = findCodeElementForButton(btn);
-    if (!codeEl) {
-        console.warn('No <code> element found to copy for this button.');
-        return;
-    }
+  // เปลี่ยน project
+  projSelect.addEventListener('change', () => {
+    populateVersions(projSelect.value);
+    if (verSelect.options.length) verSelect.selectedIndex = 0;
+    updateDependency();
+    localStorage.setItem('maven_proj', projSelect.value);
+  });
 
-    const text = codeEl.innerText ? codeEl.innerText.trim() : '';
-    if (!text) {
-        console.warn('Code block is empty.');
-        return;
-    }
+  // เปลี่ยน version
+  verSelect.addEventListener('change', () => {
+    updateDependency();
+    localStorage.setItem('maven_ver', verSelect.value);
+  });
 
-    copyTextWithFeedback(btn, text);
-});
+  // คืนค่าการเลือกครั้งก่อน (ถ้ามี)
+  function restoreSelection() {
+    const lastProj = localStorage.getItem('maven_proj');
+    const lastVer = localStorage.getItem('maven_ver');
+
+    if (lastProj && projectsConfig[lastProj]) projSelect.value = lastProj;
+    else projSelect.selectedIndex = 0;
+
+    populateVersions(projSelect.value);
+
+    if (lastVer && [...verSelect.options].some(o => o.value === lastVer))
+      verSelect.value = lastVer;
+    else verSelect.selectedIndex = 0;
+
+    updateDependency();
+  }
+
+  // เริ่มทำงาน
+  loadProjects();
+})();
 </script>
+
 </body>
 </html>
