@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character encoding and viewport -->
+    <!-- =========================================
+         1. Meta Tags & Config
+    ========================================== -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Viewport: Added maximum-scale and user-scalable=no to fix mobile layout issues -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <!-- Title and Favicon -->
     <title>TamKungZ_ - Developer Page</title>
     <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/ficon.ico">
 
-    <!-- External Stylesheets -->
+    <!-- =========================================
+         2. External Resources (Fonts & Icons)
+    ========================================== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://tamkungz.github.io/asset/css/css.css">
+    
+    <!-- Original CSS Link (Commented out to use embedded styles for this preview) -->
+    <!-- <link rel="stylesheet" href="https://tamkungz.github.io/asset/css/css.css"> -->
 
-    <!-- SEO Meta Tags -->
+    <!-- =========================================
+         3. SEO & Social Meta Data
+    ========================================== -->
     <meta name="title" content="TamKungZ_ - Developer Page">
     <meta name="description" content="Developer page of TamKungZ_. Programming, tools, and modding resources.">
     <meta name="keywords" content="TamKungZ_, developer, software, Minecraft modding, programming, coding, projects, tools, dev, Minecraft, animation, 2d, live2D, graphic">
     <meta name="author" content="TamKungZ_">
     <link rel="canonical" href="https://tamkungz.github.io/">
 
-    <!-- Open Graph Meta (for Facebook, Discord, etc.) -->
+    <!-- Open Graph (Facebook/Discord) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tamkungz.github.io/">
     <meta property="og:title" content="TamKungZ_ - Developer Page">
     <meta property="og:description" content="Developer page of TamKungZ_. Programming, tools, and modding resources.">
     <meta property="og:image" content="https://tamkungz.github.io/me.jpg">
 
-    <!-- Twitter Card Meta -->
+    <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://tamkungz.github.io/">
     <meta property="twitter:title" content="TamKungZ_ - Developer Page">
     <meta property="twitter:description" content="Developer page of TamKungZ_. Programming, tools, and modding resources.">
     <meta property="twitter:image" content="https://tamkungz.github.io/me.jpg">
-    <meta property="twitter:creator" content="@TamKungZ_Dev">
+    <meta property="twitter:creator" content="@TamKungZ_">
 
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -44,15 +54,590 @@
       "name": "TamKungZ_",
       "url": "https://tamkungz.github.io/",
       "sameAs": [
-        "https://www.youtube.com/@TamKungZ",
+        "https://www.youtube.com/@TamKungZ_",
         "https://github.com/TamKungZ",
-        "https://twitter.com/TamKungZ"
+        "https://twitter.com/TamKungZ_"
       ],
       "jobTitle": "Freelance Developer",
       "birthDate": "2007-09-10",
       "knowsAbout": ["Game Development", "Modding", "Live2D", "AI Tools"]
     }
     </script>
+
+    <!-- =========================================
+         4. Styles (Combined css.css + Mobile Fixes)
+    ========================================== -->
+    <style>
+        /* --- IMPORTED FROM css.css --- */
+        /* Modern & Clean Design with your preferred color */
+        :root {
+            --primary-color: #55c57a; /* A vibrant green */
+            --primary-light: #dcffdb;
+            --secondary-color: #2c3e50; /* Dark blue for deeper contrast */
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --container-bg: #ffffff;
+            --shadow-color: rgba(0,0,0,0.08);
+            --header-color: var(--secondary-color);
+            --border-color: #e0e0e0;
+            --link-color: var(--primary-color);
+            --link-bg: var(--primary-light);
+            --link-hover-bg: var(--primary-color);
+            --link-hover-color: #fff;
+            --project-card-bg: #ffffff;
+            --project-card-border: #f0f0f0;
+            --project-title-color: var(--secondary-color);
+            --footer-color: #777;
+            --toggle-bg: #ccc;
+            --toggle-circle: #fff;
+            --highlight-color: var(--primary-color);
+            --code-bg: #2d2d2d;
+            --code-text: #f8f8f2;
+            --news-bg: #f1f5f9;
+            --news-border: #e2e8f0;
+        }
+
+        body.dark-mode {
+            --primary-color: #8be9fd;
+            --primary-light: #263c41;
+            --secondary-color: #e0e0e0;
+            --text-color: #f0f0f0;
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --shadow-color: rgba(0,0,0,0.5);
+            --header-color: #f0f0f0;
+            --border-color: #333;
+            --link-color: #8be9fd;
+            --link-bg: rgba(139, 233, 253, 0.1);
+            --link-hover-bg: #8be9fd;
+            --link-hover-color: #121212;
+            --project-card-bg: #2d2d2d;
+            --project-card-border: #444;
+            --project-title-color: #fff;
+            --footer-color: #aaa;
+            --toggle-bg: #444;
+            --toggle-circle: #222;
+            --highlight-color: #ff79c6;
+            --code-bg: #1a1a1a;
+            --news-bg: #1e293b;
+            --news-border: #334155;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--container-bg);
+            box-shadow: 0 5px 25px var(--shadow-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 20px;
+            gap: 15px;
+        }
+
+        /* Language Switcher */
+        .language-selector {
+            display: flex;
+            align-items: center;
+        }
+        .lang-label {
+            margin-right: 5px;
+            font-size: 0.9em;
+            color: var(--text-color);
+        }
+        select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Kanit', sans-serif;
+            cursor: pointer;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .theme-switch-wrapper em {
+            margin-right: 10px;
+            font-size: 0.9em;
+            font-style: normal;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 50px;
+        }
+        .theme-switch input { display: none; }
+        .slider {
+            background-color: var(--toggle-bg);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+        }
+        .slider:before {
+            background-color: var(--toggle-circle);
+            bottom: 3px;
+            content: "";
+            height: 18px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 18px;
+        }
+        input:checked + .slider { background-color: var(--primary-color); }
+        input:checked + .slider:before { transform: translateX(26px); }
+        .slider.round { border-radius: 34px; }
+        .slider.round:before { border-radius: 50%; }
+
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+        }
+        .main-content {
+            flex: 3;
+        }
+        .sidebar {
+            flex: 1;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover { transform: scale(1.05); }
+        .header-text h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--header-color);
+            font-weight: 700;
+        }
+        .header-text h2 {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+            color: var(--text-color);
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* Sections */
+        .section { margin-bottom: 40px; }
+        .section h3 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+            display: inline-block;
+            font-size: 1.4em;
+        }
+        .section h3 i { margin-right: 10px; }
+
+        /* Skills */
+        .skills {
+            list-style: none;
+            padding: 0;
+        }
+        .skills li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .skills li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background-color: var(--project-card-bg);
+            border: 1px solid var(--project-card-border);
+            border-radius: 10px;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .project-card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .project-card h4 {
+            margin: 0 0 10px;
+            color: var(--project-title-color);
+        }
+        .project-card p {
+            font-size: 0.95em;
+            color: var(--text-color);
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .project-links a {
+            text-decoration: none;
+            padding: 6px 12px;
+            font-size: 0.9em;
+            background-color: var(--link-bg);
+            color: var(--link-color);
+            border: 1px solid var(--link-color);
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        .project-links a:hover {
+            background-color: var(--link-hover-bg);
+            color: var(--link-hover-color);
+        }
+        .project-links a i { margin-right: 5px; }
+
+        /* Links Section */
+        .links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .links a {
+            text-decoration: none;
+            color: var(--link-color);
+            background-color: var(--link-bg);
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        .links a:hover {
+            background-color: var(--link-hover-bg);
+            color: var(--link-hover-color);
+        }
+        .links a i { margin-right: 8px; }
+
+        /* News & Announcements */
+        .news-section {
+            background-color: var(--news-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--news-border);
+        }
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+        .news-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .news-date {
+            font-size: 0.85em;
+            color: #888;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .news-category {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+            color: #fff;
+        }
+        .news-category.announcement { background-color: #3498db; }
+        .news-category.release { background-color: #2ecc71; }
+        .news-category.update { background-color: #f39c12; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: auto;
+            color: var(--footer-color);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Maven/Code Block */
+        .code-block {
+            position: relative;
+            background: var(--code-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow: auto;
+            color: var(--code-text);
+        }
+        .code-block h4 {
+            margin-top: 0;
+            color: #aaa;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .code-block pre { margin: 0; }
+        .code-block code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95em;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,0.2); }
+
+        /* Highlight & Status */
+        .highlight {
+            color: var(--highlight-color);
+            font-weight: 500;
+        }
+        .status-tag {
+            font-size: 0.7em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e0e0e0;
+            color: #555;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+        .abandoned .status-tag { background-color: #ffcccb; color: #c0392b; }
+        .abandoned { opacity: 0.9; }
+
+        /* --- MOBILE & CUSTOM OVERRIDES (Merged) --- */
+        
+        /* Fix Mobile Overflow & Layout */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                flex-direction: column;
+                display: flex;
+                gap: 20px;
+            }
+            .main-content {
+                width: 100%;
+                padding-right: 0;
+            }
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile News Popup (Bottom Sheet) */
+        .mobile-news-trigger {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff6b6b;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .mobile-news-trigger:active { transform: scale(0.95); }
+
+        .mobile-news-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+            backdrop-filter: blur(2px);
+        }
+
+        @media (max-width: 900px) {
+            .mobile-news-trigger {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .sidebar {
+                position: fixed;
+                bottom: -100%;
+                left: 0;
+                width: 100%;
+                height: 70vh;
+                background: var(--container-bg); /* Use var for theme consistency */
+                border-radius: 20px 20px 0 0;
+                box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+                z-index: 999;
+                transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow-y: auto;
+                padding: 20px;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .sidebar.active { bottom: 0; }
+            .dark-mode .sidebar { border: 1px solid #333; }
+            .close-news-btn {
+                display: block;
+                text-align: right;
+                margin-bottom: 10px;
+                color: var(--text-color);
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 901px) {
+            .close-news-btn { display: none; }
+        }
+
+        /* Download Styles & App Icon */
+        .app-icon {
+            width: 28px;
+            height: 28px;
+            vertical-align: middle;
+            margin-right: 8px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .download-section {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .dark-mode .download-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .version-control {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .dl-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .dl-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .dl-btn.win { background-color: #e3f2fd; color: #0078d7; border-color: #bbdefb; }
+        .dl-btn.linux { background-color: #fff3e0; color: #e65100; border-color: #ffe0b2; }
+        .dl-btn.mac { background-color: #f3e5f5; color: #7b1fa2; border-color: #e1bee7; }
+        .dark-mode .dl-btn.win { background-color: rgba(0, 120, 215, 0.2); color: #4fc3f7; border-color: rgba(0, 120, 215, 0.4); }
+        .dark-mode .dl-btn.linux { background-color: rgba(230, 81, 0, 0.2); color: #ffb74d; border-color: rgba(230, 81, 0, 0.4); }
+        .dark-mode .dl-btn.mac { background-color: rgba(123, 31, 162, 0.2); color: #ce93d8; border-color: rgba(123, 31, 162, 0.4); }
+
+        .hidden { display: none !important; }
+        .news-loading { text-align: center; padding: 20px; color: #888; }
+    </style>
 </head>
 
 <body>
@@ -145,15 +730,14 @@
                 </ul>
             </section>
             
-            <!-- ===== Simple Maven selector (show & copy) ===== -->
             <section class="section" id="maven-simple">
               <h3><i class="fas fa-cogs"></i> <span data-i18n="mavenTitle">Maven Repository</span></h3>
             
               <div style="margin:10px 0; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-                <label for="proj" style="min-width:70px;">Project:</label>
+                <label for="proj" style="min-width:70px;" data-i18n="mavenProjectLabel">Project:</label>
                 <select id="proj" aria-label="Select project"></select>
             
-                <label for="ver" style="margin-left:8px;">Version:</label>
+                <label for="ver" style="margin-left:8px;" data-i18n="mavenVersionLabel">Version:</label>
                 <select id="ver" aria-label="Select version"></select>
               </div>
             
@@ -171,20 +755,107 @@
             </section>
 
             <section class="section">
-                <h3><i class="fas fa-file"></i> Developing Projects</h3>
+                <h3><i class="fas fa-file"></i> <span data-i18n="developingProjectsTitle">Developing Projects</span></h3>
                 <div class="project-grid">
+                    
+                    <!-- VLiva Project -->
                     <div class="project-card abandoned">
                         <img src="image/Screenshot-from-2025-11-12 19-35-45.png" alt="VLiva Preview" class="project-card-image">
-                        <h4>VLiva (Vtuber for Linux) <span class="highlight"><span class="status-tag">Developing</span></span></h4>
-                        <p>VLiva - VTuber for Linux, Is a program that can run Vtuber models created with Live2D</p>
+                        <h4>
+                            <img src="https://tamkungz.github.io/image/vliva-logo-256.png" alt="icon" class="app-icon">
+                            VLiva (Vtuber for Linux) 
+                            <span class="highlight"><span class="status-tag" data-i18n="statusDeveloping">Developing</span></span>
+                        </h4>
+                        <p data-i18n="vlivaDesc">VLiva - VTuber for Linux, Is a program that can run Vtuber models created with Live2D</p>
+                        
+                        <div class="download-section">
+                            <div class="version-control">
+                                <label data-i18n="downloadLabel"><i class="fas fa-download"></i> Download:</label>
+                            </div>
+                            <div class="dl-grid">
+                                <a href="https://github.com/TamKungZ/VLiva/releases/download/Prototype6/VLiva-0.1.6-alpha-Linux.deb" class="dl-btn linux">
+                                    <i class="fab fa-linux"></i> Linux <span class="file-type">(.deb)</span>
+                                </a>
+                            </div>
+                        </div>
+
                         <div class="project-links">
                             <a href="https://github.com/TamKungZ/VLiva" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
+
+                    <!-- Stardew NPC Maker Project -->
                     <div class="project-card abandoned">
                         <img src="image/Screenshot-from-2025-11-12 19-36-40.png" alt="Stardew NPC Maker Project Preview" class="project-card-image">
-                        <h4>Stardew NPC Maker Project <span class="highlight"><span class="status-tag">Developing</span></span></h4>
-                        <p>Stardew NPC Maker is a tool that allows you to easily create NPC (new character) mods for Stardew Valley without having to deal with complicated JSON files. </p>
+                        <h4>
+                            <img src="https://tamkungz.github.io/image/StardewNPCMaker-logo.webp" alt="icon" class="app-icon">
+                            Stardew NPC Maker Project 
+                            <span class="highlight"><span class="status-tag" data-i18n="statusDeveloping">Developing</span></span>
+                        </h4>
+                        <p data-i18n="stardewNpcDesc">Stardew NPC Maker is a tool that allows you to easily create NPC (new character) mods for Stardew Valley without having to deal with complicated JSON files.</p>
+
+                        <div class="download-section">
+                            <div class="version-control">
+                                <label for="stardew-version" data-i18n="versionLabel"><i class="fas fa-history"></i> Version:</label>
+                                <select id="stardew-version" class="version-select">
+                                    <option value="v1.0.2">v1.0.2 (Latest)</option>
+                                    <option value="v1.0.1">v1.0.1</option>
+                                    <option value="v1.0.0">v1.0.0</option>
+                                </select>
+                            </div>
+
+                            <!-- v1.0.2 Links -->
+                            <div class="dl-grid" id="stardew-dl-v1.0.2">
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.2/stardew-npc-maker-1.0.2-win-x64-installer.msi" class="dl-btn win">
+                                    <i class="fab fa-windows"></i> Win <span class="file-type">(.msi)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.2/stardew-npc-maker-1.0.2-win-x64.zip" class="dl-btn win">
+                                    <i class="fab fa-windows"></i> Win <span class="file-type">(.zip)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.2/stardew-npc-maker-1.0.2-linux-x64.deb" class="dl-btn linux">
+                                    <i class="fab fa-linux"></i> Linux <span class="file-type">(.deb)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.2/stardew-npc-maker-1.0.2-linux-x64.tar.gz" class="dl-btn linux">
+                                    <i class="fab fa-linux"></i> Linux <span class="file-type">(.tar.gz)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.2/stardew-npc-maker-1.0.2-osx-x64.zip" class="dl-btn mac">
+                                    <i class="fab fa-apple"></i> macOS <span class="file-type">(.zip)</span>
+                                </a>
+                            </div>
+
+                            <!-- v1.0.1 Links -->
+                            <div class="dl-grid hidden" id="stardew-dl-v1.0.1">
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.1/stardew-npc-maker-win-x64-installer.msi" class="dl-btn win">
+                                    <i class="fab fa-windows"></i> Win <span class="file-type">(.msi)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.1/stardew-npc-maker-win-x64.zip" class="dl-btn win">
+                                    <i class="fab fa-windows"></i> Win <span class="file-type">(.zip)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.1/stardew-npc-maker-linux-x64.deb" class="dl-btn linux">
+                                    <i class="fab fa-linux"></i> Linux <span class="file-type">(.deb)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.1/stardew-npc-maker-linux-x64.tar.gz" class="dl-btn linux">
+                                    <i class="fab fa-linux"></i> Linux <span class="file-type">(.tar.gz)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.1/stardew-npc-maker-osx-x64.zip" class="dl-btn mac">
+                                    <i class="fab fa-apple"></i> macOS <span class="file-type">(.zip)</span>
+                                </a>
+                            </div>
+
+                            <!-- v1.0.0 Links -->
+                            <div class="dl-grid hidden" id="stardew-dl-v1.0.0">
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.0/stardew-npc-maker-win-x64.zip" class="dl-btn win">
+                                    <i class="fab fa-windows"></i> Win <span class="file-type">(.zip)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.0/stardew-npc-maker-linux-x64.tar.xz" class="dl-btn linux">
+                                    <i class="fab fa-linux"></i> Linux <span class="file-type">(.tar.xz)</span>
+                                </a>
+                                <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS/releases/download/v1.0.0/stardew-npc-maker-osx-x64.zip" class="dl-btn mac">
+                                    <i class="fab fa-apple"></i> macOS <span class="file-type">(.zip)</span>
+                                </a>
+                            </div>
+                        </div>
+
                         <div class="project-links">
                             <a href="https://github.com/TamKungZ/Stardew-NPC-Maker-CS" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                         </div>
@@ -195,6 +866,7 @@
             <section class="section">
                 <h3><i class="fas fa-project-diagram"></i> <span data-i18n="featuredProjectsTitle">Featured Projects (Minecraft Mods)</span></h3>
                 <div class="project-grid">
+                    <!-- Project Cards (Still Static for now) -->
                     <div class="project-card">
                         <img src="https://media.forgecdn.net/attachments/1172/484/lyfe-v2-png.png" alt="Let Your Friend Eating Mod Preview" class="project-card-image">
                         <h4>Let Your Friend Eating <span class="highlight">(Minecraft Utility Mod)</span></h4>
@@ -278,14 +950,14 @@
             </section>
 
             <section class="section">
-                <h3><i class="fas fa-archive"></i> Abandoned/On Hold Projects</h3>
-                <p>
+                <h3><i class="fas fa-archive"></i> <span data-i18n="abandonedProjectsTitle">Abandoned/On Hold Projects</span></h3>
+                <p data-i18n="abandonedProjectsContent">
                     These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating, feel free to reach out!
                 </p>
                 <div class="project-grid">
                     <div class="project-card abandoned">
                         <img src="image/373150250-be244527-4522-400d-8a9e-b0c66693a6de.png" alt="Auto Piano Player Python Preview" class="project-card-image">
-                        <h4>Auto Piano Player (Python) <span class="status-tag">On Hold</span></h4>
+                        <h4>Auto Piano Player (Python) <span class="status-tag" data-i18n="statusOnHold">On Hold</span></h4>
                         <p>This intriguing project aims to create a Python program capable of automatically playing piano. It's perfect for those looking to explore software control and musical creation.</p>
                         <div class="project-links">
                             <a href="https://github.com/TamKungZ/Auto-Piano-Player-Python" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
@@ -293,7 +965,7 @@
                     </div>
                     <div class="project-card abandoned">
                         <img src="image/340617292-4dfa0146-e758-4d86-bb30-43f84ca33443.png" alt="NPCMaker-CS Preview" class="project-card-image">
-                        <h4>NPCMaker-CS <span class="highlight">(Stardew SMAPI NPC Maker Content Patcher)</span> <span class="status-tag">On Hold</span></h4>
+                        <h4>NPCMaker-CS <span class="highlight">(Stardew SMAPI NPC Maker Content Patcher)</span> <span class="status-tag" data-i18n="statusOnHold">On Hold</span></h4>
                         <p>A tool for Stardew Valley designed to significantly simplify the process of creating new NPCs (Non-Player Characters) for SMAPI's Content Patcher mods.</p>
                         <div class="project-links">
                             <a href="https://github.com/TamKungZ/NPCMaker-CS" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
@@ -303,59 +975,24 @@
             </section>
         </main>
 
-        <aside class="sidebar">
+        <!-- Overlay for mobile popup -->
+        <div class="mobile-news-overlay" id="news-overlay"></div>
+
+        <!-- Sidebar (Becomes Popup on Mobile) -->
+        <aside class="sidebar" id="news-sidebar">
+            <div class="close-news-btn" id="close-news-btn"><i class="fas fa-times"></i></div>
             <div class="news-section">
                 <h3><i class="fas fa-bullhorn"></i> <span data-i18n="newsTitle">News & Announcements</span></h3>
-                <ul class="news-list">
-                    <li class="news-item">
-                        <div>
-                            <span class="news-category announcement">Announcement</span>
-                            <p><strong>November 2, 2025:</strong> Thank you, CurseForge and Modrinth community! I'm here to announce the <span class="highlight">final update (v0.4.0)</span> of <span class="highlight">Stardew Valley Food</span>.  
-                            This project started back in middle school (2022) as my second mod after <em>Smooth Wood</em>, created with MCreator before I learned Gradle or Maven. Over time, it grew to include 60+ food items ported from Stardew Valley — now reaching almost 100k downloads!  
-                            The 0.4.0 version will be the <strong>final and best version</strong>, released before I head to university.  
-                            Thank you so much for all the support through the years!</p>
-                            <p class="note">*(Out of support: Future ports may only include major Minecraft versions like 1.12.2, 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.20.1, and 1.21.1.)*</p>
-                        </div>
-                    </li>
-                    <li class="news-item">
-                        <div>
-                            <span class="news-category release">Release</span>
-                            <p><strong>June 29, 2025:</strong> The <span class="highlight">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!</p>
-                        </div>
-                    </li>
-                    <li class="news-item">
-                        <div>
-                            <span class="news-category update">Update</span>
-                            <p><strong>June 29, 2025:</strong> Good news! Development on <span class="highlight">Japan Props</span> will resume. It might take a while, but it's definitely coming back!</p>
-                        </div>
-                    </li>
-                    <li class="news-item">
-                        <div>
-                            <span class="news-category announcement">Announcement</span>
-                            <p><strong>June 7, 2025:</strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!</p>
-                        </div>
-                    </li>
-                    <li class="news-item">
-                        <div>
-                            <span class="news-category release">Release</span>
-                            <p><strong>May 19, 2025:</strong> <span class="highlight">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.</p>
-                        </div>
-                    </li>
-                    <li class="news-item">
-                        <div>
-                            <span class="news-category release">Release</span>
-                            <p><strong>May 9, 2025:</strong> <span class="highlight">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.</p>
-                        </div>
-                    </li>
-                    <li class="news-item">
-                        <div>
-                            <span class="news-category announcement">Announcement</span>
-                            <p><strong>2024:</strong> Development on the <span class="highlight">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.</p>
-                        </div>
-                    </li>
+                <ul class="news-list" id="news-container">
+                    <li class="news-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading News...</li>
                 </ul>
             </div>
         </aside>
+
+        <!-- Floating Action Button for News on Mobile -->
+        <button class="mobile-news-trigger" id="mobile-news-btn">
+            <i class="fas fa-bell"></i>
+        </button>
     </div>
 
     <footer>
@@ -392,29 +1029,28 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // --- i18n system: Load translations from CSV ---
-    // 1. Prepare translations object
     let translations = {};
     const languageSwitcher = document.getElementById('language-switcher');
+    let currentLang = localStorage.getItem('language') || 'en';
 
-    // 2. Load CSV file
     Papa.parse('translations.csv', {
         download: true,
         header: true,
         complete: function(results) {
-            // results.data: array of {key,en,th,...}
             translations = {};
             results.data.forEach(row => {
                 if (row.key) translations[row.key] = row;
             });
-            // Load saved language or default to English
-            const savedLang = localStorage.getItem('language') || 'en';
-            setLanguage(savedLang);
-            languageSwitcher.value = savedLang;
+            setLanguage(currentLang);
+            languageSwitcher.value = currentLang;
+            
+            // Re-render news if translation loaded after news
+            if(newsData.length > 0) renderNews(newsData); 
         }
     });
 
-    // 3. Set language and update DOM
     function setLanguage(lang) {
+        currentLang = lang;
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[key] && translations[key][lang]) {
@@ -423,20 +1059,21 @@
         });
         document.documentElement.lang = lang;
         localStorage.setItem('language', lang);
+        
+        // Update news display when language changes
+        if(newsData.length > 0) renderNews(newsData);
     }
 
-    // 4. Listen for change
     languageSwitcher.addEventListener('change', function(e) {
         setLanguage(e.target.value);
     });
 </script>
     
 <script>
-/* ===== Simple Maven viewer (load projects.json from remote) ===== */
-
+/* ===== Simple Maven viewer ===== */
 (function () {
   const repoUrl = 'https://tamkungz.github.io/maven';
-  const projectsUrl = repoUrl + '/projects.json'; // โหลดจาก GitHub Pages หรือ URL อื่นก็ได้
+  const projectsUrl = repoUrl + '/projects.json';
 
   const projSelect = document.getElementById('proj');
   const verSelect = document.getElementById('ver');
@@ -444,11 +1081,10 @@
   const depCodeEl = document.getElementById('dep-snippet');
   const sectionEl = document.getElementById('maven-simple');
 
-  gradleCodeEl.textContent = `maven { url "${repoUrl}" }`;
+  if(gradleCodeEl) gradleCodeEl.textContent = `maven { url "${repoUrl}" }`;
 
   let projectsConfig = {};
 
-  // โหลด JSON จากภายนอก
   async function loadProjects() {
     try {
       const res = await fetch(projectsUrl, { cache: 'no-cache' });
@@ -458,12 +1094,11 @@
       populateProjects();
       restoreSelection();
     } catch (e) {
-      console.error('❌ โหลด projects.json ไม่ได้:', e);
-      depCodeEl.textContent = '⚠️ Failed to load projects.json';
+      console.error('Maven JSON Error:', e);
+      if(depCodeEl) depCodeEl.textContent = '⚠️ Failed to load projects.json';
     }
   }
 
-  // เติม dropdown project
   function populateProjects() {
     projSelect.innerHTML = '';
     for (const [key, p] of Object.entries(projectsConfig)) {
@@ -474,7 +1109,6 @@
     }
   }
 
-  // เติม dropdown version
   function populateVersions(projectKey) {
     verSelect.innerHTML = '';
     const p = projectsConfig[projectKey];
@@ -487,34 +1121,27 @@
     });
   }
 
-  // อัพเดต dependency code
   function updateDependency() {
     const key = projSelect.value;
     const ver = verSelect.value;
     const p = projectsConfig[key];
     if (!p || !ver) {
-      depCodeEl.textContent = 'implementation "group:artifact:version"';
+      if(depCodeEl) depCodeEl.textContent = 'implementation "group:artifact:version"';
       return;
     }
-    depCodeEl.textContent = `implementation "${p.group}:${p.artifact}:${ver}"`;
+    if(depCodeEl) depCodeEl.textContent = `implementation "${p.group}:${p.artifact}:${ver}"`;
   }
 
-  // ฟังก์ชัน Copy (มี fallback)
   function copyText(text, button) {
     const orig = button.dataset.orig || button.innerHTML;
     button.dataset.orig = orig;
     button.disabled = true;
-
     const done = (ok) => {
       button.innerHTML = ok
         ? '<i class="fas fa-check"></i> Copied!'
         : '<i class="fas fa-exclamation-triangle"></i> Failed';
-      setTimeout(() => {
-        button.innerHTML = orig;
-        button.disabled = false;
-      }, 1500);
+      setTimeout(() => { button.innerHTML = orig; button.disabled = false; }, 1500);
     };
-
     if (navigator.clipboard?.writeText)
       navigator.clipboard.writeText(text).then(() => done(true)).catch(() => fallback());
     else fallback();
@@ -530,54 +1157,138 @@
         document.execCommand('copy');
         ta.remove();
         done(true);
-      } catch {
-        done(false);
-      }
+      } catch { done(false); }
     }
   }
 
-  // event delegation สำหรับปุ่ม Copy
-  sectionEl.addEventListener('click', (e) => {
-    const btn = e.target.closest('.copy-btn');
-    if (!btn) return;
-    const code = btn.closest('.code-block')?.querySelector('code');
-    if (code) copyText(code.innerText.trim(), btn);
-  });
+  if(sectionEl) {
+      sectionEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.copy-btn');
+        if (!btn) return;
+        const code = btn.closest('.code-block')?.querySelector('code');
+        if (code) copyText(code.innerText.trim(), btn);
+      });
+  }
 
-  // เปลี่ยน project
-  projSelect.addEventListener('change', () => {
-    populateVersions(projSelect.value);
-    if (verSelect.options.length) verSelect.selectedIndex = 0;
-    updateDependency();
-    localStorage.setItem('maven_proj', projSelect.value);
-  });
+  if(projSelect) {
+      projSelect.addEventListener('change', () => {
+        populateVersions(projSelect.value);
+        if (verSelect.options.length) verSelect.selectedIndex = 0;
+        updateDependency();
+        localStorage.setItem('maven_proj', projSelect.value);
+      });
+  }
 
-  // เปลี่ยน version
-  verSelect.addEventListener('change', () => {
-    updateDependency();
-    localStorage.setItem('maven_ver', verSelect.value);
-  });
+  if(verSelect) {
+      verSelect.addEventListener('change', () => {
+        updateDependency();
+        localStorage.setItem('maven_ver', verSelect.value);
+      });
+  }
 
-  // คืนค่าการเลือกครั้งก่อน (ถ้ามี)
   function restoreSelection() {
     const lastProj = localStorage.getItem('maven_proj');
     const lastVer = localStorage.getItem('maven_ver');
-
     if (lastProj && projectsConfig[lastProj]) projSelect.value = lastProj;
-    else projSelect.selectedIndex = 0;
-
+    else if(projSelect.options.length > 0) projSelect.selectedIndex = 0;
+    
     populateVersions(projSelect.value);
-
+    
     if (lastVer && [...verSelect.options].some(o => o.value === lastVer))
       verSelect.value = lastVer;
-    else verSelect.selectedIndex = 0;
-
+    else if(verSelect.options.length > 0) verSelect.selectedIndex = 0;
+    
     updateDependency();
   }
 
-  // เริ่มทำงาน
   loadProjects();
 })();
+</script>
+
+<script>
+    // --- Stardew NPC Maker Version Selector Script ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const versionSelect = document.getElementById('stardew-version');
+        
+        if (versionSelect) {
+            versionSelect.addEventListener('change', function(e) {
+                const selectedVersion = e.target.value;
+                document.querySelectorAll('[id^="stardew-dl-"]').forEach(el => {
+                    el.classList.add('hidden');
+                });
+                const activeGrid = document.getElementById('stardew-dl-' + selectedVersion);
+                if (activeGrid) {
+                    activeGrid.classList.remove('hidden');
+                }
+            });
+        }
+    });
+
+    // --- Mobile News Popup Logic ---
+    const mobileNewsBtn = document.getElementById('mobile-news-btn');
+    const newsSidebar = document.getElementById('news-sidebar');
+    const newsOverlay = document.getElementById('news-overlay');
+    const closeNewsBtn = document.getElementById('close-news-btn');
+
+    function toggleNews() {
+        newsSidebar.classList.toggle('active');
+        // Toggle overlay display based on class presence or manually
+        if (newsSidebar.classList.contains('active')) {
+            newsOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        } else {
+            newsOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if(mobileNewsBtn) mobileNewsBtn.addEventListener('click', toggleNews);
+    if(closeNewsBtn) closeNewsBtn.addEventListener('click', toggleNews);
+    if(newsOverlay) newsOverlay.addEventListener('click', toggleNews);
+
+    // --- Load News from JSON ---
+    let newsData = [];
+    const newsContainer = document.getElementById('news-container');
+
+    async function loadNews() {
+        try {
+            const response = await fetch('news.json'); 
+            if (!response.ok) throw new Error('Failed to load news');
+            newsData = await response.json();
+            renderNews(newsData);
+        } catch (error) {
+            console.error('Error loading news:', error);
+            newsContainer.innerHTML = '<li class="news-loading">Failed to load news.</li>';
+        }
+    }
+
+    function renderNews(data) {
+        newsContainer.innerHTML = '';
+        data.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'news-item';
+            
+            // Determine content based on current language (simple fallback)
+            // Assuming JSON has structure: content_en, content_th OR just content with HTML
+            // For now, let's assume content contains HTML with English text, 
+            // but ideally JSON should support multiple languages or we replace text.
+            
+            let contentHtml = item.content; // Default
+            
+            // Simple replacement for category text if needed based on lang
+            // (You can expand this logic for full multi-lang support in JSON)
+            
+            li.innerHTML = `
+                <div>
+                    <span class="news-category ${item.type.toLowerCase()}">${item.type}</span>
+                    ${contentHtml}
+                </div>
+            `;
+            newsContainer.appendChild(li);
+        });
+    }
+
+    loadNews();
 </script>
 
 </body>
