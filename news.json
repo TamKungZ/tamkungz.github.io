@@ -1,0 +1,37 @@
+[
+  {
+    "type": "Announcement",
+    "date": "2025-11-02",
+    "content": "<p><strong>November 2, 2025:</strong> Thank you, CurseForge and Modrinth community! I'm here to announce the <span class=\"highlight\">final update (v0.4.0)</span> of <span class=\"highlight\">Stardew Valley Food</span>. This project started back in middle school (2022) as my second mod after <em>Smooth Wood</em>, created with MCreator before I learned Gradle or Maven. Over time, it grew to include 60+ food items ported from Stardew Valley — now reaching almost 100k downloads! The 0.4.0 version will be the <strong>final and best version</strong>, released before I head to university. Thank you so much for all the support through the years!</p><p class=\"note\">*(Out of support: Future ports may only include major Minecraft versions like 1.12.2, 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.20.1, and 1.21.1.)*</p>"
+  },
+  {
+    "type": "Release",
+    "date": "2025-06-29",
+    "content": "<p><strong>June 29, 2025:</strong> The <span class=\"highlight\">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!</p>"
+  },
+  {
+    "type": "Update",
+    "date": "2025-06-29",
+    "content": "<p><strong>June 29, 2025:</strong> Good news! Development on <span class=\"highlight\">Japan Props</span> will resume. It might take a while, but it's definitely coming back!</p>"
+  },
+  {
+    "type": "Announcement",
+    "date": "2025-06-07",
+    "content": "<p><strong>June 7, 2025:</strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!</p>"
+  },
+  {
+    "type": "Release",
+    "date": "2025-05-19",
+    "content": "<p><strong>May 19, 2025:</strong> <span class=\"highlight\">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.</p>"
+  },
+  {
+    "type": "Release",
+    "date": "2025-05-09",
+    "content": "<p><strong>May 9, 2025:</strong> <span class=\"highlight\">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.</p>"
+  },
+  {
+    "type": "Announcement",
+    "date": "2024-01-01",
+    "content": "<p><strong>2024:</strong> Development on the <span class=\"highlight\">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.</p>"
+  }
+]
