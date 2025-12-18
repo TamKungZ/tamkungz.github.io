@@ -1,1 +1,454 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Documentation - TamKungZ_</title>
+    <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/ficon.ico">
+    <meta name="theme-color" content="#dafeb6">
 
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CORE STYLES (Based on your Main Page) --- */
+        :root {
+            --primary-color: #55c57a;
+            --primary-light: #dcffdb;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --container-bg: #ffffff;
+            --shadow-color: rgba(0,0,0,0.08);
+            --border-color: #e0e0e0;
+            --card-hover-y: -5px;
+            --doc-icon-bg: #e8f5e9;
+        }
+
+        body.dark-mode {
+            --primary-color: #8be9fd;
+            --primary-light: #263c41;
+            --secondary-color: #e0e0e0;
+            --text-color: #f0f0f0;
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --shadow-color: rgba(0,0,0,0.5);
+            --border-color: #333;
+            --doc-icon-bg: #2d2d2d;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- HEADER & NAV --- */
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-color); }
+
+        .header-title h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        .header-title p {
+            margin: 5px 0 0;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* --- SEARCH BOX --- */
+        .search-container {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 15px 50px;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            background: var(--container-bg);
+            color: var(--text-color);
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        /* --- DOC GRID --- */
+        .category-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            color: var(--secondary-color);
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .doc-card {
+            background: var(--container-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid transparent;
+        }
+
+        .doc-card:hover {
+            transform: translateY(var(--card-hover-y));
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+
+        .doc-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--doc-icon-bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .doc-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .doc-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin: 0 0 15px;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .doc-meta {
+            font-size: 0.8rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
+        }
+
+        .tag {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .tag.new { background: #ffeaa7; color: #d35400; }
+        .tag.updated { background: #81ecec; color: #00cec9; }
+        .tag.wip { background: #ff7675; color: #fff; }
+
+        /* --- DARK MODE TOGGLE (Simplified) --- */
+        .theme-switch-wrapper {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            background: var(--container-bg);
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 50px;
+        }
+        .theme-switch input { display: none; }
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 18px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 18px;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: var(--primary-color); }
+        input:checked + .slider:before { transform: translateX(26px); }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: auto;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .header-title h1 { font-size: 1.5rem; }
+            .search-input { font-size: 1rem; padding: 12px 45px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- HEADER -->
+    <header class="doc-header">
+        <div class="header-title">
+            <h1>Documentation Hub</h1>
+            <p>รวมคู่มือการใช้งานและเอกสารทางเทคนิคของ TamKungZ_</p>
+        </div>
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> กลับหน้าหลัก
+        </a>
+    </header>
+
+    <!-- SEARCH -->
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาเอกสาร (เช่น VLiva, NPC Maker, API...)">
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="docContent">
+
+        <!-- CATEGORY: SOFTWARE & TOOLS -->
+        <div class="category-section">
+            <h2 class="category-title"><i class="fas fa-desktop"></i> Software & Tools</h2>
+            <div class="doc-grid">
+                
+                <!-- VLiva -->
+                <a href="#" class="doc-card" data-keywords="vliva vtuber linux avatar live2d">
+                    <div class="doc-icon"><i class="fas fa-user-astronaut"></i></div>
+                    <h3>VLiva (Linux VTuber)</h3>
+                    <p>โปรแกรม VTuber สำหรับ Linux 100% รองรับ Live2D และการจับใบหน้าผ่าน Webcam</p>
+                    <div class="doc-meta">
+                        <span><i class="fas fa-book"></i> User Guide</span>
+                        <span class="tag wip">Developing</span>
+                    </div>
+                </a>
+
+                <!-- Stardew NPC Maker -->
+                <a href="#" class="doc-card" data-keywords="stardew valley npc maker modding tool">
+                    <div class="doc-icon"><i class="fas fa-hammer"></i></div>
+                    <h3>Stardew NPC Maker</h3>
+                    <p>เครื่องมือสร้าง NPC สำหรับ Stardew Valley แบบไม่ต้องเขียน Code (JSON generator)</p>
+                    <div class="doc-meta">
+                        <span><i class="fas fa-code-branch"></i> v1.0.2</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- CATEGORY: MINECRAFT MODS -->
+        <div class="category-section">
+            <h2 class="category-title"><i class="fas fa-cube"></i> Minecraft Mods</h2>
+            <div class="doc-grid">
+
+                <!-- DropRateAPI -->
+                <a href="#" class="doc-card" data-keywords="minecraft mod api droprate developer java">
+                    <div class="doc-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>DropRateAPI</h3>
+                    <p>API สำหรับนักพัฒนา Mod เพื่อปรับแต่งอัตราการดรอปไอเทมในเกม Minecraft</p>
+                    <div class="doc-meta">
+                        <span><i class="fas fa-laptop-code"></i> Developer Docs</span>
+                        <span class="tag updated">Updated</span>
+                    </div>
+                </a>
+
+                <!-- Let Your Friend Eating -->
+                <a href="#" class="doc-card" data-keywords="let your friend eating minecraft mod utility">
+                    <div class="doc-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Let Your Friend Eating</h3>
+                    <p>วิธีใช้งาน Mod ป้อนอาหารเพื่อน และการตั้งค่า Config ไฟล์ต่างๆ</p>
+                    <div class="doc-meta">
+                        <span><i class="fas fa-file-alt"></i> Config Guide</span>
+                    </div>
+                </a>
+
+                <!-- Japan Props -->
+                <a href="#" class="doc-card" data-keywords="japan props decoration minecraft mod">
+                    <div class="doc-icon"><i class="fas fa-torii-gate"></i></div>
+                    <h3>Japan Props</h3>
+                    <p>รายการ Recipe การคราฟของตกแต่งญี่ปุ่น และข้อมูล Block ต่างๆ</p>
+                    <div class="doc-meta">
+                        <span><i class="fas fa-list"></i> Recipe List</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- CATEGORY: SERVICES -->
+        <div class="category-section">
+            <h2 class="category-title"><i class="fas fa-server"></i> Services</h2>
+            <div class="doc-grid">
+
+                <!-- Maven Repo -->
+                <a href="#" class="doc-card" data-keywords="maven gradle repository java library">
+                    <div class="doc-icon"><i class="fas fa-archive"></i></div>
+                    <h3>Maven Repository</h3>
+                    <p>วิธีการใช้งาน TamKungZ Maven สำหรับ Gradle และ Maven Project</p>
+                    <div class="doc-meta">
+                        <span><i class="fas fa-link"></i> Integration</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Theme Toggle -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <span style="margin-left:10px; font-size:0.8rem; color:var(--text-color);"><i class="fas fa-moon"></i></span>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> TamKungZ_. Documentation Hub.</p>
+    </footer>
+
+</div>
+
+<script>
+    // --- Year ---
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- Search Functionality ---
+    const searchInput = document.getElementById('searchInput');
+    const docCards = document.querySelectorAll('.doc-card');
+    const categories = document.querySelectorAll('.category-section');
+
+    searchInput.addEventListener('input', function(e) {
+        const term = e.target.value.toLowerCase();
+
+        docCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const desc = card.querySelector('p').textContent.toLowerCase();
+            const keywords = card.getAttribute('data-keywords') || '';
+            const match = title.includes(term) || desc.includes(term) || keywords.includes(term);
+
+            card.style.display = match ? 'flex' : 'none';
+        });
+
+        // Hide empty categories
+        categories.forEach(cat => {
+            const visibleCards = cat.querySelectorAll('.doc-card[style="display: flex;"]');
+            // Check if any card inside is visible (display != none)
+            const cards = Array.from(cat.querySelectorAll('.doc-card'));
+            const hasVisible = cards.some(c => c.style.display !== 'none');
+            cat.style.display = hasVisible ? 'block' : 'none';
+        });
+    });
+
+    // --- Dark Mode Logic (Consistent with Main Page) ---
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        if (currentTheme === 'dark-mode') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>
