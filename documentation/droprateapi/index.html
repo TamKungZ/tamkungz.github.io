@@ -1,1 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Drop Rate API - Documentation</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="theme-color" content="#4a6da7">
 
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Drop Rate API - Minecraft Mod Documentation">
+    <meta name="description" content="Official documentation for Drop Rate API. A Minecraft Forge mod for managing custom mob drops with JSON configuration and API integration.">
+    <meta name="keywords" content="Minecraft Mod, Drop Rate API, Custom Drops, Forge, Modding API, Loot Tables">
+    <meta name="author" content="TamKungZ">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Drop Rate API - Minecraft Mod Documentation">
+    <meta property="og:description" content="Manage custom mob drops easily with JSON config or Developer API.">
+    <meta property="og:url" content="https://tamkungz.github.io/documentation/droprateapi/">
+    <!-- Placeholder image based on your context -->
+    <meta property="og:image" content="https://tamkungz.github.io/image/droprate_icon.png"> 
+    <meta property="og:site_name" content="DropRate Docs">
+
+    <style>
+        /* --- CORE STYLES (Adapted to Blue Theme) --- */
+        :root {
+            /* Changed from Green to Blue/Steel tones */
+            --primary-color: #3498db; 
+            --primary-light: #ebf5fb;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --container-bg: #ffffff;
+            --sidebar-bg: #f1f3f5;
+            --border-color: #e0e0e0;
+            --code-bg: #2d2d2d;
+            --code-text: #f8f8f2;
+            --shadow-color: rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode {
+            --primary-color: #5dade2;
+            --primary-light: #283747;
+            --secondary-color: #ecf0f1;
+            --text-color: #f0f0f0;
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --sidebar-bg: #2d2d2d;
+            --border-color: #333;
+            --code-bg: #111;
+            --shadow-color: rgba(0,0,0,0.3);
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- LAYOUT --- */
+        .page-wrapper {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR NAV --- */
+        .sidebar {
+            width: 250px;
+            padding: 40px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            background: var(--bg-color);
+            border-right: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+        .nav-logo i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            opacity: 0.7;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary-light);
+            color: var(--primary-color);
+            opacity: 1;
+            font-weight: 500;
+        }
+        
+        body.dark-mode .nav-links a:hover, 
+        body.dark-mode .nav-links a.active {
+            color: var(--bg-color); /* Contrast for dark mode on light active bg */
+            background: var(--primary-color);
+        }
+
+        .back-home {
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+        .back-link {
+            text-decoration: none;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 1; }
+
+        /* --- MAIN CONTENT --- */
+        .content {
+            flex: 1;
+            padding: 40px 50px;
+            max-width: 100%;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        h2 { 
+            font-size: 1.8rem; 
+            margin-top: 40px; 
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        h3 { font-size: 1.3rem; margin-top: 25px; color: var(--secondary-color); }
+        h4 { font-size: 1.1rem; margin-top: 15px; color: var(--text-color); font-weight: 600; }
+
+        p, li { font-size: 1.05rem; color: var(--text-color); opacity: 0.9; }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .hero-icon-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- BADGES --- */
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .badge {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .badge.forge { background: #dfa676; }
+        .badge.license { background: #d63384; }
+        .badge.version { background: #658aab; }
+
+        /* --- CODE BLOCKS & TABLES --- */
+        code {
+            background: rgba(0,0,0,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--container-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background: var(--primary-light);
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        body.dark-mode th {
+            color: var(--bg-color); /* Better contrast in dark mode */
+            background: var(--primary-color);
+        }
+
+        /* --- ALERTS & NOTES --- */
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+        .alert-info {
+            background-color: var(--primary-light);
+            border-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        body.dark-mode .alert-info {
+            color: var(--bg-color);
+            background: #a9cce3; /* Lighter blue for dark mode BG */
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+
+        /* --- DARK MODE TOGGLE --- */
+        .theme-switch-wrapper {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            background: var(--container-bg);
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 50px;
+        }
+        .theme-switch input { display: none; }
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 18px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 18px;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: var(--primary-color); }
+        input:checked + .slider:before { transform: translateX(26px); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .page-wrapper { flex-direction: column; }
+            .sidebar { 
+                width: 100%; 
+                height: auto; 
+                position: relative; 
+                padding: 20px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .content { padding: 20px; }
+            .hero-section { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <a href="#" class="nav-logo">
+            <!-- Replaced Image with Icon for API abstract feel -->
+            <i class="fas fa-cubes"></i>
+            <span>DropRate Docs</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#overview" class="active">Overview</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#configuration">Configuration</a></li>
+            <li><a href="#commands">Commands</a></li>
+            <li><a href="#developer-api">Developer API</a></li>
+            <li><a href="#compatibility">Compatibility</a></li>
+            <li><a href="#license">License</a></li>
+        </ul>
+        <div class="back-home">
+            <a href="../" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Hub
+            </a>
+            <a href="https://github.com/TamKungZ/droprateapi" target="_blank" class="back-link" style="margin-top: 10px;">
+                <i class="fab fa-github"></i> GitHub Repo
+            </a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <!-- INTRO -->
+        <section id="overview">
+            <div class="hero-section">
+                <div class="hero-icon-placeholder">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <div>
+                    <h1>Drop Rate API</h1>
+                    <div class="badges">
+                        <span class="badge forge">Forge</span>
+                        <span class="badge version">1.16.5 - 1.20.x</span>
+                        <span class="badge license">GNU GPLv3</span>
+                    </div>
+                    <p>A Minecraft Forge mod that provides JSON-based mob drop configuration, a programmatic API for developers, and a cross-mod compatibility layer for Loot Tables.</p>
+                </div>
+            </div>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>JSON Config:</strong> Customize mob drop rates and items easily without coding.</li>
+                <li><strong>API Integration:</strong> Developers can add or modify drops programmatically.</li>
+                <li><strong>Complex Amounts:</strong> Support for fixed amounts or min/max ranges.</li>
+                <li><strong>Non-Destructive:</strong> Designed to work alongside other loot modifiers.</li>
+            </ul>
+        </section>
+
+        <!-- INSTALLATION -->
+        <section id="installation">
+            <h2><i class="fas fa-download"></i> Installation</h2>
+            
+            <h3>For Players</h3>
+            <ol>
+                <li>Download the <code>droprate-api.jar</code> file from CurseForge.</li>
+                <li>Place the file into your <code>/mods</code> folder.</li>
+                <li>Launch the game to generate the default configuration file.</li>
+            </ol>
+
+            <h3>For Developers (Gradle/Maven)</h3>
+            <p>To use the API in your own mod, add the following to your <code>build.gradle</code>:</p>
+            
+            <h4>1. Repository Setup</h4>
+            <pre><code>repositories {
+    maven {
+        url "https://cursemaven.com"
+        content { includeGroup "curse.maven" }
+    }
+}</code></pre>
+
+            <h4>2. Dependencies</h4>
+            <p>Replace the IDs with the version you want to target (ProjectID: 1208468):</p>
+            <pre><code>dependencies {
+    // Drop Rate API (Example for 1.16.5)
+    // Format: curse.maven:slug-projectid:fileid
+    implementation fg.deobf("curse.maven:drop-rate-api-1208468:6249868")
+}</code></pre>
+            <div class="alert alert-info">
+                <strong><i class="fas fa-info-circle"></i> Pro Tip:</strong> 
+                Remember to run <code>gradlew --refresh-dependencies</code> after adding the dependency.
+            </div>
+        </section>
+
+        <!-- CONFIGURATION -->
+        <section id="configuration">
+            <h2><i class="fas fa-cogs"></i> Configuration</h2>
+            <p>The configuration file is located at <code>config/droprate.config.json</code>.</p>
+
+            <h3>Basic Structure</h3>
+            <pre><code class="language-json">{
+  "config": [
+    {
+      "mob": "minecraft:zombie",
+      "rate": 80,
+      "item": ["minecraft:apple"],
+      "item_amount": {
+        "min_amount": 1,
+        "max_amount": 3
+      }
+    }
+  ]
+}</code></pre>
+
+            <h3>Field Reference</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>mob</code></td>
+                        <td>String</td>
+                        <td>The Entity ID (e.g., <code>minecraft:skeleton</code>).</td>
+                    </tr>
+                    <tr>
+                        <td><code>rate</code></td>
+                        <td>Integer</td>
+                        <td>Drop chance percentage (0-100).</td>
+                    </tr>
+                    <tr>
+                        <td><code>item</code></td>
+                        <td>Array</td>
+                        <td>List of item IDs to drop (e.g., <code>["minecraft:diamond"]</code>).</td>
+                    </tr>
+                    <tr>
+                        <td><code>item_amount</code></td>
+                        <td>Int / Obj</td>
+                        <td>Either a fixed number or an object with <code>min_amount</code> and <code>max_amount</code>.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.9em; opacity: 0.8;">* Note: Amounts are automatically clamped between 1 and 64.</p>
+        </section>
+
+        <!-- COMMANDS -->
+        <section id="commands">
+            <h2><i class="fas fa-terminal"></i> Commands</h2>
+            <p>Commands to manage the mod in-game.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/droprate_reload</code></td>
+                        <td>Reloads the <code>config/droprate.config.json</code> file immediately without restarting the server/game.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- DEVELOPER API -->
+        <section id="developer-api">
+            <h2><i class="fas fa-code"></i> Developer API</h2>
+            <p>Usage examples for mod developers integrating DropRate.</p>
+
+            <h4>Importing the API</h4>
+            <pre><code class="language-java">import th.tamkungz.droprateapi.api.DropRateAPI;
+import net.minecraft.entity.EntityType;
+import net.minecraft.item.Items;
+import java.util.Arrays;</code></pre>
+
+            <h4>Registering Custom Drops</h4>
+            <pre><code class="language-java">// Register drops: Mob, Rate(%), Items List, Min Amount, Max Amount
+DropRateAPI.registerDrop(
+    EntityType.ZOMBIE, 
+    75, 
+    Arrays.asList(Items.DIAMOND, Items.EMERALD), 
+    1, 
+    5
+);</code></pre>
+
+            <h4>Removing Drops</h4>
+            <pre><code class="language-java">// Remove specific items from a mob's drop list
+DropRateAPI.removeDrop(EntityType.CREEPER, Items.GUNPOWDER);</code></pre>
+
+            <h4>Event Handling</h4>
+            <p>Drops are processed during the <code>LivingDeathEvent</code> via the <code>MobDeathHandler</code>. You can subscribe to this event to add custom logic alongside DropRate.</p>
+        </section>
+
+        <!-- COMPATIBILITY -->
+        <section id="compatibility">
+            <h2><i class="fas fa-handshake"></i> Compatibility</h2>
+            <div class="alert alert-warning">
+                <strong><i class="fas fa-exclamation-triangle"></i> Load Order:</strong> 
+                DropRate should ideally load <em>after</em> core content mods but <em>before</em> other heavy loot modifiers to ensure overrides work correctly.
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mod</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apotheosis</td>
+                        <td><i class="fas fa-check-circle" style="color:green"></i> Full</td>
+                        <td>Use Apotheosis for drop scaling mechanics.</td>
+                    </tr>
+                    <tr>
+                        <td>Lootr</td>
+                        <td><i class="fas fa-minus-circle" style="color:orange"></i> Partial</td>
+                        <td>Chest interactions should be tested manually.</td>
+                    </tr>
+                    <tr>
+                        <td>TConstruct</td>
+                        <td><i class="fas fa-times-circle" style="color:red"></i> Limited</td>
+                        <td>Tool modification support is not currently active.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- LICENSE -->
+        <section id="license">
+            <h2><i class="fas fa-balance-scale"></i> License</h2>
+            <p>DropRate - Custom Mob Drops & API is licensed under the <strong>GNU General Public License v3.0</strong>.</p>
+            <div style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.9em; font-family: monospace; color: var(--code-text);">
+                Copyright (C) 2023 TamKungZ_<br><br>
+                This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions.
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Theme Toggle -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <span style="margin-left:10px; font-size:0.8rem; color:var(--text-color);"><i class="fas fa-moon"></i></span>
+    </div>
+
+</div>
+
+<script>
+    // --- Sticky Nav Highlighting & Smooth Scroll Logic ---
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // --- Dark Mode Logic ---
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        if (currentTheme === 'dark-mode') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>
