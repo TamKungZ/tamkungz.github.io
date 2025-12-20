@@ -461,6 +461,20 @@
         .news-category.release { background-color: #2ecc71; }
         .news-category.update { background-color: #f39c12; }
 
+        .news-toggle {
+            margin-top: 8px;
+            background: none;
+            border: none;
+            color: var(--link-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 0;
+        }
+        
+        .news-toggle:hover {
+            text-decoration: underline;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -1350,28 +1364,71 @@
     function renderNews(data) {
         newsContainer.innerHTML = '';
     
-        data.forEach(item => {
+        data.forEach((item, index) => {
             const li = document.createElement('li');
             li.className = 'news-item';
     
-            let contentHtml = '';
-            if (item.content) {
-                contentHtml =
-                    item.content[currentLang] ||
-                    item.content.en ||
-                    '';
-            }
+            let contentHtml =
+                item.content?.[currentLang] ||
+                item.content?.en ||
+                '';
+    
+            const isLong = contentHtml.length > 600;
+            const preview = isLong
+                ? contentHtml.slice(0, 600) + '...'
+                : contentHtml;
+    
+            const toggleText = currentLang === 'th'
+                ? 'แสดงเพิ่มเติม'
+                : 'Show more';
     
             li.innerHTML = `
                 <div>
                     <span class="news-category ${item.type.toLowerCase()}">
                         ${item.type}
                     </span>
-                    ${contentHtml}
+    
+                    <div class="news-content" data-full="${encodeURIComponent(contentHtml)}">
+                        ${preview}
+                    </div>
+    
+                    ${isLong ? `
+                    <button class="news-toggle" data-expanded="false">
+                        ${toggleText}
+                    </button>` : ''}
                 </div>
             `;
     
             newsContainer.appendChild(li);
+        });
+    
+        bindNewsToggles();
+    }
+
+    function bindNewsToggles() {
+        document.querySelectorAll('.news-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const contentDiv = btn.previousElementSibling;
+                const fullHtml = decodeURIComponent(
+                    contentDiv.getAttribute('data-full')
+                );
+    
+                const expanded = btn.getAttribute('data-expanded') === 'true';
+    
+                if (!expanded) {
+                    contentDiv.innerHTML = fullHtml;
+                    btn.textContent = currentLang === 'th'
+                        ? 'แสดงน้อยลง'
+                        : 'Show less';
+                } else {
+                    contentDiv.innerHTML = fullHtml.slice(0, 600) + '...';
+                    btn.textContent = currentLang === 'th'
+                        ? 'แสดงเพิ่มเติม'
+                        : 'Show more';
+                }
+    
+                btn.setAttribute('data-expanded', !expanded);
+            });
         });
     }
     
