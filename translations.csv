@@ -17,12 +17,12 @@ newsTitle,News & Announcements,ข่าวสารและประกาศ,
 featuredProjectsTitle,Featured Projects (Minecraft Mods),โปรเจกต์เด่น (มอด Minecraft),
 developingProjectsTitle,Developing Projects,โปรเจกต์ที่กำลังพัฒนา,
 abandonedProjectsTitle,Abandoned/On Hold Projects,โปรเจกต์ที่ถูกพัก/ยกเลิก,
-abandonedProjectsContent,These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating,feel free to reach out!,โปรเจกต์เหล่านี้เป็นแนวคิดที่น่าสนใจที่ผมเริ่มทำไว้แต่ยังไม่มีโอกาสพัฒนาต่อจนเสร็จ หากคุณสนใจที่จะนำไปสานต่อหรือร่วมมือกัน สามารถติดต่อมาได้เลยครับ!
+abandonedProjectsContent,"These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating,feel free to reach out!", โปรเจกต์เหล่านี้เป็นแนวคิดที่น่าสนใจที่ผมเริ่มทำไว้แต่ยังไม่มีโอกาสพัฒนาต่อจนเสร็จ หากคุณสนใจที่จะนำไปสานต่อหรือร่วมมือกัน สามารถติดต่อมาได้เลยครับ!
 downloadLabel,Download:,ดาวน์โหลด:,
 versionLabel,Version:,เวอร์ชัน:,
 statusDeveloping,Developing,กำลังพัฒนา,
 statusOnHold,On Hold,พักโปรเจกต์,
 mavenProjectLabel,Project:,โปรเจกต์:,
 mavenVersionLabel,Version:,เวอร์ชัน:,
-vlivaDesc,VLiva - VTuber for Linux,Is a program that can run Vtuber models created with Live2D,VLiva - โปรแกรม VTuber สำหรับ Linux สามารถรันโมเดลที่สร้างด้วย Live2D ได้
-stardewNpcDesc,Stardew NPC Maker is a tool that allows you to easily create NPC (new character) mods for Stardew Valley without having to deal with complicated JSON files.,Stardew NPC Maker เป็นเครื่องมือช่วยสร้างมอด NPC (ตัวละครใหม่) สำหรับ Stardew Valley โดยไม่ต้องยุ่งยากกับไฟล์ JSON ที่ซับซ้อน,
+vlivaDesc,"VLiva - VTuber for Linux, Is a program that can run Vtuber models created with Live2D",VLiva - โปรแกรม VTuber สำหรับ Linux สามารถรันโมเดลที่สร้างด้วย Live2D ได้,
+stardewNpcDesc,"Stardew NPC Maker is a tool that allows you to easily create NPC (new character) mods for Stardew Valley without having to deal with complicated JSON files.",Stardew NPC Maker เป็นเครื่องมือช่วยสร้างมอด NPC (ตัวละครใหม่) สำหรับ Stardew Valley โดยไม่ต้องยุ่งยากกับไฟล์ JSON ที่ซับซ้อน,
