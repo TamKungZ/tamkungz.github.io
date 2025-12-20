@@ -20,6 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     
@@ -395,6 +396,8 @@
             color: var(--link-hover-color);
         }
         .project-links a i { margin-right: 5px; }
+        .project-links a { display: inline-flex; align-items: center; gap: 6px; } .project-links img.icon { width: 16px; height: 16px; }
+        .project-links a:hover img { filter: brightness(0) invert(1); }
 
         /* Links Section */
         .links ul {
@@ -965,110 +968,77 @@
             <section class="section">
                 <h3><i class="fas fa-project-diagram"></i> <span data-i18n="featuredProjectsTitle">Featured Projects (Minecraft Mods)</span></h3>
                 <div class="project-grid">
-                    <!-- Project Cards (Still Static for now) -->
                     <div class="project-card">
                         <img src="https://tamkungz.github.io/letyourfriendeating/lyfe_new_bg.png" alt="Let Your Friend Eating Mod Preview" class="project-card-image">
                         <h4>Let Your Friend Eating <span class="highlight">(Minecraft Utility Mod)</span></h4>
                         <p>A fun and helpful mod that adds the ability for other players to feed you directly, making cooperative play even more engaging!</p>
-                        <div class="project-links">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/letyourfriendeating" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                            <a href="https://modrinth.com/mod/let-your-friend-eating!" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
-                            <a href="https://github.com/TamKungZ/letyourfriendeating" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <div class="project-links"><a href="https://www.curseforge.com/minecraft/mc-mods/letyourfriendeating" target="_blank" rel="noopener noreferrer"><span class="iconify" data-icon="simple-icons:curseforge"></span> CurseForge</a><a href="https://modrinth.com/mod/let-your-friend-eating!" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/modrinth/55c57a" alt="Modrinth Icon" width="16" height="16" style="vertical-align: text-bottom; width: 1em; height: 1em;"> Modrinth</a><a href="https://github.com/TamKungZ/letyourfriendeating" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                     <div class="project-card">
                         <img src="https://cdn.modrinth.com/data/8N1pJGur/images/2d0b92152ad539019d34ca257014002636dd5a66.png" alt="Stardew Valley Food Mod Preview" class="project-card-image">
                         <h4>Stardew Valley Food <span class="highlight">(Minecraft Content Mod)</span></h4>
                         <p>Craving some pixelated farm-fresh goodness? This mod introduces a delightful array of delicious food items directly from the beloved game Stardew Valley into your Minecraft world!</p>
-                        <div class="project-links">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/stardew-valley-food" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                            <a href="https://modrinth.com/mod/stardew-valley-food" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
-                            <a href="https://github.com/TamKungZ/StardewValleyFood-MinecraftMod" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <div class="project-links"><a href="https://www.curseforge.com/minecraft/mc-mods/stardew-valley-food" target="_blank" rel="noopener noreferrer"><span class="iconify" data-icon="simple-icons:curseforge"></span> CurseForge</a><a href="https://modrinth.com/mod/stardew-valley-food" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/modrinth/55c57a" alt="Modrinth Icon" width="16" height="16" style="vertical-align: text-bottom; width: 1em; height: 1em;"> Modrinth</a><a href="https://github.com/TamKungZ/StardewValleyFood-MinecraftMod" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                     <div class="project-card">
                         <img src="https://cdn.modrinth.com/data/dbNTzFWE/images/a409c420ca8412ffcc09b4f54b6bb3486b34bef9.png" alt="Japan Props Mod Preview" class="project-card-image">
                         <h4>Japan Props <span class="highlight">(Minecraft Decoration Mod)</span></h4>
                         <p>Transform your builds into beautiful Japanese landscapes! This mod adds a variety of charming and authentic Japanese-style decorative props for all your architectural desires.</p>
-                        <div class="project-links">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/japan-props" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                            <a href="https://modrinth.com/mod/japan-props" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
-                        </div>
+                        <div class="project-links"><a href="https://www.curseforge.com/minecraft/mc-mods/japan-props" target="_blank" rel="noopener noreferrer"><span class="iconify" data-icon="simple-icons:curseforge"></span> CurseForge</a><a href="https://modrinth.com/mod/japan-props" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/modrinth/55c57a" alt="Modrinth Icon" width="16" height="16" style="vertical-align: text-bottom; width: 1em; height: 1em;"> Modrinth</a></div>
                     </div>
                     <div class="project-card">
                         <img src="https://media.forgecdn.net/attachments/description/null/description_8a13f050-5196-45fd-8df4-7b6703c87334.png" alt="Japan & Dessert Mod Preview" class="project-card-image">
                         <h4>Japan & Dessert 🍡🍰<span class="highlight">(Minecraft Content Mod)</span></h4>
                         <p>Adds traditional Japanese sweets and creative dessert items with full support for cooking recipes in Minecraft. Mochi? Dango? It's all there.</p>
-                        <div class="project-links">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/japan-and-dessert" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                        </div>
+                        <div class="project-links"><a href="https://www.curseforge.com/minecraft/mc-mods/japan-and-dessert" target="_blank" rel="noopener noreferrer"><span class="iconify" data-icon="simple-icons:curseforge"></span> CurseForge</a></div>
                     </div>
                     <div class="project-card">
                         <img src="https://tamkungz.github.io/droprateapi/image.png" alt="DropRateAPI Mod Preview" class="project-card-image">
                         <h4>DropRateAPI <span class="highlight">(Minecraft API Mod)</span></h4>
                         <p>A powerful and flexible API designed for developers to easily customize and fine-tune item drop rates within Minecraft, offering endless possibilities for game balance and unique experiences.</p>
-                        <div class="project-links">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/droprateapi" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                            <a href="https://tamkungz.github.io/droprateapi/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Website</a>
-                            <a href="https://github.com/TamKungZ/droprateapi" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <div class="project-links"><a href="https://www.curseforge.com/minecraft/mc-mods/droprateapi" target="_blank" rel="noopener noreferrer"><span class="iconify" data-icon="simple-icons:curseforge"></span> CurseForge</a><a href="https://tamkungz.github.io/droprateapi/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Website</a><a href="https://github.com/TamKungZ/droprateapi" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                     <div class="project-card">
                         <img src="https://media.forgecdn.net/attachments/410/193/2021-11-25_00.png" alt="Smooth Wood Mod Preview" class="project-card-image">
                         <h4>Smooth Wood <span class="highlight">(Minecraft Block Mod)</span></h4>
                         <p>Say goodbye to jagged edges! This mod introduces a collection of sleek and visually appealing wood blocks with smooth textures, perfect for modern builds and seamless designs.</p>
-                        <div class="project-links">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/smooth-wood" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                        </div>
+                        <div class="project-links"><a href="https://www.curseforge.com/minecraft/mc-mods/smooth-wood" target="_blank" rel="noopener noreferrer"><span class="iconify" data-icon="simple-icons:curseforge"></span> CurseForge</a></div>
                     </div>
                     <div class="project-card">
                         <img src="https://media.forgecdn.net/attachments/873/725/irecycle.png" alt="iRecycle Mod Preview" class="project-card-image">
                         <h4>iRecycle <span class="highlight">(Minecraft Utility Mod)</span></h4>
                         <p>Go green in Minecraft! iRecycle is a handy mod that allows you to recycle various items, giving you back resources and promoting sustainability within your blocky world.</p>
-                        <div class="project-links">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/irecycle" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                        </div>
+                        <div class="project-links"><a href="https://www.curseforge.com/minecraft/mc-mods/irecycle" target="_blank" rel="noopener noreferrer"><span class="iconify" data-icon="simple-icons:curseforge"></span> CurseForge</a></div>
                     </div>
                     <div class="project-card">
                         <img src="https://media.forgecdn.net/attachments/927/931/eac5a6c2f908759221ce7f3a13b622992ed5ae5f.png" alt="Impossible Item Crafting Mod Preview" class="project-card-image">
                         <h4>Impossible Item Crafting <span class="highlight">(Minecraft Challenge Mod)</span></h4>
                         <p>Are you up for a challenge? This mod introduces mind-bending and seemingly "impossible" item crafting recipes, pushing your creative limits and offering a unique twist to your survival experience!</p>
-                        <div class="project-links">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/impossible-item-crafting" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> CurseForge</a>
-                        </div>
+                        <div class="project-links"><a href="https://www.curseforge.com/minecraft/mc-mods/impossible-item-crafting" target="_blank" rel="noopener noreferrer"><span class="iconify" data-icon="simple-icons:curseforge"></span> CurseForge</a></div>
                     </div>
                     <div class="project-card">
                         <img src="https://cdn.modrinth.com/data/oRgKGxhT/images/01a864906946b8df0bfb97f06858f34c513c7e07.png" alt="InfoPlus Mod Preview" class="project-card-image">
                         <h4>InfoPlus <span class="highlight">(Minecraft Information Mod)</span></h4>
                         <p>Never be in the dark again! InfoPlus is a useful client-side mod that provides additional, real-time information about your surroundings, blocks, and entities, enhancing your gameplay knowledge.</p>
-                        <div class="project-links">
-                            <a href="https://modrinth.com/mod/infoplus" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Modrinth</a>
-                        </div>
+                        <div class="project-links"><a href="https://modrinth.com/mod/infoplus" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/modrinth/55c57a" alt="Modrinth Icon" width="16" height="16" style="vertical-align: text-bottom; width: 1em; height: 1em;"> Modrinth</a></div>
                     </div>
                 </div>
             </section>
-
             <section class="section">
                 <h3><i class="fas fa-archive"></i> <span data-i18n="abandonedProjectsTitle">Abandoned/On Hold Projects</span></h3>
-                <p data-i18n="abandonedProjectsContent">
-                    These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating, feel free to reach out!
-                </p>
+                <p data-i18n="abandonedProjectsContent">These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating, feel free to reach out!</p>
                 <div class="project-grid">
                     <div class="project-card abandoned">
                         <img src="image/373150250-be244527-4522-400d-8a9e-b0c66693a6de.png" alt="Auto Piano Player Python Preview" class="project-card-image">
                         <h4>Auto Piano Player (Python) <span class="status-tag" data-i18n="statusOnHold">On Hold</span></h4>
                         <p>This intriguing project aims to create a Python program capable of automatically playing piano. It's perfect for those looking to explore software control and musical creation.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/TamKungZ/Auto-Piano-Player-Python" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/TamKungZ/Auto-Piano-Player-Python" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                     <div class="project-card abandoned">
                         <img src="image/340617292-4dfa0146-e758-4d86-bb30-43f84ca33443.png" alt="NPCMaker-CS Preview" class="project-card-image">
                         <h4>NPCMaker-CS <span class="highlight">(Stardew SMAPI NPC Maker Content Patcher)</span> <span class="status-tag" data-i18n="statusOnHold">On Hold</span></h4>
                         <p>A tool for Stardew Valley designed to significantly simplify the process of creating new NPCs (Non-Player Characters) for SMAPI's Content Patcher mods.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/TamKungZ/NPCMaker-CS" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/TamKungZ/NPCMaker-CS" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
             </section>
