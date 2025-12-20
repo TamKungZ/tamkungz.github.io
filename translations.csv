@@ -1,28 +1,28 @@
-key,en,th,
-role,Developer | Programming & Creative Tools,นักพัฒนา | การเขียนโปรแกรมและเครื่องมือสร้างสรรค์,
-aboutMeTitle,About Me,เกี่ยวกับฉัน,
-aboutMeContent,"Hello, I'm <strong>TamKungZ_</strong>. I work with various programming languages, game engines, and digital tools.",สวัสดี ผมชื่อ <strong>TamKungZ_</strong> ทำงานเกี่ยวกับภาษาโปรแกรมมิ่ง เอนจินเกม และเครื่องมือดิจิทัลหลากหลายประเภท,
-skillsTitle,Skills & Tools,ทักษะและเครื่องมือ,
-skillsLanguages,Languages & Scripting:,ภาษาและสคริปต์:,
-skillsEngines,Game Engines:,เอนจิ้นเกม:,
-skillsArt,Art & Design:,ศิลปะและการออกแบบ:,
-skillsAudio,Audio & Video:,เสียงและวิดีโอ:,
-skillsOther,Other Tools:,เครื่องมืออื่น ๆ:,
-linksTitle,Links & Socials,ลิ้งค์และโซเชียลมีเดีย,
-moddingPlatformsTitle,Modding Platforms,แพลตฟอร์มมอด,
-supportWorkTitle,Support My Work,สนับสนุนผลงาน,
-co-founderTitle,Co-Founder,ผู้ร่วมก่อตั้ง,
-mavenTitle,Maven Repository,คลัง Maven,
-newsTitle,News & Announcements,ข่าวสารและประกาศ,
-featuredProjectsTitle,Featured Projects (Minecraft Mods),โปรเจกต์เด่น (มอด Minecraft),
-developingProjectsTitle,Developing Projects,โปรเจกต์ที่กำลังพัฒนา,
-abandonedProjectsTitle,Abandoned/On Hold Projects,โปรเจกต์ที่ถูกพัก/ยกเลิก,
-abandonedProjectsContent,"These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating,feel free to reach out!", โปรเจกต์เหล่านี้เป็นแนวคิดที่น่าสนใจที่ผมเริ่มทำไว้แต่ยังไม่มีโอกาสพัฒนาต่อจนเสร็จ หากคุณสนใจที่จะนำไปสานต่อหรือร่วมมือกัน สามารถติดต่อมาได้เลยครับ!
-downloadLabel,Download:,ดาวน์โหลด:,
-versionLabel,Version:,เวอร์ชัน:,
-statusDeveloping,Developing,กำลังพัฒนา,
-statusOnHold,On Hold,พักโปรเจกต์,
-mavenProjectLabel,Project:,โปรเจกต์:,
-mavenVersionLabel,Version:,เวอร์ชัน:,
-vlivaDesc,"VLiva - VTuber for Linux, Is a program that can run Vtuber models created with Live2D",VLiva - โปรแกรม VTuber สำหรับ Linux สามารถรันโมเดลที่สร้างด้วย Live2D ได้,
-stardewNpcDesc,"Stardew NPC Maker is a tool that allows you to easily create NPC (new character) mods for Stardew Valley without having to deal with complicated JSON files.",Stardew NPC Maker เป็นเครื่องมือช่วยสร้างมอด NPC (ตัวละครใหม่) สำหรับ Stardew Valley โดยไม่ต้องยุ่งยากกับไฟล์ JSON ที่ซับซ้อน,
+key,en,th
+role,Developer | Programming & Digital Tools,นักพัฒนา | การเขียนโปรแกรมและเครื่องมือดิจิทัล
+aboutMeTitle,About Me,เกี่ยวกับฉัน
+aboutMeContent,"Hello, I'm <strong>TamKungZ_</strong>. I work with various programming languages, game engines, and digital tools.","สวัสดี ผมชื่อ <strong>TamKungZ_</strong> ทำงานเกี่ยวกับภาษาโปรแกรมมิ่ง เอนจินเกม และเครื่องมือดิจิทัลหลากหลายประเภท"
+skillsTitle,Skills & Tools,ทักษะและเครื่องมือ
+skillsLanguages,Languages & Scripting:,ภาษาและสคริปต์:
+skillsEngines,Game Engines:,เอนจินเกม:
+skillsArt,Art & Design:,ศิลปะและการออกแบบ:
+skillsAudio,Audio & Video:,เสียงและวิดีโอ:
+skillsOther,Other Tools:,เครื่องมืออื่น ๆ:
+linksTitle,Links & Socials,ลิงก์และโซเชียลมีเดีย
+moddingPlatformsTitle,Modding Platforms,แพลตฟอร์มมอด
+supportWorkTitle,Support My Work,สนับสนุนผลงาน
+co-founderTitle,Co-Founder,ผู้ร่วมก่อตั้ง
+mavenTitle,Maven Repository,คลัง Maven
+newsTitle,News & Announcements,ข่าวสารและประกาศ
+featuredProjectsTitle,Featured Projects (Minecraft Mods),โปรเจกต์เด่น (มอด Minecraft)
+developingProjectsTitle,Developing Projects,โปรเจกต์ที่กำลังพัฒนา
+abandonedProjectsTitle,Abandoned / On Hold Projects,โปรเจกต์ที่ถูกพักหรือยกเลิก
+abandonedProjectsContent,"These projects are exciting concepts I've started but haven't had the chance to fully develop. If you're interested in picking them up or collaborating, feel free to reach out!","โปรเจกต์เหล่านี้เป็นแนวคิดที่น่าสนใจที่ผมเริ่มทำไว้แต่ยังไม่มีโอกาสพัฒนาต่อจนเสร็จ หากคุณสนใจที่จะนำไปสานต่อหรือร่วมมือกัน สามารถติดต่อมาได้เลยครับ!"
+downloadLabel,Download:,ดาวน์โหลด:
+versionLabel,Version:,เวอร์ชัน:
+statusDeveloping,Developing,กำลังพัฒนา
+statusOnHold,On Hold,พักโปรเจกต์
+mavenProjectLabel,Project:,โปรเจกต์:
+mavenVersionLabel,Version:,เวอร์ชัน:
+vlivaDesc,"VLiva - VTuber for Linux. A program that can run VTuber models created with Live2D.","VLiva - โปรแกรม VTuber สำหรับ Linux ที่สามารถรันโมเดล VTuber ที่สร้างด้วย Live2D ได้"
+stardewNpcDesc,"Stardew NPC Maker is a tool that allows you to easily create NPC (new character) mods for Stardew Valley without dealing with complicated JSON files.","Stardew NPC Maker เป็นเครื่องมือที่ช่วยให้คุณสร้างมอด NPC (ตัวละครใหม่) สำหรับ Stardew Valley ได้อย่างง่ายดาย โดยไม่ต้องจัดการกับไฟล์ JSON ที่ซับซ้อน"
