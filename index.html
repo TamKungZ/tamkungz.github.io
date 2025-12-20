@@ -300,22 +300,41 @@
         .section h3 i { margin-right: 10px; }
 
         /* Skills */
-        .skills {
-            list-style: none;
-            padding: 0;
+        .skills-tags li {
+            padding-left: 0;
         }
-        .skills li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
+        
+        .skills-tags li::before {
+            display: none;
         }
-        .skills li:before {
-            content: "•";
-            color: var(--primary-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+        
+        .skills-tags strong {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--header-color);
+        }
+        
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag-group span {
+            padding: 4px 10px;
+            font-size: 0.85rem;
+            border-radius: 999px;
+            background: var(--link-bg);
+            color: var(--link-color);
+            border: 1px solid var(--link-color);
+            font-family: 'Fira Code', monospace;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        
+        .tag-group span:hover {
+            background: var(--link-hover-bg);
+            color: var(--link-hover-color);
         }
 
         /* Projects */
@@ -698,18 +717,53 @@
             <section class="section">
                 <h3><i class="fas fa-user-circle"></i> <span data-i18n="aboutMeTitle">About Me</span></h3>
                 <p data-i18n="aboutMeContent">
-                    Hello, I'm <strong>TamKungZ_</strong>. I work with various programming languages, engines, and creative tools.
+                    Hello, I'm <strong>TamKungZ_</strong>. I work with various programming languages, game engines, and digital tools.
                 </p>
             </section>
     
             <section class="section">
                 <h3><i class="fas fa-tools"></i> <span data-i18n="skillsTitle">Skills & Tools</span></h3>
-                <ul class="skills">
-                    <li><strong data-i18n="skillsLanguages">Languages & Scripting:</strong> C, C#, C++, HTML, CSS, JavaScript, PHP, Lua, Java, Json, Rust, Kotlin, GDscript</li>
-                    <li><strong data-i18n="skillsEngines">Game Engines:</strong> Unreal, Unity, Godot, RPG Maker</li>
-                    <li><strong data-i18n="skillsArt">Art & Design:</strong> Clip Studio, Krita, Blender, Photoshop, Illustrator, After Effects, Figma</li>
-                    <li><strong data-i18n="skillsAudio">Audio & Video:</strong> Vegas, FL Studio, Ableton</li>
-                    <li><strong data-i18n="skillsOther">Other Tools:</strong> Visual Studio Code, Visual Studio, IntelliJ IDEA, V-Tuber, Live2D</li>
+                <ul class="skills skills-tags">
+                    <li>
+                        <strong data-i18n="skillsLanguages">Languages & Scripting</strong>
+                        <div class="tag-group">
+                            <span>C</span><span>C#</span><span>C++</span><span>HTML</span>
+                            <span>CSS</span><span>JavaScript</span><span>PHP</span>
+                            <span>Lua</span><span>Java</span><span>JSON</span>
+                            <span>Rust</span><span>Kotlin</span><span>GDScript</span>
+                        </div>
+                    </li>
+                
+                    <li>
+                        <strong data-i18n="skillsEngines">Game Engines</strong>
+                        <div class="tag-group">
+                            <span>Unreal</span><span>Unity</span><span>Godot</span><span>RPG Maker</span>
+                        </div>
+                    </li>
+                
+                    <li>
+                        <strong data-i18n="skillsArt">Art & Design</strong>
+                        <div class="tag-group">
+                            <span>Clip Studio</span><span>Krita</span><span>Blender</span>
+                            <span>Adobe Photoshop</span><span>Adobe Illustrator</span>
+                            <span>Adobe Substance</span><span>Figma</span><span>Paint.NET</span>
+                        </div>
+                    </li>
+                
+                    <li>
+                        <strong data-i18n="skillsAudio">Audio & Video</strong>
+                        <div class="tag-group">
+                            <span>Vegas</span><span>FL Studio</span><span>Ableton</span><span>Adobe After Effects</span>
+                        </div>
+                    </li>
+                
+                    <li>
+                        <strong data-i18n="skillsOther">Other Tools</strong>
+                        <div class="tag-group">
+                            <span>Visual Studio Code</span><span>Visual Studio</span>
+                            <span>IntelliJ IDEA</span>><span>Live2D</span>
+                        </div>
+                    </li>
                 </ul>
             </section>
         
