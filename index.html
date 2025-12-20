@@ -1349,30 +1349,32 @@
 
     function renderNews(data) {
         newsContainer.innerHTML = '';
+    
         data.forEach(item => {
             const li = document.createElement('li');
             li.className = 'news-item';
-            
-            // Determine content based on current language (simple fallback)
-            // Assuming JSON has structure: content_en, content_th OR just content with HTML
-            // For now, let's assume content contains HTML with English text, 
-            // but ideally JSON should support multiple languages or we replace text.
-            
-            let contentHtml = item.content; // Default
-            
-            // Simple replacement for category text if needed based on lang
-            // (You can expand this logic for full multi-lang support in JSON)
-            
+    
+            let contentHtml = '';
+            if (item.content) {
+                contentHtml =
+                    item.content[currentLang] ||
+                    item.content.en ||
+                    '';
+            }
+    
             li.innerHTML = `
                 <div>
-                    <span class="news-category ${item.type.toLowerCase()}">${item.type}</span>
+                    <span class="news-category ${item.type.toLowerCase()}">
+                        ${item.type}
+                    </span>
                     ${contentHtml}
                 </div>
             `;
+    
             newsContainer.appendChild(li);
         });
     }
-
+    
     loadNews();
 </script>
 
