@@ -2,36 +2,57 @@
   {
     "type": "Announcement",
     "date": "2025-11-02",
-    "content": "<p><strong>November 2, 2025:</strong> Thank you, CurseForge and Modrinth community! I'm here to announce the <span class=\"highlight\">final update (v0.4.0)</span> of <span class=\"highlight\">Stardew Valley Food</span>. This project started back in middle school (2022) as my second mod after <em>Smooth Wood</em>, created with MCreator before I learned Gradle or Maven. Over time, it grew to include 60+ food items ported from Stardew Valley — now reaching almost 100k downloads! The 0.4.0 version will be the <strong>final and best version</strong>, released before I head to university. Thank you so much for all the support through the years!</p><p class=\"note\">*(Out of support: Future ports may only include major Minecraft versions like 1.12.2, 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.20.1, and 1.21.1.)*</p>"
+    "content": {
+      "en": "<p><strong>November 2, 2025:</strong> Thank you, CurseForge and Modrinth community!</p><p>I’m here to share some news about my mod <span class=\"highlight\">Stardew Valley Food</span>.</p><p>First of all, I want to sincerely thank everyone who downloaded Stardew Valley Food — the mod that ports food items from Stardew Valley into Minecraft. It has now reached over <strong>90,000 downloads</strong>, which is something I honestly never expected.</p><p>I originally created this mod back in middle school, around 2022. It was my second mod, after my very first one, <em>Smooth Wood</em>, which introduced me to modding and Java, and marked the beginning of my journey in the Forge community. At that time, I was using MCreator to make mods, simply experimenting and learning as I went. I didn’t know what Gradle or Maven were, and I wasn’t even writing real code — just putting things together piece by piece. Before I realized it, I had created more than 60 food items and uploaded the mod just in case someone might want to try it.</p><p>At first, I was worried about potential copyright issues, but I learned that the creator of Stardew Valley is quite open-minded. My intention was never to make any profit — I simply wanted to enjoy eating Stardew Valley food inside Minecraft.</p><p>In 2024, I started using a custom Gradle setup for the first time, upgrading and optimizing many items with Python as a helper tool. Version <strong>0.3.0</strong> was one of the most enjoyable periods for me, as I experimented with many new ideas.</p><p>Now in 2025, the total downloads are approaching <strong>100,000</strong>. With so many new Minecraft versions and mod loaders appearing, I feel that the quality of my older work no longer fully deserves this level of attention. Maintaining and porting over 60 items across every version has become increasingly difficult.</p><p>However, don’t worry — I will be releasing <span class=\"highlight\">one final update, version 0.4.0</span>. This will be the <strong>best and final version</strong> of Stardew Valley Food, released before I enter university. After that, the mod will move into an out-of-support state.</p><p>Thank you so much for your continued support — truly, thank you again.</p><p class=\"note\"><em>(\"Out of support\" means I will no longer actively maintain or add new content, but the mod will remain available for popular Minecraft versions and mod loaders such as 1.12.2, 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.20.1, and 1.21.1.)</em></p>",
+      "th": "<p><strong>2 พฤศจิกายน 2025:</strong> ขอขอบคุณชุมชน CurseForge และ Modrinth ทุกคน!</p><p>ผมขอมาแชร์ข่าวเกี่ยวกับมอดของผม <span class=\"highlight\">Stardew Valley Food</span></p><p>ก่อนอื่นเลย ผมขอขอบคุณจากใจจริงทุกคนที่ดาวน์โหลด Stardew Valley Food มอดที่นำอาหารจาก Stardew Valley มาใส่ใน Minecraft ซึ่งตอนนี้มียอดดาวน์โหลดมากกว่า <strong>90,000 ครั้ง</strong> แล้ว</p><p>ผมเริ่มสร้างมอดนี้ตั้งแต่สมัยเรียนมัธยมต้น ราวปี 2022 โดยเป็นมอดลำดับที่สองของผม ต่อจาก <em>Smooth Wood</em> ซึ่งเป็นจุดเริ่มต้นที่ทำให้ผมรู้จักการทำมอดและภาษา Java ตอนนั้นผมใช้ MCreator ทำมอดโดยการลองผิดลองถูก ยังไม่รู้จัก Gradle หรือ Maven และยังไม่ได้เขียนโค้ดจริง ๆ จนไม่รู้ตัวว่าผมสร้างไอเท็มอาหารไปแล้วกว่า 60 ชนิด</p><p>ในช่วงแรกผมกังวลเรื่องลิขสิทธิ์ แต่ภายหลังทราบว่าผู้สร้าง Stardew Valley เป็นคนเปิดกว้าง เจตนาของผมไม่เคยเป็นเรื่องผลกำไร ผมแค่อยากสนุกกับการได้กินอาหารจาก Stardew Valley ใน Minecraft</p><p>ในปี 2024 ผมเริ่มใช้ Gradle แบบปรับแต่งเอง และใช้ Python ช่วยในการปรับปรุงไอเท็ม เวอร์ชัน <strong>0.3.0</strong> เป็นช่วงที่ผมสนุกกับการพัฒนามาก</p><p>ในปี 2025 ยอดดาวน์โหลดใกล้ถึง <strong>100,000 ครั้ง</strong> และด้วยจำนวนเวอร์ชัน Minecraft และ mod loader ที่เพิ่มขึ้น การดูแลไอเท็มกว่า 60 ชิ้นจึงกลายเป็นภาระที่หนักเกินไป</p><p>อย่างไรก็ตาม ผมจะปล่อย <span class=\"highlight\">อัปเดตสุดท้าย เวอร์ชัน 0.4.0</span> ซึ่งจะเป็น <strong>เวอร์ชันสุดท้ายและดีที่สุด</strong> ก่อนที่ผมจะเข้ามหาวิทยาลัย หลังจากนั้นมอดจะเข้าสู่สถานะยุติการซัพพอร์ต</p><p>ขอบคุณทุกคนจากใจจริงสำหรับการสนับสนุนที่ผ่านมาครับ</p><p class=\"note\"><em>(ยุติการซัพพอร์ต หมายถึงจะไม่มีการอัปเดตหรือเพิ่มเนื้อหาใหม่ แต่ยังเปิดให้ดาวน์โหลดในเวอร์ชันยอดนิยม เช่น 1.12.2, 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.20.1 และ 1.21.1)</em></p>"
+    }
   },
   {
     "type": "Release",
     "date": "2025-06-29",
-    "content": "<p><strong>June 29, 2025:</strong> The <span class=\"highlight\">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft!</p>"
+    "content": {
+      "en": "<p><strong>June 29, 2025:</strong> The <span class=\"highlight\">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft.</p>",
+      "th": "<p><strong>29 มิถุนายน 2025:</strong> รีซอร์สแพ็ก <span class=\"highlight\">Smooth Wood (HD) [ยุติการพัฒนา]</span> ได้รับการอัปเดตให้รองรับ Minecraft เวอร์ชันล่าสุดแล้ว</p>"
+    }
   },
   {
     "type": "Update",
     "date": "2025-06-29",
-    "content": "<p><strong>June 29, 2025:</strong> Good news! Development on <span class=\"highlight\">Japan Props</span> will resume. It might take a while, but it's definitely coming back!</p>"
+    "content": {
+      "en": "<p><strong>June 29, 2025:</strong> Good news! Development on <span class=\"highlight\">Japan Props</span> will resume. It might take a while, but it's definitely coming back!</p>",
+      "th": "<p><strong>29 มิถุนายน 2025:</strong> ข่าวดี! การพัฒนา <span class=\"highlight\">Japan Props</span> จะกลับมาอีกครั้ง อาจใช้เวลาสักหน่อย แต่กลับมาแน่นอน</p>"
+    }
   },
   {
     "type": "Announcement",
     "date": "2025-06-07",
-    "content": "<p><strong>June 7, 2025:</strong> Taking a long break from development. Experiencing burnout, health issues, and computer problems. Hope to be back soon!</p>"
+    "content": {
+      "en": "<p><strong>June 7, 2025:</strong> Taking a long break from development due to burnout, health issues, and computer problems. Hope to be back soon.</p>",
+      "th": "<p><strong>7 มิถุนายน 2025:</strong> ขอพักจากการพัฒนาเป็นระยะเวลาหนึ่ง เนื่องจากอาการหมดไฟ ปัญหาสุขภาพ และปัญหาคอมพิวเตอร์ หวังว่าจะกลับมาได้เร็ว ๆ นี้</p>"
+    }
   },
   {
     "type": "Release",
     "date": "2025-05-19",
-    "content": "<p><strong>May 19, 2025:</strong> <span class=\"highlight\">Let Your Friend Eating!</span> version 1.0.4 LTS is out! This might be the final major update, with future updates primarily focusing on bug fixes.</p>"
+    "content": {
+      "en": "<p><strong>May 19, 2025:</strong> <span class=\"highlight\">Let Your Friend Eating!</span> version 1.0.4 LTS is out. This may be the final major update, with future updates focusing mainly on bug fixes.</p>",
+      "th": "<p><strong>19 พฤษภาคม 2025:</strong> <span class=\"highlight\">Let Your Friend Eating!</span> เวอร์ชัน 1.0.4 LTS เปิดให้ใช้งานแล้ว โดยอาจเป็นอัปเดตหลักครั้งสุดท้าย และจะเน้นแก้บั๊กเป็นหลักในอนาคต</p>"
+    }
   },
   {
     "type": "Release",
     "date": "2025-05-09",
-    "content": "<p><strong>May 9, 2025:</strong> <span class=\"highlight\">Stardew Valley Food</span> version 0.3.2 is now available! This is the best version yet, allowing for both NPC trades and crafting recipes simultaneously.</p>"
+    "content": {
+      "en": "<p><strong>May 9, 2025:</strong> <span class=\"highlight\">Stardew Valley Food</span> version 0.3.2 is now available, allowing NPC trades and crafting recipes to work together.</p>",
+      "th": "<p><strong>9 พฤษภาคม 2025:</strong> <span class=\"highlight\">Stardew Valley Food</span> เวอร์ชัน 0.3.2 เปิดให้ใช้งานแล้ว รองรับทั้งระบบแลกเปลี่ยนกับ NPC และสูตรคราฟต์พร้อมกัน</p>"
+    }
   },
   {
     "type": "Announcement",
     "date": "2024-01-01",
-    "content": "<p><strong>2024:</strong> Development on the <span class=\"highlight\">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.</p>"
+    "content": {
+      "en": "<p><strong>2024:</strong> Development on the <span class=\"highlight\">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.</p>",
+      "th": "<p><strong>ปี 2024:</strong> โครงการ <span class=\"highlight\">Smooth Wood (HD)</span> ได้ยุติการพัฒนาอย่างเป็นทางการแล้ว</p>"
+    }
   }
 ]
