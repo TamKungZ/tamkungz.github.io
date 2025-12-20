@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -169,6 +169,14 @@
             margin-bottom: 15px;
             font-size: 1.5rem;
             color: var(--primary-color);
+            overflow: hidden; /* Ensure images don't overflow */
+        }
+        
+        .doc-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         .doc-card h3 {
@@ -276,17 +284,17 @@
     <header class="doc-header">
         <div class="header-title">
             <h1>Documentation Hub</h1>
-            <p>รวมคู่มือการใช้งานและเอกสารทางเทคนิคของ TamKungZ_</p>
+            <p>Collection of user guides and technical documentation for TamKungZ_ projects.</p>
         </div>
         <a href="../index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> กลับหน้าหลัก
+            <i class="fas fa-arrow-left"></i> Back to Home
         </a>
     </header>
 
     <!-- SEARCH -->
     <div class="search-container">
         <i class="fas fa-search search-icon"></i>
-        <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาเอกสาร (เช่น VLiva, NPC Maker, API...)">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search docs (e.g., VLiva, NPC Maker, API...)">
     </div>
 
     <!-- MAIN CONTENT -->
@@ -298,10 +306,13 @@
             <div class="doc-grid">
                 
                 <!-- VLiva -->
-                <a href="#" class="doc-card" data-keywords="vliva vtuber linux avatar live2d">
-                    <div class="doc-icon"><i class="fas fa-user-astronaut"></i></div>
+                <!-- Link: https://tamkungz.github.io/documentation/vliva/ -->
+                <a href="vliva/" class="doc-card" data-keywords="vliva vtuber linux avatar live2d">
+                    <div class="doc-icon">
+                        <img src="https://tamkungz.github.io/image/vliva-logo-256.png" alt="VLiva Logo">
+                    </div>
                     <h3>VLiva (Linux VTuber)</h3>
-                    <p>โปรแกรม VTuber สำหรับ Linux 100% รองรับ Live2D และการจับใบหน้าผ่าน Webcam</p>
+                    <p>100% Linux VTuber software supporting Live2D and webcam face tracking.</p>
                     <div class="doc-meta">
                         <span><i class="fas fa-book"></i> User Guide</span>
                         <span class="tag wip">Developing</span>
@@ -309,10 +320,13 @@
                 </a>
 
                 <!-- Stardew NPC Maker -->
-                <a href="#" class="doc-card" data-keywords="stardew valley npc maker modding tool">
-                    <div class="doc-icon"><i class="fas fa-hammer"></i></div>
+                <!-- Link: https://tamkungz.github.io/documentation/stardew-npc-maker/ -->
+                <a href="stardew-npc-maker/" class="doc-card" data-keywords="stardew valley npc maker modding tool">
+                    <div class="doc-icon">
+                        <img src="https://tamkungz.github.io/image/StardewNPCMaker-logo.webp" alt="Stardew NPC Maker Logo">
+                    </div>
                     <h3>Stardew NPC Maker</h3>
-                    <p>เครื่องมือสร้าง NPC สำหรับ Stardew Valley แบบไม่ต้องเขียน Code (JSON generator)</p>
+                    <p>NPC creation tool for Stardew Valley without coding (JSON generator).</p>
                     <div class="doc-meta">
                         <span><i class="fas fa-code-branch"></i> v1.0.2</span>
                     </div>
@@ -327,10 +341,13 @@
             <div class="doc-grid">
 
                 <!-- DropRateAPI -->
-                <a href="#" class="doc-card" data-keywords="minecraft mod api droprate developer java">
-                    <div class="doc-icon"><i class="fas fa-cogs"></i></div>
+                <!-- Link: https://tamkungz.github.io/documentation/droprateapi/ -->
+                <a href="droprateapi/" class="doc-card" data-keywords="minecraft mod api droprate developer java">
+                    <div class="doc-icon">
+                        <img src="https://media.forgecdn.net/avatars/thumbnails/1187/202/64/64/638761572996635127.png" alt="DropRateAPI Logo">
+                    </div>
                     <h3>DropRateAPI</h3>
-                    <p>API สำหรับนักพัฒนา Mod เพื่อปรับแต่งอัตราการดรอปไอเทมในเกม Minecraft</p>
+                    <p>API for mod developers to customize item drop rates in Minecraft.</p>
                     <div class="doc-meta">
                         <span><i class="fas fa-laptop-code"></i> Developer Docs</span>
                         <span class="tag updated">Updated</span>
@@ -338,20 +355,26 @@
                 </a>
 
                 <!-- Let Your Friend Eating -->
-                <a href="#" class="doc-card" data-keywords="let your friend eating minecraft mod utility">
-                    <div class="doc-icon"><i class="fas fa-utensils"></i></div>
-                    <h3>Let Your Friend Eating</h3>
-                    <p>วิธีใช้งาน Mod ป้อนอาหารเพื่อน และการตั้งค่า Config ไฟล์ต่างๆ</p>
+                <!-- Link: https://tamkungz.github.io/documentation/letyourfriendeating/ -->
+                <a href="letyourfriendeating/" class="doc-card" data-keywords="let your friend eating minecraft mod utility">
+                    <div class="doc-icon">
+                        <img src="https://tamkungz.github.io/image/lyfe_new_icon_nofoodbar-256.jpg" alt="Let Your Friend Eating Logo">
+                    </div>
+                    <h3>Let Your Friend Eating!</h3>
+                    <p>Usage guide for the feeding mod and configuration file settings.</p>
                     <div class="doc-meta">
-                        <span><i class="fas fa-file-alt"></i> Config Guide</span>
+                        <span><i class="fas fa-file-alt"></i> Guide</span>
                     </div>
                 </a>
 
                 <!-- Japan Props -->
-                <a href="#" class="doc-card" data-keywords="japan props decoration minecraft mod">
-                    <div class="doc-icon"><i class="fas fa-torii-gate"></i></div>
+                <!-- Link: https://tamkungz.github.io/documentation/japan-props/ -->
+                <a href="japan-props/" class="doc-card" data-keywords="japan props decoration minecraft mod">
+                    <div class="doc-icon">
+                        <img src="https://cdn.modrinth.com/data/cached_images/3c48c301063592f759e9a11a0042576c6ef6de9b.gif" alt="Japan Props Logo">
+                    </div>
                     <h3>Japan Props</h3>
-                    <p>รายการ Recipe การคราฟของตกแต่งญี่ปุ่น และข้อมูล Block ต่างๆ</p>
+                    <p>Crafting recipes for Japanese decorations and block information.</p>
                     <div class="doc-meta">
                         <span><i class="fas fa-list"></i> Recipe List</span>
                     </div>
@@ -366,10 +389,11 @@
             <div class="doc-grid">
 
                 <!-- Maven Repo -->
-                <a href="#" class="doc-card" data-keywords="maven gradle repository java library">
+                <!-- Link: https://tamkungz.github.io/documentation/maven/ -->
+                <a href="maven/" class="doc-card" data-keywords="maven gradle repository java library">
                     <div class="doc-icon"><i class="fas fa-archive"></i></div>
                     <h3>Maven Repository</h3>
-                    <p>วิธีการใช้งาน TamKungZ Maven สำหรับ Gradle และ Maven Project</p>
+                    <p>How to use TamKungZ Maven for Gradle and Maven projects.</p>
                     <div class="doc-meta">
                         <span><i class="fas fa-link"></i> Integration</span>
                     </div>
