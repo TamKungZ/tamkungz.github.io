@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Let Your Friend Eating! - Documentation</title>
     <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/ficon.ico">
-    <meta name="theme-color" content="#dafeb6">
+    <meta name="theme-color" content="#4a90e2">
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,56 +15,55 @@
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="Let Your Friend Eating! - Minecraft Mod Documentation">
-    <meta name="description" content="Official documentation for Let Your Friend Eating! A Minecraft mod that allows players to feed other players with food items. Supports Forge, NeoForge, and Fabric from 1.16.x to 1.21.x.">
-    <meta name="keywords" content="Minecraft Mod, Let Your Friend Eating, Feed Player Mod, Forge, Fabric, NeoForge, Minecraft Utility Mod">
+    <meta name="description" content="Official documentation for Let Your Friend Eating! A simple yet fun utility mod that allows you to feed your friends. Supports Forge, NeoForge, and Fabric from 1.16.x to 1.21.x.">
+    <meta name="keywords" content="Minecraft Mod, Let Your Friend Eating, Feed Players, Minecraft Forge, NeoForge, Fabric, Modding">
     <meta name="author" content="TamKungZ">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph / Facebook / Discord -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Let Your Friend Eating! - Minecraft Mod Documentation">
-    <meta property="og:description" content="Feed your friends in Minecraft by right-clicking them with food. Cross-loader support: Forge, NeoForge, Fabric.">
+    <meta property="og:description" content="Feed your friends in Minecraft! Official documentation, features, and download links.">
     <meta property="og:url" content="https://tamkungz.github.io/documentation/letyourfriendeating/">
-    <meta property="og:image" content="https://tamkungz.github.io/image/lyfe_new_icon_nofoodbar-256.jpg">
+    <meta property="og:image" content="https://tamkungz.github.io/image/lyfe_new_icon_nofoodbar-512.jpg">
     <meta property="og:site_name" content="LYFE Docs">
-    
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Let Your Friend Eating! - Minecraft Mod">
-    <meta name="twitter:description" content="Minecraft utility mod that lets you feed other players. Supports Forge, NeoForge, and Fabric.">
-    <meta name="twitter:image" content="https://tamkungz.github.io/image/lyfe_new_icon_nofoodbar-256.jpg">
-    
-    <!-- App / PWA Friendly -->
-    <meta name="application-name" content="Let Your Friend Eating! Docs">
-    <meta name="apple-mobile-web-app-title" content="LYFE Docs">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     <style>
-        /* --- CORE STYLES --- */
+        /* --- CORE STYLES (Blue Theme) --- */
         :root {
-            --primary-color: #55c57a;
-            --primary-light: #dcffdb;
-            --secondary-color: #2c3e50;
+            /* Blue Palette */
+            --primary-color: #4a90e2; /* Bright Blue */
+            --primary-light: #eaf2fb; /* Very Light Blue */
+            --secondary-color: #357abd; /* Deeper Blue */
+            --accent-color: #f39c12; /* Orange accent */
+            
             --text-color: #333;
             --bg-color: #f8f9fa;
             --container-bg: #ffffff;
-            --sidebar-bg: #f1f3f5;
-            --border-color: #e0e0e0;
-            --code-bg: #2d2d2d;
+            --sidebar-bg: #f1f4f8;
+            --border-color: #dce4ec;
+            --code-bg: #2c3e50;
             --code-text: #f8f8f2;
+            --shadow-color: rgba(0,0,0,0.08);
+
+            --success-color: #2ecc71;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
         }
 
         body.dark-mode {
-            --primary-color: #8be9fd;
-            --primary-light: #263c41;
-            --secondary-color: #e0e0e0;
-            --text-color: #f0f0f0;
+            /* Dark Mode Blue Palette */
+            --primary-color: #5dade2;
+            --primary-light: #2c3e50;
+            --secondary-color: #3498db;
+            
+            --text-color: #ecf0f1;
             --bg-color: #121212;
-            --container-bg: #1e1e1e;
-            --sidebar-bg: #2d2d2d;
-            --border-color: #333;
-            --code-bg: #111;
+            --container-bg: #1e272e;
+            --sidebar-bg: #2c3e50;
+            --border-color: #34495e;
+            --code-bg: #0a0a0a;
+            --shadow-color: rgba(0,0,0,0.3);
         }
 
         body {
@@ -87,68 +86,129 @@
 
         /* --- SIDEBAR NAV --- */
         .sidebar {
-            width: 250px;
+            width: 280px;
             padding: 40px 20px;
             position: sticky;
             top: 0;
             height: 100vh;
             overflow-y: auto;
-            background: var(--bg-color);
+            background: var(--sidebar-bg);
             border-right: 1px solid var(--border-color);
             box-sizing: border-box;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 40px;
             text-decoration: none;
             color: var(--text-color);
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
         .nav-logo img {
             width: 40px;
             height: 40px;
-            border-radius: 8px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+            padding: 2px;
+            background: var(--container-bg);
         }
 
-        .nav-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        .nav-links li {
-            margin-bottom: 10px;
-        }
-
+        .nav-links { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .nav-links li { margin-bottom: 8px; }
         .nav-links a {
             text-decoration: none;
             color: var(--text-color);
-            opacity: 0.7;
-            display: block;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: all 0.2s;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            font-weight: 500;
             font-size: 0.95rem;
         }
-
+        .nav-links a i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+            color: var(--secondary-color);
+            transition: color 0.2s ease;
+        }
         .nav-links a:hover, .nav-links a.active {
             background: var(--primary-light);
             color: var(--primary-color);
             opacity: 1;
-            font-weight: 500;
+            transform: translateX(5px);
         }
-        
-        body.dark-mode .nav-links a:hover, 
-        body.dark-mode .nav-links a.active {
-            color: var(--bg-color); /* Contrast for dark mode */
+        .nav-links a:hover i, .nav-links a.active i {
+            color: var(--primary-color);
         }
 
-        .back-home {
-            margin-top: 30px;
-            border-top: 1px solid var(--border-color);
+        body.dark-mode .nav-links a:hover, 
+        body.dark-mode .nav-links a.active {
+            color: var(--text-color);
+            background: var(--primary-color);
+        }
+        body.dark-mode .nav-links a:hover i, 
+        body.dark-mode .nav-links a.active i {
+            color: var(--text-color);
+        }
+
+        /* --- SIDEBAR FOOTER (Back & External Links) --- */
+        .sidebar-footer {
+            margin-top: 20px;
             padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            opacity: 1;
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .external-links {
+            margin-top: 15px;
+            padding-left: 12px;
+        }
+        .ext-link {
+            display: block;
+            color: var(--text-color);
+            opacity: 0.5;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+        }
+        .ext-link:hover {
+            opacity: 1;
+            color: var(--primary-color);
+            transform: translateX(3px);
+        }
+        .ext-link i {
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
         }
 
         /* --- MAIN CONTENT --- */
@@ -156,117 +216,231 @@
             flex: 1;
             padding: 40px 50px;
             max-width: 100%;
+            background: var(--container-bg);
         }
 
-        h1, h2, h3 {
-            color: var(--primary-color);
-            margin-top: 0;
+        section {
+            margin-bottom: 60px;
+            scroll-margin-top: 40px;
         }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        h1, h2, h3, h4 { color: var(--primary-color); margin-top: 0; }
+        h1 { font-size: 2.8rem; margin-bottom: 15px; letter-spacing: -0.5px; }
         h2 { 
-            font-size: 1.8rem; 
-            margin-top: 40px; 
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border-color);
+            font-size: 2rem; 
+            margin-top: 0;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        h3 { font-size: 1.3rem; margin-top: 25px; color: var(--secondary-color); }
+        h2 i { color: var(--secondary-color); }
+        h3 { font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px; color: var(--secondary-color); }
+        h4 { font-size: 1.1rem; margin-bottom: 10px; color: var(--text-color); }
+        p, li { font-size: 1.05rem; color: var(--text-color); opacity: 0.95; }
 
-        p, li { font-size: 1.05rem; color: var(--text-color); opacity: 0.9; }
-
-        /* --- HEADER IMAGE --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+        .hero-icon-wrapper {
+            position: relative;
         }
         .hero-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
+            border: 4px solid var(--container-bg);
         }
-
-        /* --- BADGES --- */
-        .badges {
+        .hero-content { flex: 1; }
+        .hero-badges {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
-        .badge {
-            background: var(--secondary-color);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
+        .hero-badge {
+            background: var(--primary-light);
+            color: var(--secondary-color);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid var(--primary-color);
         }
-        .badge.forge { background: #dfa676; }
-        .badge.fabric { background: #dedbed; color: #333; }
-        .badge.neoforge { background: #f5b042; }
+        .hero-badge i { color: var(--primary-color); }
 
-        /* --- CODE BLOCKS & TABLES --- */
+        /* --- FEATURES GRID --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .feature-card {
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 { margin-top: 0; font-size: 1.3rem; }
+        .feature-card p { margin-bottom: 0; font-size: 0.95rem; }
+
+        /* --- CODE & TABLES --- */
         code {
-            background: rgba(0,0,0,0.05);
+            background: rgba(52, 152, 219, 0.1); /* Blue tint */
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9em;
-            color: #d63384;
+            color: var(--secondary-color);
         }
+        body.dark-mode code { color: var(--primary-color); }
         
         pre {
             background: var(--code-bg);
             color: var(--code-text);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow-x: auto;
             font-family: 'JetBrains Mono', monospace;
+            border-left: 5px solid var(--primary-color);
+            margin: 20px 0;
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 25px 0;
             background: var(--container-bg);
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px var(--shadow-color);
+            border: 1px solid var(--border-color);
         }
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--border-color); }
         th {
             background: var(--primary-light);
             color: var(--secondary-color);
             font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: var(--bg-color); }
+
+        /* --- ALERTS & LISTS --- */
+        .alert {
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 5px solid;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .alert i { font-size: 1.5rem; margin-top: 2px; }
+        .alert-info {
+            background-color: var(--primary-light);
+            border-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        .custom-list { list-style: none; padding: 0; }
+        .custom-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .custom-list li i {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 4px;
+            background: var(--primary-light);
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        .footer-links a:hover { color: var(--primary-color); transform: translateY(-3px); }
 
         /* --- DARK MODE TOGGLE --- */
         .theme-switch-wrapper {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             z-index: 99;
             background: var(--container-bg);
-            padding: 10px;
+            padding: 8px;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
+            border: 2px solid var(--border-color);
         }
         .theme-switch {
             display: inline-block;
-            height: 24px;
+            height: 28px;
             position: relative;
-            width: 50px;
+            width: 54px;
         }
         .theme-switch input { display: none; }
         .slider {
-            background-color: #ccc;
+            background-color: #bdc3c7;
             bottom: 0;
             cursor: pointer;
             left: 0;
@@ -280,29 +454,41 @@
             background-color: #fff;
             bottom: 3px;
             content: "";
-            height: 18px;
+            height: 22px;
             left: 3px;
             position: absolute;
             transition: .4s;
-            width: 18px;
+            width: 22px;
             border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         input:checked + .slider { background-color: var(--primary-color); }
         input:checked + .slider:before { transform: translateX(26px); }
-
+        .theme-icon {
+            margin-left: 12px;
+            font-size: 1rem;
+            color: var(--secondary-color);
+        }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .page-wrapper { flex-direction: column; }
             .sidebar { 
                 width: 100%; 
                 height: auto; 
                 position: relative; 
-                padding: 20px;
+                padding: 25px;
                 border-bottom: 1px solid var(--border-color);
+                border-right: none;
             }
-            .content { padding: 20px; }
-            .hero-section { flex-direction: column; text-align: center; }
+            .nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+            .nav-links li { margin: 0; }
+            .content { padding: 30px 25px; }
+            .hero-section { flex-direction: column; text-align: center; padding: 30px; }
+            .hero-badges { justify-content: center; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .sidebar-footer { margin-top: 20px; padding-top: 20px; }
         }
     </style>
 </head>
@@ -313,22 +499,35 @@
     <!-- SIDEBAR -->
     <nav class="sidebar">
         <a href="#" class="nav-logo">
-            <img src="https://tamkungz.github.io/image/lyfe_new_icon_nofoodbar-256.jpg" alt="Logo">
+            <img src="https://tamkungz.github.io/image/lyfe_new_icon_nofoodbar-512.jpg" alt="LYFE Logo">
             <span>LYFE Docs</span>
         </a>
         <ul class="nav-links">
-            <li><a href="#introduction" class="active">Introduction</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#special-interactions">Special Interactions</a></li>
-            <li><a href="#installation">Installation</a></li>
-            <li><a href="#how-to-use">How to Use</a></li>
-            <li><a href="#commands">Commands</a></li>
-            <li><a href="#config">Configuration</a></li>
+            <li><a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a></li>
+            <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+            <li><a href="#special-interactions"><i class="fas fa-magic"></i> Special Interactions</a></li>
+            <li><a href="#installation"><i class="fas fa-download"></i> Installation</a></li>
+            <li><a href="#usage"><i class="fas fa-book"></i> How to Use</a></li>
+            <li><a href="#commands"><i class="fas fa-terminal"></i> Commands</a></li>
+            <li><a href="#configuration"><i class="fas fa-cogs"></i> Configuration</a></li>
         </ul>
-        <div class="back-home">
+        
+        <div class="sidebar-footer">
             <a href="../" class="back-link">
                 <i class="fas fa-arrow-left"></i> Back to Hub
             </a>
+            
+            <div class="external-links">
+                <a href="https://www.curseforge.com/minecraft/mc-mods/letyourfriendeating" target="_blank" class="ext-link">
+                    <i class="fas fa-download"></i> Download Mod
+                </a>
+                <a href="https://modrinth.com/mod/let-your-friend-eating!" target="_blank" class="ext-link">
+                    <i class="fas fa-cube"></i> Modrinth
+                </a>
+                <a href="https://github.com/TamKungZ/letyourfriendeating" target="_blank" class="ext-link">
+                    <i class="fab fa-github"></i> Source Code
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -336,16 +535,16 @@
     <main class="content">
 
         <!-- INTRO -->
-        <section id="introduction">
+        <section id="overview">
             <div class="hero-section">
-                <img src="https://tamkungz.github.io/image/lyfe_new_icon_nofoodbar-256.jpg" class="hero-icon" alt="LYFE Logo">
-                <div>
+                <div class="hero-icon-wrapper">
+                    <img src="https://tamkungz.github.io/image/lyfe_new_icon_nofoodbar-512.jpg" alt="Let Your Friend Eating!" class="hero-icon">
+                </div>
+                <div class="hero-content">
                     <h1>Let Your Friend Eating!</h1>
-                    <div class="badges">
-                        <span class="badge forge">Forge</span>
-                        <span class="badge neoforge">NeoForge</span>
-                        <span class="badge fabric">Fabric</span>
-                        <span class="badge">1.16.x - 1.21.x</span>
+                    <div class="hero-badges">
+                        <span class="hero-badge"><i class="fas fa-code-branch"></i> Forge / NeoForge / Fabric</span>
+                        <span class="hero-badge"><i class="fas fa-cube"></i> 1.16.x - 1.21.x</span>
                     </div>
                     <p>A simple yet fun utility mod that allows you to feed your friends (or any player) by right-clicking them with food.</p>
                 </div>
@@ -354,51 +553,102 @@
 
         <!-- FEATURES -->
         <section id="features">
-            <h2><i class="fas fa-star"></i> Features</h2>
-            <ul>
-                <li><strong>Feed Others:</strong> Use any edible item to feed another player directly.</li>
-                <li><strong>Statistics Tracking:</strong> Tracks how many times you've fed others and how many times you've been fed.</li>
-                <li><strong>Configurable Cooldown:</strong> Prevent spamming by setting a global cooldown.</li>
-                <li><strong>Cross-Platform:</strong> Works on all major mod loaders with similar functionality.</li>
-                <li><strong>Sound & Particles:</strong> Plays the eating sound, burp sound, and spawns hearts/happy villager particles.</li>
-            </ul>
+            <h2><i class="fas fa-star"></i> Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Feed Others</h3>
+                    <p>Use any edible item to feed another player directly. Works just like eating it yourself!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Statistics Tracking</h3>
+                    <p>Tracks how many times you've fed others and how many times you've been fed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-stopwatch"></i></div>
+                    <h3>Configurable Cooldown</h3>
+                    <p>Prevent spamming by setting a global cooldown via the configuration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Cross-Platform</h3>
+                    <p>Works on all major mod loaders (Forge, NeoForge, Fabric) with similar functionality.</p>
+                </div>
+                 <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-volume-up"></i></div>
+                    <h3>Sound & Particles</h3>
+                    <p>Plays eating sounds, burp sounds, and spawns hearts/happy villager particles.</p>
+                </div>
+            </div>
         </section>
 
         <!-- SPECIAL INTERACTIONS -->
         <section id="special-interactions">
-            <h2><i class="fas fa-magic"></i> Special Interactions</h2>
-            <p>The mod handles certain items uniquely to provide a better experience:</p>
-            <ul>
-                <li><strong><i class="fas fa-glass-whiskey"></i> Milk Buckets:</strong> Feeding milk will remove all status effects from the target player and return an empty bucket to you.</li>
-                <li><strong><i class="fas fa-utensil-spoon"></i> Stews & Soups:</strong> When feeding stews (Mushroom, Rabbit, Beetroot), you will correctly receive an empty bowl back.</li>
-                <li><strong><i class="fas fa-question-circle"></i> Suspicious Stew:</strong> If you feed a Suspicious Stew, the hidden status effect (blindness, saturation, poison, etc.) will be applied to the target player!</li>
-                <li><strong><i class="fas fa-infinity"></i> Eternal/Infinite Items:</strong> The mod attempts to detect "eternal" or "infinite" food artifacts from other mods and may allow feeding without consuming the item (compatibility dependent).</li>
-            </ul>
+             <h2><i class="fas fa-magic"></i> Special Interactions</h2>
+             <p>The mod handles certain items uniquely to provide a better experience:</p>
+             <ul class="custom-list">
+                 <li>
+                     <i class="fas fa-glass-whiskey"></i>
+                     <div><strong>Milk Buckets:</strong> Feeding milk will remove all status effects from the target player and return an empty bucket to you.</div>
+                 </li>
+                 <li>
+                     <i class="fas fa-utensil-spoon"></i>
+                     <div><strong>Stews & Soups:</strong> When feeding stews (Mushroom, Rabbit, Beetroot), you will correctly receive an empty bowl back.</div>
+                 </li>
+                 <li>
+                     <i class="fas fa-question-circle"></i>
+                     <div><strong>Suspicious Stew:</strong> If you feed a Suspicious Stew, the hidden status effect (blindness, saturation, poison, etc.) will be applied to the target player!</div>
+                 </li>
+                 <li>
+                     <i class="fas fa-infinity"></i>
+                     <div><strong>Eternal/Infinite Items:</strong> The mod attempts to detect "eternal" or "infinite" food artifacts from other mods and may allow feeding without consuming the item (compatibility dependent).</div>
+                 </li>
+             </ul>
         </section>
 
         <!-- INSTALLATION -->
         <section id="installation">
             <h2><i class="fas fa-download"></i> Installation</h2>
             <p>Requires <strong>Cloth Config API</strong> to work properly.</p>
-            <ol>
-                <li>Download the mod `.jar` file for your version (Forge/Fabric/NeoForge).</li>
-                <li>Download <a href="https://www.curseforge.com/minecraft/mc-mods/cloth-config" target="_blank">Cloth Config API</a>.</li>
+            <ol style="line-height: 2; font-size: 1.05rem;">
+                <li>Download the mod <code>.jar</code> file for your version (Forge/Fabric/NeoForge).</li>
+                <li>Download <strong>Cloth Config API</strong> suitable for your loader.</li>
                 <li>Place both files into your <code>mods</code> folder.</li>
                 <li>Launch the game!</li>
             </ol>
+
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Download Links:</strong> You can download the mod from official sources via the links in the sidebar (CurseForge or Modrinth).
+                </div>
+            </div>
         </section>
 
-        <!-- HOW TO USE -->
-        <section id="how-to-use">
-            <h2><i class="fas fa-gamepad"></i> How to Use</h2>
+        <!-- USAGE -->
+        <section id="usage">
+            <h2><i class="fas fa-book"></i> How to Use</h2>
+            
             <h3>Feeding a Player</h3>
-            <p>1. Hold any <strong>Food Item</strong> in your main hand.</p>
-            <p>2. Walk up to another player.</p>
-            <p>3. <strong>Right-Click</strong> (Interact) on them.</p>
+            <ul class="custom-list">
+                <li>
+                    <i class="fas fa-hand-point-right"></i>
+                    <div>Hold any <strong>Food Item</strong> in your main hand.</div>
+                </li>
+                <li>
+                    <i class="fas fa-user-friends"></i>
+                    <div>Walk up to another player.</div>
+                </li>
+                <li>
+                    <i class="fas fa-mouse-pointer"></i>
+                    <div><strong>Right-Click</strong> (Interact) on them.</div>
+                </li>
+            </ul>
             <p>If successful, the food will be consumed, their hunger bar will fill, and statistics will update.</p>
 
             <h3>In-Game Config Menu</h3>
-            <p>Press <code id="keybind">F8</code> (Default) to open the configuration menu directly in-game. You can change this key in the Minecraft Controls settings.</p>
+            <p>Press <code>F8</code> (Default) to open the configuration menu directly in-game. You can change this key in the Minecraft Controls settings.</p>
         </section>
 
         <!-- COMMANDS -->
@@ -439,13 +689,15 @@
         </section>
 
         <!-- CONFIGURATION -->
-        <section id="config">
+        <section id="configuration">
             <h2><i class="fas fa-cogs"></i> Configuration</h2>
             <p>The configuration file is located at <code>config/letyourfriendeating-settings.json</code>.</p>
             
-            <div style="background-color: var(--primary-light); padding: 15px; border-left: 5px solid var(--primary-color); margin-bottom: 20px; border-radius: 4px; color: var(--secondary-color);">
-                <strong><i class="fas fa-info-circle"></i> Server Synchronization:</strong> 
-                When installed on a server, the server's configuration (Enable/Disable state and Cooldown) will automatically override the client's settings to ensure fair play.
+            <div class="alert alert-info">
+                <i class="fas fa-server"></i>
+                <div>
+                    <strong>Server Synchronization:</strong> When installed on a server, the server's configuration (Enable/Disable state and Cooldown) will automatically override the client's settings to ensure fair play.
+                </div>
             </div>
 
             <h3>Config Options</h3>
@@ -479,7 +731,7 @@
                     </tr>
                 </tbody>
             </table>
-            <br>
+
             <h3>Example File</h3>
 <pre><code>{
   "feedFriendEnabled": true,
@@ -496,10 +748,20 @@
             <input type="checkbox" id="checkbox" />
             <div class="slider round"></div>
         </label>
-        <span style="margin-left:10px; font-size:0.8rem; color:var(--text-color);"><i class="fas fa-moon"></i></span>
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
     </div>
 
 </div>
+
+<footer class="footer">
+    <div class="footer-links">
+        <a href="https://github.com/TamKungZ" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/TamKungZ" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.gg/yourdiscord" target="_blank"><i class="fab fa-discord"></i></a>
+    </div>
+    <p>Made with <i class="fas fa-heart" style="color: var(--danger-color);"></i> by TamKungZ</p>
+    <p style="font-size: 0.9rem; opacity: 0.6;">© 2023 Let Your Friend Eating!. Not affiliated with Mojang Studios.</p>
+</footer>
 
 <script>
     // --- Sticky Nav Highlighting & Smooth Scroll Logic ---
