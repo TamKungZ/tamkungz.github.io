@@ -1,5 +1,13 @@
 [
   {
+    "type": "Update",
+    "date": "2025-12-22",
+    "content": {
+      "en": "<p><strong>Let Your Friends Eating! 1.1.3 (Legacy Versions Notice):</strong></p><p>Versions below Minecraft 1.16.x (such as alpha, beta, and rc) have <strong>not been fully tested</strong>. These builds were not part of the main development focus due to time constraints.</p><p>However, the mod successfully builds after several hours of fixes, so these versions are being published for early access and reference purposes.</p><p>I will revisit and update them later when time allows. Please be aware that these versions may have compatibility issues with certain mod loaders, Minecraft versions, or some features may not function correctly.</p>",
+      "th": "<p><strong>Let Your Friends Eating! 1.1.3 (หมายเหตุสำหรับเวอร์ชันเก่า):</strong></p><p>เวอร์ชันที่ต่ำกว่า Minecraft 1.16.x (เช่น alpha, beta และ rc) <strong>ยังไม่ได้รับการทดสอบอย่างสมบูรณ์</strong> เนื่องจากมีข้อจำกัดด้านเวลา และไม่ได้อยู่ในกลุ่มเวอร์ชันหลักที่ใช้พัฒนา</p><p>อย่างไรก็ตาม มอดสามารถ build ผ่านได้หลังจากใช้เวลาแก้ไขหลายชั่วโมง จึงนำมาเผยแพร่ไว้ก่อนเพื่อการทดลองและอ้างอิง</p><p>ผมจะกลับมาปรับปรุงและอัปเดตเพิ่มเติมในภายหลัง โดยเวอร์ชันเหล่านี้อาจมีปัญหาด้านความเข้ากันได้กับ mod loader, เวอร์ชันของ Minecraft หรือบางฟีเจอร์อาจไม่ทำงาน</p>"
+    }
+  },
+  {
     "type": "Announcement",
     "date": "2025-11-02",
     "content": {
