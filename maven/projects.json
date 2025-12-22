@@ -1,14 +1,20 @@
 {
-  "lyfe [1.21.9]": {
+  "lyfe (1.21.9)": {
     "title": "Let Your Friend Eating!",
     "group": "th.in.tamkungz",
     "artifact": "letyourfriendeating-neoforge-1.21.9",
     "versions": ["1.1.0"]
   },
-  "lyfe [1.21.10]": {
+  "lyfe (1.21.10)": {
     "title": "Let Your Friend Eating!",
     "group": "th.in.tamkungz",
     "artifact": "letyourfriendeating-neoforge-1.21.10",
     "versions": ["1.1.0"]
+  },
+  "lyfe (1.13.2)": {
+    "title": "Let Your Friend Eating!",
+    "group": "th.in.tamkungz",
+    "artifact": "letyourfriendeating-forge-1.13.2",
+    "versions": ["1.1.3"]
   }
 }
