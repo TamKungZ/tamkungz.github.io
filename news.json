@@ -1,5 +1,21 @@
 [
   {
+    "type": "Announcement",
+    "date": "2025-12-25",
+    "content": {
+      "en": "<p><strong>December 25, 2025:</strong> I may temporarily pause or slow down development and related activities.</p><p>This is due to an increased workload, accumulated stress, and a transitional period in my life. In addition, my mother is currently unwell, so I need to spend some time accompanying her at the hospital.</p><p>Thank you for your understanding and continued support.</p>",
+      "th": "<p><strong>25 ธันวาคม 2025:</strong> อาจมีการหยุดหรือชะลอการดำเนินงานและการพัฒนาต่าง ๆ เป็นการชั่วคราว</p><p>เนื่องจากภาระงานที่เพิ่มขึ้น ความเครียดสะสม และอยู่ในช่วงรอยต่อของชีวิต รวมถึงขณะนี้แม่มีอาการป่วย จึงต้องใช้เวลาไปดูแลและไปโรงพยาบาลอยู่บ้าง</p><p>ขอขอบคุณทุกคนสำหรับความเข้าใจและการสนับสนุนเสมอมา</p>"
+    }
+  },
+  {
+    "type": "Update",
+    "date": "2025-12-24",
+    "content": {
+      "en": "<p><strong>December 24, 2025:</strong> Documentation Hub has been updated to improve readability and accessibility.</p><p>The new structure brings together user guides and technical documentation for TamKungZ_ projects in one place, making it easier to search, navigate, and maintain.</p><p>Currently included are guides and docs for projects such as VLiva, Stardew NPC Maker, Minecraft-related mods, and service integrations.</p>",
+      "th": "<p><strong>24 ธันวาคม 2025:</strong> มีการอัปเดต Documentation Hub เพื่อให้การอ่านและการเข้าถึงเอกสารทำได้ง่ายและเป็นระเบียบมากขึ้น</p><p>โครงสร้างใหม่ได้รวบรวมคู่มือการใช้งานและเอกสารเชิงเทคนิคของโปรเจกต์ TamKungZ_ ไว้ในที่เดียว เพื่อให้ง่ายต่อการค้นหา การใช้งาน และการดูแลในระยะยาว</p><p>ปัจจุบันมีเอกสารสำหรับโปรเจกต์ต่าง ๆ เช่น VLiva, Stardew NPC Maker, มอด Minecraft และบริการที่เกี่ยวข้อง</p>"
+    }
+  },
+  {
     "type": "Update",
     "date": "2025-12-22",
     "content": {
