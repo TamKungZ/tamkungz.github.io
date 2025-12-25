@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SideGate | Selective Guest Access</title>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Icon Component Wrapper
+        const Icon = ({ name, size = 24, className = "" }) => {
+            useEffect(() => {
+                lucide.createIcons();
+            }, [name]);
+            return <i data-lucide={name} width={size} height={size} className={className}></i>;
+        };
+
+        const App = () => {
+            const [activeTab, setActiveTab] = useState('install');
+
+            useEffect(() => {
+                lucide.createIcons();
+            }, [activeTab]);
+
+            return (
+                <div className="min-h-screen flex flex-col">
+                    {/* Navigation */}
+                    <nav className="fixed w-full z-50 glass-panel border-b border-slate-700">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex items-center justify-between h-16">
+                                <div className="flex items-center gap-3">
+                                    <img src="https://tamkungz.github.io/image/sidegate-logo.png" alt="SideGate Logo" className="h-8 w-auto" />
+                                    <span className="font-bold text-xl tracking-tight text-white">SideGate</span>
+                                </div>
+                                <div className="hidden md:block">
+                                    <div className="ml-10 flex items-baseline space-x-4">
+                                        <a href="#overview" className="hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Overview</a>
+                                        <a href="#features" className="hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</a>
+                                        <a href="#documentation" className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Get Started</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero Section */}
+                    <header className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-900/50 border border-indigo-500/30 text-indigo-300 text-sm mb-6">
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                            </span>
+                            v1.0.1 Available Now
+                        </div>
+                        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
+                            Selective Guest Access for <br />
+                            <span className="gradient-text">Online-Mode Servers</span>
+                        </h1>
+                        <p className="mt-4 max-w-2xl mx-auto text-xl text-slate-400">
+                            Maintain strict server security while allowing authorized non-premium friends to join. 
+                            Resolve the "10 vs 1" dilemma without compromising your server's integrity.
+                        </p>
+                        <div className="mt-10 flex justify-center gap-4">
+                            <a href="#documentation" className="px-8 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition-all shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+                                <Icon name="download" size={20} />
+                                Download Plugin
+                            </a>
+                            <a href="https://github.com/TamKungZ/SideGate" target="_blank" className="px-8 py-3 rounded-lg glass-panel hover:bg-slate-800 text-white font-semibold transition-all flex items-center gap-2">
+                                <Icon name="github" size={20} />
+                                Source Code
+                            </a>
+                        </div>
+                    </header>
+
+                    {/* Problem/Solution Section */}
+                    <section id="overview" className="py-16 bg-slate-900/50">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="grid md:grid-cols-2 gap-12 items-center">
+                                <div>
+                                    <h2 className="text-3xl font-bold text-white mb-4">The Administrator's Dilemma</h2>
+                                    <p className="text-slate-400 mb-6 leading-relaxed">
+                                        In a group of friends, often most own a legitimate Minecraft license, but a few do not. 
+                                        Historically, administrators had to set <code className="bg-slate-800 px-1 py-0.5 rounded text-indigo-400 font-mono text-sm">online-mode=false</code> to accommodate the minority.
+                                    </p>
+                                    <p className="text-slate-400 mb-6 leading-relaxed">
+                                        This compromised security for everyone: skins disappeared, UUIDs became unstable, and authentication was removed.
+                                    </p>
+                                    <div className="p-4 border-l-4 border-indigo-500 bg-slate-800/50 rounded-r-lg">
+                                        <p className="text-indigo-200 font-medium">
+                                            "Why lower security standards for everyone just for one guest?"
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="glass-panel p-8 rounded-2xl relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-indigo-500 rounded-full blur-3xl opacity-20"></div>
+                                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                        <Icon name="shield-check" className="text-green-400" />
+                                        The SideGate Solution
+                                    </h3>
+                                    <ul className="space-y-4">
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle" className="text-indigo-400 shrink-0 mt-1" size={18} />
+                                            <span className="text-slate-300">Keep <code className="font-mono text-sm text-indigo-300">online-mode=true</code> active.</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle" className="text-indigo-400 shrink-0 mt-1" size={18} />
+                                            <span className="text-slate-300">Premium players retain skins and Mojang UUIDs.</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle" className="text-indigo-400 shrink-0 mt-1" size={18} />
+                                            <span className="text-slate-300">Guests bypass auth via a strictly controlled whitelist.</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle" className="text-indigo-400 shrink-0 mt-1" size={18} />
+                                            <span className="text-slate-300">Auto-detection of Mojang vs. Non-Mojang accounts.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Features Grid */}
+                    <section id="features" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl font-bold text-white">Technical Capabilities</h2>
+                            <p className="mt-4 text-slate-400">Engineered for stability and seamless integration.</p>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {[
+                                {
+                                    icon: "server",
+                                    title: "Online-Mode Foundation",
+                                    desc: "The server remains in premium mode. Legitimate players authenticate directly with Mojang."
+                                },
+                                {
+                                    icon: "users",
+                                    title: "Hybrid Auto-Detect",
+                                    desc: "Automatically checks Mojang API. If a player has a license, they login normally. If not, they use the SideGate."
+                                },
+                                {
+                                    icon: "lock",
+                                    title: "Whitelist Control",
+                                    desc: "Strictly define who is allowed to bypass authentication via the configuration file."
+                                },
+                                {
+                                    icon: "message-square",
+                                    title: "Guest Distinction",
+                                    desc: "Apply custom chat prefixes and scoreboard tags to identify guest players instantly."
+                                },
+                                {
+                                    icon: "cpu",
+                                    title: "Packet Injection",
+                                    desc: "Utilizes ProtocolLib to inject login packets, simulating a valid session for guests."
+                                },
+                                {
+                                    icon: "settings",
+                                    title: "Gamemode Enforcement",
+                                    desc: "Force specific GameModes (Survival, Adventure) for guest players upon entry."
+                                }
+                            ].map((feature, idx) => (
+                                <div key={idx} className="glass-panel p-6 rounded-xl hover:border-indigo-500/50 transition-colors">
+                                    <div className="h-12 w-12 bg-indigo-900/50 rounded-lg flex items-center justify-center mb-4 text-indigo-400">
+                                        <Icon name={feature.icon} />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                                    <p className="text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Documentation / Tabs */}
+                    <section id="documentation" className="py-16 bg-slate-900/30">
+                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-center mb-8">
+                                <div className="bg-slate-800 p-1 rounded-lg inline-flex">
+                                    <button 
+                                        onClick={() => setActiveTab('install')}
+                                        className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${activeTab === 'install' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}
+                                    >
+                                        Installation
+                                    </button>
+                                    <button 
+                                        onClick={() => setActiveTab('config')}
+                                        className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${activeTab === 'config' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}
+                                    >
+                                        Configuration
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="glass-panel rounded-2xl overflow-hidden shadow-2xl">
+                                {/* Installation Tab */}
+                                {activeTab === 'install' && (
+                                    <div className="p-8">
+                                        <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                                            <Icon name="download-cloud" /> Deployment Steps
+                                        </h3>
+                                        <div className="space-y-6">
+                                            <div className="flex gap-4">
+                                                <div className="flex-none h-8 w-8 rounded-full bg-indigo-900/50 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold">1</div>
+                                                <div>
+                                                    <h4 className="font-semibold text-white">Prerequisites</h4>
+                                                    <p className="text-slate-400 text-sm mt-1">Ensure <strong>ProtocolLib 5.0+</strong> is installed on your Spigot/Paper server (1.20+).</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex gap-4">
+                                                <div className="flex-none h-8 w-8 rounded-full bg-indigo-900/50 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold">2</div>
+                                                <div>
+                                                    <h4 className="font-semibold text-white">Install Plugin</h4>
+                                                    <p className="text-slate-400 text-sm mt-1">Place <code>SideGate.jar</code> into your <code>/plugins</code> directory.</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex gap-4">
+                                                <div className="flex-none h-8 w-8 rounded-full bg-indigo-900/50 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold">3</div>
+                                                <div>
+                                                    <h4 className="font-semibold text-white">Configure Properties</h4>
+                                                    <p className="text-slate-400 text-sm mt-1">Edit <code>server.properties</code> and ensure the following is set:</p>
+                                                    <div className="mt-3 bg-black/50 p-4 rounded-lg border border-slate-700 font-mono text-sm text-green-400">
+                                                        online-mode=true
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="flex gap-4">
+                                                <div className="flex-none h-8 w-8 rounded-full bg-indigo-900/50 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold">4</div>
+                                                <div>
+                                                    <h4 className="font-semibold text-white">Restart</h4>
+                                                    <p className="text-slate-400 text-sm mt-1">Restart the server to generate the <code>config.yml</code> file.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Configuration Tab */}
+                                {activeTab === 'config' && (
+                                    <div className="p-0">
+                                        <div className="bg-slate-950 px-4 py-2 border-b border-slate-800 flex items-center gap-2">
+                                            <div className="flex gap-1.5">
+                                                <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
+                                                <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+                                                <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
+                                            </div>
+                                            <span className="text-xs text-slate-500 font-mono ml-2">plugins/SideGate/config.yml</span>
+                                        </div>
+                                        <div className="p-6 overflow-x-auto bg-[#0d1117]">
+                                            <pre className="font-mono text-sm leading-relaxed">
+                                                <span className="text-slate-500"># Master Switch</span><br/>
+                                                <span className="text-indigo-400">enable-guest-mode</span>: <span className="text-red-400">true</span><br/><br/>
+                                                
+                                                <span className="text-slate-500"># Auto-check Mojang API. If true, premium players join normally.</span><br/>
+                                                <span className="text-indigo-400">auto-detect-premium</span>: <span className="text-red-400">true</span><br/><br/>
+
+                                                <span className="text-slate-500"># false = Whitelist only / true = Allow everyone (like offline mode)</span><br/>
+                                                <span className="text-indigo-400">allow-all-guests</span>: <span className="text-red-400">false</span><br/><br/>
+
+                                                <span className="text-slate-500"># Authorized Guest List (Non-Premium)</span><br/>
+                                                <span className="text-indigo-400">allowed-guests</span>:<br/>
+                                                <span className="text-yellow-200">  - "PlayerName1"</span><br/>
+                                                <span className="text-yellow-200">  - "PlayerName2"</span><br/><br/>
+
+                                                <span className="text-indigo-400">guest-settings</span>:<br/>
+                                                <span className="text-indigo-400">  default-gamemode</span>: <span className="text-green-400">"SURVIVAL"</span><br/>
+                                                <span className="text-indigo-400">  chat-prefix</span>: <span className="text-green-400">"&7[Guest] &r"</span>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="py-12 border-t border-slate-800 mt-auto">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                            <div className="flex items-center gap-2">
+                                <img src="https://tamkungz.github.io/image/sidegate-logo.png" alt="Logo" className="h-6 opacity-70" />
+                                <span className="text-slate-500 text-sm">© 2024 SideGate Project. All rights reserved.</span>
+                            </div>
+                            <div className="flex gap-6 text-sm text-slate-400">
+                                <span className="flex items-center gap-2 text-yellow-500/80">
+                                    <Icon name="alert-triangle" size={16} />
+                                    <span>Recommendation: Use with AuthMe for guest security.</span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
