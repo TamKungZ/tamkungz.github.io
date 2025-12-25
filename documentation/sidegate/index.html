@@ -57,6 +57,8 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
         
@@ -85,6 +87,31 @@
         /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
+        }
+
+        .icon-links {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        
+        .icon-links a {
+          font-size: 1.75rem;
+          color: #94a3b8; /* slate-400 */
+          transition: color 0.2s ease, transform 0.2s ease;
+        }
+        
+        .icon-links a:hover {
+          transform: scale(1.1);
+        }
+        
+        .icon-links a[aria-label="SpigotMC"]:hover {
+          color: #ed8106;
+        }
+        
+        .icon-links a[aria-label="CurseForge"]:hover {
+          color: #f16436;
         }
     </style>
 </head>
@@ -151,6 +178,27 @@
                             Maintain strict server security while allowing authorized non-premium friends to join. 
                             Resolve the "10 vs 1" dilemma without compromising your server's integrity.
                         </p>
+
+                        <div className="icon-links mt-6">
+                        <a
+                          href="https://www.spigotmc.org/resources/sidegate-1-20-x-1-21-x-bukkit.131104/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="SpigotMC"
+                        >
+                          <span className="iconify" data-icon="simple-icons:spigotmc"></span>
+                        </a>
+                      
+                        <a
+                          href="https://www.curseforge.com/minecraft/bukkit-plugins/sidegate"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="CurseForge"
+                        >
+                          <span className="iconify" data-icon="simple-icons:curseforge"></span>
+                        </a>
+                      </div>
+                        
                         <div className="mt-10 flex justify-center gap-4">
                             <a href="#documentation" className="px-8 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition-all shadow-lg shadow-indigo-500/20 flex items-center gap-2">
                                 <Icon name="download" size={20} />
