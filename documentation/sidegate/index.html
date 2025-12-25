@@ -394,6 +394,41 @@
                         </div>
                     </section>
 
+                    {/* FAQ Section */}
+                    <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h2 className="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+                        <div className="space-y-6">
+                            {/* Item 1 */}
+                            <div className="glass-panel p-6 rounded-xl hover:bg-slate-800/50 transition-colors">
+                                <h3 className="text-lg font-semibold text-indigo-400 mb-2 flex items-start gap-2">
+                                    <span className="text-slate-500">Q:</span> Will premium players see their own skins?
+                                </h3>
+                                <p className="text-slate-300 leading-relaxed pl-6">
+                                    <span className="font-semibold text-slate-500">A:</span> Yes, the system routes premium players to login directly via Mojang, preserving their skin data.
+                                </p>
+                            </div>
+                            {/* Item 2 */}
+                            <div className="glass-panel p-6 rounded-xl hover:bg-slate-800/50 transition-colors">
+                                <h3 className="text-lg font-semibold text-indigo-400 mb-2 flex items-start gap-2">
+                                    <span className="text-slate-500">Q:</span> If online-mode=true is set, how can non-premium players join?
+                                </h3>
+                                <p className="text-slate-300 leading-relaxed pl-6">
+                                    <span className="font-semibold text-slate-500">A:</span> SideGate integrates with ProtocolLib to handle connection packets for Guest players, bypassing the server's standard verification check for specific users while keeping the overall Online-mode status active.
+                                </p>
+                            </div>
+                            {/* Item 3 */}
+                            <div className="glass-panel p-6 rounded-xl hover:bg-slate-800/50 transition-colors">
+                                <h3 className="text-lg font-semibold text-indigo-400 mb-2 flex items-start gap-2">
+                                    <span className="text-slate-500">Q:</span> What if I use a non-premium (cracked) Minecraft ID and cannot join the server?
+                                </h3>
+                                <div className="text-slate-300 leading-relaxed pl-6 space-y-3">
+                                    <p><span className="font-semibold text-slate-500">A:</span> In some cases, the username you are using may already belong to a legitimate premium account. To prevent security risks and identity confusion, the system includes protection mechanisms for this scenario.</p>
+                                    <p>If a non-premium player attempts to join using a username that matches an existing premium account, the login will be denied. This prevents impersonation, skin conflicts, and potential player data corruption.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* Footer */}
                     <footer className="py-12 border-t border-slate-800 mt-auto">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
