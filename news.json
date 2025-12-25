@@ -1,6 +1,14 @@
 [
   {
     "type": "Announcement",
+    "date": "2025-12-26",
+    "content": {
+      "th": "<p><strong>26 ธันวาคม 2025:</strong></p><p>แม่ของผมน่าจะภูมิใจในตัวผมมาก ๆ</p><p>ขอบคุณคุณแม่จากใจจริง ที่มอบชีวิตและโอกาสให้ผมได้เติบโตมาเป็น <strong>TamKungZ_</strong> ในทุกวันนี้</p><p>ขอให้คุณแม่ได้ไปสู่ภพภูมิที่ดี สงบ และอบอุ่น</p><p>ผมจะเก็บทุกคำสอนและความคาดหวังของคุณแม่ไว้เป็นแรงผลักดัน และจะเดินหน้าก้าวต่อไปบนเส้นทางของตัวเองอย่างเข้มแข็ง เพื่อไม่ให้ความรักและความเสียสละของคุณแม่สูญเปล่าครับ</p>",
+      "en": "<p><strong>December 26, 2025:</strong></p><p>My mother would be very proud of who I have become.</p><p>From the bottom of my heart, thank you for giving me life and the opportunity to grow into <strong>TamKungZ_</strong> today.</p><p>May you rest in a peaceful, warm, and better place.</p><p>I will carry your teachings and expectations with me as my driving force, and continue moving forward with strength and determination, so that your love and sacrifices are never in vain.</p>"
+    }
+  },
+  {
+    "type": "Announcement",
     "date": "2025-12-25",
     "content": {
       "en": "<p><strong>December 25, 2025:</strong> I may temporarily pause or slow down development and related activities.</p><p>This is due to an increased workload, accumulated stress, and a transitional period in my life. In addition, my mother is currently unwell, so I need to spend some time accompanying her at the hospital.</p><p>Thank you for your understanding and continued support.</p>",
