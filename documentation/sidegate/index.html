@@ -4,8 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SideGate | Selective Guest Access</title>
+    <meta name="description" content="Maintain strict server security while allowing authorized non-premium friends to join your Minecraft server.">
     <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/image/sidegate-logo-nobg.ico">
     
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="SideGate | Selective Guest Access">
+    <meta property="og:description" content="Selective Guest Access for Online-Mode Servers. Allow non-premium friends to join without compromising security.">
+    <meta property="og:image" content="https://tamkungz.github.io/image/sidegate-ingame.png">
+    <meta property="og:url" content="https://tamkungz.github.io/documentation/sidegate/">
+    <meta property="og:type" content="website">
+
+    <!-- Schema.org JSON-LD Metadata -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SideGate",
+      "headline": "Selective Guest Access for Online-Mode Servers",
+      "description": "A Minecraft server plugin that allows authorized non-premium players to join online-mode servers securely.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Minecraft Server (Spigot/Paper)",
+      "url": "https://tamkungz.github.io/documentation/sidegate/",
+      "author": {
+        "@type": "Person",
+        "name": "TamKungZ_",
+        "url": "https://github.com/TamKungZ"
+      },
+      "sameAs": [
+        "https://github.com/TamKungZ/SideGate",
+        "https://www.curseforge.com/minecraft/bukkit-plugins/sidegate",
+        "https://dev.bukkit.org/projects/sidegate"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -59,7 +96,9 @@
         // Icon Component Wrapper
         const Icon = ({ name, size = 24, className = "" }) => {
             useEffect(() => {
-                lucide.createIcons();
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
             }, [name]);
             return <i data-lucide={name} width={size} height={size} className={className}></i>;
         };
@@ -68,7 +107,9 @@
             const [activeTab, setActiveTab] = useState('install');
 
             useEffect(() => {
-                lucide.createIcons();
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
             }, [activeTab]);
 
             return (
@@ -164,6 +205,39 @@
                                             <span className="text-slate-300">Auto-detection of Mojang vs. Non-Mojang accounts.</span>
                                         </li>
                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Showcase Image Section (INSERTED HERE) */}
+                    <section className="py-12 relative overflow-hidden">
+                        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="relative group rounded-xl">
+                                {/* Background Glow Effect */}
+                                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                                
+                                {/* Image Container */}
+                                <div className="relative rounded-xl overflow-hidden border border-slate-700/50 shadow-2xl bg-slate-900">
+                                    <img 
+                                        src="https://tamkungz.github.io/image/sidegate-ingame.png" 
+                                        alt="SideGate In-Game Screenshot" 
+                                        className="w-full h-auto object-cover transform transition duration-700 group-hover:scale-[1.01]"
+                                        loading="lazy"
+                                    />
+                                    
+                                    {/* Overlay Caption */}
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent p-6 pt-12 flex justify-between items-end">
+                                        <div>
+                                            <p className="text-white font-semibold text-lg flex items-center gap-2">
+                                                <Icon name="terminal" size={18} className="text-indigo-400"/> 
+                                                Seamless Integration
+                                            </p>
+                                            <p className="text-slate-400 text-sm mt-1">
+                                                Guests are clearly identified in chat and tab list, ensuring transparency. (Soon)
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
