@@ -1401,6 +1401,88 @@
             });
         });
     }
+
+    // show news
+    function htmlToText(html) {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+    
+        temp.querySelectorAll('br').forEach(br => br.replaceWith('\n'));
+        temp.querySelectorAll('p').forEach(p => {
+            p.appendChild(document.createTextNode('\n'));
+        });
+    
+        return temp.textContent
+            .replace(/\n+/g, '\n')
+            .trim();
+    }
+
+    async function injectLatestNewsJSONLD(limit = 6) {
+        try {
+            const res = await fetch('news.json');
+            if (!res.ok) return;
+    
+            const news = await res.json();
+            if (!Array.isArray(news) || !news.length) return;
+    
+            const sorted = news
+                .slice()
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, limit);
+    
+            const lang = 'th';
+    
+            const items = sorted.map((item, index) => {
+                const rawHtml =
+                    item.content?.[lang] ||
+                    item.content?.en ||
+                    '';
+    
+                const cleanText = htmlToText(rawHtml);
+                const headline = cleanText.split('\n')[0].slice(0, 110);
+    
+                return {
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "item": {
+                        "@type": "NewsArticle",
+                        "headline": headline,
+                        "datePublished": item.date,
+                        "dateModified": item.date,
+                        "inLanguage": lang,
+                        "author": {
+                            "@type": "Person",
+                            "name": "TamKungZ_"
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "TamKungZ_"
+                        },
+                        "articleBody": cleanText
+                    }
+                };
+            });
+    
+            const jsonLd = {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "itemListOrder": "http://schema.org/ItemListOrderDescending",
+                "numberOfItems": items.length,
+                "itemListElement": items
+            };
+    
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.textContent = JSON.stringify(jsonLd, null, 2);
+    
+            document.head.appendChild(script);
+    
+        } catch (e) {
+            console.error('Failed to inject news JSON-LD', e);
+        }
+    }
+
+    injectLatestNewsJSONLD(6);
     
     loadNews();
 </script>
