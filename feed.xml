@@ -1,1 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>TamKungZ_ Updates</title>
+    <link>https://example.com/</link>
+    <description>News, updates, and announcements from TamKungZ_</description>
+    <language>th</language>
+    <lastBuildDate>Wed, 07 Jan 2026 12:00:00 +0700</lastBuildDate>
+    <atom:link href="https://example.com/feed.xml" rel="self" type="application/rss+xml" />
 
+    <!-- Item 1: Quilt Support -->
+    <item>
+      <title>[Update] 2026-01-07: Let Your Friend Eating! Quilt Support</title>
+      <link>https://example.com/updates/2026-01-07</link>
+      <guid isPermaLink="false">update-2026-01-07</guid>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0700</pubDate>
+      <description><![CDATA[มีการนำม็อด Let Your Friend Eating! เวอร์ชัน Fabric มาปรับใช้งานกับ Quilt]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th">
+          <p><strong>7 มกราคม 2569:</strong> มีการนำม็อด <span class="highlight">Let Your Friend Eating!</span> เวอร์ชัน Fabric มาปรับใช้งานกับ <strong>Quilt</strong></p>
+          <p><strong>หมายเหตุสำคัญ:</strong> การรองรับ Quilt ในขณะนี้ <strong>ไม่สามารถรับประกันการทำงานได้อย่างสมบูรณ์</strong> เนื่องจากม็อดไม่ได้ถูกออกแบบมาเพื่อรองรับ Quilt ตั้งแต่แรก แม้ว่า Quilt จะเป็น fork ของ Fabric ก็ตาม</p>
+          <ol>
+            <li>ม็อดไม่ได้ออกแบบมาเพื่อรองรับ Quilt โดยตรง แต่จะพยายามปรับให้สามารถใช้งานร่วมกันได้มากที่สุด</li>
+            <li>ยังไม่ได้มีการทดสอบกับ Quilt อย่างจริงจัง เนื่องจากไม่ได้ใช้งาน loader นี้เป็นหลัก</li>
+            <li>มีปัญหาเกี่ยวกับการกระโดดของเวอร์ชัน Quilt ที่มากเกินไป ทำให้เกิดการชี้เวอร์ชันผิดพลาด ส่งผลให้ไม่สามารถโหลดม็อดบางตัวได้ หรือมีการร้องขอเลขเวอร์ชันที่ไม่ถูกต้อง</li>
+          </ol>
+          <p><strong>แนวทางแก้ไขชั่วคราว:</strong> คุณสามารถใช้ WinRAR (หรือโปรแกรมจัดการไฟล์ zip อื่น ๆ) เปิดไฟล์ <code>quilt.mod.json</code> แล้วทำอย่างใดอย่างหนึ่งต่อไปนี้</p>
+          <ul>
+            <li>ลบฟิลด์ <code>"depends"</code> ออก</li>
+            <li>หรือปรับเลขเวอร์ชันที่ระบุไว้เป็น <code>"*"</code></li>
+          </ul>
+          <p>ทั้งนี้ แนวทางดังกล่าวเป็นเพียงวิธีแก้ไขชั่วคราว และอาจส่งผลต่อเสถียรภาพของเกมได้</p>
+        </div>
+        <hr />
+        <div lang="en">
+          <p><strong>January 7, 2026:</strong> The <span class="highlight">Let Your Friend Eating!</span> mod (Fabric version) has been adapted for use with <strong>Quilt</strong>.</p>
+          <p><strong>Important notice:</strong> Quilt support is <strong>not guaranteed to be fully functional</strong> at this time. The mod was not originally designed to support Quilt, even though Quilt is a fork of Fabric.</p>
+          <ol>
+            <li>The mod was not designed specifically for Quilt, but efforts are being made to improve compatibility.</li>
+            <li>Quilt has not been thoroughly tested, as it is not the primary mod loader used.</li>
+            <li>Frequent and significant version jumps in Quilt may cause incorrect version resolution, resulting in some mods failing to load or requiring invalid version numbers.</li>
+          </ol>
+          <p><strong>Temporary workaround:</strong> You can use WinRAR (or any other zip file manager) to open <code>quilt.mod.json</code> and do one of the following:</p>
+          <ul>
+            <li>Remove the <code>"depends"</code> field</li>
+            <li>Or change the specified version number to <code>"*"</code></li>
+          </ul>
+          <p>Please note that this workaround is temporary and may affect game stability.</p>
+        </div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 2: Mother's Passing -->
+    <item>
+      <title>[Announcement] 2025-12-26: In Loving Memory</title>
+      <link>https://example.com/announcements/2025-12-26</link>
+      <guid isPermaLink="false">announcement-2025-12-26</guid>
+      <pubDate>Fri, 26 Dec 2025 04:00:00 +0700</pubDate>
+      <description><![CDATA[คุณแม่ได้จากไปอย่างสงบ หลังต่อสู้กับโรคมะเร็ง...]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th">
+          <p><strong>26 ธันวาคม 2025 เวลา 04:00 น.</strong></p>
+          <p>คุณแม่ได้จากไปอย่างสงบ หลังต่อสู้กับโรคมะเร็งระยะที่สองซึ่งตรวจพบช้า และลุกลามไปยังปอด</p>
+          <p>ขอบคุณคุณแม่(นาง แก้วตา พิมพ์พรมมา)ถึงที่สุด ที่ให้ชีวิตและสร้างตัวตนผมให้ผมเป็นผมในวันนี้ขึ้นมาได้ ผมผ่านมามากจริง ๆ ...</p>
+          <p>ขอให้คุณแม่ได้พักผ่อนในที่ที่สงบและอบอุ่นนะคับ</p>
+          <p>ผมจะจดจำทุกคำบอก และก้าวเดินต่อไป เพื่อไม่ให้ความรักที่มอบให้ที่ผ่านมากของคุณแม่ มีคุณค่ามากจนถึงที่สุด ผมจะมเป็นลูกชายที่ภาคภูมิของแม่ตลอดไป...</p>
+          <p>แสดมป์ นาย กฤษฐิวัฒน์ พิมพ์พรมมา.</p>
+        </div>
+        <hr />
+        <div lang="en">
+          <p><strong>December 26, 2025, 04:00 AM</strong></p>
+          <p>My mother passed away peacefully after battling stage two cancer that was discovered too late and had spread to her lungs.</p>
+          <p>Thank you from the bottom of my heart for giving me life and shaping me into who I am today.</p>
+          <p>May you rest in a place of peace and warmth.</p>
+          <p>I will carry your teachings with me and move forward, so that your love is never in vain.</p>
+        </div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 3: Pause Development -->
+    <item>
+      <title>[Announcement] 2025-12-25: Temporary Pause</title>
+      <link>https://example.com/announcements/2025-12-25</link>
+      <guid isPermaLink="false">announcement-2025-12-25</guid>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[อาจมีการหยุดหรือชะลอการดำเนินงานและการพัฒนาต่าง ๆ เป็นการชั่วคราว]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th">
+          <p><strong>25 ธันวาคม 2025:</strong> อาจมีการหยุดหรือชะลอการดำเนินงานและการพัฒนาต่าง ๆ เป็นการชั่วคราว</p>
+          <p>เนื่องจากภาระงานที่เพิ่มขึ้น ความเครียดสะสม และอยู่ในช่วงรอยต่อของชีวิต รวมถึงขณะนี้แม่มีอาการป่วย จึงต้องใช้เวลาไปดูแลและไปโรงพยาบาลอยู่บ้าง</p>
+          <p>ขอขอบคุณทุกคนสำหรับความเข้าใจและการสนับสนุนเสมอมา</p>
+        </div>
+        <hr />
+        <div lang="en">
+          <p><strong>December 25, 2025:</strong> I may temporarily pause or slow down development and related activities.</p>
+          <p>This is due to an increased workload, accumulated stress, and a transitional period in my life. In addition, my mother is currently unwell, so I need to spend some time accompanying her at the hospital.</p>
+          <p>Thank you for your understanding and continued support.</p>
+        </div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 4: Documentation Hub -->
+    <item>
+      <title>[Update] 2025-12-24: Documentation Hub</title>
+      <link>https://example.com/updates/2025-12-24</link>
+      <guid isPermaLink="false">update-2025-12-24</guid>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[มีการอัปเดต Documentation Hub เพื่อให้การอ่านและการเข้าถึงเอกสารทำได้ง่ายและเป็นระเบียบมากขึ้น]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th">
+          <p><strong>24 ธันวาคม 2025:</strong> มีการอัปเดต Documentation Hub เพื่อให้การอ่านและการเข้าถึงเอกสารทำได้ง่ายและเป็นระเบียบมากขึ้น</p>
+          <p>โครงสร้างใหม่ได้รวบรวมคู่มือการใช้งานและเอกสารเชิงเทคนิคของโปรเจกต์ TamKungZ_ ไว้ในที่เดียว เพื่อให้ง่ายต่อการค้นหา การใช้งาน และการดูแลในระยะยาว</p>
+          <p>ปัจจุบันมีเอกสารสำหรับโปรเจกต์ต่าง ๆ เช่น VLiva, Stardew NPC Maker, มอด Minecraft และบริการที่เกี่ยวข้อง</p>
+        </div>
+        <hr />
+        <div lang="en">
+          <p><strong>December 24, 2025:</strong> Documentation Hub has been updated to improve readability and accessibility.</p>
+          <p>The new structure brings together user guides and technical documentation for TamKungZ_ projects in one place, making it easier to search, navigate, and maintain.</p>
+          <p>Currently included are guides and docs for projects such as VLiva, Stardew NPC Maker, Minecraft-related mods, and service integrations.</p>
+        </div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 5: Legacy Versions Notice -->
+    <item>
+      <title>[Update] 2025-12-22: Let Your Friends Eating! 1.1.3 Legacy Notice</title>
+      <link>https://example.com/updates/2025-12-22</link>
+      <guid isPermaLink="false">update-2025-12-22</guid>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[หมายเหตุสำหรับเวอร์ชันเก่าที่ต่ำกว่า Minecraft 1.16.x]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th">
+          <p><strong>Let Your Friends Eating! 1.1.3 (หมายเหตุสำหรับเวอร์ชันเก่า):</strong></p>
+          <p>เวอร์ชันที่ต่ำกว่า Minecraft 1.16.x (เช่น alpha, beta และ rc) <strong>ยังไม่ได้รับการทดสอบอย่างสมบูรณ์</strong> เนื่องจากมีข้อจำกัดด้านเวลา และไม่ได้อยู่ในกลุ่มเวอร์ชันหลักที่ใช้พัฒนา</p>
+          <p>อย่างไรก็ตาม มอดสามารถ build ผ่านได้หลังจากใช้เวลาแก้ไขหลายชั่วโมง จึงนำมาเผยแพร่ไว้ก่อนเพื่อการทดลองและอ้างอิง</p>
+          <p>ผมจะกลับมาปรับปรุงและอัปเดตเพิ่มเติมในภายหลัง โดยเวอร์ชันเหล่านี้อาจมีปัญหาด้านความเข้ากันได้กับ mod loader, เวอร์ชันของ Minecraft หรือบางฟีเจอร์อาจไม่ทำงาน</p>
+        </div>
+        <hr />
+        <div lang="en">
+          <p><strong>Let Your Friends Eating! 1.1.3 (Legacy Versions Notice):</strong></p>
+          <p>Versions below Minecraft 1.16.x (such as alpha, beta, and rc) have <strong>not been fully tested</strong>. These builds were not part of the main development focus due to time constraints.</p>
+          <p>However, the mod successfully builds after several hours of fixes, so these versions are being published for early access and reference purposes.</p>
+          <p>I will revisit and update them later when time allows. Please be aware that these versions may have compatibility issues with certain mod loaders, Minecraft versions, or some features may not function correctly.</p>
+        </div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 6: Stardew Valley Food Announcement -->
+    <item>
+      <title>[Announcement] 2025-11-02: Stardew Valley Food Future</title>
+      <link>https://example.com/announcements/2025-11-02</link>
+      <guid isPermaLink="false">announcement-2025-11-02</guid>
+      <pubDate>Sun, 02 Nov 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[ข่าวเกี่ยวกับอนาคตของมอด Stardew Valley Food และการอัปเดตสุดท้าย]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th">
+          <p><strong>2 พฤศจิกายน 2025:</strong> ขอขอบคุณชุมชน CurseForge และ Modrinth ทุกคน!</p>
+          <p>ผมขอมาแชร์ข่าวเกี่ยวกับมอดของผม <span class="highlight">Stardew Valley Food</span></p>
+          <p>ก่อนอื่นเลย ผมขอขอบคุณจากใจจริงทุกคนที่ดาวน์โหลด Stardew Valley Food มอดที่นำอาหารจาก Stardew Valley มาใส่ใน Minecraft ซึ่งตอนนี้มียอดดาวน์โหลดมากกว่า <strong>90,000 ครั้ง</strong> แล้ว</p>
+          <p>ผมเริ่มสร้างมอดนี้ตั้งแต่สมัยเรียนมัธยมต้น ราวปี 2022 โดยเป็นมอดลำดับที่สองของผม ต่อจาก <em>Smooth Wood</em> ซึ่งเป็นจุดเริ่มต้นที่ทำให้ผมรู้จักการทำมอดและภาษา Java ตอนนั้นผมใช้ MCreator ทำมอดโดยการลองผิดลองถูก ยังไม่รู้จัก Gradle หรือ Maven และยังไม่ได้เขียนโค้ดจริง ๆ จนไม่รู้ตัวว่าผมสร้างไอเท็มอาหารไปแล้วกว่า 60 ชนิด</p>
+          <p>ในช่วงแรกผมกังวลเรื่องลิขสิทธิ์ แต่ภายหลังทราบว่าผู้สร้าง Stardew Valley เป็นคนเปิดกว้าง เจตนาของผมไม่เคยเป็นเรื่องผลกำไร ผมแค่อยากสนุกกับการได้กินอาหารจาก Stardew Valley ใน Minecraft</p>
+          <p>ในปี 2024 ผมเริ่มใช้ Gradle แบบปรับแต่งเอง และใช้ Python ช่วยในการปรับปรุงไอเท็ม เวอร์ชัน <strong>0.3.0</strong> เป็นช่วงที่ผมสนุกกับการพัฒนามาก</p>
+          <p>ในปี 2025 ยอดดาวน์โหลดใกล้ถึง <strong>100,000 ครั้ง</strong> และด้วยจำนวนเวอร์ชัน Minecraft และ mod loader ที่เพิ่มขึ้น การดูแลไอเท็มกว่า 60 ชิ้นจึงกลายเป็นภาระที่หนักเกินไป</p>
+          <p>อย่างไรก็ตาม ผมจะปล่อย <span class="highlight">อัปเดตสุดท้าย เวอร์ชัน 0.4.0</span> ซึ่งจะเป็น <strong>เวอร์ชันสุดท้ายและดีที่สุด</strong> ก่อนที่ผมจะเข้ามหาวิทยาลัย หลังจากนั้นมอดจะเข้าสู่สถานะยุติการซัพพอร์ต</p>
+          <p>ขอบคุณทุกคนจากใจจริงสำหรับการสนับสนุนที่ผ่านมาครับ</p>
+          <p class="note"><em>(ยุติการซัพพอร์ต หมายถึงจะไม่มีการอัปเดตหรือเพิ่มเนื้อหาใหม่ แต่ยังเปิดให้ดาวน์โหลดในเวอร์ชันยอดนิยม เช่น 1.12.2, 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.20.1 และ 1.21.1)</em></p>
+        </div>
+        <hr />
+        <div lang="en">
+          <p><strong>November 2, 2025:</strong> Thank you, CurseForge and Modrinth community!</p>
+          <p>I’m here to share some news about my mod <span class="highlight">Stardew Valley Food</span>.</p>
+          <p>First of all, I want to sincerely thank everyone who downloaded Stardew Valley Food — the mod that ports food items from Stardew Valley into Minecraft. It has now reached over <strong>90,000 downloads</strong>, which is something I honestly never expected.</p>
+          <p>I originally created this mod back in middle school, around 2022. It was my second mod, after my very first one, <em>Smooth Wood</em>, which introduced me to modding and Java, and marked the beginning of my journey in the Forge community. At that time, I was using MCreator to make mods, simply experimenting and learning as I went. I didn’t know what Gradle or Maven were, and I wasn’t even writing real code — just putting things together piece by piece. Before I realized it, I had created more than 60 food items and uploaded the mod just in case someone might want to try it.</p>
+          <p>At first, I was worried about potential copyright issues, but I learned that the creator of Stardew Valley is quite open-minded. My intention was never to make any profit — I simply wanted to enjoy eating Stardew Valley food inside Minecraft.</p>
+          <p>In 2024, I started using a custom Gradle setup for the first time, upgrading and optimizing many items with Python as a helper tool. Version <strong>0.3.0</strong> was one of the most enjoyable periods for me, as I experimented with many new ideas.</p>
+          <p>Now in 2025, the total downloads are approaching <strong>100,000</strong>. With so many new Minecraft versions and mod loaders appearing, I feel that the quality of my older work no longer fully deserves this level of attention. Maintaining and porting over 60 items across every version has become increasingly difficult.</p>
+          <p>However, don’t worry — I will be releasing <span class="highlight">one final update, version 0.4.0</span>. This will be the <strong>best and final version</strong> of Stardew Valley Food, released before I enter university. After that, the mod will move into an out-of-support state.</p>
+          <p>Thank you so much for your continued support — truly, thank you again.</p>
+          <p class="note"><em>("Out of support" means I will no longer actively maintain or add new content, but the mod will remain available for popular Minecraft versions and mod loaders such as 1.12.2, 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.20.1, and 1.21.1.)</em></p>
+        </div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 7: Smooth Wood Update -->
+    <item>
+      <title>[Release] 2025-06-29: Smooth Wood (HD) Update</title>
+      <link>https://example.com/releases/2025-06-29-smooth-wood</link>
+      <guid isPermaLink="false">release-2025-06-29-1</guid>
+      <pubDate>Sun, 29 Jun 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[รีซอร์สแพ็ก Smooth Wood (HD) ได้รับการอัปเดตให้รองรับ Minecraft เวอร์ชันล่าสุด]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th"><p><strong>29 มิถุนายน 2025:</strong> รีซอร์สแพ็ก <span class="highlight">Smooth Wood (HD) [ยุติการพัฒนา]</span> ได้รับการอัปเดตให้รองรับ Minecraft เวอร์ชันล่าสุดแล้ว</p></div>
+        <hr />
+        <div lang="en"><p><strong>June 29, 2025:</strong> The <span class="highlight">Smooth Wood (HD) [Abandoned]</span> resource pack has been updated to support the latest version of Minecraft.</p></div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 8: Japan Props Update -->
+    <item>
+      <title>[Update] 2025-06-29: Japan Props Revival</title>
+      <link>https://example.com/updates/2025-06-29-japan-props</link>
+      <guid isPermaLink="false">update-2025-06-29-2</guid>
+      <pubDate>Sun, 29 Jun 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[การพัฒนา Japan Props จะกลับมาอีกครั้ง]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th"><p><strong>29 มิถุนายน 2025:</strong> ข่าวดี! การพัฒนา <span class="highlight">Japan Props</span> จะกลับมาอีกครั้ง อาจใช้เวลาสักหน่อย แต่กลับมาแน่นอน</p></div>
+        <hr />
+        <div lang="en"><p><strong>June 29, 2025:</strong> Good news! Development on <span class="highlight">Japan Props</span> will resume. It might take a while, but it's definitely coming back!</p></div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 9: Break Announcement -->
+    <item>
+      <title>[Announcement] 2025-06-07: Taking a Break</title>
+      <link>https://example.com/announcements/2025-06-07</link>
+      <guid isPermaLink="false">announcement-2025-06-07</guid>
+      <pubDate>Sat, 07 Jun 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[ขอพักจากการพัฒนาเป็นระยะเวลาหนึ่ง]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th"><p><strong>7 มิถุนายน 2025:</strong> ขอพักจากการพัฒนาเป็นระยะเวลาหนึ่ง เนื่องจากอาการหมดไฟ ปัญหาสุขภาพ และปัญหาคอมพิวเตอร์ หวังว่าจะกลับมาได้เร็ว ๆ นี้</p></div>
+        <hr />
+        <div lang="en"><p><strong>June 7, 2025:</strong> Taking a long break from development due to burnout, health issues, and computer problems. Hope to be back soon.</p></div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 10: Let Your Friend Eating Release -->
+    <item>
+      <title>[Release] 2025-05-19: Let Your Friend Eating! 1.0.4 LTS</title>
+      <link>https://example.com/releases/2025-05-19</link>
+      <guid isPermaLink="false">release-2025-05-19</guid>
+      <pubDate>Mon, 19 May 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[Let Your Friend Eating! เวอร์ชัน 1.0.4 LTS เปิดให้ใช้งานแล้ว]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th"><p><strong>19 พฤษภาคม 2025:</strong> <span class="highlight">Let Your Friend Eating!</span> เวอร์ชัน 1.0.4 LTS เปิดให้ใช้งานแล้ว โดยอาจเป็นอัปเดตหลักครั้งสุดท้าย และจะเน้นแก้บั๊กเป็นหลักในอนาคต</p></div>
+        <hr />
+        <div lang="en"><p><strong>May 19, 2025:</strong> <span class="highlight">Let Your Friend Eating!</span> version 1.0.4 LTS is out. This may be the final major update, with future updates focusing mainly on bug fixes.</p></div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 11: Stardew Valley Food Update -->
+    <item>
+      <title>[Release] 2025-05-09: Stardew Valley Food 0.3.2</title>
+      <link>https://example.com/releases/2025-05-09</link>
+      <guid isPermaLink="false">release-2025-05-09</guid>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0700</pubDate>
+      <description><![CDATA[Stardew Valley Food เวอร์ชัน 0.3.2 เปิดให้ใช้งานแล้ว]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th"><p><strong>9 พฤษภาคม 2025:</strong> <span class="highlight">Stardew Valley Food</span> เวอร์ชัน 0.3.2 เปิดให้ใช้งานแล้ว รองรับทั้งระบบแลกเปลี่ยนกับ NPC และสูตรคราฟต์พร้อมกัน</p></div>
+        <hr />
+        <div lang="en"><p><strong>May 9, 2025:</strong> <span class="highlight">Stardew Valley Food</span> version 0.3.2 is now available, allowing NPC trades and crafting recipes to work together.</p></div>
+      ]]></content:encoded>
+    </item>
+
+    <!-- Item 12: Smooth Wood Discontinued -->
+    <item>
+      <title>[Announcement] 2024-01-01: Smooth Wood Discontinued</title>
+      <link>https://example.com/announcements/2024-01-01</link>
+      <guid isPermaLink="false">announcement-2024-01-01</guid>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0700</pubDate>
+      <description><![CDATA[โครงการ Smooth Wood (HD) ได้ยุติการพัฒนาอย่างเป็นทางการแล้ว]]></description>
+      <content:encoded><![CDATA[
+        <div lang="th"><p><strong>ปี 2024:</strong> โครงการ <span class="highlight">Smooth Wood (HD)</span> ได้ยุติการพัฒนาอย่างเป็นทางการแล้ว</p></div>
+        <hr />
+        <div lang="en"><p><strong>2024:</strong> Development on the <span class="highlight">Smooth Wood (HD) [Abandoned]</span> project has been officially discontinued.</p></div>
+      ]]></content:encoded>
+    </item>
+
+  </channel>
+</rss>
