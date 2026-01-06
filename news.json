@@ -1,5 +1,13 @@
 [
   {
+    "type": "Update",
+    "date": "2026-01-07",
+    "content": {
+      "th": "<p><strong>7 มกราคม 2569:</strong> มีการนำม็อด <span class=\"highlight\">Let Your Friend Eating!</span> เวอร์ชัน Fabric มาปรับใช้งานกับ <strong>Quilt</strong></p><p><strong>หมายเหตุสำคัญ:</strong> การรองรับ Quilt ในขณะนี้ <strong>ไม่สามารถรับประกันการทำงานได้อย่างสมบูรณ์</strong> เนื่องจากม็อดไม่ได้ถูกออกแบบมาเพื่อรองรับ Quilt ตั้งแต่แรก แม้ว่า Quilt จะเป็น fork ของ Fabric ก็ตาม</p><ol><li>ม็อดไม่ได้ออกแบบมาเพื่อรองรับ Quilt โดยตรง แต่จะพยายามปรับให้สามารถใช้งานร่วมกันได้มากที่สุด</li><li>ยังไม่ได้มีการทดสอบกับ Quilt อย่างจริงจัง เนื่องจากไม่ได้ใช้งาน loader นี้เป็นหลัก</li><li>มีปัญหาเกี่ยวกับการกระโดดของเวอร์ชัน Quilt ที่มากเกินไป ทำให้เกิดการชี้เวอร์ชันผิดพลาด ส่งผลให้ไม่สามารถโหลดม็อดบางตัวได้ หรือมีการร้องขอเลขเวอร์ชันที่ไม่ถูกต้อง</li></ol><p><strong>แนวทางแก้ไขชั่วคราว:</strong> คุณสามารถใช้ WinRAR (หรือโปรแกรมจัดการไฟล์ zip อื่น ๆ) เปิดไฟล์ <code>quilt.mod.json</code> แล้วทำอย่างใดอย่างหนึ่งต่อไปนี้</p><ul><li>ลบฟิลด์ <code>\"depends\"</code> ออก</li><li>หรือปรับเลขเวอร์ชันที่ระบุไว้เป็น <code>\"*\"</code></li></ul><p>ทั้งนี้ แนวทางดังกล่าวเป็นเพียงวิธีแก้ไขชั่วคราว และอาจส่งผลต่อเสถียรภาพของเกมได้</p>",
+      "en": "<p><strong>January 7, 2026:</strong> The <span class=\"highlight\">Let Your Friend Eating!</span> mod (Fabric version) has been adapted for use with <strong>Quilt</strong>.</p><p><strong>Important notice:</strong> Quilt support is <strong>not guaranteed to be fully functional</strong> at this time. The mod was not originally designed to support Quilt, even though Quilt is a fork of Fabric.</p><ol><li>The mod was not designed specifically for Quilt, but efforts are being made to improve compatibility.</li><li>Quilt has not been thoroughly tested, as it is not the primary mod loader used.</li><li>Frequent and significant version jumps in Quilt may cause incorrect version resolution, resulting in some mods failing to load or requiring invalid version numbers.</li></ol><p><strong>Temporary workaround:</strong> You can use WinRAR (or any other zip file manager) to open <code>quilt.mod.json</code> and do one of the following:</p><ul><li>Remove the <code>\"depends\"</code> field</li><li>Or change the specified version number to <code>\"*\"</code></li></ul><p>Please note that this workaround is temporary and may affect game stability.</p>"
+    }
+  },
+  {
     "type": "Announcement",
     "date": "2025-12-26",
     "content": {
