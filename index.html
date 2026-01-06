@@ -1430,16 +1430,19 @@
                 .sort((a, b) => new Date(b.date) - new Date(a.date))
                 .slice(0, limit);
     
-            const lang = 'th';
+            const primaryLang = 'en';
+            const fallbackLang = 'th';
     
             const items = sorted.map((item, index) => {
                 const rawHtml =
-                    item.content?.[lang] ||
-                    item.content?.en ||
+                    item.content?.[primaryLang] ||
+                    item.content?.[fallbackLang] ||
                     '';
     
                 const cleanText = htmlToText(rawHtml);
-                const headline = cleanText.split('\n')[0].slice(0, 110);
+                const headline =
+                    cleanText.split('\n')[0]?.slice(0, 110) ||
+                    'Project Update';
     
                 return {
                     "@type": "ListItem",
@@ -1449,7 +1452,7 @@
                         "headline": headline,
                         "datePublished": item.date,
                         "dateModified": item.date,
-                        "inLanguage": lang,
+                        "inLanguage": primaryLang,
                         "author": {
                             "@type": "Person",
                             "name": "TamKungZ_"
@@ -1478,7 +1481,7 @@
             document.head.appendChild(script);
     
         } catch (e) {
-            console.error('Failed to inject news JSON-LD', e);
+            console.error('Failed to inject EN-first news JSON-LD', e);
         }
     }
 
