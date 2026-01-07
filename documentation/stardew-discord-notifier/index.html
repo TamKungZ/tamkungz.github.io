@@ -1,1 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stardew Discord Notifier - Documentation</title>
+    
+    <!-- Primary Meta -->
+    <meta name="title" content="Stardew Discord Notifier - Documentation">
+    <meta name="description" content="Official documentation for Stardew Discord Notifier — a Stardew Valley mod that sends daily Discord webhook notifications with weather, luck, events, and more.">
+    <meta name="keywords" content="Stardew Valley, Stardew Mod, Discord Webhook, SMAPI, Stardew Discord Notifier">
+    <meta name="author" content="TamKungZ_">
+  
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tamkungz.github.io/documentation/stardew-discord-notifier">
+    <meta property="og:title" content="Stardew Discord Notifier Documentation">
+    <meta property="og:description" content="Get daily Stardew Valley updates directly in Discord. Weather, luck, events, money, and more.">
+    <meta property="og:image" content="https://staticdelivery.nexusmods.com/mods/1303/images/40940/40940-1767743195-509591178.png">
+  
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Stardew Discord Notifier Documentation">
+    <meta property="twitter:description" content="Documentation for Stardew Discord Notifier — daily Discord notifications for Stardew Valley.">
+    <meta property="twitter:image" content="https://staticdelivery.nexusmods.com/mods/1303/images/40940/40940-1767743195-509591178.png">
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="https://tamkungz.github.io/image/sdn.jpg">
+      
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=VT323&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #fdf6e3; /* Cream/Paper color */
+            background-image: radial-gradient(#e6dcb8 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #4a3b32; /* Dark brown text */
+        }
+        
+        .pixel-font {
+            font-family: 'VT323', monospace;
+        }
 
+        .stardew-box {
+            background-color: #ffecd1;
+            border: 4px solid #e09f5b;
+            box-shadow: 
+                inset 0 0 0 4px #c26c36,
+                0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .stardew-box::before {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border: 2px solid #5d3621;
+            border-radius: 10px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .stardew-btn {
+            background-color: #d96634;
+            color: white;
+            border: 2px solid #8e2f18;
+            transition: all 0.2s;
+            text-shadow: 1px 1px 0 #8e2f18;
+        }
+        
+        .stardew-btn:hover {
+            background-color: #e87b4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 0 #8e2f18;
+        }
+        
+        .stardew-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 0 0 #8e2f18;
+        }
+
+        .feature-card {
+            background: white;
+            border: 2px solid #e09f5b;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: #d96634;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf6e3; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d96634; 
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-[#d96634] text-white py-4 border-b-4 border-[#8e2f18] sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="https://tamkungz.github.io/image/sdn.jpg" alt="Logo" class="w-10 h-10 rounded-lg border-2 border-white shadow-sm">
+                <span class="text-xl md:text-2xl font-bold tracking-wide drop-shadow-md">Stardew Discord Notifier</span>
+            </div>
+            <div class="hidden md:flex gap-6 font-medium">
+                <a href="#features" class="hover:text-[#ffecd1] transition-colors">Features</a>
+                <a href="#installation" class="hover:text-[#ffecd1] transition-colors">Installation</a>
+                <a href="#configuration" class="hover:text-[#ffecd1] transition-colors">Configuration</a>
+                <a href="https://github.com/TamKungZ" target="_blank" class="flex items-center gap-1 hover:text-[#ffecd1] transition-colors">
+                    <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container mx-auto px-4 py-16 md:py-24 text-center">
+        <div class="stardew-box p-8 md:p-12 max-w-4xl mx-auto transform rotate-1">
+            <img src="https://tamkungz.github.io/image/sdn.jpg" alt="SDN Logo" class="w-32 h-32 md:w-48 md:h-48 mx-auto rounded-2xl shadow-xl border-4 border-white mb-6">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#5d3621] mb-4">Stardew Discord Notifier</h1>
+            <p class="text-lg md:text-xl text-[#8e5c3e] mb-8 max-w-2xl mx-auto">
+                Never miss a morning! Get daily weather, luck, birthdays, and festival updates from Stardew Valley directly to your Discord channel.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://www.nexusmods.com/stardewvalley/mods/40940" target="_blank" class="stardew-btn px-8 py-3 rounded-lg text-lg font-bold inline-flex items-center justify-center gap-2">
+                    <i data-lucide="download" class="w-5 h-5"></i>
+                    Nexus Mods
+                </a>
+                <a href="https://www.curseforge.com/stardewvalley/mods/stardew-discord-notifier" target="_blank" class="bg-[#f16436] text-white border-2 border-[#a33816] hover:bg-[#ff7a4d] stardew-btn px-8 py-3 rounded-lg text-lg font-bold inline-flex items-center justify-center gap-2">
+                    <i data-lucide="flame" class="w-5 h-5"></i>
+                    CurseForge
+                </a>
+                <a href="#configuration" class="bg-[#e09f5b] text-[#5d3621] border-2 border-[#b57b3f] hover:bg-[#ebae6c] px-8 py-3 rounded-lg text-lg font-bold inline-flex items-center justify-center gap-2 transition-colors">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    Setup Guide
+                </a>
+            </div>
+            
+            <div class="mt-8 flex justify-center gap-2 text-sm text-[#8e5c3e] font-semibold">
+                <span class="bg-white/50 px-3 py-1 rounded-full border border-[#e09f5b]">v1.0.2</span>
+                <span class="bg-white/50 px-3 py-1 rounded-full border border-[#e09f5b]">SMAPI 4.0+</span>
+                <span class="bg-white/50 px-3 py-1 rounded-full border border-[#e09f5b]">Stardew 1.6+</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-[#5d3621] text-center mb-12 flex items-center justify-center gap-3">
+            <i data-lucide="star" class="w-8 h-8 text-[#d96634]"></i>
+            Main Features
+            <i data-lucide="star" class="w-8 h-8 text-[#d96634]"></i>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Feature 1 -->
+            <div class="feature-card p-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
+                    <i data-lucide="cloud-sun" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#5d3621] mb-2">Weather Forecast</h3>
+                <p class="text-gray-600">Know instantly if it's going to be sunny, rainy, or stormy to plan your farming or watering duties ahead of time.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card p-6">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
+                    <i data-lucide="clover" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#5d3621] mb-2">Daily Luck</h3>
+                <p class="text-gray-600">Get the TV fortune teller's report delivered to you. Perfect for deciding if it's a good day for a mining run.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card p-6">
+                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4 text-pink-600">
+                    <i data-lucide="gift" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#5d3621] mb-2">Birthdays & Festivals</h3>
+                <p class="text-gray-600">Never miss a villager's birthday or an important seasonal festival again with automatic reminders.</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card p-6">
+                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600">
+                    <i data-lucide="coins" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#5d3621] mb-2">Financial Status</h3>
+                <p class="text-gray-600">Track your current funds with every morning report. This feature can be toggled on or off.</p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card p-6">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#5d3621] mb-2">Multiplayer Ready</h3>
+                <p class="text-gray-600">Optionally list all online players in the notification. Great for keeping track of who is on the farm.</p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card p-6">
+                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4 text-indigo-600">
+                    <i data-lucide="layout-template" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#5d3621] mb-2">Embed & Text Modes</h3>
+                <p class="text-gray-600">Choose between a stylish Discord Embed box or a simple plain text message to suit your server's style.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="bg-[#f0e6d2] py-16 border-y-4 border-[#e09f5b]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-[#5d3621] mb-8 text-center">Installation</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="flex items-start gap-4 bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#d96634]">
+                    <span class="flex-shrink-0 w-8 h-8 bg-[#d96634] text-white rounded-full flex items-center justify-center font-bold">1</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-[#5d3621]">Install SMAPI</h3>
+                        <p class="text-gray-600">Ensure you have the latest version of <a href="https://smapi.io/" target="_blank" class="text-[#d96634] hover:underline font-semibold">SMAPI</a> installed.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#d96634]">
+                    <span class="flex-shrink-0 w-8 h-8 bg-[#d96634] text-white rounded-full flex items-center justify-center font-bold">2</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-[#5d3621]">Download the Mod</h3>
+                        <p class="text-gray-600">Download and unzip the mod files. Place the <code class="bg-gray-100 px-2 py-1 rounded text-sm text-red-500 font-mono">StardewDiscordNotifier</code> folder into your game's <code class="bg-gray-100 px-2 py-1 rounded text-sm text-blue-600 font-mono">Mods</code> directory.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#d96634]">
+                    <span class="flex-shrink-0 w-8 h-8 bg-[#d96634] text-white rounded-full flex items-center justify-center font-bold">3</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-[#5d3621]">Configure (Important!)</h3>
+                        <p class="text-gray-600">Run the game once to generate the config file, or use <span class="font-semibold">Generic Mod Config Menu</span> in-game to set your Webhook URL.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuration Section -->
+    <section id="configuration" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-[#5d3621] mb-8 text-center">Configuration</h2>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            <!-- Webhook Guide -->
+            <div class="stardew-box p-6 bg-white">
+                <h3 class="text-xl font-bold text-[#5d3621] mb-4 flex items-center gap-2">
+                    <i data-lucide="webhook" class="w-5 h-5"></i>
+                    How to get a Webhook URL
+                </h3>
+                <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm md:text-base">
+                    <li>Open your Discord Server.</li>
+                    <li>Right-click the channel you want notifications in and select <strong>Edit Channel</strong>.</li>
+                    <li>Go to <strong>Integrations</strong> > <strong>Webhooks</strong>.</li>
+                    <li>Click <strong>New Webhook</strong>. Customize the name and avatar if you wish.</li>
+                    <li>Click the <strong>Copy Webhook URL</strong> button.</li>
+                    <li>Paste this URL into the <code>Webhook URL</code> field in the mod settings.</li>
+                </ol>
+            </div>
+
+            <!-- Config Options -->
+            <div class="stardew-box p-6 bg-white">
+                <h3 class="text-xl font-bold text-[#5d3621] mb-4 flex items-center gap-2">
+                    <i data-lucide="sliders" class="w-5 h-5"></i>
+                    Configuration Options
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="font-semibold text-gray-700">Webhook URL</span>
+                        <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">Required</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="font-semibold text-gray-700">Bot Name / Avatar</span>
+                        <span class="text-sm text-gray-500">Customize the sender identity</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="font-semibold text-gray-700">Use Embed Mode</span>
+                        <span class="text-sm text-gray-500">Toggle fancy box display</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="font-semibold text-gray-700">Show Players</span>
+                        <span class="text-sm text-gray-500">List online players (Multiplayer)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-gray-700">Toggle Info</span>
+                        <span class="text-sm text-gray-500">Show/Hide Date, Weather, Money, etc.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-12 text-center">
+             <p class="text-gray-600 mb-4">We highly recommend installing <a href="https://www.nexusmods.com/stardewvalley/mods/5098" target="_blank" class="text-[#d96634] font-bold underline">Generic Mod Config Menu</a> for easy in-game configuration.</p>
+             <img src="https://staticdelivery.nexusmods.com/mods/1303/images/40940/40940-1767743288-232047505.png" alt="GMCM Example" class="mx-auto rounded-lg shadow-lg max-w-md w-full opacity-80 hover:opacity-100 transition-opacity">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#5d3621] text-[#e09f5b] py-8 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <a href="https://github.com/TamKungZ" target="_blank" class="hover:text-white transition-colors">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="https://www.nexusmods.com/stardewvalley/mods/40940" target="_blank" class="hover:text-white transition-colors">
+                    <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p class="mb-2">Created with ❤️ by <span class="font-bold text-white">TamKungZ</span></p>
+            <p class="text-sm opacity-60">Stardew Valley is a trademark of ConcernedApe. This mod is not affiliated with ConcernedApe.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
