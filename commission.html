@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <!-- =========================================
          1. Meta Tags & Config
@@ -504,7 +504,10 @@
         <h2 data-i18n="contactTitle">สนใจจ้างงาน?</h2>
         <p data-i18n="contactDesc">ทัก Inbox พร้อมบอก: เวอร์ชันเกม, ระบบที่ต้องการ, และจุดประสงค์การใช้งาน (ส่วนตัว/พาณิชย์)</p>
         <a href="https://www.facebook.com/TamKung.ZZ/" target="_blank" class="contact-btn">
-            <i class="fab fa-facebook-messenger"></i> <span data-i18n="contactBtn">ติดต่อทาง Facebook</span>
+            <i class="fab fa-facebook-messenger"></i> <span data-i18n="contactFBBtn">ติดต่อทาง Facebook</span>
+        </a>
+        <a href="https://www.fiverr.com/tamkungz_/develop-custom-minecraft-mods-and-plugins-for-forge-fabric-and-bukkit" target="_blank" class="contact-btn">
+            <i class="fab fa-fiverr"></i> <span data-i18n="contactFVBtn">ติดต่อทาง Fiverr</span>
         </a>
         <br><br>
         <small data-i18n="contactNote">คุยง่าย ลดได้ไม่ว่ากัน ประเมินตามเนื้องานจริงครับ</small>
@@ -560,7 +563,8 @@
 
             contactTitle: "สนใจจ้างงาน?",
             contactDesc: "ทัก Inbox พร้อมบอก: เวอร์ชันเกม, ระบบที่ต้องการ, และจุดประสงค์การใช้งาน",
-            contactBtn: "ติดต่อทาง Facebook",
+            contactFBBtn: "ติดต่อทาง Facebook",
+            contactFVBtn: "ติดต่อทาง Fiverr",
             contactNote: "คุยง่าย ลดได้ไม่ว่ากัน ประเมินตามเนื้องานจริงครับ"
         },
         en: {
@@ -570,27 +574,27 @@
             
             service1Title: "Minecraft Mod (Java)",
             service1List: "<li>New Items / Blocks / Systems</li><li>Gameplay Features & QOL</li><li>Complex Logic, Configs & Compatibility</li>",
-            service1Price: "Start: 500 – 5,000+ THB",
+            service1Price: "Start: $20 – $200+ (Fiverr Basic-Premium)",
 
             service2Title: "Minecraft Plugin",
             service2List: "<li>Server Systems, QOL, Commands</li><li>Custom Server Logic</li><li>Complex tasks evaluated upon request</li>",
-            service2Price: "Start: 500 – 3,000+ THB",
+            service2Price: "Start: $20 – $200+ (Fiverr Basic-Premium)",
 
             service3Title: "Bedrock Addon",
             service3List: "<li>New Custom Blocks</li><li>New Items</li><li>General Gameplay Systems</li>",
-            service3Price: "Start: 100 – 1,000 THB",
+            service3Price: "Start: $15 – $50",
 
             service4Title: "Bug Fixes / Support",
             service4List: "<li>Fix bugs in Mods / Plugins / Servers</li><li>Refactor & Optimize existing code</li><li>Fix Crash / Runtime Errors</li>",
-            service4Price: "300 – 3,000+ THB (Depends on complexity)",
+            service4Price: "Start: $15 – $100+ (Depends on complexity)",
 
             service5Title: "Server Setup",
             service5List: "<li>Full Server Setup (Not hosting)</li><li>Plugin / Mod Installation</li><li>Cross-play Setup (Java + Bedrock)</li>",
-            service5Price: "1,000 – 4,000 THB",
+            service5Price: "Start: $50 – $150",
 
             service6Title: "Freelance / Outsource",
             service6List: "<li>Join your dev team</li><li>Fix bugs / Add specific features</li><li>Code Maintenance / System Architecture</li>",
-            service6Price: "Start ~200 - 1,000 THB / Day",
+            service6Price: "Start ~ $20 - $100 / Day",
 
             condTitle: "Important Conditions",
             condList: "<li>All work is for <strong>Private / SMP use only</strong>.</li><li>❌ NO redistribution (CurseForge/Mod platforms).</li><li>❌ NO Commercial use (Pay-to-win servers etc.) unless agreed.</li>",
@@ -605,13 +609,17 @@
 
             contactTitle: "Ready to order?",
             contactDesc: "Inbox me with: Game Version, Desired System/Concept, and Usage Type.",
-            contactBtn: "Contact via Facebook",
+            contactFBBtn: "Contact via Facebook",
+            contactFVBtn: "Contact via Fiverr",
             contactNote: "Prices are negotiable based on actual workload and complexity."
         }
     };
 
     // --- Logic ---
     function setLang(lang) {
+        // Save preference
+        localStorage.setItem('language', lang);
+
         // Update Buttons
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
@@ -621,6 +629,13 @@
         for (const key in data) {
             const el = document.querySelector(`[data-i18n="${key}"]`);
             if (el) el.innerHTML = data[key];
+        }
+
+        // Update Hash silently (optional, good for sharing link)
+        if(history.replaceState) {
+            history.replaceState(null, null, '#' + lang);
+        } else {
+            window.location.hash = lang;
         }
     }
 
@@ -644,8 +659,27 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Init Language
-    setLang('en'); 
+    // Init Language (Check Hash -> LocalStorage -> Default)
+    function initLanguage() {
+        const hash = window.location.hash.replace('#', '');
+        const savedLang = localStorage.getItem('language');
+
+        if (hash === 'en' || hash === 'th') {
+            setLang(hash);
+        } else if (savedLang === 'en' || savedLang === 'th') {
+            setLang(savedLang);
+        } else {
+            setLang('en');
+        }
+    }
+
+    // Handle back/forward navigation or manual hash change
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash === 'en' || hash === 'th') setLang(hash);
+    });
+
+    initLanguage();
 </script>
 
 </body>
