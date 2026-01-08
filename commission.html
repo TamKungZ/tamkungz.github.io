@@ -329,8 +329,8 @@
         </a>
         <div class="controls">
             <div class="lang-switch">
-                <button class="lang-btn active" onclick="setLang('th')">TH</button>
-                <button class="lang-btn" onclick="setLang('en')">EN</button>
+                <button id="btn-th" class="lang-btn" onclick="setLang('th')">TH</button>
+                <button id="btn-en" class="lang-btn" onclick="setLang('en')">EN</button>
             </div>
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
@@ -617,26 +617,21 @@
 
     // --- Logic ---
     function setLang(lang) {
-        // Save preference
         localStorage.setItem('language', lang);
-
-        // Update Buttons
+        
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+        document.getElementById(`btn-${lang}`).classList.add('active');
 
-        // Update Text
         const data = i18nData[lang];
         for (const key in data) {
             const el = document.querySelector(`[data-i18n="${key}"]`);
             if (el) el.innerHTML = data[key];
         }
 
-        // Update Hash silently (optional, good for sharing link)
-        if(history.replaceState) {
-            history.replaceState(null, null, '#' + lang);
-        } else {
-            window.location.hash = lang;
-        }
+        // Update URL to ?lang= WITHOUT refreshing the page
+        const url = new URL(window.location);
+        url.searchParams.set('lang', lang);
+        window.history.replaceState({}, '', url);
     }
 
     // Dark Mode (Same as index.html)
@@ -659,27 +654,22 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Init Language (Check Hash -> LocalStorage -> Default)
-    function initLanguage() {
-        const hash = window.location.hash.replace('#', '');
+    // Initialization
+    function init() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
         const savedLang = localStorage.getItem('language');
 
-        if (hash === 'en' || hash === 'th') {
-            setLang(hash);
-        } else if (savedLang === 'en' || savedLang === 'th') {
+        if (langParam && i18nData[langParam]) {
+            setLang(langParam);
+        } else if (savedLang && i18nData[savedLang]) {
             setLang(savedLang);
         } else {
             setLang('en');
         }
     }
 
-    // Handle back/forward navigation or manual hash change
-    window.addEventListener('hashchange', () => {
-        const hash = window.location.hash.replace('#', '');
-        if (hash === 'en' || hash === 'th') setLang(hash);
-    });
-
-    initLanguage();
+    init();
 </script>
 
 </body>
