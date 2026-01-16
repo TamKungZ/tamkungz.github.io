@@ -1,23 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NPC Helper — Code Reference & Explanation</title>
-  <meta name="description" content="Comprehensive code reference and explanations for NpcHelper: NpcDefinition.cs, ModEntry.cs, ModScanner.cs (SMAPI mod)." />
-  <meta name="author" content="TamKungZ_ @tamkungz" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NPC Helper — Developer Documentation</title>
+  <meta name="description" content="Documentation and code reference for NPC Helper and Aria NPC Mod" />
+  <meta name="author" content="TamKungZ_" />
   <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/image/icon_hp.png" />
   <link rel="canonical" href="https://tamkungz.github.io/documentation/npc-helper/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="NPC Helper — Code Reference & Explanation" />
   <meta property="og:description" content="Comprehensive code reference and explanations for NpcHelper: NpcDefinition.cs, ModEntry.cs, ModScanner.cs (SMAPI mod)." />
-  <meta property="og:image" content="https://tamkungz.github.io/image/icon_hp.png" />
+  <meta property="og:image" content="https://staticdelivery.nexusmods.com/mods/1303/images/41305/41305-1768532837-1664767729.png" />
   <meta property="og:url" content="https://tamkungz.github.io/documentation/npc-helper/" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="https://staticdelivery.nexusmods.com/mods/1303/images/41305/41305-1768532837-1664767729.png" />
   <meta name="twitter:creator" content="@tamkungz" />
 
   <!-- Structured data (JSON-LD) -->
@@ -46,321 +46,621 @@
     ]
   }
   </script>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Highlight.js (Syntax Highlighting) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/ini.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    :root{
-      --bg:#0b1220; --panel:#0f1a26; --muted:#9fb0bf; --accent:#57e1c4; --accent2:#7bd389;
-      --card: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #1e293b; }
+    ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+    
+    .code-block-wrapper { position: relative; }
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.375rem;
+      color: #cbd5e1;
+      font-size: 0.75rem;
+      transition: all 0.2s;
+      opacity: 0;
     }
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background:linear-gradient(180deg,#071020 0%, #04101a 100%);color:#e6eef3}
-    .container{max-width:1100px;margin:28px auto;padding:26px;border-radius:12px;background:var(--panel);box-shadow:0 10px 40px rgba(0,0,0,0.6)}
-    header{display:flex;gap:18px;align-items:center}
-    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#052}
-    h1{margin:0;font-size:24px}
-    p.lead{margin:4px 0 14px;color:var(--muted)}
-    nav{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-    a.button{padding:8px 12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.03); color:var(--accent); text-decoration:none;font-weight:600}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:18px}
-    .card{background:var(--card);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-    h2{margin:4px 0 12px}
-    h3{margin:10px 0 8px}
-    pre.code{background:#071927;padding:12px;border-radius:8px;overflow:auto;color:#d2f7f0;font-family:var(--mono);font-size:13px}
-    table{width:100%;border-collapse:collapse;margin-top:8px}
-    table th, table td{padding:8px 6px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.03);color:var(--muted)}
-    .muted{color:var(--muted)}
-    .small{font-size:13px;color:var(--muted)}
-    .badge{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--accent);font-weight:700;margin-right:8px}
-    footer{margin-top:18px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.03);color:var(--muted);font-size:13px}
-    button.copy{float:right;background:transparent;border:1px solid rgba(255,255,255,0.03);color:var(--accent);padding:6px 8px;border-radius:8px;cursor:pointer}
-    @media (max-width:980px){ .grid{grid-template-columns:1fr} .logo{width:56px;height:56px} .container{margin:12px;padding:14px} }
+    .code-block-wrapper:hover .copy-btn { opacity: 1; }
+    .copy-btn:hover { background: rgba(255, 255, 255, 0.2); color: white; }
   </style>
 </head>
-<body>
-  <div class="container" role="main">
-    <header>
-      <div class="logo">NPC</div>
-      <div>
-        <h1>NPC Helper — Code Reference</h1>
-        <p class="lead">In-depth, line-by-line explanation of NpcDefinition.cs, ModEntry.cs and ModScanner.cs from the NPC Helper SMAPI mod. This doc explains structure, responsibilities, runtime behavior and integration points for mod authors.</p>
-        <nav>
-          <a class="button" href="#files">Files</a>
-          <a class="button" href="#npcdef">NpcDefinition</a>
-          <a class="button" href="#modentry">ModEntry</a>
-          <a class="button" href="#modscanner">ModScanner</a>
-          <a class="button" href="#toml">TOML & Content Packs</a>
-          <a class="button" href="#faq">FAQ</a>
-        </nav>
+
+<body class="bg-slate-900 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Layout Container -->
+  <div class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-72 bg-slate-950 border-r border-slate-800 flex-shrink-0 flex flex-col h-full hidden md:flex">
+      <div class="p-6 border-b border-slate-800">
+        <h1 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-brand-500 animate-pulse"></span>
+          NPC Helper Docs
+        </h1>
+        <p class="text-xs text-slate-500 mt-1">v1.0.0 by TamKungZ_</p>
       </div>
-    </header>
 
-    <div class="grid">
-      <main>
-        <section id="files" class="card">
-          <h2>Files covered</h2>
-          <p class="small">This reference explains these source files you provided:</p>
-          <ul class="small">
-            <li>NpcDefinition.cs — in-memory schema for an NPC; used by the mod and by API clients.</li>
-            <li>ModEntry.cs — SMAPI entry point: initializes the manager and exposes the API.</li>
-            <li>ModScanner.cs — content-pack scanner that reads mod.toml lists and loads referenced NPC TOML files.</li>
+      <nav class="flex-1 overflow-y-auto p-4 space-y-6">
+        
+        <!-- Section: Overview -->
+        <div>
+          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 px-2">Overview</h3>
+          <ul class="space-y-1">
+            <li><a href="#intro" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Introduction</a></li>
+            <li><a href="#structure" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Project Structure</a></li>
           </ul>
-        </section>
+        </div>
 
-        <section id="npcdef" class="card" style="margin-top:18px">
-          <h2>NpcDefinition.cs — Purpose & usage</h2>
-          <p class="small">NpcDefinition is the canonical, in-memory representation of a custom NPC. The mod parses TOML into this class (TomlParser.ParseTomlToDefinition) or a mod author can construct it and register via the runtime API.</p>
-
-          <h3>Fields & their meaning</h3>
-          <table>
-            <tr><th>Property</th><th>Meaning / Notes</th></tr>
-            <tr><td><code>Name</code></td><td>Internal unique key used by the game and mod. No spaces recommended. Required for registration.</td></tr>
-            <tr><td><code>DisplayName</code></td><td>Name shown to players. If not set, the Name is used as fallback.</td></tr>
-            <tr><td><code>Gender</code></td><td>Token for game usage: "male" or "female". Defaults to "male". Used when injecting Data/Characters and dispositions.</td></tr>
-            <tr><td><code>Age</code></td><td>"child", "teen", or "adult". Defaults to "adult".</td></tr>
-            <tr><td><code>Manner</code></td><td>"polite", "rude", or "neutral". Tone for dispositions.</td></tr>
-            <tr><td><code>SocialAnxiety</code></td><td>Behavior token: "outgoing", "shy", or "neutral".</td></tr>
-            <tr><td><code>Optimism</code></td><td>"positive", "negative", "neutral".</td></tr>
-            <tr><td><code>BirthdaySeason</code> &amp; <code>BirthdayDay</code></td><td>Season ("spring"/"summer"/"fall"/"winter") and day (1–28) for birthdate injection.</td></tr>
-            <tr><td><code>HomeRegion</code></td><td>Game region string used in disposition entries (example: "Town").</td></tr>
-            <tr><td><code>DefaultMap</code>, <code>DefaultX</code>, <code>DefaultY</code>, <code>DefaultFacing</code></td><td>Default spawn location &amp; facing used when spawning NPC instances and when warping them back on morning.</td></tr>
-            <tr><td><code>Datable</code>, <code>Marriageable</code></td><td>Relationship flags used in Data/NPCDispositions and CharacterData injection.</td></tr>
-            <tr><td><code>CustomSpritePath</code>, <code>CustomPortraitPath</code></td><td>Relative path to sprite/portrait files inside <code>SourceDirectory</code>. Optional.</td></tr>
-            <tr><td><code>SourceDirectory</code></td><td>Folder where TOML and assets live (set by the loader).</td></tr>
-            <tr><td><code>AbsoluteSpritePath</code>, <code>AbsolutePortraitPath</code></td><td>Calculated absolute fallback paths (set during load).</td></tr>
-            <tr><td><code>DialoguePath</code>, <code>SchedulePath</code></td><td>Optional separate files for dialogue and schedule; loader honors these.</td></tr>
-            <tr><td><code>Dialogue</code></td><td>Dictionary mapping dialogue keys to raw text. Key names match in-game dialogue IDs.</td></tr>
-            <tr><td><code>Schedules</code></td><td>List of ScheduleEntry objects parsed from TOML or added by API.</td></tr>
-            <tr><td><code>GiftTastes</code>, <code>GiftResponses</code></td><td>Gift preference lists and optional custom response messages (Love/Like/Neutral/Dislike/Hate).</td></tr>
-            <tr><td><code>SpriteVariants</code>, <code>PortraitVariants</code></td><td>Mapping of variant key → image path (key can be a location name, season, or custom tag). Values are relative to SourceDirectory or absolute paths.</td></tr>
-          </table>
-
-          <h3>Constructor behavior</h3>
-          <p class="small">The constructor initializes GiftTastes with empty lists for the five categories so callers can safely add to them without checking for null.</p>
-
-          <h3>How this object is used at runtime</h3>
-          <ol class="small">
-            <li>TomlParser creates an instance and populates properties from the TOML files.</li>
-            <li>NpcManager.Register stores the instance and sets up internal state (e.g., last location tracking).</li>
-            <li>On SMAPI AssetRequested events, the manager consults fields like SpriteVariants, Dialogue, and Schedules to inject assets or provide LoadFrom/Edits to the content pipeline.</li>
-            <li>On SaveLoaded/DayStarted/UpdateTicked events the manager may spawn NPC instances, warp them to DefaultMap, call TryLoadSchedule(), and invalidate asset caches when appropriate.</li>
-          </ol>
-        </section>
-
-        <section id="modentry" class="card" style="margin-top:18px">
-          <h2>ModEntry.cs — SMAPI integration & API</h2>
-          <p class="small">ModEntry is the SMAPI mod entry point class. It creates the NpcManager and exposes a small public API to other mods.</p>
-
-          <h3>Key members</h3>
-          <pre class="code" id="modentry-code">
-public override void Entry(IModHelper helper)
-{
-    _manager = new NpcManager(helper, Monitor);
-    _manager.Initialize();
-
-    var npcFolder = Path.Combine(helper.DirectoryPath, "NPCs");
-    if (!Directory.Exists(npcFolder))
-        Directory.CreateDirectory(npcFolder);
-
-    _manager.LoadFromTomlFolder(npcFolder, Path.GetFileName(helper.DirectoryPath));
-}
-
-public override object GetApi()
-{
-    return new NpcHelperApi(_manager);
-}
-          </pre>
-          <button class="copy" data-target="modentry-code">Copy</button>
-
-          <h3>Explanation</h3>
-          <ul class="small">
-            <li><strong>Entry</strong> is called by SMAPI when the mod starts. It constructs the NpcManager with the helper and monitor (for logging).</li>
-            <li>Initialize registers event handlers inside NpcManager (Content.AssetRequested, GameLoop.SaveLoaded, UpdateTicked, DayStarted) — these drive runtime injection and updating.</li>
-            <li>The code ensures a local <code>NPCs</code> folder exists under the mod folder and immediately loads any TOML files found there through <code>LoadFromTomlFolder</code>. That lets authors ship example NPCs inside the mod distribution.</li>
-            <li><strong>GetApi</strong> returns an API wrapper instance so other mods can call <code>RegisterNpc</code> to add NPCs at runtime without TOML.</li>
+        <!-- Section: Content Packs -->
+        <div>
+          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 px-2">Content Pack (TOML)</h3>
+          <ul class="space-y-1">
+            <li><a href="#manifest" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">manifest.json</a></li>
+            <li><a href="#mod-toml" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">mod.toml</a></li>
+            <li><a href="#aria-toml" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm text-brand-400">Aria.toml (Core)</a></li>
+            <li><a href="#dialogue-toml" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Dialogue.toml</a></li>
+            <li><a href="#schedule-toml" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Schedule.toml</a></li>
           </ul>
+        </div>
 
-          <h3>Public API</h3>
-          <pre class="code" id="api-snippet">
-public interface INpcHelperApi
-{
-    void RegisterNpc(string name, NpcDefinition data);
-}
-public class NpcHelperApi : INpcHelperApi
-{
-    public void RegisterNpc(string name, NpcDefinition data)
-    {
-        data.Name = name;
-        _manager.Register(data);
-    }
-}
-          </pre>
-          <p class="small">Use case: another mod can call <code>var api = (INpcHelperApi) helper.ModRegistry.GetApi("TamKungZ.NpcHelper"); api.RegisterNpc("MyNpc", myDefinition);</code></p>
-        </section>
-
-        <section id="modscanner" class="card" style="margin-top:18px">
-          <h2>ModScanner.cs — content pack scanning</h2>
-          <p class="small">ModScanner iterates owned Content Packs (SMAPI IContentPack) and reads each pack's <code>mod.toml</code> to find a manual list of NPC TOML paths (a simple custom format) and forwards each found file to the same loader used for local files.</p>
-
-          <h3>Public API & constructor</h3>
-          <pre class="code" id="modscanner-code">
-public ModScanner(IModHelper helper, IMonitor monitor, Action<string, string, string> loadTomlFile)
-{
-    _helper = helper;
-    _monitor = monitor;
-    _loadTomlFile = loadTomlFile;
-}
-          </pre>
-
-          <h3>ScanAndLoad</h3>
-          <p class="small">For each content pack returned by <code>_helper.ContentPacks.GetOwned()</code>, it checks for <code>mod.toml</code>. If present, it parses a "NPCs = [ ... ]" line and then tries to locate each referenced TOML file relative to the content pack directory. If found, it calls the <code>_loadTomlFile(fullPath, cp.Manifest.Name, cp.DirectoryPath)</code> action so the main loader can process it (and optionally capture the content pack name and root).</p>
-
-          <h3>ParseManualToml details</h3>
-          <p class="small">This parser is intentionally minimal: it finds the first line that starts with "NPCs" and contains square brackets, then extracts comma-separated paths from inside the brackets, trimming quotes and whitespace. Example accepted line:</p>
-          <pre class="code">
-NPCs = ["NPCs/Rei/Rei.toml", "NPCs/Other/Other.toml"]
-          </pre>
-
-          <h3>Limitations & notes</h3>
-          <ul class="small">
-            <li>The parser is simple and not a full TOML implementation — it will only read a single line listing the NPC TOML paths. Complex mod.toml files may not be parsed.</li>
-            <li>Paths must be relative to the content pack directory and must match casing as used by the filesystem.</li>
-            <li>Errors reading mod.toml are caught and logged via the provided IMonitor.</li>
+        <!-- Section: Source Code -->
+        <div>
+          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 px-2">Source Code (C#)</h3>
+          <ul class="space-y-1">
+            <li><a href="#modentry-cs" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">ModEntry.cs</a></li>
+            <li><a href="#npcmanager-cs" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">NpcManager.cs</a></li>
+            <li><a href="#modscanner-cs" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">ModScanner.cs</a></li>
+            <li><a href="#npcdefinition-cs" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">NpcDefinition.cs</a></li>
           </ul>
+        </div>
+      </nav>
+
+      <div class="p-4 border-t border-slate-800">
+        <a href="https://www.nexusmods.com/stardewvalley/mods/41303" target="_blank" class="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-brand-600 text-white py-2 rounded text-sm transition font-medium">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 50 50"><path d="M43.915,31.443C44.607,29.418,45,27.256,45,25c0-3.643-0.995-7.051-2.704-9.996c0.111-0.11,0.2-0.242,0.251-0.395 c1.193-3.617,0.084-6.058,0.037-6.16c-0.027-0.057-0.073-0.098-0.109-0.148c-0.074-0.151-0.176-0.288-0.32-0.388 c-0.033-0.022-3.273-2.258-5.584-3.752c-0.183-0.118-0.397-0.17-0.615-0.158c-1.687,0.122-3.197,0.938-4.516,2.081 C29.415,5.392,27.255,5,25,5c-3.656,0-7.075,1.003-10.027,2.723c-0.098-0.082-0.207-0.152-0.333-0.192 C11.7,6.598,9.568,7.128,8.816,7.382C8.481,7.37,8.153,7.519,7.955,7.804c-0.022,0.032-2.259,3.274-3.753,5.584 c-0.118,0.182-0.173,0.398-0.157,0.615c0.121,1.678,0.928,3.181,2.061,4.496C5.401,20.541,5,22.722,5,25 c0,3.623,0.983,7.014,2.674,9.947c-0.096,0.103-0.175,0.222-0.221,0.36c-1.193,3.616-0.085,6.058-0.037,6.16 c0.027,0.058,0.074,0.1,0.111,0.151c0.074,0.149,0.175,0.285,0.318,0.384c0.032,0.022,3.273,2.259,5.584,3.754 c0.162,0.104,0.351,0.16,0.543,0.16c0.024,0,0.048-0.001,0.072-0.003c1.658-0.12,3.146-0.91,4.449-2.022 C20.537,44.598,22.72,45,25,45c3.645,0,7.055-0.996,10.001-2.706c0.101,0.091,0.216,0.167,0.349,0.211 c1.256,0.415,2.369,0.552,3.292,0.552c1.737,0,2.801-0.484,2.867-0.516c0.046-0.021,0.079-0.061,0.121-0.089 c0.163-0.073,0.309-0.185,0.415-0.339c0.022-0.033,2.259-3.274,3.753-5.585c0.118-0.183,0.173-0.398,0.157-0.615 C45.835,34.246,45.037,32.751,43.915,31.443z M5.872,13.974c1.512-2.319,3.246-4.711,3.246-4.711s0.305,5.013,8.197,9.19 l2.504-3.925l2.104,8.561l-8.91,2.19l1.762-2.821C11.998,21.129,6.816,18.061,5.872,13.974z M22.381,35.081 c-1.349,2.767-4.456,7.926-8.549,8.839c-2.307-1.529-4.687-3.281-4.687-3.281s5.015-0.268,9.251-8.128l-3.948-2.56l8.641-2.124 l2.244,9.128L22.381,35.081z M24.466,12.989l2.876,1.767c1.307-2.786,4.337-7.991,8.416-8.965c2.33,1.495,4.735,3.211,4.735,3.211 s-5.011,0.342-9.128,8.265l4.008,2.515l-8.711,2.141L24.466,12.989z M40.813,40.556c0,0-0.323-5.012-8.229-9.16l-2.587,4.088 l-2.169-8.822l9.117-2.241l-1.835,2.961c2.781,1.318,7.974,4.368,8.933,8.451C42.538,38.157,40.813,40.556,40.813,40.556z"/></svg>
+          View on NexusMods
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto relative scroll-smooth">
+      <div class="max-w-4xl mx-auto px-6 py-10">
+        
+        <!-- Header -->
+        <header id="intro" class="mb-12 border-b border-slate-800 pb-8">
+          <h1 class="text-4xl font-bold text-white mb-4">NPC Helper Documentation</h1>
+          <p class="text-lg text-slate-400 leading-relaxed">
+            Welcome to the documentation for <strong class="text-brand-400">NPC Helper</strong>, a tool designed to simplify creating custom NPCs for Stardew Valley using easy-to-read TOML files instead of complex C# coding.
+          </p>
+          <div class="mt-6 flex gap-4">
+            <span class="px-3 py-1 bg-brand-900/50 text-brand-400 border border-brand-500/30 rounded-full text-xs font-medium">SMAPI Mod</span>
+            <span class="px-3 py-1 bg-slate-800 text-slate-400 border border-slate-700 rounded-full text-xs font-medium">Stardew Valley 1.6+</span>
+          </div>
+        </header>
+
+        <!-- Project Structure -->
+        <section id="structure" class="mb-16">
+          <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <svg class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+            Project Structure
+          </h2>
+          <div class="bg-slate-950 rounded-lg border border-slate-800 p-6 font-mono text-sm text-slate-400 shadow-xl">
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-brand-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                MyNpcMod/
+              </li>
+              <li class="pl-6 text-yellow-400">├── manifest.json <span class="text-slate-600">// Mod metadata</span></li>
+              <li class="pl-6 text-green-400">├── mod.toml <span class="text-slate-600">// Main entry point for NPC Helper</span></li>
+              <li class="pl-6">├── NPCs/</li>
+              <li class="pl-12">└── Aria/</li>
+              <li class="pl-[4.5rem] text-blue-400">├── Aria.toml <span class="text-slate-600">// NPC Definition (Birthday, Traits)</span></li>
+              <li class="pl-[4.5rem] text-purple-400">├── Dialogue.toml <span class="text-slate-600">// Dialogue lines</span></li>
+              <li class="pl-[4.5rem] text-pink-400">├── Schedule.toml <span class="text-slate-600">// Movement schedule</span></li>
+              <li class="pl-[4.5rem]">├── sprite.png</li>
+              <li class="pl-[4.5rem]">└── portrait.png</li>
+            </ul>
+          </div>
         </section>
 
-        <section id="toml" class="card" style="margin-top:18px">
-          <h2>TOML usage, dialogue & schedules (practical guide)</h2>
+        <div class="border-t border-slate-800 my-10"></div>
 
-          <h3>Where files go</h3>
-          <p class="small">TOML NPC main files are placed either in your mod's <code>Mods/NpcHelper/NPCs/</code> folder, or inside a content pack that lists their path in <code>mod.toml</code>. The loader creates the NPC.SourceDirectory = folder containing that file so relative image paths resolve correctly.</p>
+        <!-- Section: TOML Files -->
+        <h2 class="text-3xl font-bold text-white mb-8">Content Pack Files</h2>
 
-          <h3>Dialogue file loading rules</h3>
-          <ol class="small">
-            <li>If the main NPC TOML contains lines under the [Dialogue] table, those are used.</li>
-            <li>If you use a separate dialogue file (e.g., <code>DialoguePath = "dialogue.toml"</code>), the loader will read that file and merge keys into <code>NpcDefinition.Dialogue</code>.</li>
-            <li>Important: when scanning a folder for NPC main TOML files, the loader intentionally ignores filenames exactly named <code>dialogue.toml</code> and <code>schedule.toml</code> (those are loaded only when referenced by a main file).</li>
-          </ol>
+        <!-- manifest.json -->
+        <section id="manifest" class="mb-12">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-brand-400">manifest.json</h3>
+            <span class="text-xs text-slate-500 font-mono">Required</span>
+          </div>
+          <p class="text-slate-400 mb-4">Standard SMAPI manifest. Note the `ContentPackFor` section, which links this mod to `NpcHelper`.</p>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-manifest">Copy</button>
+            <pre><code id="code-manifest" class="language-json rounded-lg border border-slate-800 shadow-lg p-4">{
+  "Name": "Aria NPC Mod",
+  "Author": "TamKungZ_",
+  "Version": "1.0.0",
+  "UniqueID": "TamKungZ.Aria.NPC",
+  "Description": "Adds NPC Aria (the wandering musician)",
+  "ContentPackFor": {
+    "UniqueID": "TamKungZ.NpcHelper"
+  },
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [ "Nexus:41305" ]
+}</code></pre>
+          </div>
+        </section>
 
-          <h3>Dialogue syntax highlights</h3>
-          <p class="small">Dialogue keys map to values that can include condition variants inside square brackets and alternative variants separated by <code>||</code>. Examples:</p>
-          <pre class="code">
-[Dialogue]
-greeting = "[friendship >= 8] \"Nice to see you!\" || \"Hello.\""
-Small_Talk = "You look tired.|You need a snack."
-          </pre>
-          <p class="small">Supported condition keys &amp; operators: <code>friendship</code>, <code>time</code>, <code>season</code>, <code>mail</code>, <code>hasquest</code> / <code>quest</code>. Operators: <code>=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</p>
+        <!-- mod.toml -->
+        <section id="mod-toml" class="mb-12">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-brand-400">mod.toml</h3>
+            <span class="text-xs text-slate-500 font-mono">Entry Point</span>
+          </div>
+          <p class="text-slate-400 mb-4">The main configuration file. It tells the loader which NPC files to include.</p>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-mod-toml">Copy</button>
+            <pre><code id="code-mod-toml" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">NPCs = ["NPCs/Aria/Aria.toml"]</code></pre>
+          </div>
+        </section>
 
-          <h3>Schedules syntax highlights</h3>
-          <p class="small">Schedule entries are created with table arrays <code>[[Schedule]]</code>. Fields include <code>Time</code> (Stardew time-of-day integer, e.g., 600), <code>Map</code>, <code>X</code>, <code>Y</code>, <code>Facing</code>, optional <code>Action</code>, and the new scoping fields <code>Days</code>, <code>Season</code>, <code>Day</code>.</p>
-          <pre class="code">
+        <!-- Aria.toml -->
+        <section id="aria-toml" class="mb-12">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-blue-400">Aria.toml (Main Definition)</h3>
+            <span class="text-xs text-slate-500 font-mono">Core Config</span>
+          </div>
+          <p class="text-slate-400 mb-4">
+            Defines the NPC's core stats: Name, Birthday, Personality, Starting Location, and asset paths.
+            <br><span class="text-yellow-500 text-sm">Tip: `Gender` must be strictly `male` or `female`.</span>
+          </p>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-aria-toml">Copy</button>
+            <pre><code id="code-aria-toml" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">Name = "Aria"
+DisplayName = "Aria"
+Gender = "female"
+Age = "teen"
+Manner = "neutral"
+SocialAnxiety = "outgoing"
+Optimism = "positive"
+BirthdaySeason = "winter"
+BirthdayDay = 14
+HomeRegion = "Town"
+
+# Starting location when save loads
+DefaultMap = "Saloon"
+DefaultX = 15
+DefaultY = 18
+DefaultFacing = 1
+
+# Assets (Must be in the same folder)
+CustomSpritePath = "sprite.png"
+CustomPortraitPath = "portrait.png"
+
+# Romance status
+Datable = true
+Marriageable = false
+
+# Sub-files
+DialoguePath = "Dialogue.toml"
+SchedulePath = "Schedule.toml"
+
+# Optional: Changing outfits based on location
+[Sprites]
+Beach = "sprite_Beach.png"
+
+[Portraits]
+Beach = "portrait_Beach.png"</code></pre>
+          </div>
+        </section>
+
+        <!-- Dialogue.toml -->
+        <section id="dialogue-toml" class="mb-12">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-purple-400">Dialogue.toml</h3>
+            <span class="text-xs text-slate-500 font-mono">Interaction</span>
+          </div>
+          <p class="text-slate-400 mb-4">
+            Contains all dialogue lines using standard Stardew keys (e.g., `Mon`, `Tue`). 
+            Supports `[conditions]` and random variations using `||`.
+          </p>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-dialogue-toml">Copy</button>
+            <pre><code id="code-dialogue-toml" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">[Dialogue]
+# Introduction
+Introduction = "Oh, hello! I'm Aria. I play the violin at the Saloon sometimes. || Nice to meet a new face. I'm Aria!"
+
+# Location Specific
+Saloon = "The acoustics in here are surprisingly good. Or maybe it's just the cider talking.$h"
+Saloon_Fri = "Friday nights are the best. Everyone is so lively!$h"
+Beach = "[season = summer] I tried playing near the water, but the humidity ruins my strings."
+
+# Daily Dialogue
+Mon = "I spent all night tuning my violin. I'm exhausted."
+Mon4 = "[friendship >= 4] You seem to appreciate the arts. I like that about you.$h"
+Tue = "Have you ever heard the wind whistle through the trees? That's real music."
+Wed = "I need to buy new rosin strings soon. Do you think Pierre sells them?"
+Thu = "Sometimes I just want to pack up and travel the world playing music."
+Fri = "Finally, the weekend! I'm hoping for a big crowd tonight."
+
+# Responses
+Gift_Love = "Oh my goodness! This is perfect! You really know me well.$h"
+Gift_Like = "Thank you! I can definitely use this."
+Gift_Hate = "Um... I have no idea what to do with this. Thanks, I guess."
+
+# Random Choices (||) & Conditions ([])
+Music_Talk = "[friendship >= 6] I've been writing a song about you. It's... complicated. || I'm thinking of learning the flute next."
+
+# Fallback
+Default = "I'm humming a new tune. Give me a second."</code></pre>
+          </div>
+        </section>
+
+        <!-- Schedule.toml -->
+        <section id="schedule-toml" class="mb-12">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-pink-400">Schedule.toml</h3>
+            <span class="text-xs text-slate-500 font-mono">Movement</span>
+          </div>
+          <p class="text-slate-400 mb-4">
+            Defines the NPC's movement using `[[Schedule]]` blocks, processed chronologically.
+          </p>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-schedule-toml">Copy</button>
+            <pre><code id="code-schedule-toml" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># --- Scenario 1: Regular Weekdays ---
 [[Schedule]]
 Time = 600
-Map = "Bakery"
-X = 3
-Y = 8
+Map = "Town"
+X = 45
+Y = 70
 Facing = 2
+Days = "Weekday"
+Action = "Busking near the river"
+
+[[Schedule]]
+Time = 1300
+Map = "Saloon"
+X = 15
+Y = 18
+Facing = 1
 Days = "Weekday"
 
 [[Schedule]]
-Season = "summer"
-Day = 12
-Time = 900
+Time = 2000
 Map = "Town"
-          </pre>
+X = 10
+Y = 20
+Facing = 0
+Days = "Weekday"
+
+# --- Scenario 2: Weekends (Relaxing) ---
+[[Schedule]]
+Time = 900
+Map = "Forest"
+X = 25
+Y = 15
+Facing = 2
+Days = "Weekend"
+Action = "Looking for inspiration"
+
+[[Schedule]]
+Time = 1800
+Map = "Saloon"
+X = 20
+Y = 20
+Facing = 3
+Days = "Weekend"
+
+# --- Scenario 3: Rainy Days ---
+[[Schedule]]
+Time = 600
+Map = "Saloon"
+X = 4
+Y = 18
+Facing = 1
+Weather = "Rain"</code></pre>
+          </div>
         </section>
 
-        <section id="faq" class="card" style="margin-top:18px">
-          <h2>FAQ, debugging & common pitfalls</h2>
+        <div class="border-t border-slate-800 my-10"></div>
 
-          <h3>Why isn't my dialogue.toml loaded?</h3>
-          <p class="small">dialogue.toml is only read when the main NPC TOML references it via <code>DialoguePath</code>. When the loader scans a folder for main NPC TOML files it skips files named dialogue.toml and schedule.toml — put them as secondary files and reference them from the main file.</p>
+        <!-- Section: Source Code -->
+        <h2 class="text-3xl font-bold text-white mb-8">Source Code (C#) Reference</h2>
+        <p class="text-slate-400 mb-8">This section is for developers who want to understand the backend logic or fork the project.</p>
 
-          <h3>Sprites not showing?</h3>
-          <p class="small">Ensure the sprite path resolves — the loader tries:
-            <ol class="small">
-              <li>SpriteVariants by NPC location/player location/season</li>
-              <li>CustomSpritePath (relative to SourceDirectory)</li>
-              <li><code>sprite.png</code> in SourceDirectory</li>
-              <li>AbsoluteSpritePath fallback</li>
-            </ol>
-            If none of these files exist, the game cannot display the sprite. Check the SMAPI log for "Using custom sprite path" / "No asset found" messages.</p>
+        <!-- ModEntry.cs -->
+        <section id="modentry-cs" class="mb-12">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-slate-200">ModEntry.cs</h3>
+          </div>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-modentry">Copy</button>
+            <pre><code id="code-modentry" class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">using System.IO;
+using StardewModdingAPI;
 
-          <h3>How to test quickly</h3>
-          <ol class="small">
-            <li>Place a minimal TOML file in <code>Mods/NpcHelper/NPCs/Example.toml</code> and restart SMAPI.</li>
-            <li>Open SMAPI console and search logs for NpcHelper trace/trace messages to verify registration &amp; asset resolution.</li>
-            <li>Use a single-line dialogue key like <code>test = "Hello"</code> to verify Dialogue injection.</li>
-          </ol>
+namespace NpcHelper
+{
+    /// <summary>
+    /// SMAPI mod entry point.
+    /// </summary>
+    public class ModEntry : Mod
+    {
+        private NpcManager _manager;
+
+        public override void Entry(IModHelper helper)
+        {
+            _manager = new NpcManager(helper, Monitor);
+            _manager.Initialize();
+
+            // Ensure we have an NPCs folder in our own mod structure for authors who place their NPCs here
+            var npcFolder = Path.Combine(helper.DirectoryPath, "NPCs");
+            if (!Directory.Exists(npcFolder))
+                Directory.CreateDirectory(npcFolder);
+
+            // Also load any TOML in our own NPCs folder right away
+            _manager.LoadFromTomlFolder(npcFolder, Path.GetFileName(helper.DirectoryPath));
+        }
+
+        public override object GetApi()
+        {
+            return new NpcHelperApi(_manager);
+        }
+    }
+
+    // Simple API wrapper exposed to other mods
+    public interface INpcHelperApi
+    {
+        void RegisterNpc(string name, NpcDefinition data);
+    }
+
+    public class NpcHelperApi : INpcHelperApi
+    {
+        private readonly NpcManager _manager;
+        public NpcHelperApi(NpcManager manager) => _manager = manager;
+
+        public void RegisterNpc(string name, NpcDefinition data)
+        {
+            // Implementation logic would go here
+        }
+    }
+}</code></pre>
+          </div>
         </section>
 
-        <footer>
-          <div class="small muted">Documentation generated for: NpcDefinition.cs, ModEntry.cs, ModScanner.cs</div>
-          <div style="margin-top:8px">Contact: <strong>TamKungZ_</strong> — <a href="mailto:kittiwut.pimpromma@gmail.com" style="color:var(--accent2)">kittiwut.pimpromma@gmail.com</a></div>
-          <div style="margin-top:6px" class="small">Find the official mod page: <a href="https://www.nexusmods.com/stardewvalley/mods/41305" style="color:var(--accent)">NPC Helper on NexusMods</a></div>
-        </footer>
-      </main>
+        <!-- NpcManager.cs -->
+        <section id="npcmanager-cs" class="mb-12">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-slate-200">NpcManager.cs</h3>
+          </div>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-npcmanager">Copy</button>
+            <pre><code id="code-npcmanager" class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using StardewModdingAPI;
+using StardewModdingAPI.Events;
+using StardewValley;
+using StardewValley.GameData.Characters;
 
-      <aside class="card">
-        <h3 class="small">Quick reference</h3>
-        <div style="margin:8px 0">
-          <div class="badge">v1.0.0</div> <span class="muted">NPC Helper</span>
-        </div>
-        <h4 class="small">Event hooks used</h4>
-        <ul class="small">
-          <li><code>Content.AssetRequested</code> — inject assets &amp; data</li>
-          <li><code>GameLoop.SaveLoaded</code> — spawn NPC instances, load schedules</li>
-          <li><code>GameLoop.UpdateTicked</code> — poll NPC locations to invalidate assets</li>
-          <li><code>GameLoop.DayStarted</code> — invalidate assets on season/day change</li>
-        </ul>
+namespace NpcHelper
+{
+    public class NpcManager
+    {
+        private readonly IModHelper _helper;
+        private readonly IMonitor _monitor;
+        private readonly Dictionary<string, NpcDefinition> _npcs = new(StringComparer.OrdinalIgnoreCase);
 
-        <h4 class="small" style="margin-top:10px">Content pack usage</h4>
-        <p class="small">Create a SMAPI content pack and include a <code>mod.toml</code> whose NPCs line lists <code>NPCs = ["NPCs/Rei/Rei.toml"]</code>. ModScanner will load each referenced file.</p>
+        // ... Dependencies (TomlParser, DialogueResolver, etc.)
 
-        <h4 class="small" style="margin-top:10px">Example mod.toml line</h4>
-        <pre class="code small" id="modtoml-example">NPCs = ["NPCs/Rei/Rei.toml"]</pre>
+        public NpcManager(IModHelper helper, IMonitor monitor)
+        {
+            _helper = helper;
+            _monitor = monitor;
+            // Initialization logic...
+        }
 
-        <div style="margin-top:12px">
-          <a class="button" href="https://tamkungz.github.io/documentation/npc-helper/" target="_blank" rel="noopener">Full docs</a>
-          <a class="button" href="https://www.nexusmods.com/stardewvalley/mods/41305" target="_blank" rel="noopener">Nexus page</a>
-        </div>
-      </aside>
-    </div>
+        // ... Methods for managing NPC lifecycle ...
+
+        // Example: Resolve relative paths for assets
+        private string ResolveVariantPath(string baseDir, string variantPath)
+        {
+            if (string.IsNullOrWhiteSpace(variantPath)) return null;
+            if (Path.IsPathRooted(variantPath)) return File.Exists(variantPath) ? variantPath : null;
+            
+            var combined = Path.Combine(baseDir, variantPath);
+            _monitor.Log($"[NpcHelper] Resolving relative variant path: {combined}", LogLevel.Trace);
+            return File.Exists(combined) ? combined : null;
+        }
+        
+        // ... Other helper methods (SanitizeFileName, TryGetLiveNpc) ...
+    }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- ModScanner.cs -->
+        <section id="modscanner-cs" class="mb-12">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-slate-200">ModScanner.cs</h3>
+          </div>
+          <p class="text-slate-400 mb-4">Class responsible for scanning `mod.toml` in other installed Content Packs.</p>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-modscanner">Copy</button>
+            <pre><code id="code-modscanner" class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">using System;
+using System.IO;
+using System.Collections.Generic;
+using StardewModdingAPI;
+
+namespace NpcHelper
+{
+    public class ModScanner
+    {
+        private readonly IMonitor _monitor;
+        private readonly IModHelper _helper;
+        private readonly Action<string, string, string> _loadTomlFile;
+
+        public ModScanner(IModHelper helper, IMonitor monitor, Action<string, string, string> loadTomlFile)
+        {
+            _helper = helper;
+            _monitor = monitor;
+            _loadTomlFile = loadTomlFile;
+        }
+
+        public void ScanAndLoad()
+        {
+            foreach (IContentPack cp in _helper.ContentPacks.GetOwned())
+            {
+                string configPath = Path.Combine(cp.DirectoryPath, "mod.toml");
+
+                if (File.Exists(configPath))
+                {
+                    _monitor.Log($"Loading NPC Pack: {cp.Manifest.Name}", LogLevel.Info);
+                    LoadFromConfig(cp, configPath);
+                }
+                else
+                {
+                    _monitor.Log($"Skipping {cp.Manifest.Name}: No mod.toml found.", LogLevel.Warn);
+                }
+            }
+        }
+        
+        // ... LoadFromConfig implementation ...
+    }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- NpcDefinition.cs -->
+        <section id="npcdefinition-cs" class="mb-20">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-xl font-semibold text-slate-200">NpcDefinition.cs</h3>
+          </div>
+          <p class="text-slate-400 mb-4">Data Model used to map with TOML files.</p>
+          <div class="code-block-wrapper">
+            <button class="copy-btn" data-target="code-npcdef">Copy</button>
+            <pre><code id="code-npcdef" class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">using System;
+using System.Collections.Generic;
+
+namespace NpcHelper
+{
+    /// <summary>
+    /// Definition of an NPC loaded from TOML or registered via API.
+    /// </summary>
+    public class NpcDefinition
+    {
+        // Core Identity
+        public string Name { get; set; }
+        public string DisplayName { get; set; }
+        public string Gender { get; set; } = "male";
+        public string Age { get; set; } = "adult";
+        public string Manner { get; set; } = "neutral";
+        public string SocialAnxiety { get; set; } = "neutral";
+        public string Optimism { get; set; } = "neutral";
+
+        // Birthday
+        public string BirthdaySeason { get; set; }
+        public int BirthdayDay { get; set; } = 1;
+
+        // Visuals
+        public Dictionary<string, string> SpriteVariants { get; set; } 
+            = new(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> PortraitVariants { get; set; } 
+            = new(StringComparer.OrdinalIgnoreCase);
+            
+        // Gifts & Responses
+        public Dictionary<string, List<string>> GiftTastes { get; set; }
+            = new(StringComparer.OrdinalIgnoreCase);
+        
+        // ... Constructor and other properties ...
+    }
+}</code></pre>
+          </div>
+        </section>
+
+      </div>
+      
+      <!-- Footer -->
+      <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
+        <p>Generated for NPC Helper Project. <br>Stardew Valley is a trademark of ConcernedApe.</p>
+      </footer>
+    </main>
   </div>
 
   <script>
-    // Copy button behaviour
-    document.querySelectorAll('button.copy').forEach(btn=>{
-      btn.addEventListener('click', async ()=>{
-        const id = btn.getAttribute('data-target');
-        const el = document.getElementById(id);
-        if (!el) return;
-        const text = el.textContent;
-        try {
-          await navigator.clipboard.writeText(text);
-          btn.textContent = 'Copied';
-          setTimeout(()=>btn.textContent='Copy',900);
-        } catch {
-          // fallback
-          const ta = document.createElement('textarea');
-          ta.value = text;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          btn.textContent = 'Copied';
-          setTimeout(()=>btn.textContent='Copy',900);
-        }
-      });
-    });
+    // Initialize Highlight.js
+    hljs.highlightAll();
 
-    // Make code blocks selectable on click
-    document.querySelectorAll('pre.code').forEach(p=>{
-      p.addEventListener('click', ()=> {
-        const sel = window.getSelection();
-        const range = document.createRange();
-        range.selectNodeContents(p);
-        sel.removeAllRanges();
-        sel.addRange(range);
+    // Copy Button Logic
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.getAttribute('data-target');
+        const codeElement = document.getElementById(targetId);
+        
+        if (codeElement) {
+          try {
+            await navigator.clipboard.writeText(codeElement.textContent);
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            btn.classList.add('text-green-400', 'border-green-400/50');
+            
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.classList.remove('text-green-400', 'border-green-400/50');
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy!', err);
+            btn.textContent = 'Error';
+          }
+        }
       });
     });
   </script>
