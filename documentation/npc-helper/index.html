@@ -1,555 +1,737 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NPC Helper — Developer Documentation</title>
-  <meta name="description" content="Documentation and code reference for NPC Helper and Aria NPC Mod" />
-  <meta name="author" content="TamKungZ_" />
-  <link rel="icon" type="image/x-icon" href="https://tamkungz.github.io/image/icon_hp.png" />
-  <link rel="canonical" href="https://tamkungz.github.io/documentation/npc-helper/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPC Helper - Complete Documentation</title>
+    <meta name="description" content="Complete documentation for NPC Helper - Runtime custom NPC importer for Stardew Valley">
+    <meta name="author" content="TamKungZ_">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/ini.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="NPC Helper — Code Reference & Explanation" />
-  <meta property="og:description" content="Comprehensive code reference and explanations for NpcHelper: NpcDefinition.cs, ModEntry.cs, ModScanner.cs (SMAPI mod)." />
-  <meta property="og:image" content="https://staticdelivery.nexusmods.com/mods/1303/images/41305/41305-1768532837-1664767729.png" />
-  <meta property="og:url" content="https://tamkungz.github.io/documentation/npc-helper/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Tailwind CSS (CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Highlight.js (Syntax Highlighting) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/ini.min.js"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              900: '#0c4a6e',
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  </script>
+    </script>
 
-  <style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: #1e293b; }
-    ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #64748b; }
-    
-    .code-block-wrapper { position: relative; }
-    .copy-btn {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      padding: 0.25rem 0.75rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 0.375rem;
-      color: #cbd5e1;
-      font-size: 0.75rem;
-      transition: all 0.2s;
-      opacity: 0;
-    }
-    .code-block-wrapper:hover .copy-btn { opacity: 1; }
-    .copy-btn:hover { background: rgba(255, 255, 255, 0.2); color: white; }
-    
-    /* Table Styles */
-    .doc-table th { text-align: left; padding: 0.75rem; border-bottom: 1px solid #334155; color: #94a3b8; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-    .doc-table td { padding: 0.75rem; border-bottom: 1px solid #1e293b; color: #cbd5e1; font-size: 0.9rem; vertical-align: top; }
-    .doc-table tr:last-child td { border-bottom: none; }
-    .doc-table code { background: #1e293b; padding: 0.2rem 0.4rem; border-radius: 0.25rem; color: #38bdf8; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
-    
-    /* Feature badges */
-    .feature-badge { 
-      display: inline-block; 
-      padding: 0.125rem 0.5rem; 
-      border-radius: 0.25rem; 
-      font-size: 0.75rem; 
-      font-weight: 600; 
-      margin-right: 0.5rem; 
-      margin-bottom: 0.5rem; 
-    }
-  </style>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+        
+        .code-block-wrapper { position: relative; }
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.375rem;
+            color: #cbd5e1;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .code-block-wrapper:hover .copy-btn { opacity: 1; }
+        .copy-btn:hover { background: rgba(255, 255, 255, 0.2); color: white; }
+        
+        .doc-table th { 
+            text-align: left; 
+            padding: 0.75rem; 
+            border-bottom: 1px solid #334155; 
+            color: #94a3b8; 
+            font-size: 0.875rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+        }
+        .doc-table td { 
+            padding: 0.75rem; 
+            border-bottom: 1px solid #1e293b; 
+            color: #cbd5e1; 
+            font-size: 0.9rem; 
+            vertical-align: top; 
+        }
+        .doc-table tr:last-child td { border-bottom: none; }
+        .doc-table code { 
+            background: #1e293b; 
+            padding: 0.2rem 0.4rem; 
+            border-radius: 0.25rem; 
+            color: #38bdf8; 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 0.85em; 
+        }
+        
+        .feature-badge { 
+            display: inline-block; 
+            padding: 0.125rem 0.5rem; 
+            border-radius: 0.25rem; 
+            font-size: 0.75rem; 
+            font-weight: 600; 
+            margin-right: 0.5rem; 
+            margin-bottom: 0.5rem; 
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(30, 41, 59, 0.5) 100%);
+            border-left: 4px solid #fbbf24;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(30, 41, 59, 0.5) 100%);
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(30, 41, 59, 0.5) 100%);
+            border-left: 4px solid #22c55e;
+        }
+        
+        .error-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(30, 41, 59, 0.5) 100%);
+            border-left: 4px solid #ef4444;
+        }
+    </style>
 </head>
-
 <body class="bg-slate-900 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
-  <!-- Layout Container -->
-  <div class="flex h-screen overflow-hidden">
-
-    <!-- Sidebar Navigation -->
-    <aside class="w-72 bg-slate-950 border-r border-slate-800 flex-shrink-0 flex flex-col h-full hidden md:flex">
-      <div class="p-6 border-b border-slate-800">
-        <h1 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full bg-brand-500 animate-pulse"></span>
-          NPC Helper Docs
-        </h1>
-        <p class="text-xs text-slate-500 mt-1">v1.0.0 (Updated)</p>
-      </div>
-
-      <!-- Search Box -->
-      <div class="p-4 border-b border-slate-800">
-        <input type="text" placeholder="Search documentation..." class="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500" id="search-box">
-      </div>
-
-      <nav class="flex-1 overflow-y-auto p-4 space-y-6" id="sidebar-nav">
-        
-        <!-- Section: Overview -->
-        <div>
-          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 px-2">Overview</h3>
-          <ul class="space-y-1">
-            <li><a href="#intro" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Introduction</a></li>
-            <li><a href="#structure" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Project Structure</a></li>
-          </ul>
-        </div>
-
-        <!-- Section: Configuration -->
-        <div>
-          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 px-2">Configuration (TOML)</h3>
-          <ul class="space-y-1">
-            <li><a href="#manifest" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">manifest.json</a></li>
-            <li><a href="#mod-toml" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">mod.toml</a></li>
-            <li><a href="#npc-toml" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm text-brand-400">NPC Definition (.toml)</a></li>
-            <li><a href="#values-ref" class="block px-2 py-1.5 ml-3 border-l border-slate-700 hover:text-brand-300 transition text-xs text-slate-400">Allowed Values Reference</a></li>
-            <li><a href="#dialogue-toml" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Dialogue.toml</a></li>
-            <li><a href="#schedule-toml" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Schedule.toml</a></li>
-          </ul>
-        </div>
-
-        <!-- Section: Source Code -->
-        <div>
-          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 px-2">Source Code (C#)</h3>
-          <ul class="space-y-1">
-            <li><a href="#modentry-cs" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">ModEntry.cs</a></li>
-            <li><a href="#npcdefinition-cs" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">NpcDefinition.cs</a></li>
-            <li><a href="#npcmanager-cs" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">NpcManager.cs</a></li>
-          </ul>
-        </div>
-
-        <!-- Section: Guides & Examples -->
-        <div>
-          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 px-2">Guides & Examples</h3>
-          <ul class="space-y-1">
-            <li><a href="#quick-start" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm"><i class="fas fa-rocket mr-2"></i>Quick Start Guide</a></li>
-            <li><a href="#interactive-examples" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm"><i class="fas fa-play-circle mr-2"></i>Interactive Examples</a></li>
-            <li><a href="#troubleshooting" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm"><i class="fas fa-tools mr-2"></i>Troubleshooting</a></li>
-            <li><a href="#api-reference" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm"><i class="fas fa-book mr-2"></i>API Reference</a></li>
-            <li><a href="#compatibility" class="block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm"><i class="fas fa-cogs mr-2"></i>Compatibility</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="p-4 border-t border-slate-800">
-        <a href="https://www.nexusmods.com/stardewvalley/mods/41303" target="_blank" class="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-brand-600 text-white py-2 rounded text-sm transition font-medium">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 50 50"><path d="M43.915,31.443C44.607,29.418,45,27.256,45,25c0-3.643-0.995-7.051-2.704-9.996c0.111-0.11,0.2-0.242,0.251-0.395 c1.193-3.617,0.084-6.058,0.037-6.16c-0.027-0.057-0.073-0.098-0.109-0.148c-0.074-0.151-0.176-0.288-0.32-0.388 c-0.033-0.022-3.273-2.258-5.584-3.752c-0.183-0.118-0.397-0.17-0.615-0.158c-1.687,0.122-3.197,0.938-4.516,2.081 C29.415,5.392,27.255,5,25,5c-3.656,0-7.075,1.003-10.027,2.723c-0.098-0.082-0.207-0.152-0.333-0.192 C11.7,6.598,9.568,7.128,8.816,7.382C8.481,7.37,8.153,7.519,7.955,7.804c-0.022,0.032-2.259,3.274-3.753,5.584 c-0.118,0.182-0.173,0.398-0.157,0.615c0.121,1.678,0.928,3.181,2.061,4.496C5.401,20.541,5,22.722,5,25 c0,3.623,0.983,7.014,2.674,9.947c-0.096,0.103-0.175,0.222-0.221,0.36c-1.193,3.616-0.085,6.058-0.037,6.16 c0.027,0.058,0.074,0.1,0.111,0.151c0.074,0.149,0.175,0.285,0.318,0.384c0.032,0.022,3.273,2.259,5.584,3.754 c0.162,0.104,0.351,0.16,0.543,0.16c0.024,0,0.048-0.001,0.072-0.003c1.658-0.12,3.146-0.91,4.449-2.022 C20.537,44.598,22.72,45,25,45c3.645,0,7.055-0.996,10.001-2.706c0.101,0.091,0.216,0.167,0.349,0.211 c1.256,0.415,2.369,0.552,3.292,0.552c1.737,0,2.801-0.484,2.867-0.516c0.046-0.021,0.079-0.061,0.121-0.089 c0.163-0.073,0.309-0.185,0.415-0.339c0.022-0.033,2.259-3.274,3.753-5.585c0.118-0.183,0.173-0.398,0.157-0.615 C45.835,34.246,45.037,32.751,43.915,31.443z M5.872,13.974c1.512-2.319,3.246-4.711,3.246-4.711s0.305,5.013,8.197,9.19 l2.504-3.925l2.104,8.561l-8.91,2.19l1.762-2.821C11.998,21.129,6.816,18.061,5.872,13.974z M22.381,35.081 c-1.349,2.767-4.456,7.926-8.549,8.839c-2.307-1.529-4.687-3.281-4.687-3.281s5.015-0.268,9.251-8.128l-3.948-2.56l8.641-2.124 l2.244,9.128L22.381,35.081z M24.466,12.989l2.876,1.767c1.307-2.786,4.337-7.991,8.416-8.965c2.33,1.495,4.735,3.211,4.735,3.211 s-5.011,0.342-9.128,8.265l4.008,2.515l-8.711,2.141L24.466,12.989z M40.813,40.556c0,0-0.323-5.012-8.229-9.16l-2.587,4.088 l-2.169-8.822l9.117-2.241l-1.835,2.961c2.781,1.318,7.974,4.368,8.933,8.451C42.538,38.157,40.813,40.556,40.813,40.556z"/></svg>
-          View on NexusMods
-        </a>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 overflow-y-auto relative scroll-smooth">
-      <div class="max-w-4xl mx-auto px-6 py-10">
-        
-        <!-- Header -->
-        <header id="intro" class="mb-12 border-b border-slate-800 pb-8">
-          <h1 class="text-4xl font-bold text-white mb-4">NPC Helper Documentation</h1>
-          <p class="text-lg text-slate-400 leading-relaxed">
-            Welcome to the documentation for <strong class="text-brand-400">NPC Helper</strong>. This tool allows you to create custom Stardew Valley NPCs using simple TOML configuration files.
-          </p>
-          <div class="mt-6 flex gap-4">
-            <span class="feature-badge bg-brand-900/50 text-brand-400 border border-brand-500/30"><i class="fas fa-code mr-1"></i> SMAPI Mod</span>
-            <span class="feature-badge bg-slate-800 text-slate-400 border border-slate-700"><i class="fas fa-gamepad mr-1"></i> Stardew Valley 1.6+</span>
-            <span class="feature-badge bg-purple-900/50 text-purple-400 border border-purple-500/30"><i class="fas fa-users mr-1"></i> Dynamic NPCs</span>
-            <span class="feature-badge bg-green-900/50 text-green-400 border border-green-500/30"><i class="fas fa-palette mr-1"></i> Asset Variants</span>
-          </div>
-          
-          <!-- Downloadable Templates -->
-          <div class="mt-8 p-4 bg-slate-950/50 rounded-lg border border-slate-800">
-            <h4 class="text-lg font-semibold text-white mb-3"><i class="fas fa-download mr-2"></i>Download Templates</h4>
-            <div class="flex flex-wrap gap-3">
-              <a href="#" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded text-sm transition flex items-center gap-2">
-                <i class="fas fa-file-archive"></i>
-                Complete NPC Template
-              </a>
-              <a href="#" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded text-sm transition flex items-center gap-2">
-                <i class="fas fa-comments"></i>
-                Dialogue Examples
-              </a>
-              <a href="#" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded text-sm transition flex items-center gap-2">
-                <i class="fas fa-calendar-alt"></i>
-                Schedule Templates
-              </a>
-            </div>
-          </div>
-        </header>
-
-        <!-- Project Structure -->
-        <section id="structure" class="mb-16">
-          <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <i class="fas fa-folder text-brand-500"></i>
-            Project Structure
-          </h2>
-          <div class="bg-slate-950 rounded-lg border border-slate-800 p-6 font-mono text-sm text-slate-400 shadow-xl">
-            <ul class="space-y-2">
-              <li class="flex items-center gap-2 text-brand-400">
-                <i class="fas fa-folder-open"></i>
-                MyCustomNpcMod/
-              </li>
-              <li class="pl-6 text-yellow-400">├── manifest.json <span class="text-slate-600">// Mod metadata</span></li>
-              <li class="pl-6 text-green-400">├── mod.toml <span class="text-slate-600">// Main entry point</span></li>
-              <li class="pl-6">├── NPCs/</li>
-              <li class="pl-12">└── MyNewNPC/</li>
-              <li class="pl-[4.5rem] text-blue-400">├── NpcData.toml <span class="text-slate-600">// Main Definition</span></li>
-              <li class="pl-[4.5rem] text-purple-400">├── Dialogue.toml <span class="text-slate-600">// Lines of text</span></li>
-              <li class="pl-[4.5rem] text-pink-400">├── Schedule.toml <span class="text-slate-600">// Movement logic</span></li>
-              <li class="pl-[4.5rem]">├── sprite.png</li>
-              <li class="pl-[4.5rem]">├── sprite_Hospital.png</li>
-              <li class="pl-[4.5rem]">├── portrait.png</li>
-              <li class="pl-[4.5rem]">└── portrait_Hospital.png</li>
-            </ul>
-          </div>
-        </section>
-
-        <div class="border-t border-slate-800 my-10"></div>
-
-        <!-- Quick Start Guide -->
-        <section id="quick-start" class="mb-16">
-          <h2 class="text-3xl font-bold text-white mb-8"><i class="fas fa-rocket mr-2"></i>Quick Start Guide</h2>
-          
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold">1</div>
-              <div>
-                <h4 class="text-lg font-semibold text-white mb-2">Create Folder Structure</h4>
-                <div class="font-mono text-sm bg-slate-950 p-3 rounded">
-                  YourMod/<br>
-                  ├── manifest.json<br>
-                  ├── mod.toml<br>
-                  └── NPCs/YourNPC/<br>
-                      ├── YourNPC.toml<br>
-                      ├── Dialogue.toml<br>
-                      ├── Schedule.toml<br>
-                      ├── sprite.png<br>
-                      └── portrait.png
+<div class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-slate-950 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                    <h1 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-brand-500 animate-pulse"></span>
+                        NPC Helper Documentation
+                        <span class="text-sm font-normal bg-slate-800 text-slate-300 px-3 py-1 rounded-full">v1.0.1</span>
+                    </h1>
+                    <p class="text-slate-400">
+                        Runtime custom NPC importer for Stardew Valley. Create fully-featured NPCs with TOML configuration.
+                    </p>
                 </div>
-              </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#quick-start" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded text-sm transition flex items-center gap-2">
+                        <i class="fas fa-rocket"></i>
+                        Quick Start
+                    </a>
+                    <a href="https://www.nexusmods.com/stardewvalley/mods/41303" target="_blank" 
+                       class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded text-sm transition flex items-center gap-2">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                </div>
             </div>
             
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold">2</div>
-              <div>
-                <h4 class="text-lg font-semibold text-white mb-2">Configure Basic NPC</h4>
-                <div class="code-block-wrapper">
-                  <pre><code class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">
-# YourNPC.toml
-Name = "YourNPC"
-DisplayName = "Friendly NPC"
-Gender = "female"
-Age = "adult"
-BirthdaySeason = "spring"
-BirthdayDay = 15
-DefaultMap = "Town"
-DialoguePath = "Dialogue.toml"
-SchedulePath = "Schedule.toml"</code></pre>
-                </div>
-              </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+                <span class="feature-badge bg-brand-900/50 text-brand-400 border border-brand-500/30">
+                    <i class="fas fa-code mr-1"></i> SMAPI 4.0+
+                </span>
+                <span class="feature-badge bg-slate-800 text-slate-400 border border-slate-700">
+                    <i class="fas fa-gamepad mr-1"></i> Stardew Valley 1.6+
+                </span>
+                <span class="feature-badge bg-purple-900/50 text-purple-400 border border-purple-500/30">
+                    <i class="fas fa-users mr-1"></i> Dynamic NPCs
+                </span>
+                <span class="feature-badge bg-green-900/50 text-green-400 border border-green-500/30">
+                    <i class="fas fa-palette mr-1"></i> Asset Variants
+                </span>
+                <span class="feature-badge bg-yellow-900/50 text-yellow-400 border border-yellow-500/30">
+                    <i class="fas fa-globe mr-1"></i> Localization
+                </span>
+                <span class="feature-badge bg-pink-900/50 text-pink-400 border border-pink-500/30">
+                    <i class="fas fa-comments mr-1"></i> Conditional Dialogue
+                </span>
             </div>
-            
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold">3</div>
-              <div>
-                <h4 class="text-lg font-semibold text-white mb-2">Add Simple Dialogue</h4>
-                <div class="code-block-wrapper">
-                  <pre><code class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">
-# Dialogue.toml
-[Dialogue]
-Mon = "Hello! It's Monday."
-Introduction = "Nice to meet you!"
-Default = "Have a good day!"</code></pre>
+        </div>
+    </header>
+
+    <div class="flex flex-col md:flex-row max-w-6xl mx-auto px-6 py-8 gap-8">
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 flex-shrink-0">
+            <div class="sticky top-8 bg-slate-950 rounded-lg border border-slate-800 p-4">
+                <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Table of Contents</h3>
+                <nav class="space-y-2">
+                    <a href="#introduction" class="block px-3 py-2 rounded hover:bg-slate-800 hover:text-white transition text-sm">Introduction</a>
+                    <a href="#installation" class="block px-3 py-2 rounded hover:bg-slate-800 hover:text-white transition text-sm">Installation</a>
+                    <a href="#quick-start" class="block px-3 py-2 rounded hover:bg-slate-800 hover:text-white transition text-sm">Quick Start Guide</a>
+                    
+                    <div class="pt-2 mt-2 border-t border-slate-800">
+                        <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Configuration Files</h4>
+                        <a href="#manifest-json" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">manifest.json</a>
+                        <a href="#mod-toml" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">mod.toml</a>
+                        <a href="#npc-toml" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">NPC Definition</a>
+                        <a href="#dialogue-toml" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Dialogue System</a>
+                        <a href="#schedule-toml" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Schedule System</a>
+                        <a href="#gift-tastes" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Gift Tastes</a>
+                    </div>
+                    
+                    <div class="pt-2 mt-2 border-t border-slate-800">
+                        <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Advanced Features</h4>
+                        <a href="#asset-variants" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Asset Variants</a>
+                        <a href="#localization" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Localization</a>
+                        <a href="#conditional-dialogue" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Conditional Dialogue</a>
+                        <a href="#api-reference" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">API Reference</a>
+                    </div>
+                    
+                    <div class="pt-2 mt-2 border-t border-slate-800">
+                        <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Help & Support</h4>
+                        <a href="#troubleshooting" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Troubleshooting</a>
+                        <a href="#compatibility" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">Compatibility</a>
+                        <a href="#faq" class="block px-3 py-1.5 rounded hover:bg-slate-800 hover:text-white transition text-sm">FAQ</a>
+                    </div>
+                </nav>
+                
+                <div class="mt-6 pt-4 border-t border-slate-800">
+                    <div class="text-xs text-slate-500">
+                        <p class="mb-2">Requires:</p>
+                        <ul class="space-y-1">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400 text-xs"></i>
+                                Stardew Valley 1.6+
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400 text-xs"></i>
+                                SMAPI 4.0+
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
             </div>
-            
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold">4</div>
-              <div>
-                <h4 class="text-lg font-semibold text-white mb-2">Build and Test</h4>
-                <div class="bg-slate-950 rounded-lg border border-slate-800 p-4">
-                  <ol class="text-sm text-slate-300 list-decimal list-inside space-y-2">
-                    <li>Copy your mod folder to Stardew Valley's <code>Mods</code> directory</li>
-                    <li>Launch Stardew Valley with SMAPI</li>
-                    <li>Check the SMAPI console for loading messages</li>
-                    <li>Find your NPC at their default location (Town)</li>
-                    <li>Talk to them to test dialogue</li>
-                  </ol>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1">
+            <!-- Introduction -->
+            <section id="introduction" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">Introduction</h2>
+                <p class="text-slate-300 mb-4">
+                    NPC Helper is a Stardew Valley mod that allows you to create custom NPCs using simple TOML configuration files. 
+                    No C# coding required! The mod provides a complete system for NPC creation including:
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                            <i class="fas fa-cog text-brand-400"></i>
+                            TOML-Based Configuration
+                        </h4>
+                        <p class="text-sm text-slate-400">Define NPCs with simple, readable configuration files</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                            <i class="fas fa-comments text-purple-400"></i>
+                            Dynamic Dialogue
+                        </h4>
+                        <p class="text-sm text-slate-400">Conditional and randomized dialogue based on friendship, time, weather, and more</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                            <i class="fas fa-calendar-alt text-green-400"></i>
+                            Advanced Schedules
+                        </h4>
+                        <p class="text-sm text-slate-400">Day/season/date-based routing with automatic pathfinding</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                            <i class="fas fa-images text-yellow-400"></i>
+                            Asset Variants
+                        </h4>
+                        <p class="text-sm text-slate-400">Location and season-specific sprites and portraits</p>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <div class="border-t border-slate-800 my-10"></div>
+            <!-- Installation -->
+            <section id="installation" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">Installation</h2>
+                
+                <div class="success-box rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold text-white mb-3">Prerequisites</h4>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            Stardew Valley 1.6 or higher
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            SMAPI 4.0 or higher
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                    <h4 class="text-lg font-semibold text-white mb-4">Installation Steps</h4>
+                    <ol class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-500 flex items-center justify-center text-white text-sm font-bold">1</span>
+                            <div>
+                                <strong class="text-white">Install SMAPI</strong>
+                                <p class="text-slate-400 text-sm mt-1">Download and install SMAPI from <a href="https://smapi.io" class="text-brand-400 hover:underline" target="_blank">smapi.io</a></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-500 flex items-center justify-center text-white text-sm font-bold">2</span>
+                            <div>
+                                <strong class="text-white">Download NPC Helper</strong>
+                                <p class="text-slate-400 text-sm mt-1">Download the latest version from <a href="https://www.nexusmods.com/stardewvalley/mods/41303" class="text-brand-400 hover:underline" target="_blank">NexusMods</a></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-500 flex items-center justify-center text-white text-sm font-bold">3</span>
+                            <div>
+                                <strong class="text-white">Extract to Mods Folder</strong>
+                                <p class="text-slate-400 text-sm mt-1">Extract the NPC Helper folder to <code class="bg-slate-800 px-2 py-1 rounded text-xs">Stardew Valley/Mods/</code></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-500 flex items-center justify-center text-white text-sm font-bold">4</span>
+                            <div>
+                                <strong class="text-white">Launch Game</strong>
+                                <p class="text-slate-400 text-sm mt-1">Start Stardew Valley through SMAPI and check the console for "[NpcHelper] Loaded"</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
 
-        <!-- Section: TOML Files -->
-        <h2 class="text-3xl font-bold text-white mb-8">Content Pack Files</h2>
+            <!-- Quick Start Guide -->
+            <section id="quick-start" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-6">
+                    <i class="fas fa-rocket mr-2 text-brand-500"></i>Quick Start Guide
+                </h2>
+                
+                <div class="warning-box rounded-lg p-6 mb-6">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-info-circle text-yellow-400 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-white mb-2">Before You Begin</h4>
+                            <p class="text-sm text-slate-300">This guide will walk you through creating your first custom NPC. Make sure NPC Helper is installed and working before proceeding.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <!-- Step 1 -->
+                    <div class="border-l-4 border-brand-500 pl-6">
+                        <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-sm">1</span>
+                            Create Content Pack Structure
+                        </h3>
+                        <p class="text-slate-400 mb-4">Create the following folder structure in your Mods directory:</p>
+                        <div class="bg-slate-950 rounded-lg border border-slate-800 p-4 font-mono text-sm">
+<pre class="text-slate-300">Mods/
+└── MyFirstNPC/              <span class="text-slate-600">← Your content pack folder</span>
+    ├── manifest.json        <span class="text-slate-600">← Required: Mod metadata</span>
+    ├── mod.toml            <span class="text-slate-600">← Required: NPC list</span>
+    └── NPCs/
+        └── Alex/           <span class="text-slate-600">← Example NPC name</span>
+            ├── Alex.toml   <span class="text-slate-600">← NPC definition</span>
+            ├── sprite.png  <span class="text-slate-600">← Character sprite (16x32 per frame)</span>
+            └── portrait.png <span class="text-slate-600">← Portrait (64x64 per expression)</span></pre>
+                        </div>
+                    </div>
 
-        <!-- manifest.json -->
-        <section id="manifest" class="mb-12">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="text-xl font-semibold text-brand-400">manifest.json</h3>
-          </div>
-          <div class="code-block-wrapper">
-            <button class="copy-btn" data-target="code-manifest">Copy</button>
-            <pre><code id="code-manifest" class="language-json rounded-lg border border-slate-800 shadow-lg p-4">{
-  "Name": "My Custom NPC",
+                    <!-- Step 2 -->
+                    <div class="border-l-4 border-brand-500 pl-6">
+                        <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-sm">2</span>
+                            Create manifest.json
+                        </h3>
+                        <div class="code-block-wrapper">
+                            <button class="copy-btn" data-target="code-manifest-quick">Copy</button>
+                            <pre><code id="code-manifest-quick" class="language-json rounded-lg border border-slate-800 shadow-lg p-4">{
+  "Name": "My First NPC",
   "Author": "YourName",
   "Version": "1.0.0",
-  "UniqueID": "YourName.MyCustomNPC",
+  "Description": "Adds a custom NPC to Stardew Valley",
+  "UniqueID": "YourName.MyFirstNPC",
   "ContentPackFor": {
     "UniqueID": "TamKungZ.NpcHelper"
   },
-  "UpdateKeys": [ "" ]
+  "UpdateKeys": []
 }</code></pre>
-          </div>
-        </section>
+                        </div>
+                    </div>
 
-        <!-- mod.toml -->
-        <section id="mod-toml" class="mb-12">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="text-xl font-semibold text-brand-400">mod.toml</h3>
-            <span class="text-xs text-slate-500 font-mono">Entry Point</span>
-          </div>
-          <p class="text-slate-400 mb-4">Points to your NPC definition files.</p>
-          <div class="code-block-wrapper">
-            <button class="copy-btn" data-target="code-mod-toml">Copy</button>
-            <pre><code id="code-mod-toml" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">NPCs = ["NPCs/MyNewNPC/NpcData.toml"]</code></pre>
-          </div>
-        </section>
+                    <!-- Step 3 -->
+                    <div class="border-l-4 border-brand-500 pl-6">
+                        <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-sm">3</span>
+                            Create mod.toml
+                        </h3>
+                        <p class="text-slate-400 mb-4">This file tells NPC Helper where to find your NPC definitions:</p>
+                        <div class="code-block-wrapper">
+                            <button class="copy-btn" data-target="code-modtoml-quick">Copy</button>
+                            <pre><code id="code-modtoml-quick" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">NPCs = ["NPCs/Alex/Alex.toml"]</code></pre>
+                        </div>
+                    </div>
 
-        <!-- NPC Definition TOML -->
-        <section id="npc-toml" class="mb-8">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="text-xl font-semibold text-blue-400">NpcData.toml (Template)</h3>
-            <span class="text-xs text-slate-500 font-mono">Main Definition</span>
-          </div>
-          <p class="text-slate-400 mb-4">
-            This file defines who your NPC is. Review the allowed values in the comments and the table below.
-          </p>
-          <div class="code-block-wrapper">
-            <button class="copy-btn" data-target="code-npc-toml">Copy</button>
-            <pre><code id="code-npc-toml" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># Unique ID for the game (No spaces)
-Name = "Rei"
-
-# Name seen by players
-DisplayName = "Rei"
-
-# Core Identity
-Gender = "female"       # Options: male, female
-Age = "adult"           # Options: child, teen, adult
-Manner = "polite"       # Options: polite, rude, neutral
-SocialAnxiety = "neutral" # Options: outgoing, shy, neutral
-Optimism = "positive"   # Options: positive, negative, neutral
+                    <!-- Step 4 -->
+                    <div class="border-l-4 border-brand-500 pl-6">
+                        <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-sm">4</span>
+                            Create NPC Definition
+                        </h3>
+                        <p class="text-slate-400 mb-4">Create <code class="bg-slate-800 px-2 py-1 rounded text-xs">NPCs/Alex/Alex.toml</code> with minimal configuration:</p>
+                        <div class="code-block-wrapper">
+                            <button class="copy-btn" data-target="code-npc-minimal">Copy</button>
+                            <pre><code id="code-npc-minimal" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># Basic Identity
+Name = "Alex"
+DisplayName = "Alex the Adventurer"
+Gender = "male"
+Age = "adult"
 
 # Birthday
-BirthdaySeason = "summer" # Options: spring, summer, fall, winter
-BirthdayDay = 12
+BirthdaySeason = "spring"
+BirthdayDay = 13
 
-# Home Location (Where they go when not scheduled)
-HomeRegion = "Town"     # Options: Town, Forest, Beach, Mountain, etc.
+# Starting Location
+DefaultMap = "Town"
+DefaultX = 52
+DefaultY = 87
+DefaultFacing = 2
 
-# Spawning (First load)
-DefaultMap = "Hospital"
-DefaultX = 9
-DefaultY = 7
-DefaultFacing = 2       # 0=Up, 1=Right, 2=Down, 3=Left
-
-# Asset Paths (Relative to this TOML file)
+# Assets
 CustomSpritePath = "sprite.png"
-CustomPortraitPath = "portrait.png"
+CustomPortraitPath = "portrait.png"</code></pre>
+                        </div>
+                    </div>
 
-# Romance
-Datable = true
-Marriageable = true
+                    <!-- Step 5 -->
+                    <div class="border-l-4 border-green-500 pl-6">
+                        <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-sm">✓</span>
+                            Test Your NPC
+                        </h3>
+                        <div class="success-box rounded-lg p-4">
+                            <ol class="space-y-2 text-sm text-slate-300 list-decimal list-inside">
+                                <li>Launch Stardew Valley with SMAPI</li>
+                                <li>Check the SMAPI console for "[NpcHelper] Registered NPC definition: Alex"</li>
+                                <li>Load or start a save game</li>
+                                <li>Look for your NPC at the Town coordinates (52, 87)</li>
+                                <li>Interact with them to verify they appear in-game</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-# External Files
-DialoguePath = "Dialogue.toml"
-SchedulePath = "Schedule.toml"
+            <div class="border-t border-slate-800 my-12"></div>
 
-# Sprite variants for different locations/seasons
+            <!-- Configuration Files -->
+            <h2 class="text-2xl font-bold text-white mb-8">Configuration Files</h2>
+
+            <!-- manifest.json -->
+            <section id="manifest-json" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-brand-400">manifest.json</h3>
+                    <span class="text-xs text-slate-500 font-mono">Required</span>
+                </div>
+                <p class="text-slate-400 mb-4">This file defines your content pack metadata. Must reference <code>TamKungZ.NpcHelper</code> as the content pack target.</p>
+                <div class="code-block-wrapper">
+                    <button class="copy-btn" data-target="code-manifest-full">Copy</button>
+                    <pre><code id="code-manifest-full" class="language-json rounded-lg border border-slate-800 shadow-lg p-4">{
+  "Name": "My Custom NPC Pack",
+  "Author": "YourName",
+  "Version": "1.0.0",
+  "UniqueID": "YourName.MyCustomNPCs",
+  "Description": "Adds custom NPCs to Stardew Valley",
+  "ContentPackFor": {
+    "UniqueID": "TamKungZ.NpcHelper"
+  },
+  "UpdateKeys": []
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- mod.toml -->
+            <section id="mod-toml" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-brand-400">mod.toml</h3>
+                    <span class="text-xs text-slate-500 font-mono">Entry Point</span>
+                </div>
+                <p class="text-slate-400 mb-4">Lists all NPC definition files relative to the content pack root.</p>
+                <div class="code-block-wrapper">
+                    <button class="copy-btn" data-target="code-mod-toml-full">Copy</button>
+                    <pre><code id="code-mod-toml-full" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># List all NPC definition files
+NPCs = [
+    "NPCs/Rei/Rei.toml",
+    "NPCs/Alex/Alex.toml",
+    "NPCs/Sophia/Sophia.toml"
+]</code></pre>
+                </div>
+            </section>
+
+            <!-- NPC Definition -->
+            <section id="npc-toml" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-blue-400">NPC Definition (.toml)</h3>
+                    <span class="text-xs text-slate-500 font-mono">Main Configuration</span>
+                </div>
+                <p class="text-slate-400 mb-4">The main TOML file that defines an NPC's properties. Place this in your NPC's folder.</p>
+                
+                <div class="code-block-wrapper">
+                    <button class="copy-btn" data-target="code-npc-full">Copy</button>
+                    <pre><code id="code-npc-full" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># ───── Basic Identity ─────
+Name = "Rei"                    # Internal name (no spaces, unique)
+DisplayName = "Rei"             # Name shown to players
+
+# ───── Core Properties ─────
+Gender = "female"               # "male" or "female"
+Age = "adult"                   # "child", "teen", or "adult"
+Manner = "polite"               # "polite", "rude", or "neutral"
+SocialAnxiety = "neutral"       # "outgoing", "shy", or "neutral"
+Optimism = "positive"           # "positive", "negative", or "neutral"
+
+# ───── Birthday ─────
+BirthdaySeason = "summer"       # "spring", "summer", "fall", or "winter"
+BirthdayDay = 12                # 1-28
+
+# ───── Spawn Location ─────
+HomeRegion = "Town"             # Region for game logic
+DefaultMap = "Hospital"         # Starting map
+DefaultX = 9                    # X tile coordinate
+DefaultY = 7                    # Y tile coordinate
+DefaultFacing = 2               # 0=Up, 1=Right, 2=Down, 3=Left
+
+# ───── Relationship Flags ─────
+Datable = true                  # Can be dated
+Marriageable = true             # Can be married
+
+# ───── Asset Paths ─────
+CustomSpritePath = "sprite.png"             # Default sprite
+CustomPortraitPath = "portrait.png"         # Default portrait
+
+# ───── External Files ─────
+DialoguePath = "Dialogue.toml"              # Separate dialogue file
+SchedulePath = "Schedule.toml"              # Separate schedule file
+
+# ───── Sprite Variants ─────
 [Sprites]
-Hospital = "sprite_Hospital.png"
+Hospital = "sprite_Hospital.png"           # When at Hospital
+Beach = "sprite_Beach.png"                 # When at Beach
+summer = "sprite_Summer.png"               # During summer
+rainy = "sprite_Rainy.png"                 # When raining
 
-# Portrait variants
+# ───── Portrait Variants ─────
 [Portraits]
-Hospital = "portrait_Hospital.png"</code></pre>
-          </div>
-        </section>
+Hospital = "portrait_Hospital.png"         # When at Hospital
+summer = "portrait_Summer.png"             # During summer
 
-        <!-- Allowed Values Reference Table -->
-        <section id="values-ref" class="mb-12">
-          <div class="bg-slate-950/50 rounded-lg border border-slate-800 overflow-hidden">
-            <table class="w-full text-left border-collapse doc-table">
-              <thead>
-                <tr class="bg-slate-900">
-                  <th class="w-1/4">Property</th>
-                  <th class="w-1/4">Allowed Values</th>
-                  <th class="w-1/2">Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>Gender</code></td>
-                  <td><code>"male"</code>, <code>"female"</code></td>
-                  <td>Determines pronouns and base sound effects.</td>
-                </tr>
-                <tr>
-                  <td><code>Age</code></td>
-                  <td><code>"adult"</code>, <code>"teen"</code>, <code>"child"</code></td>
-                  <td>Affects walking speed, height, and events.</td>
-                </tr>
-                <tr>
-                  <td><code>Manner</code></td>
-                  <td><code>"neutral"</code>, <code>"polite"</code>, <code>"rude"</code></td>
-                  <td>Changes the shape of speech bubbles and default reactions.</td>
-                </tr>
-                <tr>
-                  <td><code>SocialAnxiety</code></td>
-                  <td><code>"neutral"</code>, <code>"outgoing"</code>, <code>"shy"</code></td>
-                  <td>Affects idle animations and social behavior.</td>
-                </tr>
-                <tr>
-                  <td><code>Optimism</code></td>
-                  <td><code>"neutral"</code>, <code>"positive"</code>, <code>"negative"</code></td>
-                  <td>General personality bias.</td>
-                </tr>
-                <tr>
-                  <td><code>DefaultFacing</code></td>
-                  <td><code>0, 1, 2, 3</code></td>
-                  <td>0: Up, 1: Right, 2: Down, 3: Left.</td>
-                </tr>
-                <tr>
-                  <td><code>BirthdaySeason</code></td>
-                  <td><code>"spring"</code>, <code>"summer"</code>, <code>"fall"</code>, <code>"winter"</code></td>
-                  <td>Season of NPC's birthday.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+# ───── Gift Tastes ─────
+[GiftTastes]
+# Item IDs or names (supports universal keys like "Universal_Love")
+Love = ["Diamond", "Coffee", "Universal_Love"]
+Like = ["Blueberry", "Universal_Like"]
+Neutral = ["Universal_Neutral"]
+Dislike = ["Universal_Dislike"]
+Hate = ["Universal_Hate"]
 
-        <!-- Dialogue.toml -->
-        <section id="dialogue-toml" class="mb-12">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="text-xl font-semibold text-purple-400">Dialogue.toml</h3>
-          </div>
-          <p class="text-slate-400 mb-4">
-            Keys map to Stardew Valley dialogue keys (Days of week, Seasons, Locations, Heart levels).
-            Use <code>||</code> for random variations and <code>[condition]</code> for conditional dialogue.
-          </p>
-          <div class="code-block-wrapper">
-            <button class="copy-btn" data-target="code-dialogue-toml">Copy</button>
-            <pre><code id="code-dialogue-toml" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">[Dialogue]
-# Introduction
-Introduction = "Hi. I'm Rei, a trainee doctor at the clinic. If you need a check-up, don't be shy. || If it's an emergency, get to the ER — and fast."
+# ───── Gift Response Messages ─────
+LoveMessage = "Oh wow! Is this for me? I love it!"
+LikeMessage = "Thanks! This is nice."
+NeutralMessage = "Thank you."
+DislikeMessage = "Oh... um, thanks?"
+HateMessage = "Eww, why would you give me this?"</code></pre>
+                </div>
 
-# Location-specific: Hospital (different tone when at work)
-Hospital = "I'm on duty. No loitering in the exam rooms, got it? $h"
-Hospital_Mon = "Morning rounds start soon. Grab a coffee if you want to stay awake.$u"
+                <div class="mt-6 bg-slate-950 rounded-lg border border-slate-800 p-6">
+                    <h4 class="text-lg font-semibold text-white mb-4">Allowed Values Reference</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full doc-table">
+                            <thead>
+                                <tr class="bg-slate-900">
+                                    <th class="w-1/4">Property</th>
+                                    <th class="w-1/4">Allowed Values</th>
+                                    <th class="w-1/2">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>Gender</code></td>
+                                    <td><code>"male"</code>, <code>"female"</code></td>
+                                    <td>Determines pronouns and base sound effects</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Age</code></td>
+                                    <td><code>"child"</code>, <code>"teen"</code>, <code>"adult"</code></td>
+                                    <td>Affects walking speed, height, and events</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Manner</code></td>
+                                    <td><code>"neutral"</code>, <code>"polite"</code>, <code>"rude"</code></td>
+                                    <td>Changes speech bubble shape and default reactions</td>
+                                </tr>
+                                <tr>
+                                    <td><code>SocialAnxiety</code></td>
+                                    <td><code>"neutral"</code>, <code>"outgoing"</code>, <code>"shy"</code></td>
+                                    <td>Affects idle animations and social behavior</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Optimism</code></td>
+                                    <td><code>"neutral"</code>, <code>"positive"</code>, <code>"negative"</code></td>
+                                    <td>General personality bias</td>
+                                </tr>
+                                <tr>
+                                    <td><code>BirthdaySeason</code></td>
+                                    <td><code>"spring"</code>, <code>"summer"</code>, <code>"fall"</code>, <code>"winter"</code></td>
+                                    <td>Season of NPC's birthday</td>
+                                </tr>
+                                <tr>
+                                    <td><code>DefaultFacing</code></td>
+                                    <td><code>0</code>, <code>1</code>, <code>2</code>, <code>3</code></td>
+                                    <td>0: Up, 1: Right, 2: Down, 3: Left</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
 
-# Conditions and Randomization
-Hospital_Tue = "[friendship >= 6] Hey, @ — thanks for helping me organize those charts. || I'm on call today; try not to break anything."
+            <!-- Dialogue System -->
+            <section id="dialogue-toml" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-purple-400">Dialogue System</h3>
+                    <span class="text-xs text-slate-500 font-mono">Conditional & Randomized</span>
+                </div>
+                <p class="text-slate-400 mb-4">
+                    Dialogue can be defined inline in the main TOML or in a separate <code>Dialogue.toml</code> file. 
+                    Supports conditional logic, randomization, and Stardew Valley dialogue codes.
+                </p>
+                
+                <div class="code-block-wrapper">
+                    <button class="copy-btn" data-target="code-dialogue-example">Copy</button>
+                    <pre><code id="code-dialogue-example" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">[Dialogue]
+# Basic dialogue keys
+Introduction = "Hi, I'm Rei. Nice to meet you!"
+Default = "Have a good day!"
 
-# Time-based conditionals
-Hospital_Night = "[time >= 2000] The night shift is quieter. Perfect for finishing paperwork. || I prefer the calm anyway."
+# Day-specific dialogue
+Mon = "Mondays are tough, but we'll get through it."
+Tue = "Tuesday already? Time flies."
 
-# General daily lines
-Mon = "Mondays don't scare me. They just need proper coffee."
-Mon2 = "[friendship >= 4] Good to see you again. You actually listen when I talk about medicine.$h || Oh. You're here. Try not to get into trouble."
+# Location-specific dialogue (when NPC is at Hospital)
+Hospital = "I'm on duty today. Please don't distract me too much."
 
-# Heart-specific dialogue (numeric key)
-4 = "[friendship = 4] Nice to see you. You owe me a drink sometime.$h"
+# Time-specific with conditions
+Evening = "[time >= 1800] It's getting late. You should head home soon."
 
-# Seasonal variants
-summer_12 = "[season = summer] Hey, it's my birthday soon. Don't make it weird. $u"
+# Friendship-based conditions
+Friendly = "[friendship >= 4] Good to see you again, @! || Hi there."
 
-# Randomized flavor lines (pipe = random choice)
-Small_Talk = "You look like you need a snack.|You look like you need a bandage.|You look like you need a good book."
+# Seasonal dialogue
+summer = "[season = summer] Hot today, isn't it?"
+winter_24 = "[season = winter] Happy Winter Star!"
 
-# Fallback line in case nothing else triggers
-Default = "If you need me, I'm at the clinic. If it's urgent, don't waste time asking me nicely."</code></pre>
-          </div>
-          
-          <div class="mt-6 bg-slate-950 rounded-lg border border-slate-800 p-4">
-            <h4 class="text-lg font-semibold text-white mb-3"><i class="fas fa-lightbulb mr-2"></i>Dialogue Condition Reference</h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <h5 class="font-semibold text-brand-400 mb-2">Basic Conditions</h5>
-                <ul class="text-sm text-slate-300 space-y-1">
-                  <li><code>[friendship >= 4]</code> - At least 4 hearts</li>
-                  <li><code>[time >= 2000]</code> - After 8:00 PM</li>
-                  <li><code>[season = summer]</code> - During summer</li>
-                  <li><code>[weather rainy]</code> - When it's raining</li>
-                </ul>
-              </div>
-              <div>
-                <h5 class="font-semibold text-brand-400 mb-2">Special Tokens</h5>
-                <ul class="text-sm text-slate-300 space-y-1">
-                  <li><code>@</code> - Player's name</li>
-                  <li><code>$h</code> - Happy emote</li>
-                  <li><code>$u</code> - Upset emote</li>
-                  <li><code>||</code> - Random choice separator</li>
-                  <li><code>|</code> - Single pipe for random within line</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+# Randomized dialogue (|| separates options)
+Greeting = "Hello! || Hi there! || Good to see you!"
+SmallTalk = "Nice weather today.|Hope you're having a good day."
 
-        <!-- Schedule.toml -->
-        <section id="schedule-toml" class="mb-12">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="text-xl font-semibold text-pink-400">Schedule.toml</h3>
-          </div>
-          <p class="text-slate-400 mb-4">
-            Define NPC movement patterns throughout the day. Schedules can be filtered by day, season, or specific dates.
-          </p>
-          <div class="code-block-wrapper">
-            <button class="copy-btn" data-target="code-schedule-toml">Copy</button>
-            <pre><code id="code-schedule-toml" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># --- Normal Weekdays (Mon-Fri) ---
+# Using Stardew Valley dialogue codes
+Question = "$q 100/101 Do you like medicine?"
+AnswerYes = "$r 100 10 Yes, I find it fascinating!"
+AnswerNo = "$r 101 0 Not really, it's not for me."
+
+# Mail-based conditions
+Secret = "[mail = gotSecret] I see you found my secret note..."
+
+# Multiple conditions
+Special = "[friendship >= 8, season = spring, time >= 1200] Perfect conditions for a picnic!"</code></pre>
+                </div>
+
+                <div class="mt-6 bg-slate-950 rounded-lg border border-slate-800 p-6">
+                    <h4 class="text-lg font-semibold text-white mb-4">Dialogue Condition Reference</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-brand-400 mb-2">Basic Conditions</h5>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li><code>[friendship >= 4]</code> - At least 4 hearts</li>
+                                <li><code>[friendship = 6]</code> - Exactly 6 hearts</li>
+                                <li><code>[time >= 2000]</code> - After 8:00 PM</li>
+                                <li><code>[time <= 1200]</code> - Before 12:00 PM</li>
+                                <li><code>[season = summer]</code> - During summer</li>
+                                <li><code>[season = spring, Day = 15]</code> - Spring day 15</li>
+                                <li><code>[mail = noteFound]</code> - Player has received specific mail</li>
+                                <li><code>[hasquest 27]</code> - Player has specific quest</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-brand-400 mb-2">Special Tokens & Codes</h5>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li><code>@</code> - Player's name</li>
+                                <li><code>||</code> - Random choice separator (DialogueResolver)</li>
+                                <li><code>|</code> - Single pipe for random within line</li>
+                                <li><code>$h</code> - Happy emote</li>
+                                <li><code>$u</code> - Upset emote</li>
+                                <li><code>$s</code> - Sad emote</li>
+                                <li><code>$q</code> - Question (Stardew format)</li>
+                                <li><code>$r</code> - Response (Stardew format)</li>
+                                <li><code>$p</code> - Mail check (Stardew format)</li>
+                                <li><code>^</code> - Gender-specific dialogue</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule System -->
+            <section id="schedule-toml" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-pink-400">Schedule System</h3>
+                    <span class="text-xs text-slate-500 font-mono">Day/Season Filtering</span>
+                </div>
+                <p class="text-slate-400 mb-4">
+                    Define NPC movement patterns throughout the day. Schedules can be filtered by day, season, or specific dates.
+                </p>
+                
+                <div class="code-block-wrapper">
+                    <button class="copy-btn" data-target="code-schedule-example">Copy</button>
+                    <pre><code id="code-schedule-example" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># Separate Schedule.toml file structure
+
+# ───── Weekday Schedule (Mon-Fri) ─────
 [[Schedule]]
 Time = 600              # 6:00 AM
 Map = "Hospital"
 X = 1
 Y = 18
-Facing = 2              # 2 = Down
-Days = "Weekday"        # Weekday shortcut
+Facing = 2              # Facing down
+Days = "Weekday"        # Monday through Friday
 
 [[Schedule]]
 Time = 1200             # 12:00 PM
@@ -558,602 +740,884 @@ X = 29
 Y = 54
 Facing = 2
 Days = "Weekday"
-Action = "Under the Tree" # Optional mouseover text
+Action = "Having lunch" # Optional description
 
 [[Schedule]]
 Time = 1800             # 6:00 PM
 Map = "Hospital"
 X = 13
 Y = 5
-Facing = 0              # 0 = Up
+Facing = 0              # Facing up
 Days = "Weekday"
 
-# --- Weekends (Going to the Beach) ---
+# ───── Weekend Schedule (Sat-Sun) ─────
 [[Schedule]]
-Time = 900
+Time = 900              # 9:00 AM
 Map = "Beach"
 X = 20
 Y = 20
 Facing = 2
-Days = "Weekend"        # Weekend shortcut
+Days = "Weekend"        # Saturday and Sunday
 
 [[Schedule]]
-Time = 1700
-Map = "Hospital"
-X = 1
-Y = 7
-Facing = 2
-Days = "Weekend"
-
-# --- Specific Day (Birthday/Special) ---
-[[Schedule]]
-Time = 1000
+Time = 1700             # 5:00 PM
 Map = "Saloon"
 X = 21
 Y = 17
-Season = "summer"       # Only in summer
-Day = 12                # Only on day 12 (birthday)</code></pre>
-          </div>
-          
-          <div class="mt-6 bg-slate-950 rounded-lg border border-slate-800 p-4">
-            <h4 class="text-lg font-semibold text-white mb-3"><i class="fas fa-clock mr-2"></i>Schedule Filter Options</h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <h5 class="font-semibold text-brand-400 mb-2">Day Filters</h5>
-                <ul class="text-sm text-slate-300 space-y-1">
-                  <li><code>Days = "Weekday"</code> - Mon, Tue, Wed, Thu, Fri</li>
-                  <li><code>Days = "Weekend"</code> - Sat, Sun</li>
-                  <li><code>Days = "Mon,Tue,Wed"</code> - Specific days</li>
-                  <li><code>Days = "Mon,Wed,Fri"</code> - Multiple specific days</li>
-                </ul>
-              </div>
-              <div>
-                <h5 class="font-semibold text-brand-400 mb-2">Date Filters</h5>
-                <ul class="text-sm text-slate-300 space-y-1">
-                  <li><code>Season = "summer"</code> - Only in summer</li>
-                  <li><code>Day = 12</code> - Only on day 12 of month</li>
-                  <li><code>Season = "winter", Day = 24</code> - Winter 24 only</li>
-                  <li>No filters = applies every day</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+Facing = 1
+Days = "Weekend"
 
-        <!-- Asset Variant Keys -->
-        <section id="asset-variants" class="mb-12">
-          <h4 class="text-lg font-semibold text-white mb-4">Asset Variant Keys</h4>
-          <p class="text-slate-400 mb-4">Use these keys in [Sprites] or [Portraits] tables for dynamic assets:</p>
-          
-          <div class="bg-slate-950/50 rounded-lg border border-slate-800 overflow-hidden">
-            <table class="w-full text-left border-collapse doc-table">
-              <thead>
-                <tr class="bg-slate-900">
-                  <th class="w-1/4">Key Type</th>
-                  <th class="w-1/4">Example Keys</th>
-                  <th class="w-1/2">Usage</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>Location</code></td>
-                  <td><code>"Hospital"</code>, <code>"Beach"</code>, <code>"Saloon"</code></td>
-                  <td>When NPC is at specific location</td>
-                </tr>
-                <tr>
-                  <td><code>Season</code></td>
-                  <td><code>"spring"</code>, <code>"summer"</code>, <code>"fall"</code>, <code>"winter"</code></td>
-                  <td>Season-specific outfits</td>
-                </tr>
-                <tr>
-                  <td><code>Weather</code></td>
-                  <td><code>"rainy"</code>, <code>"snow"</code>, <code>"sunny"</code></td>
-                  <td>Weather-appropriate sprites</td>
-                </tr>
-                <tr>
-                  <td><code>Event</code></td>
-                  <td><code>"festival"</code>, <code>"birthday"</code></td>
-                  <td>Special occasion outfits</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <div class="code-block-wrapper mt-6">
-            <button class="copy-btn" data-target="code-asset-variants">Copy</button>
-            <pre><code id="code-asset-variants" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># Example of dynamic asset variants in main TOML file
+# ───── Specific Day Schedule ─────
+[[Schedule]]
+Time = 1000             # 10:00 AM
+Map = "ArchaeologyHouse"
+X = 15
+Y = 8
+Facing = 2
+Season = "spring"
+Day = 1                 # Only on Spring 1
+
+# ───── Birthday Schedule ─────
+[[Schedule]]
+Time = 1400             # 2:00 PM
+Map = "Saloon"
+X = 21
+Y = 17
+Season = "summer"       # Rei's birthday is Summer 12
+Day = 12
+
+# ───── Specific Days of Week ─────
+[[Schedule]]
+Time = 800
+Map = "Forest"
+X = 45
+Y = 32
+Facing = 2
+Days = "Mon,Wed,Fri"    # Only on Monday, Wednesday, Friday</code></pre>
+                </div>
+
+                <div class="mt-6 bg-slate-950 rounded-lg border border-slate-800 p-6">
+                    <h4 class="text-lg font-semibold text-white mb-4">Schedule Filter Options</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-brand-400 mb-2">Day Filters</h5>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li><code>Days = "Weekday"</code> - Monday through Friday</li>
+                                <li><code>Days = "Weekend"</code> - Saturday and Sunday</li>
+                                <li><code>Days = "Mon,Tue,Wed"</code> - Specific days</li>
+                                <li><code>Days = "Mon,Wed,Fri"</code> - Multiple specific days</li>
+                                <li>No <code>Days</code> filter = applies every day</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-brand-400 mb-2">Date Filters</h5>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li><code>Season = "spring"</code> - Only in spring</li>
+                                <li><code>Day = 12</code> - Only on day 12 of month</li>
+                                <li><code>Season = "winter", Day = 24</code> - Only on Winter 24</li>
+                                <li>No filters = applies every day of matching season</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gift Tastes -->
+            <section id="gift-tastes" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-yellow-400">Gift Tastes System</h3>
+                    <span class="text-xs text-slate-500 font-mono">Customizable Preferences</span>
+                </div>
+                <p class="text-slate-400 mb-4">
+                    Define what items your NPC loves, likes, is neutral about, dislikes, or hates. 
+                    Supports both specific item IDs and universal gift categories.
+                </p>
+                
+                <div class="code-block-wrapper">
+                    <button class="copy-btn" data-target="code-gift-tastes">Copy</button>
+                    <pre><code id="code-gift-tastes" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># In your main NPC TOML file or separate gift file
+
+[GiftTastes]
+# Use item IDs, qualified item IDs, or universal categories
+Love = [
+    "Diamond",                  # Specific item
+    "(O)395",                   # Qualified item ID (Coffee)
+    "Universal_Love"            # Universal love items
+]
+
+Like = [
+    "Blueberry",
+    "Starfruit",
+    "Universal_Like"
+]
+
+Neutral = [
+    "Universal_Neutral"         # Items not in other lists
+]
+
+Dislike = [
+    "Holly",
+    "Universal_Dislike"
+]
+
+Hate = [
+    "Joja Cola",
+    "Universal_Hate"
+]
+
+# Optional: Custom response messages for each category
+LoveMessage = "Oh wow! Is this for me? I love it! $h"
+LikeMessage = "Thanks! This is nice. I appreciate it."
+NeutralMessage = "Thank you."
+DislikeMessage = "Oh... um, thanks? $u"
+HateMessage = "Eww, why would you give me this? $a"</code></pre>
+                </div>
+
+                <div class="mt-6 bg-slate-950 rounded-lg border border-slate-800 p-6">
+                    <h4 class="text-lg font-semibold text-white mb-4">Item Reference</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-brand-400 mb-2">Universal Gift Categories</h5>
+                            <ul class="text-sm text-slate-300 space-y-1">
+                                <li><code>Universal_Love</code> - Items universally loved</li>
+                                <li><code>Universal_Like</code> - Items universally liked</li>
+                                <li><code>Universal_Neutral</code> - Items universally neutral</li>
+                                <li><code>Universal_Dislike</code> - Items universally disliked</li>
+                                <li><code>Universal_Hate</code> - Items universally hated</li>
+                            </ul>
+                            <p class="text-xs text-slate-500 mt-2">These categories automatically include Stardew Valley's default gift preferences.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-brand-400 mb-2">Item ID Formats</h5>
+                            <ul class="text-sm text-slate-300 space-y-1">
+                                <li><code>"Diamond"</code> - Item name (if unique)</li>
+                                <li><code>"(O)72"</code> - Qualified ID for Diamond</li>
+                                <li><code>"(O)395"</code> - Qualified ID for Coffee</li>
+                                <li><code>"(O)Starfruit"</code> - Qualified ID with name</li>
+                            </ul>
+                            <p class="text-xs text-slate-500 mt-2">Use <code>ItemRegistry.GetData()</code> to resolve items at runtime.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="border-t border-slate-800 my-12"></div>
+
+            <!-- Advanced Features -->
+            <h2 class="text-2xl font-bold text-white mb-8">Advanced Features</h2>
+
+            <!-- Asset Variants -->
+            <section id="asset-variants" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-green-400">Asset Variants</h3>
+                    <span class="text-xs text-slate-500 font-mono">Dynamic Sprites & Portraits</span>
+                </div>
+                <p class="text-slate-400 mb-4">
+                    NPC Helper automatically switches sprites and portraits based on location, season, weather, or custom conditions.
+                    The system checks for variants in this priority order:
+                </p>
+                
+                <div class="bg-slate-950 rounded-lg border border-slate-800 p-4 mb-6">
+                    <ol class="text-sm text-slate-300 list-decimal list-inside space-y-2">
+                        <li><strong>NPC's current location</strong> (e.g., "Hospital", "Beach")</li>
+                        <li><strong>Current season</strong> ("spring", "summer", "fall", "winter")</li>
+                        <li><strong>Custom sprite/portrait path</strong> from TOML</li>
+                        <li><strong>Default sprite.png/portrait.png</strong> in NPC folder</li>
+                    </ol>
+                </div>
+
+                <div class="code-block-wrapper mb-6">
+                    <button class="copy-btn" data-target="code-asset-variants">Copy</button>
+                    <pre><code id="code-asset-variants" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># In your main NPC TOML file
+
 [Sprites]
-Hospital = "sprite_Hospital.png"
-Beach = "sprite_Beach.png"
+# Location-based variants
+Hospital = "sprite_Hospital.png"     # When NPC is at Hospital
+Beach = "sprite_Beach.png"           # When at Beach
+Saloon = "sprite_Saloon.png"         # When at Saloon
+
+# Season-based variants
+spring = "sprite_Spring.png"
 summer = "sprite_Summer.png"
+fall = "sprite_Fall.png"
+winter = "sprite_Winter.png"
+
+# Weather-based variants
 rainy = "sprite_Rainy.png"
+snow = "sprite_Snow.png"
+
+# Special occasion variants
 festival = "sprite_Festival.png"
+birthday = "sprite_Birthday.png"
 
 [Portraits]
+# Same structure for portraits
 Hospital = "portrait_Hospital.png"
-festival = "portrait_Festival.png"
-winter = "portrait_Winter.png"</code></pre>
-          </div>
-        </section>
+summer = "portrait_Summer.png"
+rainy = "portrait_Rainy.png"
+festival = "portrait_Festival.png"</code></pre>
+                </div>
 
-        <div class="border-t border-slate-800 my-10"></div>
+                <div class="info-box rounded-lg p-6">
+                    <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                        <i class="fas fa-info-circle text-blue-400"></i>
+                        Asset Requirements
+                    </h4>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li><strong>Sprites:</strong> 16x32 pixels per frame (standard Stardew NPC size)</li>
+                        <li><strong>Portraits:</strong> 64x64 pixels per expression</li>
+                        <li><strong>Format:</strong> PNG recommended (supports transparency)</li>
+                        <li><strong>Paths:</strong> Relative to the NPC's folder, or absolute paths</li>
+                        <li><strong>Naming:</strong> File names are case-sensitive on some systems</li>
+                    </ul>
+                </div>
+            </section>
 
-        <!-- Section: Source Code -->
-        <h2 class="text-3xl font-bold text-white mb-8">Internal Reference</h2>
+            <!-- Localization -->
+            <section id="localization" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-yellow-400">Localization</h3>
+                    <span class="text-xs text-slate-500 font-mono">Multi-language Support</span>
+                </div>
+                <p class="text-slate-400 mb-4">
+                    NPC Helper automatically loads localized versions of your TOML files based on the game's current language.
+                    Create a <code>locale</code> folder in your NPC's directory with language-specific TOML files.
+                </p>
+                
+                <div class="bg-slate-950 rounded-lg border border-slate-800 p-4 mb-6 font-mono text-sm">
+<pre class="text-slate-300">NPCs/
+└── Rei/
+    ├── Rei.toml                    <span class="text-slate-600"># Default (English) definition</span>
+    ├── sprite.png
+    ├── portrait.png
+    └── locale/                     <span class="text-slate-600"># Localization folder</span>
+        ├── es-ES/                  <span class="text-slate-600"># Spanish (Spain)</span>
+        │   └── Rei.toml            <span class="text-slate-600"># Spanish translation</span>
+        ├── fr-FR/                  <span class="text-slate-600"># French</span>
+        │   └── Rei.toml
+        └── de/                     <span class="text-slate-600"># German (generic)</span>
+            └── Rei.toml</pre>
+                </div>
 
-        <!-- NpcDefinition.cs -->
-        <section id="npcdefinition-cs" class="mb-12">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="text-xl font-semibold text-slate-200">NpcDefinition.cs</h3>
-          </div>
-          <p class="text-slate-400 mb-4">The backing class for the TOML configuration.</p>
-          <div class="code-block-wrapper">
-            <button class="copy-btn" data-target="code-npcdef">Copy</button>
-            <pre><code id="code-npcdef" class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">using System;
-using System.Collections.Generic;
+                <div class="code-block-wrapper">
+                    <button class="copy-btn" data-target="code-localization">Copy</button>
+                    <pre><code id="code-localization" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># locale/es-ES/Rei.toml - Spanish translation
+# Only include properties that need translation
 
-namespace NpcHelper
+DisplayName = "Rei"  # Spanish display name
+
+[Dialogue]
+Introduction = "Hola. Soy Rei, médico en prácticas en la clínica."
+Mon = "Los lunes no me asustan. Solo necesitan el café adecuado."
+Default = "Si me necesitas, estoy en la clínica."
+
+# Gift messages can also be localized
+LoveMessage = "¡Oh, vaya! ¿Esto es para mí? ¡Me encanta!"
+LikeMessage = "¡Gracias! Esto está bien."
+DislikeMessage = "Oh... um, ¿gracias?"</code></pre>
+                </div>
+
+                <div class="mt-6 info-box rounded-lg p-6">
+                    <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                        <i class="fas fa-language text-blue-400"></i>
+                        How Localization Works
+                    </h4>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li><strong>Locale Detection:</strong> Uses <code>helper.Translation.Locale</code> (e.g., "es-ES", "fr-FR")</li>
+                        <li><strong>Fallback:</strong> If "es-ES" folder doesn't exist, tries "es" folder</li>
+                        <li><strong>Overlay System:</strong> Localized TOML merges with base definition</li>
+                        <li><strong>Automatic:</strong> No code needed - just create locale folders</li>
+                        <li><strong>Cache Invalidation:</strong> Assets automatically reload when language changes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Conditional Dialogue -->
+            <section id="conditional-dialogue" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-pink-400">Conditional Dialogue System</h3>
+                    <span class="text-xs text-slate-500 font-mono">Advanced Logic</span>
+                </div>
+                <p class="text-slate-400 mb-4">
+                    The DialogueResolver evaluates complex conditions at runtime. Multiple conditions can be combined with commas.
+                    Conditions are evaluated in order, and the first matching variant is used.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="code-block-wrapper">
+                        <button class="copy-btn" data-target="code-conditional-complex">Copy</button>
+                        <pre><code id="code-conditional-complex" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># Complex conditional examples
+[Dialogue]
+
+# Multiple conditions (AND logic)
+SpecialGreeting = "[friendship >= 6, season = spring, time >= 1200] Perfect day for a walk! || Hello."
+
+# Time-based conditions
+Morning = "[time >= 600, time <= 1200] Good morning! || Hi."
+Afternoon = "[time > 1200, time < 1800] Good afternoon."
+Evening = "[time >= 1800] Good evening."
+
+# Friendship progression
+LowFriendship = "[friendship < 2] I don't really know you yet."
+MediumFriendship = "[friendship >= 2, friendship < 6] Getting to know you better."
+HighFriendship = "[friendship >= 6] We're good friends now!"
+
+# Quest/mail conditions
+QuestActive = "[hasquest 27] How's the quest going?"
+QuestComplete = "[mail = quest27Complete] Thanks for your help!"
+
+# Random choice with conditions
+RandomGreeting = "[friendship >= 4] Hey @! Good to see you. || [time >= 2000] Working late? || Hello."
+
+# Location-specific with conditions
+Hospital_Busy = "[friendship >= 4, time >= 900, time <= 1700] Busy shift, but I always have time for you. || I'm working."</code></pre>
+                    </div>
+                    <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                        <h4 class="font-semibold text-white mb-4">Condition Evaluation Logic</h4>
+                        <ul class="text-sm text-slate-300 space-y-3">
+                            <li>
+                                <strong>Syntax:</strong> <code>[condition1, condition2, ...] Dialogue text</code>
+                            </li>
+                            <li>
+                                <strong>Multiple variants:</strong> Separate with <code>||</code><br>
+                                <code>"[cond1] Text1 || [cond2] Text2 || Default text"</code>
+                            </li>
+                            <li>
+                                <strong>AND logic:</strong> Conditions separated by commas must ALL be true
+                            </li>
+                            <li>
+                                <strong>Evaluation order:</strong> First matching condition wins
+                            </li>
+                            <li>
+                                <strong>Fallback:</strong> Last variant without conditions is default
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-4 p-3 bg-slate-900 rounded">
+                            <h5 class="font-semibold text-brand-400 mb-2">Available Condition Types</h5>
+                            <div class="text-xs text-slate-400 grid grid-cols-2 gap-2">
+                                <div><code>friendship >= X</code></div>
+                                <div><code>friendship = X</code></div>
+                                <div><code>friendship <= X</code></div>
+                                <div><code>friendship < X</code></div>
+                                <div><code>friendship > X</code></div>
+                                <div><code>time >= X</code></div>
+                                <div><code>time = X</code></div>
+                                <div><code>time <= X</code></div>
+                                <div><code>season = X</code></div>
+                                <div><code>mail = X</code></div>
+                                <div><code>hasquest X</code></div>
+                                <div><code>quest X</code></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Reference -->
+            <section id="api-reference" class="mb-12">
+                <div class="flex justify-between items-baseline mb-3">
+                    <h3 class="text-xl font-semibold text-blue-400">API Reference</h3>
+                    <span class="text-xs text-slate-500 font-mono">For Mod Developers</span>
+                </div>
+                <p class="text-slate-400 mb-4">
+                    Other mods can programmatically register NPCs with NPC Helper using the provided API interface.
+                </p>
+
+                <div class="code-block-wrapper mb-6">
+                    <button class="copy-btn" data-target="code-api-usage">Copy</button>
+                    <pre><code id="code-api-usage" class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">using StardewModdingAPI;
+using NpcHelper;
+
+public class MyMod : Mod
 {
-    public class NpcDefinition
+    public override void Entry(IModHelper helper)
     {
-        // Internal NPC name (unique key, no spaces)
-        public string Name { get; set; }
-
-        // Display name shown to player
-        public string DisplayName { get; set; }
-
-        // ───── Disposition core ─────
-        public string Gender { get; set; } = "male"; // "male", "female"
-        public string Age { get; set; } = "adult";   // "child", "teen", "adult"
-        public string Manner { get; set; } = "neutral"; // "polite", "rude", "neutral"
-        public string SocialAnxiety { get; set; } = "neutral"; // "outgoing", "shy", "neutral"
-        public string Optimism { get; set; } = "neutral"; // "positive", "negative", "neutral"
-
-        // ───── Birthday ─────
-        public string BirthdaySeason { get; set; } = "spring";
-        public int BirthdayDay { get; set; } = 1;
-
-        // ───── Spawn / region ─────
-        public string HomeRegion { get; set; } = "Town";
-        public string DefaultMap { get; set; } = "BusStop";
-        public int DefaultX { get; set; } = 10;
-        public int DefaultY { get; set; } = 10;
-        public int DefaultFacing { get; set; } = 2;
-
-        // ───── Relationship flags ─────
-        public bool Datable { get; set; } = false;
-        public bool Marriageable { get; set; } = false;
-
-        // ───── Assets / paths ─────
-        public string CustomSpritePath { get; set; }
-        public string CustomPortraitPath { get; set; }
-        public string SourceDirectory { get; set; }
-        public string DialoguePath { get; set; }
-        public string SchedulePath { get; set; }
-
-        // ───── Dialogue / schedule ─────
-        public Dictionary<string, string> Dialogue { get; set; }
-            = new(StringComparer.OrdinalIgnoreCase);
-        public List<ScheduleEntry> Schedules { get; set; } = new();
-
-        // ───── Sprite / portrait variants ─────
-        public Dictionary<string, string> SpriteVariants { get; set; }
-            = new(StringComparer.OrdinalIgnoreCase);
-        public Dictionary<string, string> PortraitVariants { get; set; }
-            = new(StringComparer.OrdinalIgnoreCase);
-
-        public NpcDefinition()
+        // Get the NPC Helper API
+        var npcHelper = helper.ModRegistry.GetApi<INpcHelperApi>("TamKungZ.NpcHelper");
+        
+        if (npcHelper != null)
         {
-            // Initialize dictionaries
+            // Create NPC definition programmatically
+            var customNpc = new NpcDefinition
+            {
+                DisplayName = "Programmatic NPC",
+                Gender = "female",
+                Age = "adult",
+                DefaultMap = "Town",
+                DefaultX = 35,
+                DefaultY = 42,
+                DefaultFacing = 2,
+                Datable = true,
+                Marriageable = false
+            };
+            
+            // Add dialogue
+            customNpc.Dialogue["Introduction"] = "Hello from code!";
+            customNpc.Dialogue["Mon"] = "Monday dialogue from API.";
+            
+            // Add gift tastes
+            customNpc.GiftTastes["Love"] = new List<string> { "Diamond", "Prismatic Shard" };
+            customNpc.GiftTastes["Hate"] = new List<string> { "Joja Cola" };
+            
+            // Register the NPC
+            npcHelper.RegisterNpc("CustomNPC", customNpc);
         }
     }
 }</code></pre>
-          </div>
-        </section>
+                </div>
 
-        <!-- NpcManager.cs -->
-        <section id="npcmanager-cs" class="mb-12">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="text-xl font-semibold text-slate-200">NpcManager.cs</h3>
-            <span class="text-xs text-slate-500 font-mono">Core Orchestrator</span>
-          </div>
-          <p class="text-slate-400 mb-4">
-            The central manager that handles NPC registration, asset loading, schedule execution, and localization.
-          </p>
-          <div class="bg-slate-950 rounded-lg border border-slate-800 p-4 mb-4">
-            <ul class="list-disc list-inside text-slate-300 space-y-2">
-              <li><i class="fas fa-images text-brand-400 mr-2"></i><strong>Asset Management:</strong> Loads sprites/portraits with location-based variants</li>
-              <li><i class="fas fa-calendar-alt text-brand-400 mr-2"></i><strong>Schedule Execution:</strong> Updates NPC positions based on time/day/season</li>
-              <li><i class="fas fa-code-branch text-brand-400 mr-2"></i><strong>Conditional Logic:</strong> Processes dialogue conditions and random variations</li>
-              <li><i class="fas fa-map-marker-alt text-brand-400 mr-2"></i><strong>Live NPC Tracking:</strong> Monitors NPC locations for dynamic asset switching</li>
-            </ul>
-          </div>
-          <div class="code-block-wrapper">
-            <button class="copy-btn" data-target="code-npcmanager">Copy</button>
-            <pre><code id="code-npcmanager" class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">
-// Key initialization sequence
-public void Initialize()
+                <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                    <h4 class="font-semibold text-white mb-4">API Interface</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-400 mb-2">INpcHelperApi Interface</h5>
+                            <div class="code-block-wrapper">
+                                <button class="copy-btn" data-target="code-api-interface">Copy</button>
+                                <pre><code id="code-api-interface" class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">public interface INpcHelperApi
 {
-    _helper.Events.Content.AssetRequested += OnAssetRequested;
-    _helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
-    _helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
-    _helper.Events.GameLoop.DayStarted += OnDayStarted;
-    _modScanner.ScanAndLoad();
+    /// <summary>
+    /// Register a new NPC programmatically
+    /// </summary>
+    /// <param name="name">Unique NPC name (no spaces)</param>
+    /// <param name="data">NPC definition data</param>
+    void RegisterNpc(string name, NpcDefinition data);
 }
 
-// Asset variant selection logic
-private string GetBestAssetPath(NpcDefinition npc, AssetKind kind)
+// Implementation in ModEntry.cs
+public class NpcHelperApi : INpcHelperApi
 {
-    // Priority: 1. Current NPC location
-    //           2. Player location
-    //           3. Season
-    //           4. Custom path in TOML
-    //           5. Default assets
-    // Returns the most appropriate asset path
+    private readonly NpcManager _manager;
+    public NpcHelperApi(NpcManager manager) => _manager = manager;
+
+    public void RegisterNpc(string name, NpcDefinition data)
+    {
+        data.Name = name;
+        _manager.Register(data);
+    }
 }</code></pre>
-          </div>
-        </section>
-
-        <div class="border-t border-slate-800 my-10"></div>
-
-        <!-- Interactive Examples -->
-        <section id="interactive-examples" class="mb-12">
-          <h3 class="text-2xl font-bold text-white mb-8"><i class="fas fa-play-circle mr-2"></i>Interactive Examples</h3>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
-              <h4 class="text-lg font-semibold text-brand-400 mb-4"><i class="fas fa-comment-dots mr-2"></i>Dialogue Builder</h4>
-              <div class="space-y-3">
-                <div>
-                  <label class="block text-sm text-slate-400 mb-1">Condition:</label>
-                  <select id="dialogue-condition" class="w-full bg-slate-800 border border-slate-700 rounded px-3 py-2 text-sm">
-                    <option value="[friendship >= 4]">[friendship >= 4]</option>
-                    <option value="[weather rainy]">[weather rainy]</option>
-                    <option value="[season winter]">[season winter]</option>
-                    <option value="[time >= 2000]">[time >= 2000]</option>
-                    <option value="">No Condition</option>
-                  </select>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-slate-900 rounded p-4">
+                                <h6 class="font-semibold text-white mb-2">Requirements</h6>
+                                <ul class="text-xs text-slate-300 space-y-1">
+                                    <li>NPC Helper must be installed</li>
+                                    <li>Mod must reference NpcHelper namespace</li>
+                                    <li>MinimumApiVersion: "4.0.0"</li>
+                                    <li>UniqueID: "TamKungZ.NpcHelper"</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-900 rounded p-4">
+                                <h6 class="font-semibold text-white mb-2">Limitations</h6>
+                                <ul class="text-xs text-slate-300 space-y-1">
+                                    <li>Assets must be loaded via SMAPI's content API</li>
+                                    <li>No direct access to NPC instances</li>
+                                    <li>Schedule execution handled by NPC Helper</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <label class="block text-sm text-slate-400 mb-1">Dialogue Text:</label>
-                  <textarea id="dialogue-text" class="w-full bg-slate-800 border border-slate-700 rounded px-3 py-2 text-sm h-24" 
-                            placeholder="Enter your dialogue...">Hello there! || Nice to see you!</textarea>
-                </div>
-                <div>
-                  <label class="block text-sm text-slate-400 mb-1">Generated TOML:</label>
-                  <div class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm font-mono h-32 overflow-auto" id="generated-toml">
-Mon = "[friendship >= 4] Hello there! || Nice to see you!"</div>
-                </div>
-                <button onclick="generateDialogue()" class="w-full bg-brand-600 hover:bg-brand-700 text-white py-2 rounded text-sm flex items-center justify-center gap-2">
-                  <i class="fas fa-code"></i>
-                  Generate TOML
-                </button>
-              </div>
-            </div>
-            
-            <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
-              <h4 class="text-lg font-semibold text-brand-400 mb-4"><i class="fas fa-route mr-2"></i>Schedule Preview</h4>
-              <div class="font-mono text-sm space-y-2">
-                <div class="flex items-center gap-2">
-                  <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                  <span>6:00 AM → Hospital (Morning Rounds)</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="w-3 h-3 rounded-full bg-blue-500"></span>
-                  <span>12:00 PM → Town Square (Lunch Break)</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="w-3 h-3 rounded-full bg-purple-500"></span>
-                  <span>6:00 PM → Saloon (Evening Social)</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                  <span>9:00 PM → Home (Sleeping)</span>
-                </div>
-              </div>
-              
-              <div class="mt-6">
-                <h5 class="text-sm font-semibold text-slate-300 mb-2">Quick Schedule Entry:</h5>
-                <div class="code-block-wrapper">
-                  <pre><code class="language-ini rounded-lg border border-slate-800 shadow-lg p-4">
-[[Schedule]]
-Time = 900
-Map = "Town"
-X = 35
-Y = 42
-Facing = 2
-Action = "Reading a book"
-Days = "Weekday"</code></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Troubleshooting -->
-        <section id="troubleshooting" class="mb-12">
-          <h3 class="text-2xl font-bold text-white mb-8"><i class="fas fa-tools mr-2"></i>Troubleshooting</h3>
-          
-          <div class="space-y-4">
-            <div class="bg-slate-950 rounded-lg border border-slate-800 p-4">
-              <h4 class="text-lg font-semibold text-red-400 mb-2"><i class="fas fa-user-slash mr-2"></i>NPC Not Appearing</h4>
-              <ul class="text-sm text-slate-300 list-disc list-inside space-y-1">
-                <li>Check <code>manifest.json</code> references correct <code>UniqueID</code></li>
-                <li>Verify <code>mod.toml</code> points to correct NPC file path</li>
-                <li>Ensure sprite files exist at specified paths</li>
-                <li>Check SMAPI log for loading errors</li>
-                <li>Verify NPC's <code>DefaultMap</code> exists in your game</li>
-              </ul>
-            </div>
-            
-            <div class="bg-slate-950 rounded-lg border border-slate-800 p-4">
-              <h4 class="text-lg font-semibold text-yellow-400 mb-2"><i class="fas fa-comment-alt mr-2"></i>Dialogue Not Showing</h4>
-              <ul class="text-sm text-slate-300 list-disc list-inside space-y-1">
-                <li>Verify dialogue keys match Stardew's expected format</li>
-                <li>Check conditional syntax: <code>[condition] text</code></li>
-                <li>Test without conditions first</li>
-                <li>Ensure <code>Dialogue.toml</code> has <code>[Dialogue]</code> header</li>
-                <li>Check for typos in dialogue keys</li>
-              </ul>
-            </div>
-            
-            <div class="bg-slate-950 rounded-lg border border-slate-800 p-4">
-              <h4 class="text-lg font-semibold text-blue-400 mb-2"><i class="fas fa-image mr-2"></i>Assets Not Loading</h4>
-              <ul class="text-sm text-slate-300 list-disc list-inside space-y-1">
-                <li>Verify image files are in correct format (PNG recommended)</li>
-                <li>Check sprite dimensions (16x32 for sprites, 64x64 for portraits)</li>
-                <li>Ensure file paths in TOML are relative to TOML file</li>
-                <li>Check for case sensitivity in file names</li>
-                <li>Try clearing SMAPI cache and restarting</li>
-              </ul>
-            </div>
-            
-            <div class="bg-slate-950 rounded-lg border border-slate-800 p-4">
-              <h4 class="text-lg font-semibold text-green-400 mb-2"><i class="fas fa-bug mr-2"></i>Common SMAPI Errors</h4>
-              <ul class="text-sm text-slate-300 list-disc list-inside space-y-1">
-                <li><code>Content file not found</code>: Check asset paths</li>
-                <li><code>Invalid TOML syntax</code>: Validate with online TOML validator</li>
-                <li><code>Duplicate NPC name</code>: Ensure unique NPC names</li>
-                <li><code>Missing dependency</code>: Verify NPC Helper is installed</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+            <div class="border-t border-slate-800 my-12"></div>
 
-        <!-- API Reference -->
-        <section id="api-reference" class="mb-12">
-          <h3 class="text-2xl font-bold text-white mb-8"><i class="fas fa-book mr-2"></i>API Reference</h3>
-          
-          <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
-            <h4 class="text-lg font-semibold text-brand-400 mb-4">Available from Other Mods</h4>
-            
-            <div class="space-y-4">
-              <div>
-                <h5 class="font-semibold text-white mb-2">Register NPC Programmatically</h5>
-                <div class="code-block-wrapper">
-                  <pre><code class="language-csharp rounded-lg border border-slate-800 shadow-lg p-4">
-// Access via ModServices
-var npcHelper = helper.ModRegistry.GetApi<INpcHelper>("TamKungZ.NpcHelper");
+            <!-- Help & Support -->
+            <h2 class="text-2xl font-bold text-white mb-8">Help & Support</h2>
 
-// Create NPC definition
-var customNpc = new NpcDefinition
-{
-    Name = "CustomNPC",
-    DisplayName = "Custom Character",
-    Gender = "male",
-    Age = "adult",
-    DefaultMap = "Town"
-};
-
-// Add custom dialogue
-customNpc.Dialogue["Introduction"] = "Hello from code!";
-
-// Register with manager
-npcHelper.RegisterNpc(customNpc);</code></pre>
+            <!-- Troubleshooting -->
+            <section id="troubleshooting" class="mb-12">
+                <h3 class="text-xl font-bold text-white mb-6">Troubleshooting</h3>
+                
+                <div class="space-y-6">
+                    <div class="error-box rounded-lg p-6">
+                        <h4 class="text-lg font-semibold text-red-400 mb-3 flex items-center gap-2">
+                            <i class="fas fa-user-slash"></i>
+                            NPC Not Appearing in Game
+                        </h4>
+                        <ul class="text-sm text-slate-300 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400">•</span>
+                                <span><strong>Check SMAPI Log:</strong> Look for "[NpcHelper]" messages. Missing logs mean the mod isn't loading.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400">•</span>
+                                <span><strong>Verify manifest.json:</strong> Ensure <code>ContentPackFor.UniqueID</code> is exactly <code>"TamKungZ.NpcHelper"</code></span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400">•</span>
+                                <span><strong>Check mod.toml:</strong> Verify the path in <code>NPCs = ["..."]</code> is correct and file exists.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400">•</span>
+                                <span><strong>DefaultMap exists:</strong> Ensure the map name in <code>DefaultMap</code> exists in your game version.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400">•</span>
+                                <span><strong>NPC name conflict:</strong> Ensure NPC <code>Name</code> doesn't conflict with vanilla or other mod NPCs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box rounded-lg p-6">
+                        <h4 class="text-lg font-semibold text-yellow-400 mb-3 flex items-center gap-2">
+                            <i class="fas fa-comment-alt"></i>
+                            Dialogue Not Showing or Incorrect
+                        </h4>
+                        <ul class="text-sm text-slate-300 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <span class="text-yellow-400">•</span>
+                                <span><strong>Dialogue keys:</strong> Verify keys match Stardew's expected format (Mon, Tue, Introduction, etc.)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-yellow-400">•</span>
+                                <span><strong>Condition syntax:</strong> Ensure conditions use correct syntax: <code>[friendship >= 4] Text</code></span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-yellow-400">•</span>
+                                <span><strong>TOML header:</strong> Dialogue in separate files needs <code>[Dialogue]</code> header</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-yellow-400">•</span>
+                                <span><strong>Cache issue:</strong> Try clearing SMAPI cache or restarting the game</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-yellow-400">•</span>
+                                <span><strong>Test without conditions:</strong> First test simple dialogue without conditions</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-box rounded-lg p-6">
+                        <h4 class="text-lg font-semibold text-blue-400 mb-3 flex items-center gap-2">
+                            <i class="fas fa-image"></i>
+                            Assets Not Loading (Red Question Mark)
+                        </h4>
+                        <ul class="text-sm text-slate-300 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-400">•</span>
+                                <span><strong>File format:</strong> Ensure images are PNG format with transparency</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-400">•</span>
+                                <span><strong>Dimensions:</strong> Sprites: 16x32 per frame, Portraits: 64x64 per expression</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-400">•</span>
+                                <span><strong>File paths:</strong> Check TOML paths are correct relative to TOML file location</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-400">•</span>
+                                <span><strong>Case sensitivity:</strong> File names are case-sensitive on Linux/Mac</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-400">•</span>
+                                <span><strong>SMAPI cache:</strong> Clear SMAPI cache: Delete <code>Mods/.cache</code> folder</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                        <h4 class="text-lg font-semibold text-green-400 mb-3 flex items-center gap-2">
+                            <i class="fas fa-bug"></i>
+                            Common SMAPI Error Messages
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-semibold text-white mb-2">Error Message</h5>
+                                <ul class="text-xs text-slate-300 space-y-1 font-mono">
+                                    <li>"Content file not found"</li>
+                                    <li>"Invalid TOML syntax"</li>
+                                    <li>"Duplicate NPC name"</li>
+                                    <li>"Missing dependency"</li>
+                                    <li>"Failed to load texture"</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-white mb-2">Solution</h5>
+                                <ul class="text-xs text-slate-300 space-y-1">
+                                    <li>Check asset paths in TOML</li>
+                                    <li>Validate TOML with online validator</li>
+                                    <li>Change NPC name to be unique</li>
+                                    <li>Install NPC Helper mod</li>
+                                    <li>Verify image file exists and is PNG</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              
-              <div>
-                <h5 class="font-semibold text-white mb-2">Available Interfaces</h5>
-                <div class="bg-slate-900 rounded-lg p-4">
-                  <ul class="text-sm text-slate-300 space-y-2">
-                    <li><code>INpcHelper</code> - Main interface for NPC registration</li>
-                    <li><code>INpcManager</code> - Access to NPC instances</li>
-                    <li><code>IDialogueProvider</code> - Custom dialogue injection</li>
-                    <li><code>IScheduleController</code> - Dynamic schedule modification</li>
-                    <li><code>IAssetProvider</code> - Runtime asset swapping</li>
-                  </ul>
+            </section>
+
+            <!-- Compatibility -->
+            <section id="compatibility" class="mb-12">
+                <h3 class="text-xl font-bold text-white mb-6">Compatibility</h3>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full doc-table">
+                        <thead>
+                            <tr class="bg-slate-900">
+                                <th class="text-left">Feature</th>
+                                <th class="text-left">Stardew 1.5</th>
+                                <th class="text-left">Stardew 1.6</th>
+                                <th class="text-left">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Basic NPC Creation</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Limited</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Full</td>
+                                <td>1.6 has better character data support</td>
+                            </tr>
+                            <tr>
+                                <td>Advanced Schedules</td>
+                                <td class="text-yellow-400"><i class="fas fa-exclamation-triangle"></i> Basic</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Full</td>
+                                <td>Day/Season filters optimized for 1.6</td>
+                            </tr>
+                            <tr>
+                                <td>Asset Variants</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Yes</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Yes</td>
+                                <td>Location/season-based sprites work in both</td>
+                            </tr>
+                            <tr>
+                                <td>Dynamic Dialogue</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Yes</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Yes</td>
+                                <td>Conditional and randomized dialogue</td>
+                            </tr>
+                            <tr>
+                                <td>Multiplayer Support</td>
+                                <td class="text-yellow-400"><i class="fas fa-exclamation-triangle"></i> Limited</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Full</td>
+                                <td>Full sync in 1.6 multiplayer</td>
+                            </tr>
+                            <tr>
+                                <td>Gift Tastes System</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Yes</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Yes</td>
+                                <td>Customizable gift preferences</td>
+                            </tr>
+                            <tr>
+                                <td>Localization</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Yes</td>
+                                <td class="text-green-400"><i class="fas fa-check"></i> Yes</td>
+                                <td>Automatic locale folder detection</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                
+                <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                    <h4 class="text-lg font-semibold text-white mb-4">Mod Compatibility</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="text-center p-4 bg-slate-900 rounded">
+                            <div class="font-bold text-green-400 text-lg">Content Patcher</div>
+                            <div class="text-slate-400 text-sm mt-2">Can coexist but may have asset conflicts</div>
+                        </div>
+                        <div class="text-center p-4 bg-slate-900 rounded">
+                            <div class="font-bold text-green-400 text-lg">Json Assets</div>
+                            <div class="text-slate-400 text-sm mt-2">Compatible - can use custom items as gifts</div>
+                        </div>
+                        <div class="text-center p-4 bg-slate-900 rounded">
+                            <div class="font-bold text-yellow-400 text-lg">Custom NPC Mods</div>
+                            <div class="text-slate-400 text-sm mt-2">May conflict if modifying same NPC data</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Compatibility -->
-        <section id="compatibility" class="mb-12">
-          <h3 class="text-2xl font-bold text-white mb-8"><i class="fas fa-cogs mr-2"></i>Compatibility</h3>
-          
-          <div class="overflow-x-auto">
-            <table class="w-full doc-table">
-              <thead>
-                <tr class="bg-slate-900">
-                  <th class="text-left">Feature</th>
-                  <th class="text-left">Stardew 1.5</th>
-                  <th class="text-left">Stardew 1.6</th>
-                  <th class="text-left">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Basic NPC Creation</td>
-                  <td class="text-green-400"><i class="fas fa-check"></i></td>
-                  <td class="text-green-400"><i class="fas fa-check"></i></td>
-                  <td>Fully supported</td>
-                </tr>
-                <tr>
-                  <td>Advanced Schedules</td>
-                  <td class="text-yellow-400"><i class="fas fa-exclamation-triangle"></i></td>
-                  <td class="text-green-400"><i class="fas fa-check"></i></td>
-                  <td>Day/Season filters in 1.6+</td>
-                </tr>
-                <tr>
-                  <td>Asset Variants</td>
-                  <td class="text-green-400"><i class="fas fa-check"></i></td>
-                  <td class="text-green-400"><i class="fas fa-check"></i></td>
-                  <td>Location/season-based sprites</td>
-                </tr>
-                <tr>
-                  <td>Dynamic Dialogue</td>
-                  <td class="text-green-400"><i class="fas fa-check"></i></td>
-                  <td class="text-green-400"><i class="fas fa-check"></i></td>
-                  <td>Conditional and randomized</td>
-                </tr>
-                <tr>
-                  <td>Multiplayer Support</td>
-                  <td class="text-yellow-400"><i class="fas fa-exclamation-triangle"></i></td>
-                  <td class="text-green-400"><i class="fas fa-check"></i></td>
-                  <td>Full sync in 1.6+</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <div class="mt-6 bg-slate-950 rounded-lg border border-slate-800 p-4">
-            <h4 class="text-lg font-semibold text-white mb-2">SMAPI Version Requirements</h4>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-              <div class="text-center p-3 bg-slate-900 rounded">
-                <div class="font-bold text-green-400">3.14+</div>
-                <div class="text-slate-400">Basic Features</div>
-              </div>
-              <div class="text-center p-3 bg-slate-900 rounded">
-                <div class="font-bold text-blue-400">4.0+</div>
-                <div class="text-slate-400">Advanced Features</div>
-              </div>
-              <div class="text-center p-3 bg-slate-900 rounded">
-                <div class="font-bold text-purple-400">4.1+</div>
-                <div class="text-slate-400">Full API Support</div>
-              </div>
-            </div>
-          </div>
-        </section>
+            <!-- FAQ -->
+            <section id="faq" class="mb-12">
+                <h3 class="text-xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+                
+                <div class="space-y-6">
+                    <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                        <h4 class="font-semibold text-white mb-2">Q: Can I use NPC Helper with existing Content Patcher NPCs?</h4>
+                        <p class="text-slate-400 text-sm">
+                            A: Yes, but they may conflict if modifying the same NPC data. NPC Helper creates new NPCs in the game's character data, while Content Patcher usually edits existing data. It's recommended to use one system or the other for a given NPC.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                        <h4 class="font-semibold text-white mb-2">Q: How do I make my NPC appear in a specific location?</h4>
+                        <p class="text-slate-400 text-sm">
+                            A: Use the <code>DefaultMap</code>, <code>DefaultX</code>, and <code>DefaultY</code> properties in your NPC TOML. The coordinates are tile coordinates (multiply by 64 for pixel coordinates). Use the <code>Schedule.toml</code> file to define daily movement patterns.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                        <h4 class="font-semibold text-white mb-2">Q: Can NPCs have custom events or cutscenes?</h4>
+                        <p class="text-slate-400 text-sm">
+                            A: NPC Helper focuses on runtime NPC creation and management. For complex events or cutscenes, you'll need to create them separately using SMAPI's event system or Content Patcher. The API allows other mods to interact with NPC Helper NPCs.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                        <h4 class="font-semibold text-white mb-2">Q: How do I update an existing NPC without breaking saves?</h4>
+                        <p class="text-slate-400 text-sm">
+                            A: NPC definitions are loaded at runtime each time the game starts. You can update TOML files, assets, or add new features, and they'll be applied when players reload their game. However, changing an NPC's <code>Name</code> property will create a new NPC and may break existing friendships.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-slate-950 rounded-lg border border-slate-800 p-6">
+                        <h4 class="font-semibold text-white mb-2">Q: What's the performance impact of many NPCs?</h4>
+                        <p class="text-slate-400 text-sm">
+                            A: NPC Helper is optimized for performance. Each NPC has minimal overhead when not on screen. The main impact comes from asset loading and schedule execution. For large numbers of NPCs (50+), consider spreading them across different content packs or using simplified schedules.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-      </div>
-      
-      <!-- Footer -->
-      <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
-        <p>Generated for NPC Helper Project. Documentation v2.0 - Enhanced with interactive features.</p>
-        <p class="mt-2"><i class="fas fa-copyright mr-1"></i> 2026 TamKungZ_ . Stardew Valley is <i class="fas fa-copyright mr-1"></i> ConcernedApe.</p>
-      </footer>
-    </main>
-  </div>
+            <!-- Footer -->
+            <footer class="border-t border-slate-800 pt-8 mt-12 text-center text-slate-500 text-sm">
+                <p>NPC Helper Documentation v2.0 - Based on actual code from v1.0.1</p>
+                <p class="mt-2">
+                    <i class="fas fa-copyright mr-1"></i> 2026 TamKungZ_. 
+                    Stardew Valley is <i class="fas fa-copyright mr-1"></i> ConcernedApe.
+                    NPC Helper is licensed under All Right Reserve.
+                </p>
+                <div class="mt-4 flex justify-center gap-4">
+                    <a href="https://www.nexusmods.com/stardewvalley/mods/41303" target="_blank" 
+                       class="text-slate-400 hover:text-white transition flex items-center gap-2">
+                        <i class="fas fa-download"></i>
+                        NexusMods
+                    </a>
+                    <a href="https://github.com/tamkungz/npc-helper" target="_blank" 
+                       class="text-slate-400 hover:text-white transition flex items-center gap-2">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </footer>
+        </main>
+    </div>
+</div>
 
-  <script>
+<script>
     // Initialize syntax highlighting
     hljs.highlightAll();
     
     // Copy button functionality
     document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const targetId = btn.getAttribute('data-target');
-        const codeElement = document.getElementById(targetId);
-        if (codeElement) {
-          try {
-            await navigator.clipboard.writeText(codeElement.textContent);
-            const originalText = btn.textContent;
-            btn.textContent = 'Copied!';
-            setTimeout(() => { btn.textContent = originalText; }, 2000);
-          } catch (err) { console.error('Failed to copy!', err); }
-        }
-      });
+        btn.addEventListener('click', async function() {
+            const targetId = this.getAttribute('data-target');
+            const codeElement = document.getElementById(targetId);
+            if (codeElement) {
+                try {
+                    // Get text including line numbers if present
+                    let textToCopy = codeElement.textContent;
+                    
+                    await navigator.clipboard.writeText(textToCopy);
+                    
+                    // Visual feedback
+                    const originalText = this.textContent;
+                    const originalHTML = this.innerHTML;
+                    this.textContent = 'Copied!';
+                    this.style.background = 'rgba(34, 197, 94, 0.2)';
+                    this.style.borderColor = '#22c55e';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.innerHTML = originalHTML;
+                        this.style.background = '';
+                        this.style.borderColor = '';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                    this.textContent = 'Failed!';
+                    this.style.background = 'rgba(239, 68, 68, 0.2)';
+                    this.style.borderColor = '#ef4444';
+                    
+                    setTimeout(() => {
+                        this.textContent = 'Copy';
+                        this.style.background = '';
+                        this.style.borderColor = '';
+                    }, 2000);
+                }
+            }
+        });
     });
-    
-    // Search functionality
-    document.getElementById('search-box').addEventListener('input', (e) => {
-      const term = e.target.value.toLowerCase();
-      const links = document.querySelectorAll('#sidebar-nav a.block');
-      
-      links.forEach(link => {
-        const text = link.textContent.toLowerCase();
-        const parentLi = link.closest('li');
-        if (parentLi) {
-          parentLi.style.display = text.includes(term) ? 'block' : 'none';
-        }
-      });
-      
-      // Show/hide section headers based on visible links
-      document.querySelectorAll('#sidebar-nav > div').forEach(section => {
-        const visibleLinks = section.querySelectorAll('li[style="display: block"], li:not([style])');
-        section.style.display = visibleLinks.length > 0 ? 'block' : 'none';
-      });
-    });
-    
-    // Interactive dialogue generator
-    function generateDialogue() {
-      const condition = document.getElementById('dialogue-condition').value;
-      const text = document.getElementById('dialogue-text').value;
-      const key = 'Mon'; // Example key
-      
-      let generated = `${key} = `;
-      if (condition) {
-        generated += `${condition} `;
-      }
-      generated += text.trim();
-      
-      document.getElementById('generated-toml').textContent = generated;
-      
-      // Highlight the generated code
-      const block = document.getElementById('generated-toml');
-      hljs.highlightElement(block);
-    }
-    
-    // Initialize with example
-    generateDialogue();
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Calculate offset for fixed header
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
     
-    // Highlight current section in sidebar
+    // Highlight active section in sidebar
     const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -80% 0px',
-      threshold: 0.1
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0.1
     };
     
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          const link = document.querySelector(`a[href="#${id}"]`);
-          if (link) {
-            document.querySelectorAll('#sidebar-nav a').forEach(a => {
-              a.classList.remove('bg-slate-800', 'text-white');
-              a.classList.add('hover:bg-slate-800', 'hover:text-white');
-            });
-            link.classList.add('bg-slate-800', 'text-white');
-            link.classList.remove('hover:bg-slate-800', 'hover:text-white');
-          }
-        }
-      });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                const link = document.querySelector(`a[href="#${id}"]`);
+                if (link) {
+                    // Remove active class from all links
+                    document.querySelectorAll('aside a').forEach(a => {
+                        a.classList.remove('bg-slate-800', 'text-white');
+                        a.classList.add('hover:bg-slate-800', 'hover:text-white');
+                    });
+                    
+                    // Add active class to current link
+                    link.classList.add('bg-slate-800', 'text-white');
+                    link.classList.remove('hover:bg-slate-800', 'hover:text-white');
+                }
+            }
+        });
     }, observerOptions);
     
-    // Observe all sections
+    // Observe all sections with IDs
     document.querySelectorAll('section[id]').forEach(section => {
-      observer.observe(section);
+        observer.observe(section);
     });
-  </script>
+    
+    // Mobile menu toggle (if needed in future)
+    // Add mobile responsiveness if needed
+    
+    // Print-friendly styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @media print {
+            .copy-btn, aside, header .flex-wrap:last-child, footer div {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .code-block-wrapper pre {
+                border: 1px solid #ccc !important;
+                background: #f5f5f5 !important;
+                color: #333 !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+
 </body>
 </html>
