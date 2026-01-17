@@ -916,76 +916,205 @@ Days = "Mon,Wed,Fri"    # Only on Monday, Wednesday, Friday</code></pre>
             <section id="gift-tastes" class="mb-12">
                 <div class="flex justify-between items-baseline mb-3">
                     <h3 class="text-xl font-semibold text-yellow-400">Gift Tastes System</h3>
-                    <span class="text-xs text-slate-500 font-mono">Customizable Preferences</span>
+                    <span class="text-xs text-slate-500 font-mono">Stardew Valley Gift System</span>
                 </div>
+                
+                <div class="bg-amber-900/30 border-l-4 border-amber-500 p-4 mb-6 rounded-r-lg">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-amber-200">
+                                <span class="font-semibold">⚠️ Breaking Change:</span> The <code>LoveMessage</code>, <code>LikeMessage</code> etc. in <code>[GiftTastes]</code> are 
+                                <strong class="text-white">no longer supported</strong>. Gift response messages must now be defined in <code>Dialogue.toml</code> using 
+                                <code>AcceptGift_*</code> keys following Stardew Valley's standard format.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
                 <p class="text-slate-400 mb-4">
-                    Define what items your NPC loves, likes, is neutral about, dislikes, or hates. 
-                    Supports both specific item IDs and universal gift categories.
+                    Define what items your NPC loves, likes, is neutral about, dislikes, or hates using Stardew Valley's gift system.
+                    Gift response messages are defined separately in the dialogue file.
                 </p>
                 
-                <div class="code-block-wrapper">
-                    <button class="copy-btn" data-target="code-gift-tastes">Copy</button>
-                    <pre><code id="code-gift-tastes" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># In your main NPC TOML file or separate gift file
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">Main NPC TOML File</h4>
+                        <div class="code-block-wrapper">
+                            <button class="copy-btn" data-target="code-gift-tastes">Copy</button>
+                            <pre><code id="code-gift-tastes" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># In your main NPC TOML file (e.g., Rei.toml)
 
 [GiftTastes]
-# Use item IDs, qualified item IDs, or universal categories
+# Use item names, qualified IDs, or universal categories
 Love = [
-    "Diamond",                  # Specific item
+    "Diamond",                  # Specific item name
     "(O)395",                   # Qualified item ID (Coffee)
-    "Universal_Love"            # Universal love items
+    "Starfruit",                # Another specific item
+    # "Universal_Love"          # Optional: Include universal loves
 ]
 
 Like = [
     "Blueberry",
-    "Starfruit",
-    "Universal_Like"
+    "Coconut",
+    "Salmon",
+    "Cheese"
+    # "Universal_Like"         # Optional: Include universal likes
 ]
 
 Neutral = [
-    "Universal_Neutral"         # Items not in other lists
+    "Stone",
+    "Wood",
+    "Wheat"
+    # "Universal_Neutral"      # Optional: Include universal neutrals
 ]
 
 Dislike = [
-    "Holly",
-    "Universal_Dislike"
+    "Clay",
+    "Copper Ore",
+    "Algae"
+    # "Universal_Dislike"      # Optional: Include universal dislikes
 ]
 
 Hate = [
     "Joja Cola",
-    "Universal_Hate"
+    "Trash",
+    "Broken Glasses"
+    # "Universal_Hate"         # Optional: Include universal hates
 ]
 
-# Optional: Custom response messages for each category
-LoveMessage = "Oh wow! Is this for me? I love it! $h"
-LikeMessage = "Thanks! This is nice. I appreciate it."
-NeutralMessage = "Thank you."
-DislikeMessage = "Oh... um, thanks? $u"
-HateMessage = "Eww, why would you give me this? $a"</code></pre>
-                </div>
+# ⚠️ DEPRECATED - DO NOT USE:
+# LoveMessage = "Old format - no longer works!"
+# LikeMessage = "Use AcceptGift_* in Dialogue.toml instead"</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">Dialogue TOML File</h4>
+                        <div class="code-block-wrapper">
+                            <button class="copy-btn" data-target="code-gift-responses">Copy</button>
+                            <pre><code id="code-gift-responses" class="language-ini rounded-lg border border-slate-800 shadow-lg p-4"># In Dialogue.toml - Gift response messages
+# These keys must follow Stardew Valley's standard format
 
+# Regular gift reactions
+AcceptGift_Loved = "Oh wow! Is this for me? I love it! $h"
+AcceptGift_Liked = "Thanks! This is nice. I appreciate it. $h"
+AcceptGift_Neutral = "Thank you."
+AcceptGift_Disliked = "Oh... um, thanks? $u"
+AcceptGift_Hated = "Eww, why would you give me this? $a"
+
+# Birthday gift reactions (override for birthday)
+AcceptBirthdayGift_Loved = "You remembered my birthday! This is amazing! $h"
+AcceptBirthdayGift = "A birthday gift? Thank you! $h"
+
+# Optional: Specific item reactions
+AcceptGift_(O)72 = "A diamond! How extravagant... $h"      # Diamond
+AcceptGift_Coffee = "Coffee! Exactly what I needed. $h"     # Coffee
+AcceptGift_(O)395 = "More coffee? You know me too well. $h" # Coffee by ID
+
+# Optional: Context tag reactions
+AcceptGift_category_gem = "A gemstone! Very thoughtful. $h"
+AcceptGift_category_cooking = "Homemade food? You shouldn't have! $h"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            
                 <div class="mt-6 bg-slate-950 rounded-lg border border-slate-800 p-6">
-                    <h4 class="text-lg font-semibold text-white mb-4">Item Reference</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4">Gift System Reference</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <h5 class="font-semibold text-brand-400 mb-2">Universal Gift Categories</h5>
-                            <ul class="text-sm text-slate-300 space-y-1">
-                                <li><code>Universal_Love</code> - Items universally loved</li>
-                                <li><code>Universal_Like</code> - Items universally liked</li>
-                                <li><code>Universal_Neutral</code> - Items universally neutral</li>
-                                <li><code>Universal_Dislike</code> - Items universally disliked</li>
-                                <li><code>Universal_Hate</code> - Items universally hated</li>
+                            <h5 class="font-semibold text-brand-400 mb-2">Item Reference Formats</h5>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li><code>"Diamond"</code> - Item name (works for most unique items)</li>
+                                <li><code>"(O)72"</code> - Qualified item ID (Object 72 = Diamond)</li>
+                                <li><code>"(O)Starfruit"</code> - Qualified ID with internal name</li>
+                                <li><code>"(BC)17"</code> - Building/other item types</li>
+                                <li><code>"Universal_Love"</code> - All universally loved items</li>
+                                <li><code>"category_fruit"</code> - All fruits (context tag)</li>
+                                <li><code>"category_gem"</code> - All gems (context tag)</li>
                             </ul>
-                            <p class="text-xs text-slate-500 mt-2">These categories automatically include Stardew Valley's default gift preferences.</p>
+                            
+                            <div class="mt-4 p-3 bg-slate-900/50 rounded border border-slate-700">
+                                <h6 class="text-xs font-semibold text-slate-400 uppercase mb-1">Finding Item IDs</h6>
+                                <p class="text-xs text-slate-300">
+                                    Use <code>CJB Item Spawner</code> mod or check the 
+                                    <a href="https://stardewvalleywiki.com/Modding:Item_IDs" target="_blank" class="text-blue-300 hover:text-white underline">
+                                        Stardew Valley Item IDs wiki
+                                    </a> for reference.
+                                </p>
+                            </div>
                         </div>
+                        
                         <div>
-                            <h5 class="font-semibold text-brand-400 mb-2">Item ID Formats</h5>
-                            <ul class="text-sm text-slate-300 space-y-1">
-                                <li><code>"Diamond"</code> - Item name (if unique)</li>
-                                <li><code>"(O)72"</code> - Qualified ID for Diamond</li>
-                                <li><code>"(O)395"</code> - Qualified ID for Coffee</li>
-                                <li><code>"(O)Starfruit"</code> - Qualified ID with name</li>
+                            <h5 class="font-semibold text-brand-400 mb-2">Response Message Keys</h5>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li><code>AcceptGift_Loved</code> - Loved gifts (+80 friendship)</li>
+                                <li><code>AcceptGift_Liked</code> - Liked gifts (+45 friendship)</li>
+                                <li><code>AcceptGift_Neutral</code> - Neutral gifts (+20 friendship)</li>
+                                <li><code>AcceptGift_Disliked</code> - Disliked gifts (-20 friendship)</li>
+                                <li><code>AcceptGift_Hated</code> - Hated gifts (-40 friendship)</li>
+                                <li><code>AcceptBirthdayGift_*</code> - Birthday-specific responses</li>
+                                <li><code>AcceptGift_(O)72</code> - Specific item responses</li>
+                                <li><code>AcceptGift_category_gem</code> - Category responses</li>
                             </ul>
-                            <p class="text-xs text-slate-500 mt-2">Use <code>ItemRegistry.GetData()</code> to resolve items at runtime.</p>
+                            
+                            <div class="mt-4 p-3 bg-slate-900/50 rounded border border-slate-700">
+                                <h6 class="text-xs font-semibold text-slate-400 uppercase mb-1">Priority Order</h6>
+                                <p class="text-xs text-slate-300">
+                                    Stardew Valley checks: <span class="text-green-300">Specific item → Context tag → Gift taste → Default</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-6 border-t border-slate-800">
+                        <h5 class="font-semibold text-brand-400 mb-3">Migration Guide: Old → New Format</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-red-900/20 p-4 rounded border border-red-800/50">
+                                <h6 class="text-sm font-semibold text-red-300 mb-2">Old Format (Deprecated)</h6>
+                                <pre class="text-xs text-red-200 whitespace-pre-wrap"># In main NPC TOML:
+[GiftTastes]
+Love = ["Diamond", "Coffee"]
+LoveMessage = "I love this! $h"
+LikeMessage = "Thanks! $h"
+
+# Dialogue.toml had regular dialogue only</pre>
+                            </div>
+                            <div class="bg-green-900/20 p-4 rounded border border-green-800/50">
+                                <h6 class="text-sm font-semibold text-green-300 mb-2">New Format (Required)</h6>
+                                <pre class="text-xs text-green-200 whitespace-pre-wrap"># In main NPC TOML:
+[GiftTastes]
+Love = ["Diamond", "Coffee"]
+Like = ["Blueberry", "Coconut"]
+# NO Message keys here!
+
+# In Dialogue.toml:
+AcceptGift_Loved = "I love this! $h"
+AcceptGift_Liked = "Thanks! $h"
+AcceptBirthdayGift = "A birthday gift! $h"</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-blue-900/20 rounded-lg border border-blue-800 p-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <h5 class="font-semibold text-blue-300">How the System Works</h5>
+                            <ul class="text-sm text-blue-200 mt-2 space-y-1">
+                                <li>• <strong>GiftTastes</strong> in main TOML → Defines what items NPC likes/dislikes</li>
+                                <li>• <strong>AcceptGift_*</strong> in Dialogue.toml → Defines what NPC says when receiving gifts</li>
+                                <li>• Stardew Valley engine → Handles friendship points, birthday bonuses, and response selection</li>
+                                <li>• The two systems work together seamlessly when both are properly configured</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1564,7 +1693,7 @@ public class NpcHelperApi : INpcHelperApi
 
             <!-- Footer -->
             <footer class="border-t border-slate-800 pt-8 mt-12 text-center text-slate-500 text-sm">
-                <p>NPC Helper Documentation v2.0 - Based on actual code from v1.0.1</p>
+                <p>NPC Helper Documentation v2.1 - Based on actual code from v1.0.1</p>
                 <p class="mt-2">
                     <i class="fas fa-copyright mr-1"></i> 2026 TamKungZ_. 
                     Stardew Valley is <i class="fas fa-copyright mr-1"></i> ConcernedApe.
@@ -1588,117 +1717,170 @@ public class NpcHelperApi : INpcHelperApi
 </div>
 
 <script>
-    // Initialize syntax highlighting
+    /* =============================
+       Syntax Highlight
+    ============================== */
     hljs.highlightAll();
-    
-    // Copy button functionality
+
+    /* =============================
+       Copy Button
+    ============================== */
     document.querySelectorAll('.copy-btn').forEach(btn => {
-        btn.addEventListener('click', async function() {
+        btn.addEventListener('click', async function () {
             const targetId = this.getAttribute('data-target');
             const codeElement = document.getElementById(targetId);
-            if (codeElement) {
-                try {
-                    // Get text including line numbers if present
-                    let textToCopy = codeElement.textContent;
-                    
-                    await navigator.clipboard.writeText(textToCopy);
-                    
-                    // Visual feedback
-                    const originalText = this.textContent;
-                    const originalHTML = this.innerHTML;
-                    this.textContent = 'Copied!';
-                    this.style.background = 'rgba(34, 197, 94, 0.2)';
-                    this.style.borderColor = '#22c55e';
-                    
-                    setTimeout(() => {
-                        this.textContent = originalText;
-                        this.innerHTML = originalHTML;
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                    }, 2000);
-                } catch (err) {
-                    console.error('Failed to copy:', err);
-                    this.textContent = 'Failed!';
-                    this.style.background = 'rgba(239, 68, 68, 0.2)';
-                    this.style.borderColor = '#ef4444';
-                    
-                    setTimeout(() => {
-                        this.textContent = 'Copy';
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                    }, 2000);
-                }
+            if (!codeElement) return;
+
+            try {
+                const textToCopy = codeElement.textContent;
+                await navigator.clipboard.writeText(textToCopy);
+
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                this.style.background = 'rgba(34, 197, 94, 0.2)';
+                this.style.borderColor = '#22c55e';
+
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = '';
+                    this.style.borderColor = '';
+                }, 2000);
+            } catch (err) {
+                console.error(err);
+                this.textContent = 'Failed!';
+                this.style.background = 'rgba(239, 68, 68, 0.2)';
+                this.style.borderColor = '#ef4444';
+
+                setTimeout(() => {
+                    this.textContent = 'Copy';
+                    this.style.background = '';
+                    this.style.borderColor = '';
+                }, 2000);
             }
         });
     });
-    
-    // Smooth scrolling for anchor links
+
+    /* =============================
+       Sidebar Active Helper
+    ============================== */
+    let isManualScroll = false;
+
+    function setActiveLinkById(id) {
+        document.querySelectorAll('aside a').forEach(a => {
+            a.classList.remove('bg-slate-800', 'text-white');
+            a.classList.add('hover:bg-slate-800', 'hover:text-white');
+        });
+
+        const link = document.querySelector(`aside a[href="#${id}"]`);
+        if (link) {
+            link.classList.add('bg-slate-800', 'text-white');
+            link.classList.remove('hover:bg-slate-800', 'hover:text-white');
+        }
+    }
+
+    /* =============================
+       Smooth Scroll + Hash
+    ============================== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+        anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Calculate offset for fixed header
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+            if (!targetElement) return;
+
+            e.preventDefault();
+            isManualScroll = true;
+
+            const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+            const targetPosition =
+                targetElement.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight -
+                20;
+
+            setActiveLinkById(targetElement.id);
+            history.pushState(null, '', `#${targetElement.id}`);
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            setTimeout(() => {
+                isManualScroll = false;
+            }, 600);
         });
     });
-    
-    // Highlight active section in sidebar
+
+    /* =============================
+       Intersection Observer
+    ============================== */
     const observerOptions = {
         root: null,
         rootMargin: '-20% 0px -70% 0px',
         threshold: 0.1
     };
-    
-    const observer = new IntersectionObserver((entries) => {
+
+    const observer = new IntersectionObserver(entries => {
+        if (isManualScroll) return;
+
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                const link = document.querySelector(`a[href="#${id}"]`);
-                if (link) {
-                    // Remove active class from all links
-                    document.querySelectorAll('aside a').forEach(a => {
-                        a.classList.remove('bg-slate-800', 'text-white');
-                        a.classList.add('hover:bg-slate-800', 'hover:text-white');
-                    });
-                    
-                    // Add active class to current link
-                    link.classList.add('bg-slate-800', 'text-white');
-                    link.classList.remove('hover:bg-slate-800', 'hover:text-white');
-                }
+                const id = entry.target.id;
+                setActiveLinkById(id);
+                history.replaceState(null, '', `#${id}`);
             }
         });
     }, observerOptions);
-    
-    // Observe all sections with IDs
+
     document.querySelectorAll('section[id]').forEach(section => {
         observer.observe(section);
     });
-    
-    // Mobile menu toggle (if needed in future)
-    // Add mobile responsiveness if needed
-    
-    // Print-friendly styles
+
+    /* =============================
+       Load With Hash (Refresh / Share)
+    ============================== */
+    window.addEventListener('load', () => {
+        const hash = window.location.hash;
+        if (!hash) return;
+
+        const target = document.querySelector(hash);
+        if (!target) return;
+
+        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight -
+            20;
+
+        setActiveLinkById(target.id);
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'instant'
+        });
+    });
+
+    /* =============================
+       Print Style
+    ============================== */
     const style = document.createElement('style');
     style.textContent = `
         @media print {
-            .copy-btn, aside, header .flex-wrap:last-child, footer div {
+            .copy-btn,
+            aside,
+            header .flex-wrap:last-child,
+            footer div {
                 display: none !important;
             }
+
             body {
                 background: white !important;
                 color: black !important;
             }
+
             .code-block-wrapper pre {
                 border: 1px solid #ccc !important;
                 background: #f5f5f5 !important;
