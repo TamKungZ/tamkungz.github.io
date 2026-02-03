@@ -1,0 +1,26 @@
+{
+  "mods": {
+    "lyfe": {
+      "title": "Let Your Friend Eating!",
+      "group": "th.in.tamkungz",
+      "loaders": {
+        "neoforge": {
+          "1.21.9": {
+            "artifact": "letyourfriendeating-neoforge-1.21.9",
+            "versions": ["1.1.0"]
+          },
+          "1.21.10": {
+            "artifact": "letyourfriendeating-neoforge-1.21.10",
+            "versions": ["1.1.0"]
+          }
+        },
+        "forge": {
+          "1.13.2": {
+            "artifact": "letyourfriendeating-forge-1.13.2",
+            "versions": ["1.1.3"]
+          }
+        }
+      }
+    }
+  }
+}
